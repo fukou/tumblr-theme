@@ -1,0 +1,126 @@
+$primary:#111;
+
+.nav {
+    width: 100%;
+    padding:1.25rem 0;
+
+    @media (max-width:60rem) {
+        padding:1.15rem 1.5rem;
+    }
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        display: inline-flex;
+        align-items: center;
+
+        > * + * {
+            margin-left: 0.65rem;
+        }
+
+        .circle {
+            width:18px;
+            height: 18px;
+
+            border-radius: 50%;
+
+            background-color:var(--body-text);
+
+            &--is-primary {
+                background-color: var(--primary-color);
+            }
+        }
+    }
+
+    &__links, &__link ul {
+        display: flex;
+        align-items: center;
+    }
+
+    &__link {
+        @media (max-width:60rem) {
+            display: none;
+        }
+        ul {
+            list-style: none;
+            li {
+                & + li {
+                    margin-left: 1.65rem;
+                }
+
+                &.nav__menu--actived {
+                    a {
+                        font-weight: bold;
+                        
+
+                        &::before {
+                            content:'';
+
+                            display: inline-flex;
+                            width:14px;
+                            height: 14px;
+
+                            margin-right: 0.5rem;
+                            transform: translateY(1px);
+                            
+                            background-image: url("data:image/svg+xml,<svg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 0L13.971 8.029L22 11L13.971 13.971L11 22L8.029 13.971L0 11L8.029 8.029L11 0Z' fill='#{svg-color($primary)}'/></svg>");
+                            background-size: contain;
+                            background-position: center;
+                        }
+                    }
+                }
+
+                a {
+                    display: inline-flex;
+                    align-items: center;
+                    
+                    position: relative;
+                    font-family: var(--heading-font);
+                    color:var(--header-navigation-link);
+
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    &__button {
+        display: inline-flex;
+        align-items: center;
+        margin-left:2rem;
+
+        > * + * {
+            margin-left: 0.65rem;
+        }
+
+        button {
+            cursor: pointer;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            width:40px;
+            height: 40px;
+            border:0;
+
+            border-radius: 50%;
+
+            &.btn-nav {
+                border:2px solid var(--header-navigation-link);
+                background:transparent;
+
+                color:var(--header-navigation-link);
+            }
+
+            &.btn-dark {
+                background-color:var(--button-switch);
+                color:var(--white);
+           }
+        }
+    }
+}

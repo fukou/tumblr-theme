@@ -1,0 +1,44 @@
+:root {
+    --heading-font:'PT Serif', serif;
+    --body-font: 'PT Sans', sans-serif;
+    --code-font:'Oxygen Mono', monospace;
+    
+    --white:#fff;
+
+    --bg-color:#FFFFFF;
+    --bg-card:#fff;
+
+    --bg-post:#F2F2F2;
+
+    --button-switch:#111;
+
+    --primary-color:#FEB0BD;
+    --secondary-color:#BF848E;
+    --tertiary-color:#9E6D75;
+
+    --heading-text:#111;
+    --body-text:#333;
+    --body-link:#111;
+
+    --header-navigation-link: #111;
+}
+
+body.dark-theme {
+    --hue: 210;
+  
+    --bg-color: hsl(var(--hue), 20%, 13%);
+    --body-text: hsl(var(--hue), 10%, 80%);
+    --button-switch: hsl(var(--hue), 20%, 25%);
+
+    --bg-post:hsl(var(--hue), 20%, 16%);
+    --bg-card: hsl(var(--hue), 20%, 22%);
+
+    --heading-text: hsl(0, 0%, 90%);
+    --body-link:hsl(0, 5%, 90%);
+  
+    // --primary-color: hsl(var(--hue), 37%, 70%);
+    // --secondary-color: hsl(var(--hue), 35%, 65%);
+    // --tertiary-color: hsl(var(--hue), 40%, 78%);
+
+    --header-navigation-link: hsl(var(--hue), 10%, 80%);
+  }

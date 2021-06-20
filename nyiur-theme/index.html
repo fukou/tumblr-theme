@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Merriweather:wght@900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
+    <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+    <link rel="stylesheet" href="https://assets.tumblr.com/fonts/favorit/stylesheet.css?v=1">
+</head>
+
+<body>
+
+    <main class="wrapper">
+        <header class="nav">
+            <div class="nav__inner">
+                <div class="nav__logo">
+                    <div class="circle"></div>
+                    <div class="circle circle--is-primary"></div>
+                </div>
+                <div class="nav__links">
+                    <nav class="nav__link">
+                        <ul>
+                            <li class="nav__menu"><a href="/">Home</a></li>
+                            <li class="nav__menu"><a href="/archive">Archive</a></li>
+                            <li class="nav__menu"><a href="/ask">Inbox</a></li>
+                            <li class="nav__menu"><a href="/random">Random</a></li>
+                        </ul>
+                    </nav>
+                    <div class="nav__button">
+                        <button class="btn-nav" aria-label="Navigation"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="1"></circle>
+                                <circle cx="19" cy="12" r="1"></circle>
+                                <circle cx="5" cy="12" r="1"></circle>
+                            </svg></button>
+                        <button class="btn-dark" aria-label=""><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg></button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="wrapper__inner">
+            <div class="wrapper__hero">
+                <div class="wrapper__hero--inner">
+                    <figure>
+                        <img src="https://images.unsplash.com/photo-1612362426359-9869f44d6e62?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                            alt="">
+                    </figure>
+                    <h2>Nyiur theme</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dapibus molestie leo non luctus.
+                        In
+                        consequat lorem at elit tristique viverra. Aenean lacinia nulla et dapibus semper. Nullam at
+                        nisi
+                        turpis. Donec in ullamcorper mi, ac convallis lectus.</p>
+                </div>
+            </div>
+
+            <div class="wrapper__featured">
+                <div class="wrapper__featured--desc">
+                    <h1>Featured posts</h1>
+                    <p>Sem diam id diam vestibulum. Dolor lorem pretium at volutpat nulla. Varius tristique at donec
+                        ultrices nunc, nisl dolor. Pharetra tincidunt vestibulum purus accumsan nulla id. </p>
+
+                    <ul class="wrapper__featured--controls" id="customize-controls">
+                        <li>
+                            <button class="prev">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M19 12H6M12 5l-7 7 7 7" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="next"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=1.5
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h13M12 5l7 7-7 7" />
+                                </svg></button>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="wrapper__featured--slider">
+                </div>
+            </div>
+
+            <div class="wrapper__blog">
+
+                <article class="posts pinned">
+                    <div class="posts__pinned">
+                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg> Pinned post</span>
+                    </div>
+                    <div class="posts__perma">
+                        <div class="posts__perma--date">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg> Posted on Friday, 5 March 2021
+                        </div>
+                        <div class="posts__perma--note">
+                            <a href="#">150 notes</a>
+                        </div>
+                    </div>
+                    <figure class="posts__photo">
+                        <img src="https://images.unsplash.com/photo-1475083953001-81740baa83e4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+                            alt="">
+                    </figure>
+                    <div class="posts__body">
+                        <div class="reblog-list">
+                            <div class="reblog-post-avatar">
+                                <img
+                                    src="https://64.media.tumblr.com/3e810a2f188892ac31aa6522f4aa460f/62b0a07c74c735b3-6a/s64x64u_c1/38a5def5e4860bcae38804285c18e37cc5592c14.jpg">
+                                <span>
+                                    <a href="https://jellycatkid.tumblr.com/post/646697144574672896"
+                                        class="user-blog">jellycatkid</a>
+
+                                </span>
+
+                            </div>
+                            <div>
+                                <h2>Bibendum hac in quis arcu, suspendisse. Amet, vitae hac lectus ultrices. Vel
+                                    augue id
+                                    suspendisse blandit volutpat vitae magna orci tristique.</h2>
+
+                                <p>
+                                    Cursus et vitae nisl pretium nisl dictum facilisi fames. <strong>Magna sit
+                                        mi
+                                        pulvinar
+                                        odio imperdiet quis augue euismod</strong> sed. Ut sem purus a, elit.
+                                    Pretium,
+                                    elementum mauris adipiscing donec lobortis pellentesque eu. Aliquam vitae in
+                                    viverra eu
+                                    est rhoncus magna velit magna. Ornare facilisi nulla eu mattis eget feugiat
+                                    elit
+                                    aenean.
+                                    Nibh eleifend posuere auctor cursus id massa nunc. Neque, duis odio amet
+                                    urna
+                                    eget.</p>
+
+                                <a href="#" class="read-more">
+                                    Keep reading <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="butt" stroke-linejoin="bevel">
+                                        <path d="M7 17l9.2-9.2M17 17V7H7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+
+                <article class="posts">
+                    <div class="posts__body">
+                        <div class="reblog-list">
+                            <div class="reblog-post-avatar"><img
+                                    src="https://64.media.tumblr.com/386f8620cbde14c4be5cd80a18e6f121/ff97fe57b15119eb-31/s64x64u_c1/c19d3dbde332b5c74876851a4bfec158e1780557.pnj"><span><a
+                                        href="https://april.tumblr.com/post/653822289291493376"
+                                        class="user-blog">april</a></span></div>
+                            <div>
+                                <p>any programming language that uses 1-indexing is fucking demented</p>
+                            </div>
+                        </div>
+                        <div class="reblog-list">
+                            <div class="reblog-post-avatar"><img
+                                    src="https://64.media.tumblr.com/b0e12ed40bcc947302b9af50b8a093d0/90a83abb58c55161-35/s64x64u_c1/04586f7dd3ccf89f32a8db44cf92c8c166c18d56.jpg"><span><a
+                                        href="https://cyle.tumblr.com/post/653827981536559104"
+                                        class="user-blog">cyle</a></span></div>
+                            <div>
+                                <p>surely there is no such language</p>
+                            </div>
+                        </div>
+                        <div class="reblog-list">
+                            <div class="reblog-post-avatar"><img
+                                    src="https://64.media.tumblr.com/386f8620cbde14c4be5cd80a18e6f121/ff97fe57b15119eb-31/s64x64u_c1/c19d3dbde332b5c74876851a4bfec158e1780557.pnj"><span><a
+                                        href="https://april.tumblr.com/post/653828219903131648"
+                                        class="user-blog">april</a></span></div>
+                            <div>
+                                <div class="npf-link-block has-poster"><a target="_blank"
+                                        href="https://href.li/?https://en.wikipedia.org/wiki/Lua_(programming_language)#Tables">
+                                        <div class="poster"
+                                            style="background-image:url(https://64.media.tumblr.com/1fb3fe4c752f3d35d8ad12a724ff4e78/2b875976a28fefa2-0c/s1280x1920/c4b0d35fcdf3707e1ee02f6d074b627a4d20ef97.png)">
+                                            <div class="title">Lua (programming language) - Wikipedia</div>
+                                        </div>
+                                        <div class="bottom">
+                                            <div class="site-name">
+                                                en.wikipedia.org </div>
+                                        </div>
+                                    </a></div>
+                            </div>
+                        </div>
+                        <div class="reblog-list">
+                            <div class="reblog-post-avatar"><img
+                                    src="https://64.media.tumblr.com/b0e12ed40bcc947302b9af50b8a093d0/90a83abb58c55161-35/s64x64u_c1/04586f7dd3ccf89f32a8db44cf92c8c166c18d56.jpg"><span><a
+                                        href="https://cyle.tumblr.com/post/653828425679765504"
+                                        class="user-blog">cyle</a></span></div>
+                            <div>
+                                <p></p>
+                                <figure data-orig-height="210" data-orig-width="286"
+                                    data-tumblr-attribution="skullvis:OyXf-K77aUyYCrfuvgbYgw:Zilvax2lKsH5w"><img
+                                        src="https://64.media.tumblr.com/d9928f51de5c07ad0491e1d2d947a69b/f924c2dafb1a4c78-73/s400x600/742c35be95127bc3f40599fd33263e5230da6858.gifv"
+                                        data-orig-height="210" data-orig-width="286" alt="image" width="286"
+                                        height="210">
+                                    <p class="tmblr-attribution"><a href="https://tmblr.co/Zilvax2lKsH5w"
+                                            target="_blank"
+                                            data-peepr="{&quot;tumblelog&quot;:&quot;skullvis&quot;,&quot;postId&quot;:&quot;188254589306&quot;}">Originally
+                                            posted by skullvis</a></p>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="reblog-list">
+                            <div class="reblog-post-avatar"><img
+                                    src="https://64.media.tumblr.com/6e6250386b24cbd9e86a278c8781cbbf/599c88204f0c1e50-7c/s64x64u_c1/110fc29a94548753467a9a6d3e5ea3dd76d7bbbd.pnj"><span><a
+                                        href="https://shacklesburst.tumblr.com/post/653833149876453376"
+                                        class="user-blog">shacklesburst</a></span></div>
+                            <div>
+                                <div class="npf-link-block has-poster"><a target="_blank"
+                                        href="https://href.li/?https://en.m.wikipedia.org/wiki/R_(programming_language)">
+                                        <div class="poster"
+                                            style="background-image:url(https://64.media.tumblr.com/6a81ea7e6545f0200cdb1c7780cb007f/45cb0c9d4311fe8c-a1/s1280x1920/7d2a1be6989267521ff56b19457f7fa5bfa074ee.jpg)">
+                                            <div class="title">R (programming language) - Wikipedia</div>
+                                        </div>
+                                        <div class="bottom">
+                                            <div class="site-name">
+                                                en.m.wikipedia.org </div>
+                                        </div>
+                                    </a></div>
+                                <p>but wait, there's more</p>
+                            </div>
+                        </div>
+                        <div class="reblog-list">
+                            <div class="reblog-post-avatar"><img
+                                    src="https://64.media.tumblr.com/avatar_675e3f8397e7_64.pnj"><span><a
+                                        href="https://fukuotest.tumblr.com/post/654477191333167104/amazing-spectacular-and-this-is-just-a-test-post"
+                                        class="user-blog">fukuotest</a></span></div>
+                            <div>
+                                <p></p>
+                                <p>amazing, spectacular and this is just a test post lol</p>
+                                <figure class="tmblr-full" data-orig-height="378" data-orig-width="540"
+                                    data-tumblr-attribution="abasketofgifs:vhFObSVphe9iiARk54IBUQ:Zo7BBe2TexnIN"><img
+                                        src="https://64.media.tumblr.com/9d26c36ebe25e9e0a076a35b0fc3a1b7/6140228980e8e223-8f/s640x960/1865fed4111e7e3c3a344cd8e5234cfb18653278.gif"
+                                        alt="image" class="">
+                                    <p class="tmblr-attribution"><a href="https://tmblr.co/Zo7BBe2TexnIN"
+                                            target="_blank"
+                                            data-peepr="{&quot;tumblelog&quot;:&quot;abasketofgifs&quot;,&quot;postId&quot;:&quot;169264223383&quot;}">Originally
+                                            posted by abasketofgifs</a></p>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="posts">
+                    <div class="posts__body">
+                        <div class="reblog-list">
+                            <div class="reblog-post-avatar"><img
+                                    src="https://64.media.tumblr.com/11228e1dd2361ffd275bc73321c4f3e6/0c9ff0d350eeb4ed-57/s64x64u_c1/b63c7acced2bbd598857276ace69af8c98927772.jpg"><span><a
+                                        href="https://sgrumby.tumblr.com/post/630669972541194240"
+                                        class="user-blog">sgrumby</a></span></div>
+                            <div>
+                                <p>impostors should be able to read ghost chat. imagine how much more fun it'd be to go
+                                    "who killed my friend? ):" and see them shouting at you from beyond the grave</p>
+                            </div>
+                        </div>
+                        <div class="reblog-list">
+                            <div class="reblog-post-avatar"><img
+                                    src="https://64.media.tumblr.com/avatar_95ac911f5a7e_64.pnj"><span><a
+                                        href="https://visit-me-here-in-wonderland.tumblr.com/post/630702109498753024"
+                                        class="user-blog">visit-me-here-in-wonderland</a></span></div>
+                            <div>
+                                <p>they should also be able to see the ghosts</p>
+                                <p>I already enjoy haunting imposters that kill me but could you imagine being chased
+                                    around the ship by angry souls who can do nothing more that slightly inconvenience
+                                    you and shout at you</p>
+                            </div>
+                        </div>
+                        <div class="reblog-list">
+                            <div class="reblog-post-avatar"><img
+                                    src="https://64.media.tumblr.com/4d39bf4e00c373a3988d500968037833/530ef48b66d47009-90/s64x64u_c1/ed0022599321f3ceae38728a3a892c9991ea9f65.jpg"><span><a
+                                        href="https://axo-fucking-lotls.tumblr.com/post/630792605296459776"
+                                        class="user-blog">axo-fucking-lotls</a></span></div>
+                            <div>
+                                <p>hamlet</p>
+                            </div>
+                        </div>
+                        <div class="reblog-list">
+                            <div class="reblog-post-avatar"><img
+                                    src="https://64.media.tumblr.com/3d7aafff3f5aa672dd1f92c4ae3eebf2/8c850cbc04007cc6-27/s64x64u_c1/e560a4ab19e15549bf79234d550366c41aa32158.pnj"><span>
+
+
+                                    sleepy-sphinx-deactivated202012
+
+                                </span></div>
+                            <div>
+                                <p>make it happen sloth</p>
+                            </div>
+                        </div>
+                        <div class="reblog-list">
+                            <div class="reblog-post-avatar"><img
+                                    src="https://64.media.tumblr.com/avatar_675e3f8397e7_64.pnj"><span><a
+                                        href="https://fukuotest.tumblr.com/post/654424087385473024/impostors-should-be-able-to-read-ghost-chat"
+                                        class="user-blog">fukuotest</a></span></div>
+                            <div>
+                                <p></p>
+                                <p>and here’s the test for you all.</p>
+                                <figure class="tmblr-full"><img
+                                        src="https://64.media.tumblr.com/6e463171a98f0bb49c6a568417991089/14ccc6f8c74a349e-3d/s540x810/01a349edff14dc1761ed76e8b9d1d966678c4b88.gif"
+                                        alt="image" class="">
+                                    <p class="tmblr-attribution"><a href="https://tmblr.co/ZIVs_c2V2J-8t"
+                                            target="_blank"
+                                            data-peepr="{&quot;tumblelog&quot;:&quot;vxnin&quot;,&quot;postId&quot;:&quot;170763743799&quot;}">Originally
+                                            posted by vxnin</a></p>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="posts">
+                    <div class="posts__perma">
+                        <div class="posts__perma--date">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg> Posted on Friday, 5 March 2021
+                        </div>
+                        <div class="posts__perma--note">
+                            <a href="#">150 notes</a>
+                        </div>
+                    </div>
+                    <div class="posts__quote">
+                        There was a painting I desperately wanted to see. No matter how far away it was or what
+                        sort
+                        of place it was in. No matter how dangerous. I wanted to see it. Unfortunately in my
+                        time
+                        the painting had already been destroyed and before these times its whereabouts were
+                        unknown.
+                        The only place where there was an accurate record of it was in this present era, in this
+                        place. It was here, in this season. All I needed was to see it. I was going to remember
+                        it
+                        for the rest of my life.
+                    </div>
+                    <div class="posts__source">
+                        Quote by chiaki
+                    </div>
+                    <div class="posts__perma">
+                        <div class="posts__tags">
+                            <ul>
+                                <li><a href="#">Ask posts</a></li>
+                                <li><a href="#">Here's a long tag for you</a></li>
+                                <li><a href="#">You can add as many tag as possible</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="posts">
+                    <div class="posts__perma">
+                        <div class="posts__perma--date">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg> Posted on Friday, 5 March 2021
+                        </div>
+                        <div class="posts__perma--note">
+                            <a href="#">150 notes</a>
+                        </div>
+                    </div>
+                    <div class="posts__audio">
+                        <span id="audio_player_182706474891">
+                            <div class="audio_player"><iframe
+                                    class="tumblr_audio_player tumblr_audio_player_182706474891"
+                                    src="https://loonatheme.tumblr.com/post/182706474891/audio_player_iframe/loonatheme/tumblr_p9k2dmRyN01rgvwoc?audio_file=https%3A%2F%2Fa.tumblr.com%2Ftumblr_p9k2dmRyN01rgvwoco1.mp3&amp;color=white&amp;simple=1"
+                                    frameborder="0" allowtransparency="true" scrolling="no" width="207"
+                                    height="27"></iframe></div>
+                        </span>
+                        <div class="posts__audio--album">
+                            <img src="https://64.media.tumblr.com/tumblr_p9k2dmRyN01rgvwoco1_1527707146_cover.jpg"
+                                alt="">
+                        </div>
+                        <div class="posts__audio--player">
+                            <button class="btn-play">
+                                <i class="las la-play"></i>
+                            </button>
+
+                            <div class="posts__audio--information">
+                                <div class="posts__audio--information__name">
+                                    LOONA (이달의 소녀) yyxy
+                                </div>
+                                <div class="posts__audio--information__track">
+                                    love4eva
+                                </div>
+                                <div class="posts__audio--information__album">
+                                    beauty&thebeat
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="posts__audio--duration">
+                            <span>00:00</span>
+                            <input type="range" name="" id="progress" min="0" max="100" value="0">
+                            <a title="Download the audio?" href="#" class="download-audio"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt"
+                                    stroke-linejoin="bevel">
+                                    <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 12.8V2.5" />
+                                </svg></a>
+                        </div>
+
+                    </div>
+                    <div class="posts__body">
+                        <p>Imperdiet nulla adipiscing est in morbi. Pretium et leo arcu dis sed. Commodo nisl
+                            sed
+                            pharetra, consequat. Cursus lectus orci dui mus consectetur erat malesuada egestas.
+                            At
+                            sem turpis pretium condimentum nunc, mattis urna.</p>
+                    </div>
+                </article>
+
+                <article class="posts">
+                    <div class="posts__perma">
+                        <div class="posts__perma--date">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg> Posted on Friday, 5 March 2021
+                        </div>
+                        <div class="posts__perma--note">
+                            <a href="#">150 notes</a>
+                        </div>
+                    </div>
+                    <div class="posts__question">
+                        <div class="posts__question--asker">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg> <a href="#">Anonymous</a> asked
+                        </div>
+                        <div class="posts__question--inner">
+                            <p> What is simplicity in web design? Could you please explain it in a simpler way because
+                                I’m
+                                such a dumbass. Thanks in advance! (By the way, you can ignore this message if it
+                                offends
+                                you.</p>
+                        </div>
+                    </div>
+                    <div class="posts__answerer">
+                        <div class="posts__answerer--asker">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg> <a href="#">atmospherica</a> replied
+                        </div>
+                        <div class="posts__answerer--inner">
+                            <p>Sometimes it’s hard to define simplicity (not simp but simplicity). Because it has
+                                nothing
+                                to do with minimalism - it has to make something simpler in use (not cluterred) and easy
+                                to
+                                understand. Ok, I don’t know what I’m saying, maybe everyone can explain it better than
+                                me?</p>
+                        </div>
+                    </div>
+                    <div class="posts__answer">
+                        <h1>Title</h1>
+                        <h2>Here's another title</h2>
+                        <p>Simplicity in design is – at its most basic – the removal of all unnecessary elements
+                            from a design. This usually consists of a clean layout, a two or three-colour scheme
+                            and
+                            lots of white space. A clean layout features a few stand-out elements, but largely
+                            relies on the color scheme and white space to create the drama and interest.
+                        </p>
+                        <p> A simple color scheme normally does not feature more than three colors, though of
+                            course
+                            there can be exceptions. But because simplicity in design means stripping out all
+                            unnecessary things, a color scheme that is limited to a text, an accent and perhaps
+                            a
+                            background color is all a simple design really needs.</p>
+                        <pre>
+                                <code class="js">
+const multiplyByFive = (value) => {
+return value * 5
+}
+                                     
+multiplyByFive(69);
+                                </code>
+                            </pre>
+                        <p>White space, also known as negative space, is the background color of a design, so it
+                            does not have to be white. It just has to be the space between elements. In the
+                            simplest
+                            designs, white space dominates the page.</p>
+                    </div>
+                    <div class="posts__perma">
+                        <div class="posts__tags">
+                            <ul>
+                                <li><a href="#">Ask posts</a></li>
+                                <li><a href="#">Here's a long tag for you</a></li>
+                                <li><a href="#">You can add as many tag as possible</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="posts">
+                    <div class="posts__perma">
+                        <div class="posts__perma--date">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg> Posted on Friday, 5 March 2021
+                        </div>
+                        <div class="posts__perma--note">
+                            <a href="#">150 notes</a>
+                        </div>
+                    </div>
+                    <div class="posts__body">
+                        <h1>An example post</h1>
+                        <h2>Another heading here</h2>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur vel at
+                            molestiae.
+                            Amet modi pariatur ducimus, aperiam ipsam, facere accusamus possimus consequuntur ea
+                            blanditiis libero? Eveniet nesciunt culpa laborum soluta sequi saepe consectetur
+                            facere,
+                            laboriosam, consequatur cumque atque est possimus, perspiciatis ducimus sunt amet?
+                            Fuga
+                            maiores necessitatibus velit quos.
+                        </p>
+                        <figure data-orig-width="1920" data-orig-height="1040" class="tmblr-full"><img
+                                src="https://64.media.tumblr.com/194bad1bbc949def9812f5c750fdc0bf/a7fa4de41d3ab484-8a/s500x750/ebacaf61cc025c639ec599723ba628b035d7ae09.jpg"
+                                alt="image" data-orig-width="1920" data-orig-height="1040" width="500" height="271">
+                        </figure>
+                        <blockquote>
+                            Donec placerat mauris commodo dolor. Nulla tincidunt. Nulla vitae augue.
+                        </blockquote>
+                        <p>
+                            Bibendum hac in quis arcu, suspendisse. Amet, vitae hac lectus ultrices. Vel augue
+                            id
+                            suspendisse blandit volutpat vitae magna orci tristique.
+
+                            Cursus et vitae nisl pretium nisl dictum facilisi fames. Magna sit mi pulvinar odio
+                            imperdiet quis augue euismod sed. Ut sem purus a, elit. Pretium, elementum mauris
+                            adipiscing donec lobortis pellentesque eu. Aliquam vitae in viverra eu est rhoncus
+                            magna
+                            velit magna. Ornare facilisi nulla eu mattis eget feugiat elit aenean. Nibh eleifend
+                            posuere auctor cursus id massa nunc. Neque, duis odio amet urna eget.</p>
+                    </div>
+                </article>
+
+                <nav class="pagination" role="pagination" aria-label="Pagination Navigation">
+                    <span>Page 1 of 69</span>
+                    <ul>
+                        <li><a href="#" class="disabled"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="butt" stroke-linejoin="bevel">
+                                    <path d="M15 18l-6-6 6-6" />
+                                </svg> Prev</a></li>
+                        <li><a class="pagination__item" href="#">1</a></li>
+                        <li><a class="pagination__item active" href="#">2</a></li>
+                        <li><a class="pagination__item" href="#" class="current">3</a></li>
+                        <li><a class="pagination__item" href="#">4</a></li>
+                        <li><a class="pagination__item" href="#">5</a></li>
+                        <li><a href="#">Next <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="butt" stroke-linejoin="bevel">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg></a></li>
+                    </ul>
+                </nav>
+
+                <footer class="footer">
+                    <div class="footer__inner">
+                        <div class="footer__copyright">
+                            Copyright © FUKUO 2012–2021. All rights reserved.
+                        </div>
+                        <div class="footer__credit">
+                            Nyiur Theme by <a href="https://fukuo.tumblr.com">Fukuo</a>. Powered by <a
+                                href="https://tumblr.com/" data-font="tumblr">tumblr</a></span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </section>
+    </main>
+
+    <script type="text/javascript" src="https://nyiurtheme.tumblr.com/api/read/json"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+    <!-- <script src="js/npf.js"></script> -->
+
+    <script src="js/navigation.js"></script>
+    <script src="js/tumblr.js"></script>
+    <script src="js/featured.js"></script>
+
+    <script src="//unpkg.com/fast-average-color/dist/index.min.js"></script>
+    <script>
+        const fac = new FastAverageColor();
+        const imageGrid = document.querySelectorAll(".posts figure.tmblr-full, .posts figure[data-tumblr-attribution]");
+
+        window.addEventListener("load", function () {
+            for (let i = 0; i < imageGrid.length; i++) {
+                let image = imageGrid[i].querySelector('img');
+                let tmblr_attribute = imageGrid[i].querySelector('.tmblr-attribution');
+
+                let imageURL = image.src;
+                const img = new Image();
+                img.crossOrigin = "Anonymous";
+                img.src = imageURL;
+
+                console.log(tmblr_attribute);
+
+                fac.getColorAsync(img)
+                    .then(color => {
+                        console.log(color);
+                        if (tmblr_attribute) {
+                            tmblr_attribute.style.backgroundColor = color.rgba;
+                            tmblr_attribute.style.color = color.isDark ? '#fff' : '#000';
+                            tmblr_attribute.querySelector("a").style.color = color.isDark ? '#fff' : '#000';
+                        }
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    });
+            }
+        });
+
+    </script>
+
+
+</body>
+
+</html>

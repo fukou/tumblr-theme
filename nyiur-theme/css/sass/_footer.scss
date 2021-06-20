@@ -1,0 +1,30 @@
+.footer {
+    padding-bottom: 3.5rem;
+
+    a {
+        color:var(--text-link);
+        font-weight: bold;
+    }
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media (max-width:60rem) {
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    &__credit {
+        @media (max-width:60rem) {
+            margin-top: 0.85rem;
+        }
+
+        [data-font="tumblr"] {
+            font-family: 'Merriweather', var(--heading-font), serif;
+            font-size: 0.95rem;
+        }
+    }
+}
