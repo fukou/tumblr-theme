@@ -13,6 +13,42 @@
     }
 }
 
+.posts_text .npf_quote {
+    position: relative;
+    font-family: var(--heading-font);
+    font-weight: 700;
+    
+    float:left;
+
+    max-width:100%;
+    margin-top: 1.5rem!important;
+    margin-bottom: 1.5rem;
+    margin-right: 2.45rem;
+    padding-top:1.25rem;
+    padding-bottom: 1.5rem;
+    padding-left: 3.65rem;
+    padding-right: 3rem;
+
+    border:2px solid #ccc;
+    border-radius: 8px;
+
+    &::before {
+       font-family: 'Line Awesome Free';
+	   font-weight: 900;
+	   font-size: 45px;
+
+       content:"\f10d";
+       position: absolute;
+       left:-0.85rem;
+       top:-0.65rem;
+
+       padding:0 0.65rem;
+
+       background:var(--bg-card);
+       color:var(--heading-text);
+    }
+}
+
 .npf-link-block {
     border:1px solid rgba(#111, 0.2);
     
@@ -41,6 +77,8 @@
         .reblog-post-avatar {
             & + div {
                 border-left: 0px solid transparent;
+                padding-left: 0;
+                margin-left: 0;
             }
         }
     }
@@ -104,17 +142,6 @@
     margin:1.85rem 0;
 }
 
-[photoset-layout] {
-    gap: 1.15rem;
-    padding: 1.15rem;
-}
-
-[photoset-layout] div {cursor:zoom-in!important}
-[photoset-layout] div img {
-     border-radius:8px;
-    -moz-border-radius:8px;
-}
-
 .npf_gallery_indicator {
     position: absolute;
     right: 0;
@@ -150,4 +177,45 @@
 figure[data-tumblr-attribution] {
     border-radius: 8px;
     overflow: hidden;
+}
+
+.tmblr-full {
+    > video {
+        border-radius: 16px;
+    }
+}
+
+[photoset-layout] {
+    gap: 1.15rem;
+    padding: 1.15rem;
+}
+
+[photoset-layout] div {cursor:zoom-in!important}
+[photoset-layout] div img {
+     border-radius:8px;
+    -moz-border-radius:8px;
+}
+
+span.search_query, span.tag {
+    border-bottom:2px dashed currentColor;
+}
+
+#fb {background-color:#1877f2; color:white;}
+#twt {background-color:#1da1f2; color:#ddd;}
+#pt {background-color:#e60023; color:white;}
+
+.h-100 {
+    min-height:100vh;
+}
+
+hr {
+    width: 30%;
+    height: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--primary-color);
+    color: #aaa;
+    border: 0 none;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem 
 }

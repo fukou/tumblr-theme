@@ -6,7 +6,8 @@
 <html
     lang="{block:English}en{/block:English}{block:German}de{/block:German}{block:French}fr{/block:French}{block:Italian}it{/block:Italian}{block:Japanese}ja{/block:Japanese}{block:Turkish}tr{/block:Turkish}{block:Spanish}es{/block:Spanish}{block:Russian}ru{/block:Russian}{block:Polish}pl{/block:Polish}{block:PortuguesePT}pt-PT{/block:PortuguesePT}{block:PortugueseBR}pt-BR{/block:PortugueseBR}{block:Dutch}nl{/block:Dutch}{block:Korean}ko{/block:Korean}{block:ChineseSimplified}zh-CN{/block:ChineseSimplified}{block:ChineseTraditional}zh-TW{/block:ChineseTraditional}{block:ChineseHK}zh-HK{/block:ChineseHK}{block:Indonesian}id{/block:Indonesian}{block:Hindi}hi{/block:Hindi}">
 <!--
-
+    
+                         Tumblr Theme by
         _______  __    __   __  ___  ___   __    _____  
         |   ____||  |  |  | |  |/  / |  |  |  |  /  __  \  
         |  |__   |  |  |  | |  '  /  |  |  |  | |  |  |  |
@@ -14,12 +15,11 @@
         |  |     |  `--'  | |  .  \  |  `--'  | |  `--'  |
         |__|      \______/  |__|\__\  \______/   \______/  
                        
-                         Nyiur Theme 
+                         Nyiur Theme v2.0
              
 -->
 
 <head>
-    {MobileAppHeaders}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,35 +29,59 @@
     {block:Description}
     <meta name="description" content="{MetaDescription}">
     {/block:Description}
+
+    <meta name="color:Posts Background Color" content="#ffffff" />
+    <meta name="color:Posts Body Link Color" content="#111111" />
+    <meta name="color:Posts Body Heading Color" content="#111111" />
+    <meta name="color:Posts Body Text Color" content="#444444" />
+
+    <meta name="color:Selection Text Color" content="#333333" />
+    <meta name="color:Selection Text Background Color" content="#f8ff92" />
+
+    <meta name="if:Featured Posts" content="1" />
+    <meta name="if:Selection Color" content="1" />
+
+    <meta name='text:Disqus Shortname' content="" />
+
+    <meta name="text:Featured Heading Text" content="Featured posts">
+    <meta name="text:Featured Body Text"
+        content="Hey, this is an example test for the body text of the featured section. You can add the text as many much as possible. Thank you.">
+
+    <meta name="select:Share Button on Posts" content="d-block" title="Show">
+    <meta name="select:Share Button on Posts" content="d-none" title="Hide">
+
+    <meta name="select:Body Font" content="PT Sans" title="PT Sans">
+    <meta name="select:Body Font" content="Mulish" title="Mulish">
+    <meta name="select:Body Font" content="Karla" title="Karla">
+    <meta name="select:Body Font" content="Source Sans Pro" title="Source Sans Pro">
+    <meta name="select:Body Font" content="Inter" title="Inter">
+
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
     <meta name="theme-color" content="{AccentColor}">
 
-    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/OvUquzzv1/main.min.css">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/hNVqv9c9e/main.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family={select:Body Font}:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/gh/boscoxvi/npfphotosets/npfphotosetstyle.css" rel="stylesheet"
         type="text/css">
+    <link href="https://static.tumblr.com/0podkko/xIbplezmo/modified_photosets.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
     <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/min/tiny-slider.helper.ie8.js"></script><![endif]-->
-
-    {block:Hidden}
-    <meta name="text:Featured Heading Text" content="Featured posts">
-    <meta name="text:Featured Body Text"
-        content="Hey, this is an example test for the body text of the featured section. You can add the text as many much as possible. Thank you.">
-    {/block:Hidden}
 
     <style>
         :root {
             --hero:url("{HeaderImage-640}");
 
             --heading-font: 'PT Serif', serif;
-            --body-font: 'PT Sans', sans-serif;
+            --body-font: '{select:Body Font}',
+            sans-serif;
             --code-font: 'Oxygen Mono', monospace;
 
             --white: #fff;
@@ -67,7 +91,12 @@
             }
 
             ;
-            --bg-card:#fff;
+
+            --bg-card: {
+                color: Posts Background Color
+            }
+
+            ;
 
             --bg-post:#F2F2F2;
 
@@ -79,9 +108,23 @@
 
             ;
 
-            --heading-text:#111;
-            --body-text:#333;
-            --body-link:#111;
+            --body-text: {
+                color: Posts Body Text Color
+            }
+
+            ;
+
+            --body-link: {
+                color: Posts Body Link Color
+            }
+
+            ;
+
+            --heading-text: {
+                color: Posts Body Heading Color
+            }
+
+            ;
 
             --header-navigation-link: #111;
         }
@@ -102,6 +145,121 @@
             --header-navigation-link: hsl(var(--hue), 10%, 80%);
         }
 
+        .tmblr-iframe-compact .tmblr-iframe--unified-controls {
+            width: 100% !important;
+        }
+
+        @media (min-width:60rem) {
+
+            .iframe-controls--phone-mobile,
+            .tmblr-iframe--app-cta-button,
+            .tmblr-iframe:not(#new-tumblr-controls) {
+                visibility: hidden !important;
+                display: none !important;
+            }
+        }
+
+        .iframe-container,
+        iframe#new-tumblr-controls {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 54px;
+            width: 100% !important;
+            background: var(--bg-post);
+            z-index: 10;
+        }
+
+        @media (max-width:60rem) {
+
+            .iframe-container,
+            iframe#new-tumblr-controls {
+                visibility: hidden !important;
+                display: none !important;
+            }
+        }
+
+        .d-block {
+            display: block !important;
+        }
+
+        .d-none {
+            display: none !important;
+        }
+
+            {
+            block: IfSelectionColor
+        }
+
+        ::selection {
+            background: {
+                color: Selection Text Background Color
+            }
+
+            ;
+
+            color: {
+                color: Selection Text Color
+            }
+
+            ;
+        }
+
+        ::-moz-selection {
+            background: {
+                color: Selection Text Background Color
+            }
+
+            ;
+
+            color: {
+                color: Selection Text Color
+            }
+
+            ;
+        }
+
+        ::-webkit-selection {
+            background: {
+                color: Selection Text Background Color
+            }
+
+            ;
+
+            color: {
+                color: Selection Text Color
+            }
+
+            ;
+        }
+
+            {
+            /block: IfSelectionColor
+        }
+
+        .tmblr-lightbox .lightbox-image {
+            height: auto;
+        }
+
+        .npf_photoset div.npf_row figure.tmblr-full:first-child {
+            margin-right: 0 !important;
+        }
+
+        .soundcloud_audio_player {
+            margin: 1.25rem 0;
+        }
+
+        .is-spotify {
+            position: relative;
+            padding-bottom: 80px;
+        }
+
+        .is-spotify .spotify_audio_player {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
             {
             CustomCSS
         }
@@ -110,8 +268,13 @@
 
 <body>
 
-    <main class="wrapper">
-        <header class="nav">
+    <div class="iframe-container"><iframe id="new-tumblr-controls" src="" frameborder="0" scrolling="no"
+            name="unified-controls"
+            class="tmblr-iframe tmblr-iframe--unified-controls tmblr-iframe--loaded iframe-controls--desktop"></iframe>
+    </div>
+
+    <main class="wrapper h-100">
+        <header class="nav bg-white">
             <div class="nav__inner">
                 <div class="nav__logo">
                     <div class="circle"></div>
@@ -155,6 +318,18 @@
                     </div>
                 </div>
             </div>
+            <div class="nav__navigation">
+                {block:HasPages}
+                <ul>
+                    {block:Pages}
+                    <li>
+                        <a href="{URL}">{Label}</a>
+                    </li>
+                    {/block:Pages}
+
+                </ul>
+                {/block:HasPages}
+            </div>
         </header>
 
         <section class="wrapper__inner">
@@ -170,6 +345,8 @@
                 </div>
             </div>
 
+            {block:HomePage}
+            {block:IfFeaturedPosts}
             <div class="wrapper__featured">
                 <div class="wrapper__featured--desc">
                     <h1>{text:Featured Heading Text}</h1>
@@ -195,13 +372,30 @@
 
                 </div>
                 <div class="wrapper__featured--slider">
+                    <div class="wrapper__featured--slider__inner"></div>
                 </div>
             </div>
+            {/block:IfFeaturedPosts}
+            {/block:HomePage}
 
             <div class="wrapper__blog">
+                {block:TagPage}
+                <div class="posts--heading">
+                    <h1>Tagged page</h1>
+                    <h3>{lang:Showing TagResultCount posts tagged Tag 2}</h3>
+                </div>
+                {/block:TagPage}
 
+                {block:SearchPage}
+                <div class="posts--heading">
+                    <h1>Search page</h1>
+                    <h3>{lang:Found SearchResultCount results for SearchQuery 2} {block:NoSearchResults}{lang:No search
+                        results for SearchQuery 2}{/block:NoSearchResults}</h3>
+                </div>
+                {/block:SearchPage}
                 {block:Posts inlineMediaWidth="700" inlineNestedMediaWidth="700"}
-                <article class="posts {block:PinnedPostLabel}pinned{/block:PinnedPostLabel}" id="{PostID}">
+                <article data-aos="fade-up"
+                    class="posts{block:PinnedPostLabel} pinned{/block:PinnedPostLabel} {TagsAsClasses}" id="{PostID}">
                     {block:Date}
                     {block:PinnedPostLabel}
                     <div class="posts__pinned">
@@ -215,8 +409,10 @@
                             </svg> {lang:Pinned Post}</span>
                     </div>
                     {/block:PinnedPostLabel}
+                    {/block:Date}
 
                     <div class="posts__perma">
+                        {block:Date}
                         <div class="posts__perma--date">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -230,8 +426,9 @@
                         <div class="posts__perma--note">
                             <a href="{Permalink}">{NoteCountWithLabel}</a>
                         </div>
+                        {/block:Date}
                     </div>
-                    {/block:Date}
+
 
                     {block:Quote}
                     <div class="posts__quote">
@@ -339,7 +536,7 @@
                         onclick="Tumblr.Lightbox.init([{ width: {PhotoWidth-HighRes}, height: {PhotoHeight-HighRes}, low_res: '{PhotoURL-500}', high_res: '{PhotoURL-HighRes}' }]); $('body').toggleClass('tumblr_lightbox_active');return false;">
                         <img src="{PhotoURL-HighRes}">
                     </figure>
-                    <div class="posts__body">
+                    <div class="posts__caption">
                         {block:Caption}
                         {block:NotReblog}{Caption}{/block:NotReblog}
                         {block:RebloggedFrom}
@@ -374,7 +571,7 @@
                                 src="{PhotoURL-HighRes}" /></div>{/block:Photos}</div>
 
                     {block:Caption}
-                    <div class="posts__body">
+                    <div class="posts__caption">
                         {block:NotReblog}{Caption}{/block:NotReblog}
                         {block:RebloggedFrom}
                         {block:Reblogs}
@@ -445,145 +642,191 @@
                                 {/block:HasAvatar}
                             </div>
                             <div>{Body}</div>
-                            {/block:Reblogs}
-
-                            {block:NotReblog}{Replies}{/block:NotReblog}
                         </div>
-                        {/block:Answer}
+                        {/block:Reblogs}
 
-                        {block:Video}
-                        <div class="video__p">{Video-700}</div>
-                        {block:Caption}
-                        <div class="body__text">
-                            {block:NotReblog}{Caption}{/block:NotReblog}
-                            {block:RebloggedFrom}
-                            {block:Reblogs}
-                            <div class="reblog-list">
-                                <div class="reblog-post-avatar">
-                                    {block:HasAvatar}
-                                    <img src="{PortraitURL-64}" />
-                                    <span>
-                                        {block:IsActive}{block:HasPermalink}<a href="{Permalink}"
-                                            class="user-blog">{/block:HasPermalink}{Username}{block:HasPermalink}</a>{/block:HasPermalink}{/block:IsActive}
-                                        {block:IsDeactivated}
-                                        {block:HasPermalink}<a href="{Permalink}"
-                                            class="user-blog is-deactivated">{/block:HasPermalink}{Username}{block:HasPermalink}</a>{/block:HasPermalink}
-                                        {/block:IsDeactivated}
-                                    </span>
-                                    {/block:HasAvatar}
+                        {block:NotReblog}{Replies}{/block:NotReblog}
+                    </div>
+                    {/block:Answer}
+
+                    {block:Video}
+                    <div class="video__p">{Video-700}</div>
+                    {block:Caption}
+                    <div class="body__text">
+                        {block:NotReblog}{Caption}{/block:NotReblog}
+                        {block:RebloggedFrom}
+                        {block:Reblogs}
+                        <div class="reblog-list">
+                            <div class="reblog-post-avatar">
+                                {block:HasAvatar}
+                                <img src="{PortraitURL-64}" />
+                                <span>
+                                    {block:IsActive}{block:HasPermalink}<a href="{Permalink}"
+                                        class="user-blog">{/block:HasPermalink}{Username}{block:HasPermalink}</a>{/block:HasPermalink}{/block:IsActive}
+                                    {block:IsDeactivated}
+                                    {block:HasPermalink}<a href="{Permalink}"
+                                        class="user-blog is-deactivated">{/block:HasPermalink}{Username}{block:HasPermalink}</a>{/block:HasPermalink}
+                                    {/block:IsDeactivated}
+                                </span>
+                                {/block:HasAvatar}
+                            </div>
+                            <div>{Body}</div>
+                        </div>
+                        {/block:Reblogs}
+                        {/block:RebloggedFrom}
+                    </div>
+                    {/block:Caption}
+                    {/block:Video}
+
+                    {block:Audio}
+                    <div class="posts__audio">
+                        {block:AudioPlayer}
+                        {AudioPlayer}
+                        {/block:AudioPlayer}
+                        <div class="posts__audio--album">
+                            {block:AlbumArt}
+                            <img src="{AlbumArtURL}" alt="" />
+                            {/block:AlbumArt}
+                        </div>
+                        <div class="posts__audio--player">
+                            <button class="btn-play">
+                                <i class="las la-play"></i>
+                            </button>
+                            <div class="posts__audio--information">
+                                {block:Artist}
+                                <div class="posts__audio--information__name">
+                                    {Artist}
                                 </div>
-                                <div>{Body}</div>
-                            </div>
-                            {/block:Reblogs}
-                            {/block:RebloggedFrom}
-                        </div>
-                        {/block:Caption}
-                        {/block:Video}
-
-                        {block:Audio}
-                        <div class="posts__audio">
-                            {block:AudioPlayer}
-                            {AudioPlayer}
-                            {/block:AudioPlayer}
-                            <div class="posts__audio--album">
-                                {block:AlbumArt}
-                                <img src="{AlbumArtURL}" alt="" />
-                                {/block:AlbumArt}
-                            </div>
-                            <div class="posts__audio--player">
-                                <button class="btn-play">
-                                    <i class="las la-play"></i>
-                                </button>
-                                <div class="posts__audio--information">
-                                    {block:Artist}
-                                    <div class="posts__audio--information__name">
-                                        {Artist}
-                                    </div>
-                                    {/block:Artist}
-                                    {block:TrackName}
-                                    <div class="posts__audio--information__track">
-                                        {TrackName}
-                                    </div>
-                                    {/block:TrackName}
-                                    {block:Album}
-                                    <div class="posts__audio--information__album">
-                                        {Album}
-                                    </div>
-                                    {/block:Album}
+                                {/block:Artist}
+                                {block:TrackName}
+                                <div class="posts__audio--information__track">
+                                    {TrackName}
                                 </div>
-                            </div>
-
-                            <div class="posts__audio--duration">
-                                <span>00:00</span>
-                                <input type="range" name="" id="progress" min="0" max="100" value="0">
-                                <a title="Download the audio?" href="#" class="download-audio"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt"
-                                        stroke-linejoin="bevel">
-                                        <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 12.8V2.5" />
-                                    </svg></a>
-                            </div>
-                        </div>
-                        {block:Caption}
-                        <div class="posts__body">
-                            {block:NotReblog}{Caption}{/block:NotReblog}
-                            {block:RebloggedFrom}
-                            {block:Reblogs}
-                            <div class="reblog-list">
-                                <div class="reblog-post-avatar">
-                                    {block:HasAvatar}
-                                    <img src="{PortraitURL-64}" />
-                                    <span>
-                                        {block:IsActive}{block:HasPermalink}<a href="{Permalink}"
-                                            class="user-blog">{/block:HasPermalink}{Username}{block:HasPermalink}</a>{/block:HasPermalink}{/block:IsActive}
-                                        {block:IsDeactivated}
-                                        {block:HasPermalink}<a href="{Permalink}"
-                                            class="user-blog is-deactivated">{/block:HasPermalink}{Username}{block:HasPermalink}</a>{/block:HasPermalink}
-                                        {/block:IsDeactivated}
-                                    </span>
-                                    {/block:HasAvatar}
+                                {/block:TrackName}
+                                {block:Album}
+                                <div class="posts__audio--information__album">
+                                    {Album}
                                 </div>
-                                <div>{Body}</div>
+                                {/block:Album}
                             </div>
-                            {/block:Reblogs}
-                            {/block:RebloggedFrom}
                         </div>
-                        {/block:Caption}
-                        {/block:Audio}
 
+                        <div class="posts__audio--duration">
+                            <span>00:00</span>
+                            <input type="range" name="" id="progress" min="0" max="100" value="0">
+                            <a title="Download the audio?" href="#" class="download-audio"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt"
+                                    stroke-linejoin="bevel">
+                                    <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 12.8V2.5" />
+                                </svg></a>
+                        </div>
+                    </div>
+                    {block:Caption}
+                    <div class="posts__body">
+                        {block:NotReblog}{Caption}{/block:NotReblog}
+                        {block:RebloggedFrom}
+                        {block:Reblogs}
+                        <div class="reblog-list">
+                            <div class="reblog-post-avatar">
+                                {block:HasAvatar}
+                                <img src="{PortraitURL-64}" />
+                                <span>
+                                    {block:IsActive}{block:HasPermalink}<a href="{Permalink}"
+                                        class="user-blog">{/block:HasPermalink}{Username}{block:HasPermalink}</a>{/block:HasPermalink}{/block:IsActive}
+                                    {block:IsDeactivated}
+                                    {block:HasPermalink}<a href="{Permalink}"
+                                        class="user-blog is-deactivated">{/block:HasPermalink}{Username}{block:HasPermalink}</a>{/block:HasPermalink}
+                                    {/block:IsDeactivated}
+                                </span>
+                                {/block:HasAvatar}
+                            </div>
+                            <div>{Body}</div>
+                        </div>
+                        {/block:Reblogs}
+                        {/block:RebloggedFrom}
+                    </div>
+                    {/block:Caption}
+                    {/block:Audio}
+
+
+                    <div class="posts__perma">
                         {block:Date}
-                        <div class="posts__perma">
-                            {block:HasTags}
-                            <div class="posts__tags {select:Tags Post}">
-                                <ul>
-                                    {block:Tags}
-                                    <li> <a href="{TagURL}">{Tag}</a></li>
-                                    {/block:Tags}
-                                </ul>
-                            </div>
-                            {/block:HasTags}
+                        {block:HasTags}
+                        <div class="posts__tags {select:Tags Post}">
+                            <ul>
+                                {block:Tags}
+                                <li> <a href="{TagURL}">{Tag}</a></li>
+                                {/block:Tags}
+                            </ul>
+                        </div>
+                        {/block:HasTags}
 
-                            <div class="posts__action">
-                                <ul>
-                                    <li><a href="{ReblogURL}"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                                            </svg></a></li>
-                                    <li><a href="#" class="like">{LikeButton}<svg xmlns="http://www.w3.org/2000/svg"
-                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                            </svg></a></li>
-                                </ul>
-                            </div>
+                        <div class="posts__action">
+                            <ul>
+                                <li><a href="{ReblogURL}"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                        </svg></a></li>
+                                <li><a href="#" class="like">{LikeButton}<svg xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                        </svg></a></li>
+                                <li
+                                    class="share-btn {select:Share Button on Posts}{block:PermalinkPage} d-none{/block:PermalinkPage}">
+                                    <a href="#" title="{lang:Share this}"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="18" cy="5" r="3"></circle>
+                                            <circle cx="6" cy="12" r="3"></circle>
+                                            <circle cx="18" cy="19" r="3"></circle>
+                                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                        </svg></a>
+                                    <ul class="share">
+                                        <li><a id="fb" {Target} title="{lang:Facebook}"
+                                                href="https://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}"><i
+                                                    class="lab la-facebook-f"></i></a></li>
+                                        <li><a id="twt" {Target} title="{lang:Tweet}"
+                                                href="https://twitter.com/intent/tweet?text={URLEncodedTweetSummary}"><i
+                                                    class="lab la-twitter"></i></a></li>
+                                        <li><a id="pt" {Target} title="{lang:Pinterest}"
+                                                href="//www.pinterest.com/pin/create/button/?url={URLEncodedPermalink}&amp;media={PhotoURL-500}"
+                                                target="_blank"><i class="lab la-pinterest-p"></i></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
                         {/block:Date}
+                    </div>
+
 
                 </article>
 
                 {block:PermalinkPage}
                 {block:Date}
+                {block:IfDisqusShortname}
+                <article class="post__perma">
+                    <div id="disqus_thread"></div>
+                    <script type="text/javascript">
+                        var disqus_shortname = '{text:Disqus Shortname}';
+                        var disqus_url = '{Permalink}';
+
+                        (function () {
+                            var dsq = document.createElement('script');
+                            dsq.type = 'text/javascript';
+                            dsq.async = true;
+                            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">{lang:Blog
+                            comments powered by Disqus}</a></noscript>
+                </article>
+                {/block:IfDisqusShortname}
+
                 <article class="post__perma">
                     <div class="post__perma--info">
                         <h3>{lang:Posted on DayOfWeek DayOfMonth Month Year}</h3>
@@ -630,7 +873,7 @@
 
                 <!-- pagination -->
                 {block:Pagination}
-                <nav class="pagination" role="pagination" aria-label="Pagination Navigation">
+                <nav data-aos="fade-up" class="pagination" role="pagination" aria-label="Pagination Navigation">
                     <span>{lang:Page CurrentPage of TotalPages} </span>
                     <ul>
                         {block:PreviousPage}
@@ -660,14 +903,23 @@
                 {/block:Pagination}
                 </nav>
 
-                <footer class="footer">
+                <footer class="footer" data-aos="fade-in">
                     <div class="footer__inner">
                         <div class="footer__copyright">
                             Copyright © {Name} {CopyrightYears}. All rights reserved.
                         </div>
                         <div class="footer__credit">
                             Nyiur Theme by <a href="https://fukuo.tumblr.com">Fukuo</a>. Powered by <a
-                                href="https://tumblr.com/" data-font="tumblr">tumblr</a></span>
+                                href="https://tumblr.com/" data-font="tumblr" aria-label="Tumblr"><svg
+                                    class="svg-logo logo-tumblr" width="55px" viewBox="0 0 245 50" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g class="logotype" stroke="none" stroke-width="1" fill="currentColor"
+                                        fill-rule="evenodd">
+                                        <path
+                                            d="M28.087 49.57h-8.286c-7.461 0-13.021-3.835-13.021-13.01V21.863H0v-7.957C7.461 11.97 10.582 5.556 10.94 0h7.749v12.616h9.04v9.248h-9.04v12.795c0 3.836 1.937 5.162 5.022 5.162h4.376v9.749zm143.951.43c-3.766 0-7.246-1.254-10.151-3.692v3.262h-11.372V7.993h-4.95V0h17.075v15.305c2.224-1.72 5.919-3.119 9.613-3.119 10.51 0 15.676 7.312 15.676 18.46 0 11.612-5.56 19.354-15.89 19.354zm18.115-.43v-7.921h4.197V7.993h-4.95V0h16.93v41.649h4.377v7.92h-20.554zm-112.456 0v-7.921h4.197V20.68h-4.95v-8.065H92.26V17.6c2.582-3.549 7.39-5.413 11.765-5.413 5.525 0 9.22 2.223 11.658 5.914 1.938-3.261 6.529-5.914 12.125-5.914 11.335 0 14.205 8.961 14.205 16.56v12.903h4.125v7.92h-20.16v-7.92h4.054V27.348c0-3.047-1.04-5.628-5.309-5.628-5.273 0-6.816 4.122-6.816 6.13v13.799h4.233v7.92h-20.267v-7.92H106V27.348c0-3.047-.86-5.628-5.093-5.628-5.238 0-6.96 4.122-6.96 6.13v13.799h4.162v7.92H77.697zm137.494 0v-7.921h4.09V20.68h-4.449v-8.065h15.39v5.341c1.9-3.548 6.133-5.77 10.725-5.77H245V22.76h-5.022c-3.766 0-8.717 1.541-8.717 8.566V41.65h4.126v7.92H215.19zM47.53 50c-11.765 0-14.348-8.853-14.348-14.552V12.616h12.411v22.33c0 3.083.754 5.52 4.807 5.52 6.313 0 7.246-4.695 7.246-5.807V20.681h-4.807v-8.065h16.86V41.65h3.55v7.92H59.296V44.91C56.641 48.172 51.762 50 47.529 50zm121.926-8.996c1.902-.215 6.278-.538 6.278-10.287 0-6.774-2.978-9.498-6.35-9.498-2.905 0-7.102 1.54-7.102 10.25 0 7.24 3.551 9.535 7.174 9.535z"
+                                            fill-rule="evenodd"></path>
+                                    </g>
+                                </svg></a></span>
                         </div>
                     </div>
                 </footer>
@@ -675,26 +927,114 @@
         </section>
     </main>
 
-    <script type="text/javascript" src="https://nyiurtheme.tumblr.com/api/read/json"></script>
+    <script type="text/javascript" src="https://{Name}.tumblr.com/api/read/json?&tagged=featured"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
-    <script src="https://static.tumblr.com/5ojoydj/1LLquy6dq/navigation.js"></script>
-    <script src="https://static.tumblr.com/5ojoydj/2dYqo53m9/tumblr-audio.js"></script>
-    <script src="https://static.tumblr.com/5ojoydj/yC5quy6do/featured.js"></script>
+    <script src="https://static.tumblr.com/5ojoydj/0KTqv7l3z/navigation.js"></script>
+    <script src="https://static.tumblr.com/5ojoydj/V55qv9cjx/tumblr-audio.js"></script>
+    {block:HomePage}
+    <script src="https://static.tumblr.com/5ojoydj/vhtqv52wp/featured.js"></script>
+    {/block:HomePage}
+    {block:PermalinkPage}
+    <script src="https://static.tumblr.com/5ojoydj/1emqv5p5x/heading.js"></script>
+    {/block:PermalinkPage}
     <script src="https://static.tumblr.com/0podkko/jfMplm3f8/modified_photosets.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/boscoxvi/npfphotosets/npfphotosets.js"></script>
     <script src="//unpkg.com/fast-average-color/dist/index.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        AOS.init();
+        tippy('[title]', {
+            arrow: true,
+            placement: 'top',
+            delay: 5,
+            distance: 15,
+            maxWidth: 300,
+            followCursor: false,
+            allowHTML: true,
+            ignoreAttributes: true,
+            content(reference) {
+                const title = reference.getAttribute('title');
+                reference.removeAttribute('title');
+                return title;
+            },
+        });
+
+        { block: IndexPage }
+        const article = document.querySelectorAll(".posts");
+        article.forEach(p => {
+            const q = p.querySelector('.share-btn');
+            if (q) {
+                q.addEventListener("click", function (e) {
+                    e.preventDefault();
+
+                    this.classList.toggle("is-actived");
+                    this.querySelector('ul.share').classList.toggle("is-shown")
+                    this.parentElement.parentElement.parentElement.parentElement.classList.toggle("is-appear");
+                });
+            }
+        });
+
+        const pagItems = document.querySelectorAll('.pagination__item');
+        for (var i = 0; i < pagItems.length; i++) {
+            var counter = i + 1;
+            var string = "Page " + counter;
+
+            if (pagItems[i].getAttribute('aria-current')) {
+                string = "Page " + counter + ", Current Page";
+            }
+
+            pagItems[i].setAttribute('aria-label', string);
+        }
+        {
+            /block:IndexPage}
+
+            // https://rachaelthemes.com/tumblr-controls
+            function tumblrControls(e, r, t, o, s, l) {
+                var a = e.substr(e.indexOf("#") + 1),
+                    m = r.substr(r.indexOf("#") + 1),
+                    u = "https://"; "true" == l ? u = "https://www.tumblr.com/dashboard/iframe?tumblelogName=" + t + "&pid=" + o + "&src=https%3A%2F%2F" + t + ".tumblr.com%2Fpost%2F" + o + "%2F" + s.split("/").pop() + "#%7B%22searchQuery%22%3A%22%22%2C%22pushDown%22%3Afalse%2C%22useThemeColors%22%3Atrue%2C%22scrollHeader%22%3Afalse%2C%22themeHeaderImage%22%3A%22%22%2C%22themeBackgroundColor%22%3A%22%23" + a + "%22%2C%22themeTitleColor%22%3A%22%23" + m + "%22%2C%22themeAccentColor%22%3A%22%23" + m + "%22%2C%22isOpticaLike%22%3Atrue%2C%22shouldHideBlogSearchBar%22%3Afalse%7D" : u = "https://www.tumblr.com/dashboard/iframe?tumblelogName=" + t + "&src=https%3A%2F%2F" + t + ".tumblr.com%2F#%7B%22searchQuery%22%3A%22%22%2C%22pushDown%22%3Atrue%2C%22useThemeColors%22%3Atrue%2C%22scrollHeader%22%3Afalse%2C%22themeHeaderImage%22%3A%22%22%2C%22themeBackgroundColor%22%3A%22%23" + a + "%22%2C%22themeAccentColor%22%3A%22%23" + m + "%22%2C%22isOpticaLike%22%3Atrue%2C%22shouldHideBlogSearchBar%22%3Afalse%7D";
+
+                document.querySelector("#new-tumblr-controls").setAttribute("src", u);
+            }
+
+            tumblrControls("#f2f2f2", "#111", "{Name}"{ block: Posts }{ block: PermalinkPage }{ block: Date }, "{PostID}", "{RelativePermalink}", "true"{/ block: Date} { /block:PermalinkPage}{/block: Posts } );
+
+        const spotifyPlayers = document.querySelectorAll(".spotify_audio_player");
+        if (spotifyPlayers) {
+            spotifyPlayers.forEach(function (sp, idx) {
+                sp.parentElement.classList.add("is-spotify");
+            });
+        }
+
+        // https://shythemes.tumblr.com/post/114792480648/minimal-soundcloud-player
+        const soundcloudColor = "{AccentColor}";
+        const soundcloudPlayers = document.querySelectorAll('.soundcloud_audio_player');
+
+        if (soundcloudPlayers) {
+            soundcloudPlayers.forEach(function (s, idx) {
+                const url = s.getAttribute("src").split('&')[0];
+                const options = "&amp;liking=false&amp;sharing=false&amp;auto_play=false&amp;show_comments=false&amp;continuous_play=false&amp;buying=false&amp;show_playcount=false&amp;show_artwork=true&amp;origin=tumblr&amp;color=" + soundcloudColor.split('#')[1];
+                s.setAttribute("src", url + options);
+                s.setAttribute("height", 116);
+            });
+        }
+
+        // https://github.com/annasthms/photosets
         initPhotosets();
+
+        // https://codematurgy.tumblr.com/post/643394597477875713/npfphotosets-plugin
         const npfOptions = {
             includeCommonPhotosets: false,
-            photosetMargins: "0",
+            photosetMargins: "30",
             insertGalleryIndicator: true,
             galleryIndicatorClass: "npf_gallery_indicator",
             galleryIndicatorContent: "<i class='las la-expand'></i>"
         }
-
         npfPhotosets(".posts", npfOptions);
 
+        // https://github.com/fast-average-color/fast-average-color
         const fac = new FastAverageColor();
         const imageGrid = document.querySelectorAll(".posts figure.tmblr-full, .posts figure[data-tumblr-attribution]");
 
@@ -703,6 +1043,8 @@
                 let image = imageGrid[i].querySelector('img');
                 let tmblr_attribute = imageGrid[i].querySelector('.tmblr-attribution');
                 let imageURL = image.src;
+
+                // create a new image because i don't why it's not working without this bruh
                 const img = new Image();
                 img.crossOrigin = "Anonymous";
                 img.src = imageURL;

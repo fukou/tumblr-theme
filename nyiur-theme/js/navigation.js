@@ -34,3 +34,10 @@ btn_dark.addEventListener("click", function (e) {
 
     localStorage.setItem("theme", theme);
 });
+
+const btnNav = document.querySelector(".btn-nav");
+const containerNav = document.querySelector(".nav__navigation");
+btnNav.addEventListener("click", function () {
+    this.classList.toggle("is-actived");
+    containerNav.classList.toggle("is-shown");
+});

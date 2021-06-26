@@ -20,8 +20,6 @@ posts.forEach(function (post, idx) {
 
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent
     const getSource = decodeURIComponent(src);
-    // console.log(getSource);
-
     // create element for <audio> and <source>
     // based on https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio#Usage_notes
     let audio = document.createElement("audio");
@@ -31,7 +29,6 @@ posts.forEach(function (post, idx) {
     audio.appendChild(source);
 
     post.prepend(audio);
-
     // remove the iframe from Tumblr
     post.querySelector(".audio_player").remove();
 
@@ -40,7 +37,6 @@ posts.forEach(function (post, idx) {
 
 durs.forEach(function (dur, idx) {
     let d = document.querySelectorAll("audio")[idx];
-
     dur.nextElementSibling.nextElementSibling.href = d.childNodes[0].src;
 
     d.onloadedmetadata = function () {
@@ -52,18 +48,25 @@ seek.forEach(function (seeks, idx) {
     let s = document.querySelectorAll("audio")[idx];
     let p = document.querySelectorAll(".btn-play")[idx];
 
-    s.ontimeupdate = function () { seeks.value = (s.currentTime / s.duration) * 100; }
-    seeks.onchange = function () { s.currentTime = this.value / 100 * s.duration; }
+    s.ontimeupdate = function () {
+        seeks.value = (s.currentTime / s.duration) * 100;
+    }
+
+    seeks.onchange = function () {
+        s.currentTime = this.value / 100 * s.duration;
+    }
 
     s.onended = function () {
         p.innerHTML = `<i class="las la-play"></i>`;
         seeks.value = 0;
     }
+
 });
 
 play.forEach(function (btn, index) {
     btn.addEventListener("click", function (e) {
         const a = this.parentElement.parentElement.querySelectorAll("audio")[0];
+        console.log(a);
 
         if (a.paused) {
             this.innerHTML = `<i class="las la-pause"></i>`
@@ -90,7 +93,6 @@ document.addEventListener(
     },
     true
 );
-
 
 function durations(currentTime) {
     var d = currentTime;

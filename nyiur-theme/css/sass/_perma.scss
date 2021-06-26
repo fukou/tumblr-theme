@@ -10,8 +10,13 @@
 
     &--info {
         h3 {
+            font-size: 1.35rem;
+            font-family: var(--heading-font);
+
             text-align: center;
             margin-bottom: 1.75rem;
+            color:var(--heading-text);
+
         }
 
         padding-bottom: 1rem;
@@ -183,7 +188,7 @@ ol.notes {
 
             width: 100%;
             padding:0.85rem 1rem;
-            background-color: var(--primary-color);
+            background-color: var(--heading-text);
             color:var(--bg-card);
 
             border-radius: 8px;
