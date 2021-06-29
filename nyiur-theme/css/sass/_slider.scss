@@ -6,26 +6,6 @@
     padding-bottom: 100%;
 
     background-color:var(--bg-card);
-
-    &.audio {
-        background-color:var(--primary-color);
-    }
-
-    &.chat {
-        border:3px dashed rgba(#111, 0.35);
-    }
-
-    &.quote {
-        background-color:#ddd;
-        border:3px solid rgba(#111, 0.2);
-    }
-
-    &.answer {
-        background-color:#222;
-        > * {
-            color:var(--white);
-        }
-    }
     
     &__body, &__question, &__quote, &__audio {
         position: absolute;
@@ -70,6 +50,30 @@
 
         p {
             margin-top: 0.85rem;
+        }
+    }
+
+    &.audio {
+        background-color:var(--primary-color);
+    }
+
+    &.chat {
+        border:3px dashed rgba(#111, 0.35);
+    }
+
+    &.quote {
+        background-color:#ddd;
+        border:3px solid rgba(#111, 0.2);
+
+        > * {
+            color:#444;
+        }
+    }
+
+    &.answer {
+        background-color:#222;
+        > * {
+            color:var(--white);
         }
     }
 

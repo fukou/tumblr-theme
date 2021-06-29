@@ -10,12 +10,10 @@ for (let l = 0; l < allPosts.length; l++) {
         const headingContent = document.querySelector(".posts__heading ul");
 
         for (heading of headingText) {
-            heading.id = `${heading.innerText.split(" ").join("-").toLowerCase()}`;
+            heading.id = `${heading.innerText.split(" ").join("-").replaceAll(",", "").toLowerCase()}`;
 
-            headingContent.insertAdjacentHTML('afterbegin', `<li><a href="#${heading.innerText.split(" ").join("-").toLowerCase()}">${heading.innerText}</a></li>`);
+            headingContent.insertAdjacentHTML('afterbegin', `<li><a href="#${heading.innerText.split(" ").join("-").replaceAll(",", "").toLowerCase()}">${heading.innerText}</a></li>`);
         }
 
     }
 }
-
-

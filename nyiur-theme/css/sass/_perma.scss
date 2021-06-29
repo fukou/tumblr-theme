@@ -8,6 +8,11 @@
     -moz-border-radius: 14px;
     border-radius: 14px;
 
+    @media (max-width:60rem) {
+        border-radius: 0;
+        border:0;
+    }
+
     &--info {
         h3 {
             font-size: 1.35rem;

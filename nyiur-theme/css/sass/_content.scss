@@ -1,6 +1,7 @@
 body {
     background-color: var(--bg-color);
     font-family: var(--body-font);
+    scroll-behavior: smooth;
 }
 
 * {
@@ -30,15 +31,14 @@ body {
         overflow: hidden;
 
         @media (max-width:60rem) {
-            padding:0 1.5rem;
+            padding:0 0rem;
             border-radius: 0;
         }
     }
 
     &__hero {
-      position: relative;
+        position: relative;
         padding:8rem 0 6rem 0;
-        background-image:var(--hero);
 
         background-size: cover;
         background-position: center;
@@ -57,7 +57,7 @@ body {
         }
 
         @media (max-width:60rem) {
-            padding:5rem 0;
+            padding:5rem 1rem;
 
             margin:0 -1.5rem;
         }
@@ -75,7 +75,7 @@ body {
             justify-content: center;
 
             text-align: center;
-            color:var(--body-text);
+            color:var(--body-text-hero);
 
             @media (max-width:60rem) {
                 padding:0 1.75rem;
@@ -98,7 +98,7 @@ body {
                 font-size: 1.75rem;
                 font-weight: normal;
                 font-style: italic;
-                color:var(--heading-text);
+                color:var(--heading-text-hero);
 
                 margin-bottom: 1rem;
             }
@@ -116,8 +116,8 @@ body {
       margin-right: -1.25rem;
 
       @media (max-width:60rem) {
-        padding-left: 0;
-        margin-right: 0;
+        padding-left: 1.5rem;
+        margin-right: 1.5rem;
         gap:1rem;
 
         grid-template-columns: 1fr;
@@ -185,10 +185,17 @@ body {
 
             overflow: hidden;
             border-radius: 15px;
-            -moz-border-radisu:15px;
+
+            @media (max-width:60rem) {
+              border-radius: 0px;
+            }
 
             & + .posts {
               margin-top: 4.5rem;
+
+              @media (max-width:60rem) {
+                margin-top: 1.75rem;
+              }
             }
 
             &::before {
@@ -448,6 +455,8 @@ body {
                 margin: 1rem 0 1.38rem;
                 font-weight: 600;
                 line-height: 1.3;
+                
+                scroll-margin-top: 1.25rem;
               }
       
               p + p {

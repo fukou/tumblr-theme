@@ -19,6 +19,11 @@
 
     border-radius: 10px;
 
+    @media (max-width:60rem) {
+        border-radius: 0;
+        border:0;
+    }
+
     @media (min-width:60rem) {
         flex-direction: row;
         padding:0.5rem 0.75rem 0.5rem 1.5rem;
