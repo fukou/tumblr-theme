@@ -16,6 +16,7 @@ body {
 }
 
 .wrapper {
+    position: relative;
     max-width: 70rem;
     margin:3.5rem auto;
 
@@ -24,6 +25,7 @@ body {
     }
 
     &__inner {
+        
         display: grid;
         grid-template-columns: 19.5rem 1fr;
         gap:4.5rem;
@@ -32,6 +34,8 @@ body {
             grid-template-columns: 1fr;
         }
     }
+
+    &__sidebar {}
 
     &__blog {
         max-width: 65rem;
@@ -152,12 +156,10 @@ body {
               font-weight: bold;
               text-decoration: none;
               padding: 0.85rem 1rem;
-              border-radius: 30px;
       
-              margin: 2.5rem 0 0 0;
+              margin:1rem 0 0 0;
       
               width: 100%;
-              border:2px solid var(--heading-text);
               color:var(--heading-text);
               background-color: transparent;
             }
@@ -473,7 +475,7 @@ body {
                   margin-left: auto;
                   max-width: 150px;
       
-                  border-radius: 10px;
+                  border-radius: 5px;
       
                   @media (max-width:60rem) {
                     margin:auto;
@@ -578,7 +580,7 @@ body {
               display: flex;
               align-items: center;
               justify-content: space-between;
-              padding:1.25rem 2rem;
+              padding:1rem 1.75rem;
               border-bottom: 1px solid rgba(#111, 0.1);
         
       
