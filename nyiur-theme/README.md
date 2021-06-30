@@ -9,7 +9,7 @@
 - A table of contents that is dynamically generated from the heading post. You can use this feature by tagging your post `post_text` and it will be generated on the permalink page.
 
 ## Theme options
-- Customizable colors: up to 9 custom colors
+- Customizable colors: up to 11 custom colors
 - Header image (if removed, it would show the default image instead, can be hidden by turning off the `Show Header Image` toggle option)
 - Disqus Shortname. If you have your own account, you can put your username to enable it
 - Avatar shape. You can change between circle or square

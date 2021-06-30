@@ -611,7 +611,7 @@ body {
                 padding:0;
       
                 li {
-                  margin:1rem 0.5rem;
+                  margin:0.5rem 0.5rem;
       
                   a {
                     background-color: #ddd;
@@ -621,6 +621,10 @@ body {
                     color:#111;
                     padding:0.5rem 1.2rem;
                     border-radius: 30px;
+                    box-decoration-break: clone;
+                    -webkit-box-decoration-break: clone;
+                    margin-top: 1rem;
+                    line-height: 3;
                   }
                 }
               }
