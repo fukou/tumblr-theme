@@ -15,10 +15,26 @@
 </head>
 <body>
 
+    <header class="hero" id="hero" style="background-image:var(--hero);">
+        <div class="hero__inner">
+            <form action="">
+                <input type="search" name="" id="" placeholder="What are you looking for?">
+                <button type="submit" aria-label="Search"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+            </form>
+        </div>
+    </header>
     <main class="wrapper">
         <section class="wrapper__inner">
-            <aside class="wrapper__sidebar">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore explicabo, velit quaerat architecto voluptate consequuntur earum amet libero, facere, autem culpa? Consectetur deserunt harum sapiente facere amet placeat quas et voluptatum possimus, non nobis nesciunt eaque laboriosam, ducimus nostrum at vitae officia distinctio. Voluptatibus quisquam vitae suscipit, consequuntur deleniti natus facere autem quos, similique doloribus ducimus deserunt officiis voluptatum? Eos amet fugiat iusto autem nisi nemo veniam quia qui a quaerat laudantium corporis in blanditiis quidem, laboriosam beatae numquam. Repudiandae dignissimos at quas cum tenetur saepe ea quia nulla. Aperiam veniam temporibus quas placeat molestiae expedita, odio doloremque modi dignissimos.
+            <aside class="wrapper__sidebar" data-sticky-container >
+                <div class="wrapper__sidebar--inner sticky" data-margin-top="50" data-sticky-for="1023">
+                    <div class="wrapper__sidebar--hero">
+                        <img src="https://64.media.tumblr.com/f6395bca7a86e8efa6807271b64fb7f4/tumblr_p4jpsnKZQu1qze3hdo1_500.gifv" alt="">
+                    </div>
+                    <div class="wrapper__sidebar--body">
+                        <img class="wrapper__sidebar--avatar" src="https://64.media.tumblr.com/avatar_01c35880efc5_128.pnj" alt="">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, atque tempora deserunt modi consequatur sequi delectus ut quibusdam nisi at beatae reiciendis quas assumenda, eligendi, tempore a cumque cum adipisci!
+                    </div>
+                </div>
             </aside>
             <div class="wrapper__blog">
 
@@ -476,8 +492,12 @@ multiplyByFive(69);
         </section>
     </main>
 
-
+    <script src="js/parallax.js"></script>
     <script src="https://static.tumblr.com/5ojoydj/V55qv9cjx/tumblr-audio.js"></script>
+    <script src="https://static.tumblr.com/5ojoydj/YMnpxsxmz/sticky.js"></script>
+    <script>
+        var sticky = new Sticky(".sticky");
+    </script>
 
 </body>
 
