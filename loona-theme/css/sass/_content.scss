@@ -187,6 +187,7 @@ pre { white-space: pre-wrap; }
 
     &__blog {
         .posts {
+
             position: relative;
             background-color:var(--bg-card);
             color:var(--body-text);
@@ -584,6 +585,97 @@ pre { white-space: pre-wrap; }
       
                 a {
                   color:var(--body-link);
+                }
+              }
+            }
+
+            &__tags {
+              position: relative;
+
+              display: flex;
+              align-items: center;
+              
+              padding:1rem 1rem;
+              border-top: 1px solid rgba(#111, 0.1);
+
+              .pinned {
+                display: inline-flex;
+                align-items: center;
+
+                font-weight: 600;
+
+                color:rgba(12,28,106,1);
+                padding-right: 1.25rem;
+
+                svg {
+                  margin-right: 0.5rem;
+                }
+              }
+
+              &::after {
+                content: '';
+                width: 10rem;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                position: absolute;
+                background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, #FFFFFF 100%);
+              }
+
+              &--inner {
+                max-width:32.5rem;
+                overflow: hidden;
+              }
+
+              ul {
+                position: relative;
+                overflow-x: scroll;
+                display: flex;   
+                list-style: none;
+                margin:0;
+                padding:0;
+                white-space: nowrap;
+              
+
+                transition: all 0.2s;
+               
+                will-change: transform;
+                user-select: none;
+                cursor: col-resize;
+
+                scrollbar-width: none;
+
+                padding-right: 3.5rem;
+                opacity: 0.5;
+
+                &::-webkit-scrollbar { display: none; }
+
+                &.active {
+                  // transform: scale(0.98);
+                }
+
+                @media (max-width:60rem) {
+                  max-width: 45rem;
+                }
+
+                @media (max-width:45rem) {
+                  max-width: 17.5rem;
+                }
+
+                li {
+                  & + li {
+                    margin-left: 1.25rem;
+                  }
+
+                  a {
+                    color:var(--body-link);
+                    text-decoration: none;
+                    pointer-events: none;
+
+                    &::before {
+                      content:"#"
+                    }
+                  }
                 }
               }
             }
