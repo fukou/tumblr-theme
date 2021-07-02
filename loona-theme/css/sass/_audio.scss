@@ -1,0 +1,53 @@
+/*hide the outline behind the border*/
+input[type="range"] {
+	-webkit-appearance: none;
+	background: transparent;
+	&::-webkit-slider-runnable-track {
+		height: 15px;
+		background: #222;
+		border: none;
+	}
+    &::-moz-range-track {
+		height: 15px;
+		background: #222;
+		border: none;
+	}
+	&:focus {
+		outline: none;
+		&::-webkit-slider-runnable-track {
+			background: rgb(117, 117, 117);
+		}
+		&::-moz-range-track {
+			background: rgb(117, 117, 117);
+		}
+	}
+    &:active {
+        &::-webkit-slider-thumb, &::-moz-range-thumb {
+            transform: scale(1.25);
+        }
+    }
+    &::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		border: none;
+		height: 14px;
+		width: 14px;
+		background: #666;
+        border:2px solid #444;
+		margin-top: -4px;
+
+        cursor: pointer;
+	}
+	&::-moz-range-thumb {
+		border: none;
+		height: 14px;
+		width: 14px;
+        border:2px solid #444;
+		background: #666;
+
+        cursor: pointer;
+	}
+	&:-moz-focusring {
+		outline: 1px solid white;
+		outline-offset: -1px;
+	}
+}

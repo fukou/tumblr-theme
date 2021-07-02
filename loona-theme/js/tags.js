@@ -21,11 +21,10 @@ elements.forEach(function (element, index) {
             })
         ],
         inertia: true
-    })
-        .on('dragmove', function (event) {
+    }).on('dragmove', function (event) {
             x += event.dx
             y += event.dy
 
             event.target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
-        })
+    })
 });
