@@ -38,11 +38,21 @@ posts.forEach(function (post, idx) {
 
 progress.forEach(function (seeks, idx) {
     let s = document.querySelectorAll("audio")[idx];
+    let p = document.querySelectorAll(".btn-play")[idx];
 
     s.addEventListener("playing", function (_event) {
         let dur = _event.target.duration;
         advance(dur, s);
     });
+
+    s.addEventListener("pause", function (_event) {
+        clearTimeout(timer);
+    });
+
+    s.onended = function () {
+        p.innerHTML = `<i class="las la-play"></i>`;
+        seeks.style.width = 0 + "%";
+    }
 
     function startTimer(duration, element) {
         if (percent < 100) {
@@ -57,11 +67,6 @@ progress.forEach(function (seeks, idx) {
         percent = Math.min(increment * element.currentTime * 10, 100);
         seeks.style.width = percent + "%";
         startTimer(duration, element);
-    }
-
-    s.onended = function () {
-        p.innerHTML = `<i class="las la-play"></i>`;
-        seeks.style.width = 0;
     }
 });
 

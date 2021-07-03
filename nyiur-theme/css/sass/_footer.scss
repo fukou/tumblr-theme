@@ -3,11 +3,6 @@
     margin-top: 4.5rem;
     color:var(--heading-text);
 
-    a {
-        color:var(--body-link);
-        font-weight: bold;
-    }
-
     &__inner {
         display: flex;
         align-items: center;
@@ -24,9 +19,9 @@
             margin-top: 0.85rem;
         }
 
-        [data-font="tumblr"] {
-            font-family: 'Merriweather', var(--heading-font), serif;
-            font-size: 0.95rem;
+        a {
+            color:#111;
+            font-weight: bold;
         }
     }
 }
