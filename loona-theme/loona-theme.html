@@ -27,7 +27,7 @@
         <meta name="description" content="{MetaDescription}">
     {/block:Description}
     
-    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/lvhqvpct4/main.min.css">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/gyZqvq696/main.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"> 
@@ -108,7 +108,7 @@
                     </div>
                     {/block:IfShowHeroSidebarImage}
                     <div class="wrapper__sidebar--body">
-                        {block:ShowAvatar}<img class="wrapper__sidebar--avatar {AvatarShape} {block:IfNotShowHeroSidebarImage}mt-normal{/block:IfNotShowHeroSidebarImage}" src="{PortraitURL-128}" alt="">{/block:ShowAvatar}
+                        {block:ShowAvatar}<a href="/"><img class="wrapper__sidebar--avatar {AvatarShape} {block:IfNotShowHeroSidebarImage}mt-normal{/block:IfNotShowHeroSidebarImage}" src="{PortraitURL-128}" alt="{Name}"></a>{/block:ShowAvatar}
                         {block:ShowTitle}<h2>{Title}</h2>{/block:ShowTitle}
                         {block:ShowDescription}{Description}{/block:ShowDescription}
                     </div>
@@ -125,22 +125,21 @@
                         </ul>
                     </nav>
                 </div>
-
+                
+                {block:HasPages} 
                 <div class="wrapper__sidebar--inner sticky is-nav" data-margin-top="50" data-sticky-for="1023">
                     <div class="wrapper__sidebar--body">
                         <h2>Quick Links</h2>
-                        {block:HasPages} 
                             <ul class="additional-links">
                                 {block:Pages}  
                                 <li>
                                     <a href="{URL}" class="{CurrentState} {ExternalState}">{Label}</a>
                                 </li>
                                 {/block:Pages}	
-                                
                             </ul>
-                        {/block:HasPages}
                     </div>
                 </div>
+                {/block:HasPages}
             </aside>
             <div class="wrapper__blog">
                 {block:Posts inlineMediaWidth="700" inlineNestedMediaWidth="700"}
@@ -245,10 +244,7 @@
                             {/block:RebloggedFrom}
                             
                             {block:More}
-                            <a href="{Permalink}" class="read-more"> {lang:Keep reading} <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="bevel">
-                                            <path d="M7 17l9.2-9.2M17 17V7H7"></path>
-                                        </svg>
-                            </a>
+                            <a href="{Permalink}" class="read-more"> {lang:Keep reading}</a>
                             {/block:More}
                             </div>
                             {/block:Text}
@@ -313,28 +309,24 @@
                             
                             {block:Answer}
                             <div class="posts__question">
-                                <div class="posts__question--asker">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                                    </svg> {lang:Asker asked 2}
+                                <img class="posts__answerer--img" src="{AskerPortraitURL-64}" alt="">
+                                <div class="posts__answerer--inner">
+                                    <div class="posts__question--asker">
+                                       {lang:Asker asked 2}
+                                    </div>
+                                   {Question}
                                 </div>
-                                <div class="posts__question--inner">{Question}</div>
                             </div>
                             
                             {block:Answerer}
                              <div class="posts__answerer">
-                                <div class="posts__answerer--asker">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                                    </svg> {Answerer} replied
+                                <div class="posts__answerer--inner">
+                                    <div class="posts__answerer--asker">
+                                       {Answerer} replied
+                                    </div>
+                                {Answer}
                                 </div>
-                                <div class="posts__answerer--inner">{Answer}</div>
+                                <img class="posts__answerer--img" src="{AnswererPortraitURL-64}" alt="">
                             </div>
                             {/block:Answerer}
 
@@ -471,8 +463,46 @@
                             {/block:HasTags}
                             {/block:Date}
                     </article>
+                    
+                    {block:PermalinkPage}
+                    {block:Date} 
+                    <article class="posts posts-perma">
+                        <div class="posts-perma__info">
+                            <h2>{lang:Posted on DayOfWeek DayOfMonth Month Year}</h2>
+                        </div>
+                     
+                     {block:PostNotes}
+                        {PostNotes-64}
+                     {/block:PostNotes}
+                       
+                    </article>
+                    {/block:Date} 
+                    {/block:PermalinkPage}
+                    
                 {/block:Posts}
             </div>
+            
+            {block:Pagination}
+            <nav class="pagination">
+                <div class="pagination__info">
+                    {lang:Page CurrentPage of TotalPages}
+                </div>
+                <div class="pagination__inner">
+                    <a {block:PreviousPage}href="{PreviousPage}" class="is-link"{/block:PreviousPage}><i class="las la-angle-left"></i> {lang:Previous page}</a>
+                    <a {block:NextPage}href="{NextPage}" class="is-link"{/block:NextPage}>{lang:Next page} <i class="las la-angle-right"></i></a>
+                </div>
+            </nav>
+            {/block:Pagination}
+            
+             {block:PermalinkPagination}
+             <nav class="pagination">
+                <div class="pagination__inner">
+                    <a {block:PreviousPage}href="{PreviousPage}" class="is-link"{/block:PreviousPage}><i class="las la-angle-left"></i> {lang:Previous page}</a>
+                    <a {block:NextPage}href="{NextPage}" class="is-link"{/block:NextPage}>{lang:Next page} <i class="las la-angle-right"></i></a>
+                </div>
+            </nav>
+            {/block:PermalinkPagination}
+            
         </section>
     </main>
 
