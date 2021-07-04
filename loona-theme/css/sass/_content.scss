@@ -87,6 +87,28 @@ pre { white-space: pre-wrap; }
        padding:0 1rem;
     }
 
+    &__top {
+      font-family: var(--heading-font);
+      font-size: 1.5rem;
+
+      &--inner {
+        position: relative;
+        background-color:var(--bg-card);
+        color:var(--heading-text);
+
+        overflow: hidden;
+        border-radius: 5px;
+        box-shadow: 3px 4px 9px rgba(0, 0, 0, 0.06);
+
+        padding:1.5rem 2.25rem;
+        margin-bottom: 3rem;
+
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+
     &__inner {
         // display: grid;
         // grid-template-columns: 19.5rem 100%;
@@ -148,7 +170,53 @@ pre { white-space: pre-wrap; }
 
             margin-bottom: 4.5rem;
 
-            ul {
+            nav {
+              ul {
+                display: flex;
+                flex-direction: column;
+                list-style: none;
+                margin:0;
+                padding:0;
+
+                li {
+                  &.current {
+                    a {
+                      font-weight: bold;
+                      background-color: rgba(#111, 0.05);
+                      border-right:8px solid var(--accent-color-one);
+                    }
+                  }
+                  + li {
+                    border-top: 1px solid rgba(#111, 0.1);
+                  }
+                  a {
+                    display: flex;
+                    align-items: center;
+                    padding:1rem 1.5rem;
+
+                    width: 100%;
+
+                    text-decoration: none;
+                    color:var(--heading-text);
+                    transition: 0.45s;
+
+                    text-transform: uppercase;
+
+                    &:hover {
+                      background-color:var(--accent-color-one);
+                      color:var(--bg-card);
+                    }
+
+                    svg {
+                      width:24px;
+                      margin-right: 0.75rem;
+                    }
+                  }
+                }
+              }
+            }
+
+            ul.additional-links {
               display: flex;
               flex-wrap: wrap;
               align-items: center;
@@ -196,16 +264,20 @@ pre { white-space: pre-wrap; }
 
         &--body {
             padding:2rem 2.45rem;
+            color:var(--body-text);
 
             h2 {
               margin-bottom: 1.25rem;
               text-align: center;
+              color:var(--heading-text);
             }
         }
     }
 
     &__blog {
         min-width: 0;
+        flex-grow: 1;
+        
         .posts {    
             position: relative;
             background-color:var(--bg-card);
@@ -564,6 +636,7 @@ pre { white-space: pre-wrap; }
                   overflow: hidden;
       
                   padding:2rem 0;
+                  margin-top:-6rem;
                 }
       
                 .btn-play {

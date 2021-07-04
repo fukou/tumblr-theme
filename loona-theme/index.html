@@ -24,6 +24,12 @@
         </div>
     </header>
     <main class="wrapper">
+        <div class="wrapper__top">
+            <div class="wrapper__top--inner">
+                Found results for <span class="search_query">percobaan</span>
+            </div>
+        </div>
+
         <section class="wrapper__inner">
             <aside class="wrapper__sidebar" data-sticky-container >
                 <div class="wrapper__sidebar--inner">
@@ -34,12 +40,25 @@
                         <img class="wrapper__sidebar--avatar" src="https://64.media.tumblr.com/avatar_01c35880efc5_128.pnj" alt="">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, atque tempora deserunt modi consequatur sequi delectus ut quibusdam nisi at beatae reiciendis quas assumenda, eligendi, tempore a cumque cum adipisci!
                     </div>
+                    <nav>
+                        <ul>
+                            <li class="current"><a href="/"><svg id="i-home" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                        <path d="M12 20 L12 30 4 30 4 12 16 2 28 12 28 30 20 30 20 20 Z"></path>
+                                    </svg> HOME</a></li>
+                            <li><a href="/archive"><svg id="i-folder" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                        <path d="M2 26 L30 26 30 7 14 7 10 4 2 4 Z M30 12 L2 12"></path>
+                                    </svg> ARCHIVE</a></li>
+                            <li><a href="/ask"><svg id="i-mail" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                        <path d="M2 26 L30 26 30 6 2 6 Z M2 6 L16 16 30 6"></path>
+                                    </svg> MESSAGE ME</a></li>
+                        </ul>
+                    </nav>
                 </div>
 
                 <div class="wrapper__sidebar--inner sticky is-nav" data-margin-top="50" data-sticky-for="1023">
                     <div class="wrapper__sidebar--body">
                         <h2>Quick Links</h2>
-                        <ul>       
+                        <ul class="additional-links">       
                             <li>
                                 <a href="/about">about me</a>
                             </li>

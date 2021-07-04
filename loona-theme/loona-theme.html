@@ -13,7 +13,7 @@
         |  |     |  `--'  | |  .  \  |  `--'  | |  `--'  |
         |__|      \______/  |__|\__\  \______/   \______/  
                        
-                         LOONA theme v2.0
+                         LOONA Theme v2.0
              
 -->
 <head>
@@ -27,7 +27,7 @@
         <meta name="description" content="{MetaDescription}">
     {/block:Description}
     
-    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/YCLqvo7aw/main.min.css">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/lvhqvpct4/main.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"> 
@@ -39,146 +39,98 @@
      <link href="https://cdn.jsdelivr.net/gh/boscoxvi/npfphotosets/npfphotosetstyle.css" rel="stylesheet" type="text/css">
      <link href="https://static.tumblr.com/0podkko/xIbplezmo/modified_photosets.css" rel="stylesheet">
      
+     <meta name="image:Hero Sidebar Image" content="https://static.tumblr.com/5ojoydj/h0lqvp8so/hero.jpg">
+     
+     <meta name="color:Accent Color Primary" content="#0C1C6A" />
+     <meta name="color:Accent Color Secondary" content="#EB0172" />
+        
+     <meta name="color:Posts Background Color" content="#ffffff" />
+     <meta name="color:Posts Body Link Color" content="#111111" />
+     <meta name="color:Posts Body Heading Color" content="#111111" />
+     <meta name="color:Posts Body Text Color" content="#444444" />
+     
+     <meta name="select:Hero Top Full Width Image" content="d-hblock" title="Enable">
+     <meta name="select:Hero Top Full Width Image" content="d-hnone" title="Disable">
+     
+     <meta name="if:Show Hero Sidebar Image" content="0">
+     
     <style>
             :root {
                 --hero:url("{HeaderImage}");
-                --bg: url('https://static.tumblr.com/5ojoydj/jKqqvmbx3/white-waves.png');
+                --bg: "";
                 --heading-font:'Source Serif Pro', serif;
                 --body-font: 'Source Sans Pro', sans-serif;
                 --code-font:'Oxygen Mono', monospace;
             
-                --accent-color-one:rgba(12,28,106,1);
-                --accent-color-two:rgb(235,1,114);;
-                
-                --white:#fff;
+                --accent-color-one:{color:Accent Color Primary};
+                --accent-color-two:{color:Accent Color Secondary};
             
-                --bg-color:#F2F2F2;
-                --bg-card:#fff;
+                --bg-color:{BackgroundColor};
+                --bg-card:{color:Posts Background Color};
             
-                --heading-text:#111;
-                --body-text:#555;
-                --body-link:#111;
-            }
-            
-            .tmblr-iframe-compact .tmblr-iframe--unified-controls {
-             width: 100% !important;
-           }
-            
-            @media (min-width:60rem) {
-                .iframe-controls--phone-mobile,
-               .tmblr-iframe--app-cta-button,
-               .tmblr-iframe:not(#new-tumblr-controls) {
-                visibility: hidden !important;
-                display: none !important;
-                }
-            }
-            
-            .iframe-container,
-            iframe#new-tumblr-controls {
-                display:flex;
-                align-items:center;
-                justify-content:space-between;
-                padding:0 0 0 1rem;
-                
-                position:unset;
-                height: 54px;
-                width: 100% !important;
-                background: {AccentColor};
-                z-index: 10;
-            }
-            
-             @media (max-width:60rem) {
-                .iframe-container,
-                iframe#new-tumblr-controls {
-                     visibility: hidden !important;
-                    display: none !important;
-                }
-            }
-        
-            .tmblr-lightbox .lightbox-image { height:auto;}
-            
-            .npf_photoset div.npf_row figure.tmblr-full:first-child { margin-right:0!important;}
-            .soundcloud_audio_player {
-                margin:1.25rem 0;
-            }
-            .is-spotify {
-                position: relative;
-                padding-bottom: 80px;
-            }
-            .is-spotify .spotify_audio_player {
-                position:absolute;
-                width:100%;
-                height:100%;
-            } 
-            .like-b {
-                position:relative;
-                display:inline-block;
-                width:100%;
-            }
-            
-            .like-b .like_button {
-                width:100%;
-                display:inline-block;
-                padding: 0.5rem 1rem;
-                width: 100%;
-            }
-            
-            .like-b .like_button iframe {
-                position:absolute;
-                width:100%;
-                height:100%;
-                top:0;
-                left:0;
-                bottom:0;
-                right:0;
-                z-index:2;
-                opacity:0;
-            }
-            
-            .like-b .like_button:after {
-                content: "Like";
-            }
-            
-            .like-b .like_button.liked:after {
-                content: "Liked";
-            }
-            
-            .like-b .like_button.liked {
-                background-color: rgb(252, 203, 203);
-                color:rgb(133, 72, 72);
-                font-weight: bold;
+                --body-text: {color:Posts Body Text Color};
+                --body-link: {color:Posts Body Link Color};
+                --heading-text: {color:Posts Body Heading Color};
             }
     {CustomCSS}
     </style>
 </head>
-<body>
-     <div class="iframe-container"><a class="t-logo" href="/" target="_blank" data-js-logo=""> <svg class="svg-logo logo-t" width="15px" height="28px" viewBox="0 0 21 37" xmlns="http://www.w3.org/2000/svg"><g class="logotype" fill="#ccc" stroke-width="1" fill-rule="evenodd"><path d="M21 37h-6C9 37 5 34 5 27V16H0v-6C6 9 8 4 8 0h6v9h7v7h-7v10c0 3 1 4 4 4h3z" fill-rule="evenodd"></path></g></svg> </a><iframe id="new-tumblr-controls" src="" frameborder="0" scrolling="no" name="unified-controls" class="tmblr-iframe tmblr-iframe--unified-controls tmblr-iframe--loaded iframe-controls--desktop"></iframe></div>
+<body class="{select:Hero Top Full Width Image}">
+    <div class="iframe-container"><iframe id="new-tumblr-controls" src="" frameborder="0" scrolling="no" name="unified-controls" class="tmblr-iframe tmblr-iframe--unified-controls tmblr-iframe--loaded iframe-controls--desktop"></iframe></div>
     <header class="hero" id="hero" style="background-image:var(--hero);">
-        <div class="hero__inner">
-            <form action="/search" method="get">
-                <input type="search" name="q" value="{SearchQuery}" placeholder="What are you looking for?">
-                <button type="submit" aria-label="Search"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-            </form>
-        </div>
+        <!--<div class="hero__inner">-->
+        <!--    <form action="/search" method="get">-->
+        <!--        <input type="search" name="q" value="{SearchQuery}" placeholder="What are you looking for?">-->
+        <!--        <button type="submit" aria-label="Search"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>-->
+        <!--    </form>-->
+        <!--</div>-->
     </header>
     <main class="wrapper">
+        <div class="wrapper__top">
+            {block:TagPage}
+                <div class="wrapper__top--inner">
+                    <p>{lang:Showing TagResultCount posts tagged Tag 2}</p>
+                </div>
+            {/block:TagPage}
+                
+            {block:SearchPage}
+                 <div class="wrapper__top--inner">
+                    <p>{lang:Found SearchResultCount results for SearchQuery 2} {block:NoSearchResults}{lang:No search results for SearchQuery 2}{/block:NoSearchResults}</p>
+                </div>
+            {/block:SearchPage}
+        </div>
         <section class="wrapper__inner">
             <aside class="wrapper__sidebar" data-sticky-container>
                 <div class="wrapper__sidebar--inner">
+                    {block:IfShowHeroSidebarImage}
                     <div class="wrapper__sidebar--hero">
-                        <img src="https://64.media.tumblr.com/f6395bca7a86e8efa6807271b64fb7f4/tumblr_p4jpsnKZQu1qze3hdo1_500.gifv" alt="">
+                        <img src="{image:Hero Sidebar Image}" alt="">
                     </div>
+                    {/block:IfShowHeroSidebarImage}
                     <div class="wrapper__sidebar--body">
-                        {block:ShowAvatar}<img class="wrapper__sidebar--avatar {AvatarShape}" src="{PortraitURL-128}" alt="">{/block:ShowAvatar}
+                        {block:ShowAvatar}<img class="wrapper__sidebar--avatar {AvatarShape} {block:IfNotShowHeroSidebarImage}mt-normal{/block:IfNotShowHeroSidebarImage}" src="{PortraitURL-128}" alt="">{/block:ShowAvatar}
+                        {block:ShowTitle}<h2>{Title}</h2>{/block:ShowTitle}
                         {block:ShowDescription}{Description}{/block:ShowDescription}
                     </div>
+                     <nav>
+                        <ul>
+                            <li {block:HomePage} class="current"{/block:HomePage}><a href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> {lang:Home}</a></li>
+                            <li><a href="/archive"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><path d="M14 3v5h5M16 13H8M16 17H8M10 9H8"/></svg> {lang:Archive}</a></li>
+                            {block:AskEnabled}
+                            <li {block:AskPage} class="current"{/block:AskPage}><a href="/ask"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 12H16c-.7 2-2 3-4 3s-3.3-1-4-3H2.5"/><path d="M5.5 5.1L2 12v6c0 1.1.9 2 2 2h16a2 2 0 002-2v-6l-3.4-6.9A2 2 0 0016.8 4H7.2a2 2 0 00-1.8 1.1z"/></svg> {block:English}Inbox{/block:English}{block:German}Posteingang{/block:German}{block:French}Boîte de réception{/block:French}{block:Italian}Posta in arrivo{/block:Italian}{block:Japanese}受信ボックス{/block:Japanese}{block:Turkish}Gelen Kutusu{/block:Turkish}{block:Spanish}Bandeja de entrada{/block:Spanish}{block:Russian}Входящие{/block:Russian}{block:Polish}Skrzynka odbiorcza{/block:Polish}{block:PortuguesePT}Caixa de entrada{/block:PortuguesePT}{block:PortugueseBR}Caixa de entrada{/block:PortugueseBR}{block:Dutch}Inbox{/block:Dutch}{block:Korean}수신함{/block:Korean}{block:ChineseSimplified}收件箱{/block:ChineseSimplified}{block:ChineseTraditional}收件匣{/block:ChineseTraditional}{block:ChineseHK}收件匣{/block:ChineseHK}{block:Indonesian}Kotak masuk{/block:Indonesian}{block:Hindi}इनबॉक्स{/block:Hindi}</a></li>
+                            {/block:AskEnabled}
+                            {block:SubmissionsEnabled}
+                            <li {block:SubmitPage} class="current"{/block:SubmitPage}><a href="/submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="14 2 18 6 7 17 3 17 3 13 14 2"></polygon><line x1="3" y1="22" x2="21" y2="22"></line></svg> {SubmitLabel}</a></li>
+                            {/block:SubmissionsEnabled}
+                        </ul>
+                    </nav>
                 </div>
 
                 <div class="wrapper__sidebar--inner sticky is-nav" data-margin-top="50" data-sticky-for="1023">
                     <div class="wrapper__sidebar--body">
                         <h2>Quick Links</h2>
                         {block:HasPages} 
-                            <ul>
+                            <ul class="additional-links">
                                 {block:Pages}  
                                 <li>
                                     <a href="{URL}" class="{CurrentState} {ExternalState}">{Label}</a>
@@ -192,14 +144,14 @@
             </aside>
             <div class="wrapper__blog">
                 {block:Posts inlineMediaWidth="700" inlineNestedMediaWidth="700"}
-                    <article class="posts{block:PinnedPostLabel} pinned{/block:PinnedPostLabel} {TagsAsClasses}" id="{PostID}">
+                    <article class="posts posts-{PostType}{block:PinnedPostLabel} pinned{/block:PinnedPostLabel} {TagsAsClasses}" id="{PostID}">
                         {block:Date}
                              <div class="posts__perma">
                                 <div class="posts__perma--reblog">
-                                    <a href="#">{Name}</a>
+                                    <a href="{Permalink}">{Name}</a>
                                     {block:RebloggedFrom} 
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/></svg>
-                                    <a href="#">{ReblogParentName}</a>
+                                    <a href="{ReblogParentURL}">{ReblogParentName}</a>
                                     {/block:RebloggedFrom}
                                 </div> 
                     
@@ -527,7 +479,7 @@
     <footer class="footer">
        <div class="footer__inner">
             <div class="footer__copyright">
-            Copyright © FUKUO 2012–2021. All rights reserved.
+            Copyright © {Name} {CopyrightYears}. All rights reserved.
             </div>
             <div class="footer__credit">
             LOONA Theme by <a href="https://fukuo.tumblr.com">Fukuo</a>. Powered by <a
@@ -552,12 +504,12 @@
         function tumblrControls(e, r, t, o, s, l) {
 	    var a = e.substr(e.indexOf("#") + 1),
 		    m = r.substr(r.indexOf("#") + 1),
-		    u = "https://"; "true" == l ? u = "https://www.tumblr.com/dashboard/iframe?tumblelogName=" + t + "&pid=" + o + "&src=https%3A%2F%2F" + t + ".tumblr.com%2Fpost%2F" + o + "%2F" + s.split("/").pop() + "#%7B%22searchQuery%22%3A%22%22%2C%22pushDown%22%3Afalse%2C%22useThemeColors%22%3Atrue%2C%22scrollHeader%22%3Afalse%2C%22themeHeaderImage%22%3A%22%22%2C%22themeBackgroundColor%22%3A%22%23" + a + "%22%2C%22themeTitleColor%22%3A%22%23" + m + "%22%2C%22themeAccentColor%22%3A%22%23" + m + "%22%2C%22isOpticaLike%22%3Atrue%2C%22shouldHideBlogSearchBar%22%3Atrue%7D" : u = "https://www.tumblr.com/dashboard/iframe?tumblelogName=" + t + "&src=https%3A%2F%2F" + t + ".tumblr.com%2F#%7B%22searchQuery%22%3A%22%22%2C%22pushDown%22%3Atrue%2C%22useThemeColors%22%3Afalse%2C%22scrollHeader%22%3Atrue%2C%22themeHeaderImage%22%3A%22%22%2C%22themeBackgroundColor%22%3A%22%23" + a + "%22%2C%22themeAccentColor%22%3A%22%23" + m + "%22%2C%22isOpticaLike%22%3Atrue%2C%22shouldHideBlogSearchBar%22%3Atrue%7D";
+		    u = "https://"; "true" == l ? u = "https://www.tumblr.com/dashboard/iframe?tumblelogName=" + t + "&pid=" + o + "&src=https%3A%2F%2F" + t + ".tumblr.com%2Fpost%2F" + o + "%2F" + s.split("/").pop() + "#%7B%22searchQuery%22%3A%22%22%2C%22pushDown%22%3Afalse%2C%22useThemeColors%22%3Atrue%2C%22scrollHeader%22%3Afalse%2C%22themeHeaderImage%22%3A%22%22%2C%22themeBackgroundColor%22%3A%22%23" + a + "%22%2C%22themeTitleColor%22%3A%22%23" + m + "%22%2C%22themeAccentColor%22%3A%22%23" + m + "%22%2C%22isOpticaLike%22%3Atrue%2C%22shouldHideBlogSearchBar%22%3Afalse%7D" : u = "https://www.tumblr.com/dashboard/iframe?tumblelogName=" + t + "&src=https%3A%2F%2F" + t + ".tumblr.com%2F#%7B%22searchQuery%22%3A%22%22%2C%22pushDown%22%3Atrue%2C%22useThemeColors%22%3Atrue%2C%22scrollHeader%22%3Afalse%2C%22themeHeaderImage%22%3A%22%22%2C%22themeBackgroundColor%22%3A%22%23" + a + "%22%2C%22themeAccentColor%22%3A%22%23" + m + "%22%2C%22isOpticaLike%22%3Atrue%2C%22shouldHideBlogSearchBar%22%3Afalse%7D";
 	        
 	        document.querySelector("#new-tumblr-controls").setAttribute("src", u);
         }
         
-        tumblrControls("{AccentColor}", "#111", "{Name}"{block:Posts}{block:PermalinkPage}{block:Date}, "{PostID}", "{RelativePermalink}", "true"{/block:Date}{/block:PermalinkPage}{/block:Posts} );
+        tumblrControls("{color:Posts Background Color}", "{AccentColor}", "{Name}"{block:Posts}{block:PermalinkPage}{block:Date}, "{PostID}", "{RelativePermalink}", "true"{/block:Date}{/block:PermalinkPage}{/block:Posts} );
         
         const spotifyPlayers = document.querySelectorAll(".spotify_audio_player");
         if(spotifyPlayers) {
@@ -585,7 +537,7 @@
         // https://codematurgy.tumblr.com/post/643394597477875713/npfphotosets-plugin
         const npfOptions = {
            includeCommonPhotosets: false,
-           photosetMargins:"30",
+           photosetMargins:"0",
            insertGalleryIndicator:true,
            galleryIndicatorClass:"npf_gallery_indicator",
            galleryIndicatorContent:"<i class='las la-expand'></i>"
