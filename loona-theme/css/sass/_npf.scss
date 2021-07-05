@@ -301,6 +301,16 @@ iframe#new-tumblr-controls {
    display: inline-block;
    padding: 0.5rem 1rem;
    width: 100%;
+
+   &:hover {
+      background-color: rgba(#111, 0.1);
+   }
+
+   &.liked {
+      &:hover {
+         background-color: rgb(231, 181, 181);
+      }
+   }
 }
 
 .like-b .like_button iframe {
@@ -319,8 +329,16 @@ iframe#new-tumblr-controls {
    content: "Like";
 }
 
+.like-b:hover .like_button:after {
+   content: "Like this post?";
+}
+
 .like-b .like_button.liked:after {
    content: "Liked";
+}
+
+.like-b:hover .like_button.liked:after {
+   content: "Unlike this post?";
 }
 
 .like-b .like_button.liked {
@@ -346,7 +364,7 @@ iframe#new-tumblr-controls {
 }
 
 .d-hblock .wrapper {
-   margin-top: -17.1rem;
+   margin-top:-11.15rem;
 }
 
 .d-hnone .hero {

@@ -445,9 +445,12 @@
                             {/block:Text}
                             
                             {block:Photo}
-                            <figure class="posts__photo" style="cursor: zoom-in;" onclick="Tumblr.Lightbox.init([{ width: {PhotoWidth-HighRes}, height: {PhotoHeight-HighRes}, low_res: '{PhotoURL-500}', high_res: '{PhotoURL-HighRes}' }]); $('body').toggleClass('tumblr_lightbox_active');return false;">
+                            {LinkOpenTag}
+                            <figure class="posts__photo">
                                 <img src="{PhotoURL-HighRes}">
                             </figure>
+                            {LinkCloseTag}
+                            
                             <div class="posts__caption">
                                 {block:Caption}
                                 {block:NotReblog}{Caption}{/block:NotReblog}

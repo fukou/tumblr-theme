@@ -27,7 +27,7 @@
         <meta name="description" content="{MetaDescription}">
     {/block:Description}
     
-    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/gyZqvq696/main.min.css">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/LPAqvq8vr/main.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"> 
@@ -39,6 +39,7 @@
      <link href="https://cdn.jsdelivr.net/gh/boscoxvi/npfphotosets/npfphotosetstyle.css" rel="stylesheet" type="text/css">
      <link href="https://static.tumblr.com/0podkko/xIbplezmo/modified_photosets.css" rel="stylesheet">
      
+     <meta name="image:Background Image" content="">
      <meta name="image:Hero Sidebar Image" content="https://static.tumblr.com/5ojoydj/h0lqvp8so/hero.jpg">
      
      <meta name="color:Accent Color Primary" content="#0C1C6A" />
@@ -49,15 +50,22 @@
      <meta name="color:Posts Body Heading Color" content="#111111" />
      <meta name="color:Posts Body Text Color" content="#444444" />
      
-     <meta name="select:Hero Top Full Width Image" content="d-hblock" title="Enable">
-     <meta name="select:Hero Top Full Width Image" content="d-hnone" title="Disable">
+     <meta name="text:Hero Top Section Image Height" content="55" />
+     
+     <meta name="select:Show Tags" content="d-block" title="Enable">
+     <meta name="select:Show Tags" content="d-none" title="Disable">
+     
+     <meta name="select:Hero Top Section Image" content="d-hblock" title="Enable">
+     <meta name="select:Hero Top Section Image" content="d-hnone" title="Disable">
      
      <meta name="if:Show Hero Sidebar Image" content="0">
      
-    <style>
+     <style>
             :root {
                 --hero:url("{HeaderImage}");
-                --bg: "";
+                --hero-height:{text:Hero Top Section Image Height};
+                
+                --bg: url("{image:Background Image}");
                 --heading-font:'Source Serif Pro', serif;
                 --body-font: 'Source Sans Pro', sans-serif;
                 --code-font:'Oxygen Mono', monospace;
@@ -72,18 +80,21 @@
                 --body-link: {color:Posts Body Link Color};
                 --heading-text: {color:Posts Body Heading Color};
             }
+            
+            .d-block {
+                display:block;
+            }
+            
+            .d-none {
+                display:none;
+            }
+            
     {CustomCSS}
     </style>
 </head>
-<body class="{select:Hero Top Full Width Image}">
+<body class="{select:Hero Top Section Image}">
     <div class="iframe-container"><iframe id="new-tumblr-controls" src="" frameborder="0" scrolling="no" name="unified-controls" class="tmblr-iframe tmblr-iframe--unified-controls tmblr-iframe--loaded iframe-controls--desktop"></iframe></div>
-    <header class="hero" id="hero" style="background-image:var(--hero);">
-        <!--<div class="hero__inner">-->
-        <!--    <form action="/search" method="get">-->
-        <!--        <input type="search" name="q" value="{SearchQuery}" placeholder="What are you looking for?">-->
-        <!--        <button type="submit" aria-label="Search"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>-->
-        <!--    </form>-->
-        <!--</div>-->
+    <header class="hero" id="hero" style="background-image:var(--hero);min-height:{text:Hero Top Section Image Height}vh;">
     </header>
     <main class="wrapper">
         <div class="wrapper__top">
@@ -159,7 +170,7 @@
                                     <ul class="posts__perma--popup">
                                         <li><a href="{ReblogURL}">Reblog</a></li>
                                         <li class="like-b">{LikeButton}</li>
-                                        <li><a href="{Permalink} {Target}">{NoteCountWithLabel}</a></li>
+                                        <li><a href="{Permalink}" {Target}>{NoteCountWithLabel}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -446,23 +457,35 @@
                             
                             {block:Date}
                             {block:HasTags}
-                            <div class="posts__tags">
-                                {block:PinnedPostLabel} 
-                                <span class="pinned"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>{lang:Pinned Post}</span>                  
-                                {/block:PinnedPostLabel} 
-                                
-                                <div class="posts__tags--inner">
-                                    <ul>
-                                        {block:Tags}
-                                          <li> <a href="{TagURL}">{Tag}</a></li>
-                                        {/block:Tags}
-                                    </ul>
+                            <div class="{select:Show Tags}">
+                                <div class="posts__tags">
+                                    {block:PinnedPostLabel} 
+                                    <span class="pinned"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>{lang:Pinned Post}</span>                  
+                                    {/block:PinnedPostLabel} 
+                                    
+                                    <div class="posts__tags--inner">
+                                        <ul>
+                                            {block:Tags}
+                                              <li> <a href="{TagURL}">{Tag}</a></li>
+                                            {/block:Tags}
+                                        </ul>
+                                    </div>
+                                    
                                 </div>
-                                
                             </div>
                             {/block:HasTags}
                             {/block:Date}
                     </article>
+                    
+                    {block:PermalinkPagination}
+                     <nav class="pagination">
+                        <div class="pagination__inner" style="display: flex;justify-content: space-between;width: 100%;margin-bottom: 3.5rem;">
+                            <a {block:PreviousPost}href="{PreviousPost}" class="is-link"{/block:PreviousPost}><i class="las la-angle-left"></i> {lang:Previous post}</a>
+                            <a {block:NextPost}href="{NextPost}" class="is-link"{/block:NextPost}>{lang:Next post} <i class="las la-angle-right"></i></a>
+                        </div>
+                    </nav>
+                    {/block:PermalinkPagination}
+            
                     
                     {block:PermalinkPage}
                     {block:Date} 
@@ -493,15 +516,6 @@
                 </div>
             </nav>
             {/block:Pagination}
-            
-             {block:PermalinkPagination}
-             <nav class="pagination">
-                <div class="pagination__inner">
-                    <a {block:PreviousPage}href="{PreviousPage}" class="is-link"{/block:PreviousPage}><i class="las la-angle-left"></i> {lang:Previous page}</a>
-                    <a {block:NextPage}href="{NextPage}" class="is-link"{/block:NextPage}>{lang:Next page} <i class="las la-angle-right"></i></a>
-                </div>
-            </nav>
-            {/block:PermalinkPagination}
             
         </section>
     </main>
