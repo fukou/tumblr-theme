@@ -19,5 +19,11 @@
 ## Support
 If you happen to experience an issue, do not hesitate to open a Github issue.
 
+## Credits
+- no.js photosets by [annasthms and espoirthemes](https://github.com/annasthms/photosets)
+- tumblrControls.js by [rachaelthemes](https://rachaelthemes.com/tumblr-control)
+- npfPhotosets() plugin by [codematurgy](https://github.com/boscoxvi/npfphotosets)
+- Expanded Tumblr localization by [codematurgy](https://github.com/boscoxvi/expandedtumblrlocalization)
+
 ## License
 The source code to the website is available under the MIT License
