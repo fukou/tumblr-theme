@@ -4,9 +4,10 @@
 ## Features
 - Responsive layout and looks good on mobile screen
 - A built-in search form to help you find what you are looking for
-- An dark mode toggle button to switch between dark and light mode for your blog, the dark mode comes with a predefined color scheme (optional)
+- A dark mode toggle button to switch between dark and light mode for your blog, the dark mode comes with a predefined color scheme (optional)
 - A featured posts using tag system. You can use this to highlight your favorite post. Just tag your post with `featured` and it will be automatically shown (optional)
-- A table of contents that is dynamically generated from the heading post. You can use this feature by tagging your post `post_text` and it will be generated on the permalink page.
+- A table of contents that is dynamically generated from the heading post. You can use this feature by tagging your post `post_text` and it will be generated on the permalink page
+- Localizations
 - Dashboard-like reblog chains
 
 ## Theme options
