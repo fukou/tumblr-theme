@@ -1,5 +1,7 @@
 # Nyiur
-> Nyiur is a header Tumblr theme for writing-heavy blogs. It’s simple and clean with readable fonts. A good theme for writers and blogger, but not limited to others.
+> Nyiur is a header Tumblr theme for writing-heavy blogs. It’s simple and clean with readable fonts. A good theme for writers and blogger, but not limited for others. A redesign of my old theme that was made in 2016, under the same name.
+
+[Preview blog and install here](https://www.tumblr.com/theme/41159)
 
 ## Features
 - Responsive layout and looks good on mobile screen
