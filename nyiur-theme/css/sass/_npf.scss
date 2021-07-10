@@ -192,7 +192,9 @@ figure[data-tumblr-attribution] {
 
 [photoset-layout] div {cursor:zoom-in!important}
 [photoset-layout] div img {
-     border-radius:8px;
+    width:100%!important;
+    height:100%!important;
+    border-radius:8px;
     -moz-border-radius:8px;
 }
 
@@ -203,10 +205,6 @@ span.search_query, span.tag {
 #fb {background-color:#1877f2; color:white;}
 #twt {background-color:#1da1f2; color:#ddd;}
 #pt {background-color:#e60023; color:white;}
-
-.h-100 {
-    min-height:100vh;
-}
 
 hr {
     width: 30%;
