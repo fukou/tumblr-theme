@@ -53,6 +53,17 @@
         }
     }
 
+    &__body {
+        background-color: var(--bg-card);
+        .tmblr-full {
+            margin:1rem 0;
+
+            img {
+                border-radius: 8px;
+            }
+        }
+    }
+
     &.audio {
         background-color:var(--primary-color);
     }

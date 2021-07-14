@@ -47,6 +47,9 @@
      <meta name="text:Featured Heading Text" content="Featured posts">
      <meta name="text:Featured Body Text" content="Hey, this is an example test for the body text of the featured section. You can add the text as many much as possible. Thank you.">
      
+     <meta name="select:Posts Width" content="is-default" title="Default">
+     <meta name="select:Posts Width" content="is-half" title="Small">
+     
      <meta name="select:Dark Mode Toggle Button" content="d-block" title="Show">
      <meta name="select:Dark Mode Toggle Button" content="d-none" title="Hide">
      
@@ -64,7 +67,7 @@
      <link rel="alternate" type="application/rss+xml" href="{RSS}">
      <meta name="theme-color" content="{AccentColor}">
         
-     <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/Nosqw12qz/main.min.css">
+     <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/KCPqw8h99/main.min.css">
      <link rel="preconnect" href="https://fonts.gstatic.com">
      <link href="https://fonts.googleapis.com/css2?family={select:Body Font}:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
@@ -112,6 +115,8 @@
                 --body-text-hero: hsl(var(--hue), 10%, 80%);
                 
                 --button-switch: hsl(var(--hue), 20%, 25%);
+                
+                --primary-color:hsl(var(--hue), 20%, 35%);
             
                 --bg-post:hsl(var(--hue), 20%, 16%);
                 --bg-card: hsl(var(--hue), 20%, 22%);
@@ -313,7 +318,7 @@
             {/block:IfFeaturedPosts}
             {/block:HomePage}
 
-            <div class="wrapper__blog">
+            <div class="wrapper__blog {select:Posts Width}">
                 {block:TagPage}
                 <div class="posts--heading">
                     <h1>Tagged page</h1>
