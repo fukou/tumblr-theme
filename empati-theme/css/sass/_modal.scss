@@ -1,0 +1,135 @@
+.modal {
+   position: fixed;
+   left: 0;
+   top: 0;
+   background: rgba(#111, 0.95);
+
+   width: 100%;
+   height: 100vh;
+
+   z-index: 999999;
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   // justify-content: flex-start;
+
+   opacity: 0;
+   visibility: hidden;
+   overflow-y: auto;
+   transition: 0.4s cubic-bezier(0.87, 0, 0.13, 1);
+
+   &.is-center {
+      justify-content: center;
+   }
+
+   &__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr minmax(auto, 60rem) 1fr 1fr;
+      margin: 3.5rem 1rem;
+
+      &:focus {
+         outline: 3px solid red;
+      }
+
+      .posts {
+         grid-column: 3/4;
+         background-color: var(--bg-card);
+         font-family: var(--body-font);
+         position: relative;
+         overflow: hidden;
+         -webkit-border-radius: 7px;
+         -moz-border-radius: 7px;
+         border-radius: 7px;
+
+         &__view, &__user, &__date {
+             display: none;
+         }
+
+         &__text {
+            @media (min-width:60rem) {
+               margin:0 4.5rem;
+            }
+         }
+
+         &__img {
+             .posts__inner {
+                display: grid;
+                grid-template-columns: 30rem auto;
+                min-height: 500px;
+             }
+         }
+
+         &__image {
+            position: relative;
+            height: 0;
+            padding-bottom: calc(100% + 35px);
+
+            img {
+               position: absolute;
+               left: 0;
+               top: 0;
+
+               width: 100%;
+               height: 100%;
+               object-fit: cover;
+            }
+         }
+
+         &__body {
+            padding: 3.5rem 3rem;
+            color: var(--posts-body);
+
+            ol,
+            ul {
+               margin: 1.5rem 0;
+               padding: 0;
+
+               li {
+                  margin-left: 1rem;
+               }
+            }
+
+            a {
+               color: var(--posts-link);
+            }
+         }
+      }
+   }
+
+   &__close {
+      position: fixed;
+      right: 3rem;
+      top: 2rem;
+      z-index: 930945045;
+
+      cursor: pointer;
+
+      display: inline-flex;
+      align-items: center;
+
+      background-color: #40BF8C;
+      color:var(--bg-card);
+      border:0;
+      padding:1rem 1rem;
+      border-radius: 50%;
+
+      @media (max-width: 40rem) {
+         right: 0 !important;
+         top: 0 !important;
+      }
+
+      &:focus {
+         outline: 3px solid red;
+      }
+   }
+
+   &.is-appear {
+      visibility: visible;
+      opacity: 1;
+   }
+
+   .btn-post {
+      display: none;
+   }
+}
