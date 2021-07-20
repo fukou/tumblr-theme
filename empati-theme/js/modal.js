@@ -50,21 +50,22 @@ const closeDialog = function () {
 };
 
 allPosts.forEach(function (post, idx) {
-    // const btn = post.querySelector(".btn-post");
-    // if(btn) {
-    //     btn.addEventListener("click", function (e) {
-    //         const p = post.querySelector(".posts__inner").cloneNode(true);
-    //         modal__inner.appendChild(p);
+    const btn = post.querySelector(".btn-post").parentElement;
+    if(btn) {
+        btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            const p = post.cloneNode(true);
+            modal__inner.appendChild(p);
       
-    //         openDialog();
-    //      });
-    // }
-    post.addEventListener("click", function (e) {
-        const p = post.cloneNode(true);
-        modal__inner.appendChild(p);
+            openDialog();
+         });
+    }
+   //  post.addEventListener("click", function (e) {
+   //      const p = post.cloneNode(true);
+   //      modal__inner.appendChild(p);
   
-        openDialog();
-     });
+   //      openDialog();
+   //   });
 });
 
 modal__close.addEventListener("click", function (e) {
