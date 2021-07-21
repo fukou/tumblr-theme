@@ -44,6 +44,12 @@
          padding: 0;
 
          li {
+            @media (max-width:60rem) {
+               &:not(.home) {
+                  display: none;
+               }
+            }
+
             & + li {
                margin-left: 0.75rem;
             }

@@ -64,7 +64,7 @@ body {
       background-size: cover;
 
       padding-top: 3.85rem;
-      padding-bottom:16rem;
+      padding-bottom:17.5rem;
 
       margin-bottom: -17.85rem;
 
@@ -88,6 +88,11 @@ body {
          color: #fff;
          text-align: center;
          z-index: 2;
+
+         a {
+            color:currentColor;
+            font-weight: bold;
+         }
 
          figure {
             display: flex;
@@ -128,19 +133,12 @@ body {
       }
    }
 
-   &__sidebar {
-      position: sticky;
-      align-self: flex-start;
-
-      top: 1.5rem;
-   }
-
    &__toggle {
       grid-column: 3/4;
       
       position: relative;
       z-index: 2;
-      margin-bottom: 2.5rem;
+      margin-bottom: 3.5rem;
 
       display: flex;
       align-items: center;
@@ -149,10 +147,15 @@ body {
       animation-name:fadein;
       animation-duration: 1s;
 
+      @media (max-width: 60rem) {
+         display: none;
+      }
+
       &--inner {
          background-color:var(--bg-card);
          padding:0.65rem 0.65rem;
          border-radius: 8px;
+         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
          > button {
             cursor: pointer;
@@ -170,6 +173,7 @@ body {
             }
 
             &.actived {
+               font-weight: bold;
                background-color: var(--primary-color);
             }
 
@@ -187,12 +191,20 @@ body {
          display: grid;
          grid-template-columns: repeat(3, 1fr);
          gap: 3.5rem;   
+
+         @media (max-width: 60rem) {
+            grid-template-columns: 1fr;
+         }
       }
 
       &.is-list {
          display: flex;
          flex-direction: column;
          padding:0 11.5rem;
+
+         @media (max-width: 60rem) {
+            padding:0;
+         }
 
          .posts {
             + .posts {
@@ -204,14 +216,21 @@ body {
             &__view {
                display: none;
             }
+            &__audio {
+               position: relative;
+            }
+            &__image {
+               height: auto;
+               padding:0;
+
+               img {
+                  position: unset;
+               }
+            }
          }
       }
 
       z-index: 2;
-
-      @media (max-width: 60rem) {
-         grid-template-columns: 1fr;
-      }
 
       .posts {
          counter-increment: list;
@@ -244,6 +263,12 @@ body {
          &__body {
             padding: 2.25rem;
 
+            color: var(--body-text);
+            
+            p + p {
+               margin-top: 1rem;
+            }
+
             h1,
             h2,
             h3,
@@ -255,12 +280,12 @@ body {
             }
 
             h1 {
-               font-size: 1.25rem;
+               font-size: 1.45rem;
                margin-bottom: 1rem;
             }
 
             h2 {
-               font-size: 1.05rem;
+               font-size: 1.25rem;
                margin-bottom: 0.5rem;
             }
 
