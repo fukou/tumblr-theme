@@ -11,6 +11,24 @@
 
    backdrop-filter: blur(8px);
 
+   &__hamburger {
+       cursor: pointer;
+
+       width:3rem;
+       height: 3rem;
+       display: inline-flex;
+       align-items: center;
+       justify-content: center;
+
+       background-color:#111;
+       color:white;
+
+       border:0;
+
+       padding:0.85rem;
+       border-radius: 50%;
+   }
+
    &__inner {
       display: flex;
       align-items: center;
@@ -27,7 +45,7 @@
 
          li {
             & + li {
-               margin-left: 1rem;
+               margin-left: 0.75rem;
             }
 
             a {
@@ -40,6 +58,12 @@
 
                text-decoration: none;
                transition: 0.5s;
+
+               svg {
+                   margin-right: 0.5rem;
+                   width:18px;
+                   height: 18px;
+               }
 
                &:hover {
                 background-color: rgba(0, 0, 0, 0.1);
