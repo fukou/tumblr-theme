@@ -2,7 +2,11 @@
    position: fixed;
    left: 0;
    top: 0;
-   background: rgba(#222, 0.85);
+   background: rgba(#f9f9f9, 0.95);
+   background-image: url("https://static.tumblr.com/5ojoydj/XCmo5xbcq/geometry__2x.png");
+  
+   background-repeat: repeat;
+   background-attachment: fixed;
 
    width: 100%;
    height: 100vh;
@@ -40,7 +44,7 @@
          overflow: hidden;
          border-radius: 8px;
 
-         // border: 1px solid rgba(0, 0, 0, 0.1);
+         border: 1px solid rgba(0, 0, 0, 0.1);
 
          box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05);
 
@@ -60,19 +64,18 @@
                 display: grid;
                 grid-template-columns: 30rem auto;
                 min-height: 500px;
+
+                @media (max-width:60rem) {
+                   grid-template-columns: 1fr;
+                }
              }
          }
 
          &__audio {
             position: relative;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
             border-right:1px solid rgba(0, 0, 0, 0.15);
 
             &--album {
-               grid-column: 1/-1;
-               grid-row: 1/4;
                position: relative;
                height: 0;
                padding-bottom: 100%;
@@ -178,7 +181,7 @@
 
          &__question {
             background-color: #eee;
-            padding: 1.5rem;
+            padding: 2.5rem 2.5rem;
             font-size: 1.25rem;
 
             &--asker {
@@ -200,7 +203,7 @@
 
          &__answer {
             position: relative;
-            padding: 1.5rem;
+            padding: 2.5rem 2.5rem;
 
             color: var(--body-text);
 
@@ -211,12 +214,15 @@
 
          &__quote {
             padding: 2.5rem;
-            font-size: 1.5rem;
+            font-size: 1.85rem;
             font-weight: 600;
+            font-family: var(--heading-font);
 
             cite {
                display: block;
                font-weight: normal;
+               font-family: var(--body-font);
+
                font-size: 1rem;
                margin-top: 1rem;
             }
@@ -224,19 +230,25 @@
 
          &__body {
             padding: 3rem 2.5rem;
-            color: var(--posts-body);
+            color: var(--body-text);
             
             p + p {
                margin-top: 1rem;
             }
 
+            h1,h2,h3,h4,h5,h6 {
+               color:var(--heading-text);
+               font-family: var(--heading-font);
+            }
+
             h1 {
                margin-bottom: 1rem;
+               font-size: 1.6rem;
             }
 
             h2 {
                margin-bottom: 0.5rem;
-               font-size: 1.15rem;
+               font-size: 1.25rem;
             }
 
             ol,
