@@ -1,6 +1,6 @@
 .pagination {
-    margin-top: 3.5rem;
-    grid-column: 2/-1;
+    margin-top: 3.75rem;
+    grid-column:1/-1;
 
     display: flex;
     align-items: center;
@@ -13,6 +13,7 @@
     &__info {
         position: relative;
         background-color: var(--bg-card);
+        border:1px solid rgba(0, 0, 0, 0.1);
         color: var(--body-text);
         border-radius: 5px;
         box-shadow: 3px 4px 9px rgba(0, 0, 0, 0.06);

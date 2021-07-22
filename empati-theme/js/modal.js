@@ -25,7 +25,6 @@ const openDialog = function () {
       if (!modalNodes.includes(node)) {
          node._prevTabindex = node.getAttribute("tabindex");
          node.setAttribute("tabindex", -1);
-         node.style.outline = "none";
       }
    }
 };

@@ -45,7 +45,7 @@ body {
 
 .wrapper {
    margin: 0 auto;
-   padding: 3.5rem 1rem;
+   padding: 3.5rem 1rem 6rem 1rem;
 
    display: grid;
    grid-template-columns: 1fr 1fr minmax(auto, 68rem) 1fr 1fr;
@@ -175,6 +175,7 @@ body {
             &.actived {
                font-weight: bold;
                background-color: var(--primary-color);
+               color:white;
             }
 
             + button {
@@ -210,8 +211,31 @@ body {
             + .posts {
                margin-top: 4.5rem;
             }
+            &__date {
+               display: none;
+            }
+
+            &__perma {
+   
+               display: flex;
+               align-items: center;
+               justify-content: space-between;
+   
+               padding:0.95rem 1rem;
+               border-top: 1px solid rgba(0, 0, 0, 0.15);
+   
+               a {
+                  color:var(--body-link);
+                  font-weight: bold;
+               }
+            }
+
             &__inner {
-               height:auto
+               height:auto;
+
+               &::before {
+                  display: none;
+               }
             }
             &__view {
                display: none;
