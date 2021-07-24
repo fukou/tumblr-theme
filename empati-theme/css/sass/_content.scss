@@ -30,15 +30,19 @@ body {
 
 .is-bg-full {
    position: fixed;
-   left: 0;
-   top: 0;
-   width: 100%;
-   height: 100%;
-   background-image: url("https://designcorral.com/blog/wp-content/uploads/2020/12/5181a33c0955dee17b6e5752c09b9a3c.jpg");
+   left: -10px;
+   top: -10px;
+   width: calc(100% + 25px);
+   height: calc(100% + 25px);
+   // background-image: url("https://designcorral.com/blog/wp-content/uploads/2020/12/5181a33c0955dee17b6e5752c09b9a3c.jpg");
+   background-image: url("https://i0.wp.com/wallup.net/wp-content/uploads/2015/12/65367-landscape-Nausicaa-anime-Studio_Ghibli.jpg");
+   // background-image: url("http://68.media.tumblr.com/579e208cc9189dd12c899157cf524a39/tumblr_nde9puPQud1smn4pqo10_1280.jpg");
+   // background-image: url("/img/bg.png");
+
    background-repeat: no-repeat;
    background-size: cover;
 
-   // filter: blur(10px);
+   filter: blur(5px);
 
    z-index: -1;
 }
@@ -58,7 +62,7 @@ body {
       flex-direction: column;
 
       // min-height: 480px;
-      background-image: url("http://68.media.tumblr.com/579e208cc9189dd12c899157cf524a39/tumblr_nde9puPQud1smn4pqo10_1280.jpg");
+      // background-image: url("http://68.media.tumblr.com/579e208cc9189dd12c899157cf524a39/tumblr_nde9puPQud1smn4pqo10_1280.jpg");
       background-attachment: fixed;
       background-repeat: no-repeat;
       background-size: cover;
@@ -77,7 +81,7 @@ body {
          top: 0;
          width: 100%;
          height: 100%;
-         background-color: rgba(#222, 0.75);
+         // background-color: rgba(#222, 0.5);
       }
 
       &--inner {
@@ -85,12 +89,11 @@ body {
          // min-width: 68rem;
          margin: 0 auto;
 
-         color: #fff;
          text-align: center;
          z-index: 2;
 
          a {
-            color:currentColor;
+            color:var(--hero-description);
             font-weight: bold;
          }
 
@@ -102,6 +105,10 @@ body {
             img {
                width: 75px;
                height: 75px;
+
+               border-radius: 8px;
+               // border:8px solid var(--bg-card);
+
                clip-path: polygon(
                   50% 0%,
                   90% 20%,
@@ -124,12 +131,15 @@ body {
             margin-bottom: 0.5rem;
             font-size: 1.75rem;
             font-family: var(--heading-font);
+            color:var(--hero-title);
             font-weight: bold;
          }
          max-width: 48rem;
          padding:0 1.5rem;
 
          margin: 0 auto;
+
+         color:var(--hero-description);
       }
    }
 
@@ -175,7 +185,7 @@ body {
             &.actived {
                font-weight: bold;
                background-color: var(--primary-color);
-               color:white;
+               // color:white;
             }
 
             + button {
@@ -187,16 +197,6 @@ body {
 
    &__blog {
       grid-column: 3/4;
-
-      &.is-grid {
-         display: grid;
-         grid-template-columns: repeat(3, 1fr);
-         gap: 3.5rem;   
-
-         @media (max-width: 60rem) {
-            grid-template-columns: 1fr;
-         }
-      }
 
       &.is-list {
          display: flex;
@@ -211,6 +211,35 @@ body {
             + .posts {
                margin-top: 4.5rem;
             }
+
+            &__user {
+               display: none;
+            }
+
+            &__audio {
+               display: grid;
+               grid-template-columns: 1fr 1fr 1fr;
+               grid-template-rows: 1fr 1fr;
+
+               &--album {
+                  grid-column: 1/2;
+                  grid-row: 1/3;
+                  filter:blur(0px);
+               }
+
+               &--player {
+                  position: unset;
+                  grid-column: 1/2;
+                  grid-row: 1/3;
+               }
+
+               &--info {
+                  position: unset;
+                  grid-column: 2/4;
+                  grid-row: 1/3;
+               }
+            }
+
             &__date {
                display: none;
             }
@@ -254,6 +283,24 @@ body {
          }
       }
 
+      &.is-grid {
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+         gap: 3.5rem;   
+
+         @media (max-width: 60rem) {
+            grid-template-columns: 1fr;
+         }
+
+         .posts {
+            @media (min-width:60rem) {
+               &__permalink {
+                  display: none;
+               }
+            }
+         }
+      }
+
       z-index: 2;
 
       .posts {
@@ -263,10 +310,11 @@ body {
          border: 1px solid rgba(0, 0, 0, 0.1);
 
          border-radius: 8px;
-         box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05);
+         // box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05);
+         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
          overflow: hidden;
          animation-name:fadein;
-         animation-duration: 1s;
+         animation-duration: 0.5s;
          animation-fill-mode: forwards;
          opacity: 0;
 
@@ -280,6 +328,54 @@ body {
             .posts__inner {
                &::before {
                   display: none;
+               }
+            }
+         }
+
+         &__permalink {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 1.25rem;
+            border-bottom: 1px solid rgba(#111, 0.1);
+
+
+            &--reblog {
+               display: inline-flex;
+               align-items: center;
+               color: var(--body-text);
+
+               a {
+                  color: var(--body-text);
+                  text-decoration: none;
+                  font-weight: 600;
+               }
+
+               svg {
+                  margin: 0 0.5rem;
+               }
+            }
+
+            &--action {
+               a,
+               svg {
+                  color: var(--body-text);
+               }
+            }
+         }
+
+         &__empty {
+            grid-column: 1/-1;
+            padding:2.5rem;
+
+            text-align: center;
+
+            h2 {
+               display: inline-flex;
+               align-items: center;
+               svg {
+                  margin-left: 0.5rem;
                }
             }
          }
@@ -431,9 +527,6 @@ body {
          }
 
          &__audio {
-            @media (max-width:60rem) {
-               position: relative;
-            }
             &--album {
                position: relative;
                height: 0;
@@ -518,6 +611,30 @@ body {
                   }
                }
             }
+            @media (max-width:60rem) {
+               position: relative;
+               display: grid;
+               grid-template-columns: 1fr 1fr 1fr;
+               grid-template-rows: 1fr 1fr;
+
+               &--album {
+                  grid-column: 1/2;
+                  grid-row: 1/3;
+                  filter:blur(0px);
+               }
+
+               &--player {
+                  position: unset;
+                  grid-column: 1/2;
+                  grid-row: 1/3;
+               }
+
+               &--info {
+                  position: unset;
+                  grid-column: 2/4;
+                  grid-row: 1/3;
+               }
+            }
          }
 
          &__user {
@@ -533,6 +650,8 @@ body {
             padding: 1rem;
 
             img {
+               width:30px;
+               height:30px;
                margin-right: 1rem;
                border-radius: 4px;
             }
@@ -541,6 +660,10 @@ body {
                display: inline-flex;
                align-items: center;
                padding: 0.25rem 0.5rem;
+
+               white-space: pre-wrap;
+               text-overflow: ellipsis;
+               overflow: hidden;
 
                background-color: rgba(64, 191, 140, 0.5);
                border-radius: 5px;

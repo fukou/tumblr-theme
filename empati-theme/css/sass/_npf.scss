@@ -5,7 +5,7 @@
    figure.tmblr-full {
       position: relative;
       overflow: hidden;
-      padding-bottom: 25%!important;
+      padding-bottom: 20%!important;
 
       border-radius: 0px;
 
@@ -20,6 +20,13 @@
          border-radius: 0;
          object-fit: cover;
       }
+   }
+}
+
+figure.tmblr-full {
+   margin:1.5rem 0;
+   img {
+      border-radius: 8px;
    }
 }
 

@@ -47,9 +47,10 @@
 
          border: 1px solid rgba(0, 0, 0, 0.1);
 
-         box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05);
+         // box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05);
+         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
-         &__view, &__user, &__date {
+         &__view, &__user, &__date, &__permalink {
              display: none;
          }
 

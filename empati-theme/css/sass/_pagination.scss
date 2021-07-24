@@ -16,7 +16,8 @@
         border:1px solid rgba(0, 0, 0, 0.1);
         color: var(--body-text);
         border-radius: 5px;
-        box-shadow: 3px 4px 9px rgba(0, 0, 0, 0.06);
+        // box-shadow: 3px 4px 9px rgba(0, 0, 0, 0.06);
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
         padding:1rem 1.25rem;
 
         @media (max-width:60rem) {
@@ -34,9 +35,10 @@
             &:not(.is-link) {
                 opacity: 0.45;
                 cursor: not-allowed;
+                background-color: #222;
             }
 
-            background-color: var(--heading-text);
+            background-color: var(--primary-color);
             color:var(--bg-card);
 
             padding:1rem 1.25rem;

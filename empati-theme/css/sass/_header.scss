@@ -20,8 +20,8 @@
        align-items: center;
        justify-content: center;
 
-       background-color:#111;
-       color:white;
+       background-color:var(--header-navigation-link);
+       color:var(--header-navigation-bg);
 
        border:0;
 
@@ -57,7 +57,7 @@
             a {
                display: inline-flex;
                align-items: center;
-               color: var(--body-link);
+               color: var(--header-navigation-link);
                padding: 0.5rem 0.75rem;
 
                border-radius: 8px;
