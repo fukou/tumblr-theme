@@ -267,4 +267,49 @@
             }
         }
     }
+
+    &__search {
+        margin-left: 2rem;
+        display: flex;
+
+        align-items: center; 
+        border-radius: 30px;
+        padding:0.45rem 1rem; 
+        border:2px solid #aaa;
+        background-color: var(--bg-card);
+
+        @media (max-width:60rem) {
+            display: none;
+        }
+
+        &::before {
+            font-family: 'Line Awesome Free';
+            font-weight: 900;
+            font-size: 1.25rem;
+            content:"\f002";
+              
+            color:var(--body-text);
+            margin-right: 0.5rem;
+        }
+
+        form {
+            input {
+                position: relative;
+                min-width: 13.5rem;
+                background-color: var(--bg-card);
+                color:var(--body-text);
+
+                font-family: var(--body-font);
+
+                border:0;
+                &:focus {
+                    box-shadow: none;
+                    outline: none;
+                }
+                &::placeholder {
+                    color:var(--body-text);
+                }
+            }
+        }
+    }
 }

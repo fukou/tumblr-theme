@@ -35,8 +35,8 @@ body {
    width: calc(100% + 25px);
    height: calc(100% + 25px);
    // background-image: url("https://designcorral.com/blog/wp-content/uploads/2020/12/5181a33c0955dee17b6e5752c09b9a3c.jpg");
-   background-image: url("https://i0.wp.com/wallup.net/wp-content/uploads/2015/12/65367-landscape-Nausicaa-anime-Studio_Ghibli.jpg");
-   // background-image: url("http://68.media.tumblr.com/579e208cc9189dd12c899157cf524a39/tumblr_nde9puPQud1smn4pqo10_1280.jpg");
+   // background-image: url("https://i0.wp.com/wallup.net/wp-content/uploads/2015/12/65367-landscape-Nausicaa-anime-Studio_Ghibli.jpg");
+   background-image: url("http://68.media.tumblr.com/579e208cc9189dd12c899157cf524a39/tumblr_nde9puPQud1smn4pqo10_1280.jpg");
    // background-image: url("/img/bg.png");
 
    background-repeat: no-repeat;
@@ -140,6 +140,125 @@ body {
          margin: 0 auto;
 
          color:var(--hero-description);
+      }
+   }
+
+   &__commissions {
+      grid-column: 3/4;
+      display: flex;
+      flex-direction: column;
+
+      margin-top: 1.5rem;
+      animation-name:fadein;
+      animation-duration: 1s;
+
+      padding:0 5rem;
+
+      @media (max-width: 60rem) {
+         padding:0;
+         margin:0;
+      }
+
+      &--inner {
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+         grid-template-rows: repeat(3, 1fr);
+         grid-auto-flow: dense;
+
+         background-color: var(--bg-card);
+         border-radius: 8px;
+         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+         overflow: hidden;
+
+         @media (max-width: 60rem) {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+         }
+      }
+
+      &--body {
+         color:var(--body-text);
+
+         a {
+            color:var(--body-link);
+            font-weight: bold;
+         }
+
+         &.is-intro {
+            grid-column: 1/2;
+            grid-row: 1/3;
+            h2 {
+               background-color: #B1E7C3;
+               padding:2.5rem;
+               margin-bottom: 2.5rem;
+               margin-top: -2.5rem;
+               margin-left: -2.5rem;
+               margin-right: -2.5rem;
+
+               color:rgba(#111, 0.8);
+            }
+
+            padding:2.5rem;
+
+            border-bottom: 1px solid rgba(#111, 0.1);
+            border-right:1px solid rgba(#111, 0.1);
+
+            @media (max-width: 60rem) {
+               grid-column: 1/-1;
+               grid-row:auto;
+               border:0;
+            }
+
+         }
+         &.is-contact {
+            grid-column: 1/2;
+            grid-row: 3/-1;
+            padding:2.5rem;
+
+            border-right:1px solid rgba(#111, 0.1);
+            border-top: 1px solid rgba(#111, 0.1);
+
+            @media (max-width: 60rem) {
+               grid-column: 1/-1;
+               grid-row:auto;
+               border:0;
+               border-top: 1px solid rgba(#111, 0.1);
+            }
+
+
+            display: inline-flex;
+            align-items: flex-start;
+
+            .las {
+               font-size: 2rem;
+
+               margin-right: 1.5rem;
+            }
+         }
+         &.is-image {
+            grid-column: 2/-1;
+            grid-row: 1/-1;
+
+            @media (max-width: 60rem) {
+               grid-column: 1/-1;
+               grid-row:1/2;
+            }
+
+            figure {
+               position: relative;
+               height: 0;
+               padding-bottom: 100%;
+
+               img {
+                  position: absolute;
+                  left:0;
+                  top:0;
+                  width:100%;
+                  height: 100%;
+                  object-fit: cover;
+               }
+            }
+         }
       }
    }
 
