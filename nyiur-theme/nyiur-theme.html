@@ -900,7 +900,9 @@
 	        document.querySelector("#new-tumblr-controls").setAttribute("src", u);
         }
         
-        tumblrControls("{color:Posts Container Background Color}", "{color:Posts Body Heading Color}", "{Name}"{block:Posts}{block:PermalinkPage}{block:Date}, "{PostID}", "{RelativePermalink}", "true"{/block:Date}{/block:PermalinkPage}{/block:Posts} );
+        if(document.querySelector(".iframe-container")) {
+            tumblrControls("{color:Posts Container Background Color}", "{color:Posts Body Heading Color}", "{Name}"{block:Posts}{block:PermalinkPage}{block:Date}, "{PostID}", "{RelativePermalink}", "true"{/block:Date}{/block:PermalinkPage}{/block:Posts} );
+        }
         
         const spotifyPlayers = document.querySelectorAll(".spotify_audio_player");
         if(spotifyPlayers) {
