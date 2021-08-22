@@ -62,10 +62,10 @@
 
    .bottom {
       padding: 10px 20px;
-      background-color: #ddd;
+
       .site-name {
          margin-top: 0;
-         color: #222;
+         color: var(--body-link);
       }
    }
 }
@@ -206,6 +206,9 @@ figure[data-tumblr-attribution] {
 [photoset-layout] div img {
    border-radius: 0px;
    -moz-border-radius: 0px;
+}
+[photoset-layout] img {
+   height: 100%!important;
 }
 
 span.search_query,

@@ -27,7 +27,7 @@
         <meta name="description" content="{MetaDescription}">
     {/block:Description}
     
-    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/LPAqvq8vr/main.min.css">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/7aBqy85il/main.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"> 
@@ -38,6 +38,7 @@
      <link rel="alternate" type="application/rss+xml" href="{RSS}">
      <link href="https://cdn.jsdelivr.net/gh/boscoxvi/npfphotosets/npfphotosetstyle.css" rel="stylesheet" type="text/css">
      <link href="https://static.tumblr.com/0podkko/xIbplezmo/modified_photosets.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://assets.tumblr.com/fonts/favorit/stylesheet.css?v=1">
      
      <meta name="image:Background Image" content="">
      <meta name="image:Hero Sidebar Image" content="https://static.tumblr.com/5ojoydj/h0lqvp8so/hero.jpg">
@@ -67,7 +68,7 @@
                 
                 --bg: url("{image:Background Image}");
                 --heading-font:'Source Serif Pro', serif;
-                --body-font: 'Source Sans Pro', sans-serif;
+                --body-font: 'Favorit', sans-serif;
                 --code-font:'Oxygen Mono', monospace;
             
                 --accent-color-one:{color:Accent Color Primary};
@@ -89,6 +90,17 @@
                 display:none;
             }
             
+           
+            @media (max-width:60rem) {
+                .is-first {
+                    margin-bottom:2rem!important; 
+                }
+            }
+            
+            .posts__answer:empty {
+                display:none;
+            }
+           
     {CustomCSS}
     </style>
 </head>
@@ -112,7 +124,7 @@
         </div>
         <section class="wrapper__inner">
             <aside class="wrapper__sidebar" data-sticky-container>
-                <div class="wrapper__sidebar--inner">
+                <div class="wrapper__sidebar--inner is-first">
                     {block:IfShowHeroSidebarImage}
                     <div class="wrapper__sidebar--hero">
                         <img src="{image:Hero Sidebar Image}" alt="">
@@ -137,8 +149,25 @@
                     </nav>
                 </div>
                 
+                {block:HasHighlightedPosts}
+                <div class="wrapper__sidebar--inner is-nav">
+                    <div class="wrapper__sidebar--body">
+                        <h2>{lang:Top Photos}</h2>
+                        <div class="wrapper__sidebar--highlighted">
+                            {block:HighlightedPosts}
+                                <a href="{Permalink}">
+                                    <figure>
+                                        <img src="{PhotoURL-250}">
+                                    </figure>
+                                </a>
+                            {/block:HighlightedPosts}
+                        </div>
+                    </div>
+                </div>
+                {/block:HasHighlightedPosts}
+                
                 {block:HasPages} 
-                <div class="wrapper__sidebar--inner sticky is-nav" data-margin-top="50" data-sticky-for="1023">
+                <div class="wrapper__sidebar--inner is-nav sticky" data-margin-top="30" data-sticky-for="1023">
                     <div class="wrapper__sidebar--body">
                         <h2>Quick Links</h2>
                             <ul class="additional-links">
@@ -164,8 +193,14 @@
                                     <a href="{ReblogParentURL}">{ReblogParentName}</a>
                                     {/block:RebloggedFrom}
                                 </div> 
-                    
+                                
                                 <div class="posts__perma--note">
+                                    {block:Actions}
+                                        <div class="post-cta-action">
+                                            <a href="{url}" rel="nofollow noreferrer noopener" target="_blank">{text}</a>
+                                        </div>
+                                    {/block:Actions}
+
                                     <button><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
                                     <ul class="posts__perma--popup">
                                         <li><a href="{ReblogURL}">Reblog</a></li>
@@ -264,8 +299,8 @@
                             <figure class="posts__photo" style="cursor: zoom-in;" onclick="Tumblr.Lightbox.init([{ width: {PhotoWidth-HighRes}, height: {PhotoHeight-HighRes}, low_res: '{PhotoURL-500}', high_res: '{PhotoURL-HighRes}' }]); $('body').toggleClass('tumblr_lightbox_active');return false;">
                                 <img src="{PhotoURL-HighRes}">
                             </figure>
+                            {block:Caption}
                             <div class="posts__caption">
-                                {block:Caption}
                                 {block:NotReblog}{Caption}{/block:NotReblog}
                                 {block:RebloggedFrom}
                                 {block:Reblogs}
@@ -285,8 +320,8 @@
                                 </div>
                                 {/block:Reblogs}
                                 {/block:RebloggedFrom}
-                                {/block:Caption}
                             </div>
+                            {/block:Caption}
                             {/block:Photo}
                             
                             
@@ -331,17 +366,16 @@
                             
                             {block:Answerer}
                              <div class="posts__answerer">
+                             <img class="posts__answerer--img" src="{AnswererPortraitURL-64}" alt="">
                                 <div class="posts__answerer--inner">
                                     <div class="posts__answerer--asker">
                                        {Answerer} replied
                                     </div>
                                 {Answer}
                                 </div>
-                                <img class="posts__answerer--img" src="{AnswererPortraitURL-64}" alt="">
                             </div>
                             {/block:Answerer}
 
-                            
                              <div class="posts__answer">
                                  {block:Reblogs}
                                  <div class="reblog-list">
@@ -361,7 +395,7 @@
                                  {/block:Reblogs}
                             
                                  {block:NotReblog}{Replies}{/block:NotReblog}
-                             </div>
+                            </div>
                             {/block:Answer}
                             
                             {block:Video}
@@ -539,9 +573,23 @@
     <script src="//unpkg.com/fast-average-color/dist/index.min.js"></script>
     <script src="https://static.tumblr.com/5ojoydj/PRhqvo498/tags.js"></script> 
     <script src="https://static.tumblr.com/5ojoydj/X4Fqvo49g/parallax.js"></script>
-    <script src="https://static.tumblr.com/5ojoydj/AJuqvo49o/perma.js"></script>
     <script src="https://static.tumblr.com/5ojoydj/LnSqvo49u/audio.js"></script>
     <script>
+        const buttonLink = document.querySelectorAll(".posts__perma--note button");
+        buttonLink.forEach(function(button, index) {
+            document.addEventListener('click', function(event) {
+                var isClickInside = button.contains(event.target);
+              
+                if (isClickInside) {
+                    if(button.nextElementSibling) {
+                        button.nextElementSibling.classList.toggle("is-shown");
+                    }
+                } else {
+                    button.nextElementSibling.classList.remove("is-shown");
+                }
+              });
+        });
+
         var sticky = new Sticky(".sticky");
         
         // https://rachaelthemes.com/tumblr-controls
@@ -582,7 +630,7 @@
         const npfOptions = {
            includeCommonPhotosets: false,
            photosetMargins:"0",
-           insertGalleryIndicator:true,
+           insertGalleryIndicator:false,
            galleryIndicatorClass:"npf_gallery_indicator",
            galleryIndicatorContent:"<i class='las la-expand'></i>"
         }
@@ -590,8 +638,9 @@
         
         const fac = new FastAverageColor();
         const imageGrid = document.querySelectorAll(".posts figure.tmblr-full, .posts figure[data-tumblr-attribution], .posts__audio--album");
-
-        window.addEventListener("load", function () {
+        
+        if(imageGrid) {
+            window.addEventListener("load", function () {
             for (let i = 0; i < imageGrid.length; i++) {
                 let image = imageGrid[i].querySelector('img');
                 let tmblr_attribute = imageGrid[i].querySelector('.tmblr-attribution');
@@ -619,6 +668,7 @@
                 });
             }
         });
+        }
     </script>
 
 </body>

@@ -31,7 +31,8 @@
             display: inline-block;
 
             &:not(.is-link) {
-                opacity: 0.45;
+                // opacity: 0.45;
+                background-color: #898989;
                 cursor: not-allowed;
             }
 

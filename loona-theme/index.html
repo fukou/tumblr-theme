@@ -24,11 +24,11 @@
         </div>
     </header>
     <main class="wrapper">
-        <div class="wrapper__top">
+        <!-- <div class="wrapper__top">
             <div class="wrapper__top--inner">
                 Found results for <span class="search_query">percobaan</span>
             </div>
-        </div>
+        </div> -->
 
         <section class="wrapper__inner">
             <aside class="wrapper__sidebar" data-sticky-container >
@@ -81,7 +81,91 @@
                 </div>
             </aside>
             <div class="wrapper__blog">
-
+                <article class="posts spoilers warning filter">
+                    <div class="posts__perma">
+                        <div class="posts__perma--reblog">
+                            <a href="#">username</a>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/></svg>
+                            <a href="#">username</a>
+                        </div>
+                        <div class="posts__perma--note">
+                            <button><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                            <ul class="posts__perma--popup">
+                             <li><a href="#">Reblog</a></li>
+                             <li><a href="#">Like</a></li>
+                             <li><a href="#">1.5k notes</a></li>
+                         </ul>
+                        </div>
+                    </div>
+                     <div class="posts__question">
+                         <img class="posts__question--img" src="https://64.media.tumblr.com/1ef5fb6e1c47dffe0730c6591c9cbcd7/f18b046763e6605c-00/s128x128u_c1/1f433b8875d29427cc142095ba2a55fb1bf8d7d1.pnj" alt="">
+ 
+                         <div class="posts__question--inner">
+                             <div class="posts__question--asker">
+                                 <a href="#">Anonymous</a> asked
+                               </div>
+                             <p> What is simplicity in web design? Could you please explain it in a simpler way because
+                                 I’m
+                                 such a dumbass. Thanks in advance! (By the way, you can ignore this message if it
+                                 offends
+                                 you.</p>
+                         </div>
+                     </div>
+                     <div class="posts__answerer">
+                        <img class="posts__question--img" src="https://64.media.tumblr.com/1ef5fb6e1c47dffe0730c6591c9cbcd7/f18b046763e6605c-00/s128x128u_c1/1f433b8875d29427cc142095ba2a55fb1bf8d7d1.pnj" alt="">
+                         <div class="posts__answerer--inner">
+                             <div class="posts__answerer--asker">
+                                 <a href="#">atmospherica</a> replied
+                              </div>
+                             <p>Sometimes it’s hard to define simplicity (not simp but simplicity). Because it has
+                                 nothing
+                                 to do with minimalism - it has to make something simpler in use (not cluterred) and easy
+                                 to
+                                 understand. Ok, I don’t know what I’m saying, maybe everyone can explain it better than
+                                 me?</p>
+                         </div>
+                     </div>
+                     <div class="posts__answer">
+                         <h1>Title</h1>
+                         <h2>Here's another title</h2>
+                         <p>Simplicity in design is – at its most basic – the removal of all unnecessary elements
+                             from a design. This usually consists of a clean layout, a two or three-colour scheme
+                             and
+                             lots of white space. A clean layout features a few stand-out elements, but largely
+                             relies on the color scheme and white space to create the drama and interest.
+                         </p>
+                         <p> A simple color scheme normally does not feature more than three colors, though of
+                             course
+                             there can be exceptions. But because simplicity in design means stripping out all
+                             unnecessary things, a color scheme that is limited to a text, an accent and perhaps
+                             a
+                             background color is all a simple design really needs.</p>
+                         <pre>
+                                 <code class="js">
+ const multiplyByFive = (value) => {
+ return value * 5
+ }
+                                      
+ multiplyByFive(69);
+                                 </code>
+                             </pre>
+                         <p>White space, also known as negative space, is the background color of a design, so it
+                             does not have to be white. It just has to be the space between elements. In the
+                             simplest
+                             designs, white space dominates the page.</p>
+                     </div>
+                     <div class="posts__tags">
+                         <div class="posts__tags--inner">
+                             <ul>
+                                 <li><a href="#">answer</a></li>
+                                 <li><a href="#">here's some long tag for testing purpose</a></li>
+                                 <li><a href="#">and you can add as many as possible</a></li>
+                                 <li><a href="#">you break it you kill it you show it you own it</a></li>
+                             </ul>
+                         </div>
+                     </div>
+                </article>
+                 
                 <article class="posts pinned">
                     <div class="posts__perma">
                         <div class="posts__perma--reblog">
@@ -154,7 +238,7 @@
                     </div>
                 </article>
 
-                <article class="posts posts-perma">
+                <article class="posts posts-perma" style="display: none;">
                     <div class="posts-perma__info">
                         <h2>Posted on Friday, 5 June 2021</h2>
                     </div>
@@ -209,8 +293,7 @@ SOULS">fracsouls</a> reblogged this from <a rel="nofollow" href="https://demo.tu
                         (via aw-archives)                            </a></blockquote></li><li class="note like tumblelog_saltes-cat without_commentary"><a rel="nofollow" class="avatar_frame" target="_blank" href="https://saltes-cat.tumblr.com/" title="FoolCat "><img src="https://64.media.tumblr.com/4190ca316bf446c58e9bc64d08528a49/e9ffab77757f90db-84/s16x16u_c1/5861c98a4def0afd3b678c9bd54d80652fdcf842.jpg" class="avatar " alt=""></a><span class="action"><a rel="nofollow" href="https://saltes-cat.tumblr.com/" title="FoolCat">saltes-cat</a> liked this                                    </span><div class="clear"></div></li><li class="note like tumblelog_firminfollowing without_commentary"><a rel="nofollow" class="avatar_frame" target="_blank" href="https://firminfollowing.tumblr.com/" title=" "><img src="https://64.media.tumblr.com/e9cc49b4a87993b5004bd21f8174797b/3c47bbcc5987ba00-5e/s16x16u_c1/ae4c8c327185053a5ea7b8a0099e842f119b36a3.jpg" class="avatar " alt=""></a><span class="action"><a rel="nofollow" href="https://firminfollowing.tumblr.com/" title="">firminfollowing</a> liked this                                    </span><div class="clear"></div></li><li class="note reblog tumblelog_aw-archives original_post without_commentary"><a rel="nofollow" class="avatar_frame" target="_blank" href="https://aw-archives.tumblr.com/" title="A.W. Tumblr"><img src="https://64.media.tumblr.com/avatar_4fbd50d1259e_16.pnj" class="avatar " alt=""></a><span class="action" data-post-url="https://aw-archives.tumblr.com/post/228022847"><a rel="nofollow" href="https://aw-archives.tumblr.com/" class="tumblelog" title="A.W. Tumblr">aw-archives</a> posted this                                                                        </span><div class="clear"></div></li><li class="note more_notes_link_container" style="text-align:center;" id="more_notes_459260683"><a class="more_notes_link" rel="nofollow" href="#" onclick="this.style.display='none';document.getElementById('notes_loading_459260683').style.display = 'block';if(window.ActiveXObject)var tumblrReq=new ActiveXObject('Microsoft.XMLHTTP');else if(window.XMLHttpRequest)var tumblrReq=new XMLHttpRequest();else return false;tumblrReq.onreadystatechange=function(){if(tumblrReq.readyState==4){var notes_html=tumblrReq.responseText.split('<!-- START '+'NOTES -->')[1].split('<!-- END '+'NOTES -->')[0];
 if(window.tumblrNotesLoaded)if(tumblrNotesLoaded(notes_html)==false)return;var more_notes_link=document.getElementById('more_notes_459260683');var notes=more_notes_link.parentNode;notes.removeChild(more_notes_link);notes.innerHTML+=notes_html;if(window.tumblrNotesInserted)tumblrNotesInserted(notes_html);}};tumblrReq.open('GET','/notes/459260683/yl7FKoHJP?from_c=1616276545',true);tumblrReq.send();return false;">Show more notes</a><span class="notes_loading" id="notes_loading_459260683" style="display:none;">Loading...</span></li></ol>
                 </article>
-
-                <!--
+              
                 <article class="posts">
                     <div class="posts__perma">
                         <div class="posts__perma--reblog">
@@ -264,92 +347,6 @@ if(window.tumblrNotesLoaded)if(tumblrNotesLoaded(notes_html)==false)return;var m
                             pharetra, consequat. Cursus lectus orci dui mus consectetur erat malesuada egestas.
                             At
                             sem turpis pretium condimentum nunc, mattis urna.</p>
-                    </div>
-                </article>
-
-                <article class="posts">
-                   <div class="posts__perma">
-                       <div class="posts__perma--reblog">
-                           <a href="#">username</a>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/></svg>
-                           <a href="#">username</a>
-                       </div>
-                       <div class="posts__perma--note">
-                           <button><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
-                           <ul class="posts__perma--popup">
-                            <li><a href="#">Reblog</a></li>
-                            <li><a href="#">Like</a></li>
-                            <li><a href="#">1.5k notes</a></li>
-                        </ul>
-                       </div>
-                   </div>
-                    <div class="posts__question">
-                        <img class="posts__question--img" src="https://64.media.tumblr.com/1ef5fb6e1c47dffe0730c6591c9cbcd7/f18b046763e6605c-00/s128x128u_c1/1f433b8875d29427cc142095ba2a55fb1bf8d7d1.pnj" alt="">
-
-                        <div class="posts__question--inner">
-                            <div class="posts__question--asker">
-                                <a href="#">Anonymous</a> asked
-                              </div>
-                            <p> What is simplicity in web design? Could you please explain it in a simpler way because
-                                I’m
-                                such a dumbass. Thanks in advance! (By the way, you can ignore this message if it
-                                offends
-                                you.</p>
-                        </div>
-                    </div>
-                    <div class="posts__answerer">
-                        <div class="posts__answerer--inner">
-                            <div class="posts__answerer--asker">
-                                <a href="#">atmospherica</a> replied
-                             </div>
-                            <p>Sometimes it’s hard to define simplicity (not simp but simplicity). Because it has
-                                nothing
-                                to do with minimalism - it has to make something simpler in use (not cluterred) and easy
-                                to
-                                understand. Ok, I don’t know what I’m saying, maybe everyone can explain it better than
-                                me?</p>
-                        </div>
-                        <img class="posts__question--img" src="https://64.media.tumblr.com/1ef5fb6e1c47dffe0730c6591c9cbcd7/f18b046763e6605c-00/s128x128u_c1/1f433b8875d29427cc142095ba2a55fb1bf8d7d1.pnj" alt="">
-                        
-                    </div>
-                    <div class="posts__answer">
-                        <h1>Title</h1>
-                        <h2>Here's another title</h2>
-                        <p>Simplicity in design is – at its most basic – the removal of all unnecessary elements
-                            from a design. This usually consists of a clean layout, a two or three-colour scheme
-                            and
-                            lots of white space. A clean layout features a few stand-out elements, but largely
-                            relies on the color scheme and white space to create the drama and interest.
-                        </p>
-                        <p> A simple color scheme normally does not feature more than three colors, though of
-                            course
-                            there can be exceptions. But because simplicity in design means stripping out all
-                            unnecessary things, a color scheme that is limited to a text, an accent and perhaps
-                            a
-                            background color is all a simple design really needs.</p>
-                        <pre>
-                                <code class="js">
-const multiplyByFive = (value) => {
-return value * 5
-}
-                                     
-multiplyByFive(69);
-                                </code>
-                            </pre>
-                        <p>White space, also known as negative space, is the background color of a design, so it
-                            does not have to be white. It just has to be the space between elements. In the
-                            simplest
-                            designs, white space dominates the page.</p>
-                    </div>
-                    <div class="posts__tags">
-                        <div class="posts__tags--inner">
-                            <ul>
-                                <li><a href="#">answer</a></li>
-                                <li><a href="#">here's some long tag for testing purpose</a></li>
-                                <li><a href="#">and you can add as many as possible</a></li>
-                                <li><a href="#">you break it you kill it you show it you own it</a></li>
-                            </ul>
-                        </div>
                     </div>
                 </article>
 
@@ -667,7 +664,7 @@ multiplyByFive(69);
                             velit magna. Ornare facilisi nulla eu mattis eget feugiat elit aenean. Nibh eleifend
                             posuere auctor cursus id massa nunc. Neque, duis odio amet urna eget.</p>
                     </div>
-                </article> -->
+                </article>
             </div>
 
             <nav class="pagination">
@@ -705,6 +702,7 @@ multiplyByFive(69);
     <script src="js/tags.js"></script> <script src="js/parallax.js"></script>
     <script src="js/perma.js"></script>
     <script src="js/audio.js"></script>
+    <script src="js/filter.js"></script>
     <script>
         var sticky = new Sticky(".sticky");
         
