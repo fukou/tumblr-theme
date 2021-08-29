@@ -37,7 +37,7 @@
    padding-left: 3.65rem;
    padding-right: 3rem;
 
-   border: 2px solid #ccc;
+   border: 2px solid rgba(var(--heading-text), 0.2);
    border-radius: 8px;
 
    &::before {
@@ -52,20 +52,20 @@
 
       padding: 0 0.65rem;
 
-      background: var(--bg-card);
-      color: var(--heading-text);
+      background: rgba(var(--bg-card), 1);
+      color: rgba(var(--heading-text), 1);
    }
 }
 
 .npf-link-block {
-   border: 1px solid rgba(#111, 0.2);
+   border: 1px solid rgba(var(--heading-text), 0.1);
 
    .bottom {
       padding: 10px 20px;
 
       .site-name {
          margin-top: 0;
-         color: var(--body-link);
+         color: rgba(var(--body-link), 1);
       }
    }
 }
@@ -82,13 +82,13 @@
       display: block;
 
       position: absolute;
-      left: -2.5rem;
+      left: -2.25rem;
       bottom: -1rem;
 
-      width: calc(100% + 5rem);
+      width: calc(100% + 4.5rem);
       height: 1px;
 
-      background-color: rgba(#111, 0.1);
+      background-color: rgba(var(--heading-text), 0.1);
    }
 
    &:only-child,
@@ -120,7 +120,7 @@
       .user-blog {
          font-weight: bold;
          text-decoration: none;
-         color: var(--body-link);
+         color: rgba(var(--body-link), 1);
       }
    }
 
@@ -150,14 +150,14 @@
 }
 
 .npf_photoset {
-   margin: 1.85rem -2.5rem;
+   margin: 1.85rem -2rem;
 }
 
 .npf_gallery_indicator {
    position: absolute;
    right: 0;
    top: 0;
-   background-color: var(--heading-text);
+   background-color: rgba(var(--heading-text), 1);
    display: flex;
    align-items: center;
    justify-content: center;
@@ -170,8 +170,8 @@
 
 .posts__body .tmblr-attribution {
    position: relative;
-   background-color: #111;
-   color: var(--white);
+   background-color: rgba(var(--heading-text), 1);
+   color: rgba(var(--bg-card), 1);
    padding: 0.65rem 1rem;
 
    margin-top: -0.85rem;
@@ -180,13 +180,13 @@
    font-size: 0.85rem;
 
    a {
-      color: var(--white);
+      color: rgba(var(--bg-card), 1);
    }
 }
 
 figure[data-tumblr-attribution] {
    overflow: hidden;
-   margin: 0 -2.5rem;
+   margin: 0 -2rem;
 }
 
 .tmblr-full {
@@ -222,7 +222,7 @@ hr {
    height: 1px;
    margin-left: auto;
    margin-right: auto;
-   background-color: #eee;
+   background-color: rgba(var(--heading-text), 0.3);
    color: #aaa;
    border: 0 none;
    margin-top: 2.5rem;
@@ -238,7 +238,7 @@ hr {
       font-size: 20px;
 
       content: "\f069";
-      background-color: var(--bg-card);
+      background-color: rgba(var(--bg-card), 1);
       padding: 0 1rem;
    }
 }
@@ -258,13 +258,21 @@ hr {
 
 .iframe-container,
 iframe#new-tumblr-controls {
-   position: unset;
+   position: fixed;
    top: 0px;
    left: 0px;
    height: 54px;
    width: 100% !important;
-   background: var(--bg-post);
+   background: rgba(var(--bg-card), 0.5);
+   -webkit-backdrop-filter: blur(8px);
+   backdrop-filter: blur(8px);
    z-index: 10;
+
+   border-bottom: 1px solid rgba(var(--heading-text), 0.1);
+}
+
+.iframe-container {
+   box-shadow: 0 0 8px 0 rgba(var(--heading-text), 0.3);
 }
 
 @media (max-width: 60rem) {
@@ -307,7 +315,7 @@ iframe#new-tumblr-controls {
    width: 100%;
 
    &:hover {
-      background-color: rgba(#111, 0.1);
+      background-color:rgba(var(--heading-text), 0.1);
    }
 
    &.liked {

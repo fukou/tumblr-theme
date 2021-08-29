@@ -12,10 +12,10 @@
 
     &__info {
         position: relative;
-        background-color: var(--bg-card);
-        color: var(--body-text);
+        background-color:rgba(var(--bg-card), 1);
+        color: rgba(var(--body-text), 1);
         border-radius: 5px;
-        box-shadow: 3px 4px 9px rgba(0, 0, 0, 0.06);
+        box-shadow: 3px 4px 9px rgba(var(--heading-text), 0.06);
         padding:1rem 1.25rem;
 
         @media (max-width:60rem) {
@@ -33,11 +33,12 @@
             &:not(.is-link) {
                 // opacity: 0.45;
                 background-color: #898989;
+                color:#111;
                 cursor: not-allowed;
             }
 
-            background-color: var(--heading-text);
-            color:var(--bg-card);
+            background: rgba(var(--accent-color-one), 1);
+            color:rgba(var(--white), 1);
 
             padding:1rem 1.25rem;
             border-radius: 5px;
@@ -61,8 +62,8 @@
 
         border:0;
         box-shadow: none;
-        background-color: var(--heading-text);
-        color:var(--bg-card);
+        background-color:rgba(var(--heading-text), 1);
+        color:rgba(var(--bg-card), 0.1);
 
         text-align: center;
 

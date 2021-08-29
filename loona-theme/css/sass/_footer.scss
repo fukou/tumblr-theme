@@ -1,8 +1,8 @@
 .footer {
     margin-top: 6.5rem;
     padding:3.5rem;
-    background-color: var(--bg-card);
-    color:var(--body-text);
+    background-color: rgba(var(--bg-card), 1);
+    color:rgba(var(--body-text), 1);
 
     &__inner {
         max-width: 65rem;
@@ -20,7 +20,7 @@
 
     &__credit {
         a {
-            color:var(--body-link);
+            color:rgba(var(--body-link), 1);
         }
         @media (max-width:60rem) {
             margin-top: 0.85rem;

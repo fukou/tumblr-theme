@@ -13,7 +13,7 @@
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
-<body>
+<body class="d-hblock is-right">
 
     <header class="hero" id="hero" style="background-image:var(--hero);">
         <div class="hero__inner">
@@ -57,6 +57,15 @@
                     </nav>
                 </div>
 
+                <div class="wrapper__sidebar--inner is-nav is-twitter">
+                    <div id="twitter" style="display:none;">
+                        <h2><a href="https://twitter.com/{TwitterUsername}">Latest Tweets</a></h2>
+                
+                        <div id="tweets"></div>
+                        <a class="tweets__button" href="https://twitter.com/{TwitterUsername}">See all latest Tweets</a>
+                    </div>
+                </div>
+
                 <div class="wrapper__sidebar--inner sticky is-nav" data-margin-top="50" data-sticky-for="1023">
                     <div class="wrapper__sidebar--body">
                         <h2>Quick Links</h2>
@@ -81,7 +90,7 @@
                 </div>
             </aside>
             <div class="wrapper__blog">
-                <article class="posts spoilers warning filter">
+                <article class="posts spoilers warning">
                     <div class="posts__perma">
                         <div class="posts__perma--reblog">
                             <a href="#">username</a>
@@ -166,7 +175,7 @@
                      </div>
                 </article>
                  
-                <article class="posts pinned">
+                <article class="posts spoiler pinned">
                     <div class="posts__perma">
                         <div class="posts__perma--reblog">
                             <a href="#">username</a>
@@ -738,7 +747,8 @@ if(window.tumblrNotesLoaded)if(tumblrNotesLoaded(notes_html)==false)return;var m
             }
         });
     </script>
-
+    <script src="js/display_tweet.js"></script>
+    <script src="js/tweet.js"></script>
 </body>
 
 </html>
