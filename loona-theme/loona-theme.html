@@ -27,10 +27,11 @@
         <meta name="description" content="{MetaDescription}">
     {/block:Description}
     
-    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/7aBqy85il/main.min.css">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/8qaqynq33/main.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"> 
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
      <link rel="shortcut icon" href="{Favicon}">
@@ -42,9 +43,6 @@
      
      <meta name="image:Background Image" content="">
      <meta name="image:Hero Sidebar Image" content="https://static.tumblr.com/5ojoydj/h0lqvp8so/hero.jpg">
-     
-     <meta name="color:Accent Color Primary" content="#0C1C6A" />
-     <meta name="color:Accent Color Secondary" content="#EB0172" />
         
      <meta name="color:Posts Background Color" content="#ffffff" />
      <meta name="color:Posts Body Link Color" content="#111111" />
@@ -60,6 +58,7 @@
      <meta name="select:Hero Top Section Image" content="d-hnone" title="Disable">
      
      <meta name="if:Show Hero Sidebar Image" content="0">
+     <meta name="if:Show Twitter Widget" content="0">
      
      <style>
             :root {
@@ -68,18 +67,23 @@
                 
                 --bg: url("{image:Background Image}");
                 --heading-font:'Source Serif Pro', serif;
+                /*--body-font:  'Fira Sans', sans-serif;*/
                 --body-font: 'Favorit', sans-serif;
                 --code-font:'Oxygen Mono', monospace;
+                
+                --white:255,255,255;
             
-                --accent-color-one:{color:Accent Color Primary};
-                --accent-color-two:{color:Accent Color Secondary};
+                --accent-color-one:{RGBAccentColor}; /* {AccentColor} */
+                /*--accent-color-two:{RGBcolor:Accent Color Secondary};*/
             
-                --bg-color:{BackgroundColor};
-                --bg-card:{color:Posts Background Color};
+                --bg-color:{RGBBackgroundColor}; /* {BackgroundColor}*/
+                --bg-card:{RGBcolor:Posts Background Color};
             
-                --body-text: {color:Posts Body Text Color};
-                --body-link: {color:Posts Body Link Color};
-                --heading-text: {color:Posts Body Heading Color};
+                --body-text: {RGBcolor:Posts Body Text Color};
+                --body-link: {RGBcolor:Posts Body Link Color};
+                --heading-text: {RGBcolor:Posts Body Heading Color};
+                
+                --tumblr-controls:rgba({RGBcolor:Posts Background Color}, 0.5);
             }
             
             .d-block {
@@ -97,6 +101,10 @@
                 }
             }
             
+            .wrapper__blog .posts .tmblr-full:last-child {
+                margin-bottom:0;
+            }
+            
             .posts__answer:empty {
                 display:none;
             }
@@ -104,7 +112,7 @@
     {CustomCSS}
     </style>
 </head>
-<body class="{select:Hero Top Section Image}">
+<body class="{select:Hero Top Section Image}" style="background-image:var(--bg);">
     <div class="iframe-container"><iframe id="new-tumblr-controls" src="" frameborder="0" scrolling="no" name="unified-controls" class="tmblr-iframe tmblr-iframe--unified-controls tmblr-iframe--loaded iframe-controls--desktop"></iframe></div>
     <header class="hero" id="hero" style="background-image:var(--hero);min-height:{text:Hero Top Section Image Height}vh;">
     </header>
@@ -166,8 +174,21 @@
                 </div>
                 {/block:HasHighlightedPosts}
                 
+                {block:IfShowTwitterWidget}
+                {block:Twitter}
+                <div class="wrapper__sidebar--inner is-nav is-twitter">
+                    <div id="twitter" style="display:none;">
+                        <h2><a href="https://twitter.com/{TwitterUsername}">Latest Tweets &nbsp; <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="#1DA1F2"><path d="M24 4.37a9.6 9.6 0 0 1-2.83.8 5.04 5.04 0 0 0 2.17-2.8c-.95.58-2 1-3.13 1.22A4.86 4.86 0 0 0 16.61 2a4.99 4.99 0 0 0-4.79 6.2A13.87 13.87 0 0 1 1.67 2.92 5.12 5.12 0 0 0 3.2 9.67a4.82 4.82 0 0 1-2.23-.64v.07c0 2.44 1.7 4.48 3.95 4.95a4.84 4.84 0 0 1-2.22.08c.63 2.01 2.45 3.47 4.6 3.51A9.72 9.72 0 0 1 0 19.74 13.68 13.68 0 0 0 7.55 22c9.06 0 14-7.7 14-14.37v-.65c.96-.71 1.79-1.6 2.45-2.61z"/></svg></a></h2>
+                
+                        <div id="tweets"></div>
+                        <a class="tweets__button" href="https://twitter.com/{TwitterUsername}">See all latest Tweets</a>
+                    </div>
+                </div>
+                {/block:Twitter}
+                {/block:IfShowTwitterWidget}
+                
                 {block:HasPages} 
-                <div class="wrapper__sidebar--inner is-nav sticky" data-margin-top="30" data-sticky-for="1023">
+                <div class="wrapper__sidebar--inner is-nav sticky" data-margin-top="85" data-sticky-for="1023">
                     <div class="wrapper__sidebar--body">
                         <h2>Quick Links</h2>
                             <ul class="additional-links">
@@ -401,7 +422,7 @@
                             {block:Video}
                               <div class="video__p">{Video-700}</div>
                                       {block:Caption}
-                              <div class="body__text">
+                              <div class="posts__caption">
                                 {block:NotReblog}{Caption}{/block:NotReblog}
                                 {block:RebloggedFrom}
                                 {block:Reblogs}
@@ -574,6 +595,7 @@
     <script src="https://static.tumblr.com/5ojoydj/PRhqvo498/tags.js"></script> 
     <script src="https://static.tumblr.com/5ojoydj/X4Fqvo49g/parallax.js"></script>
     <script src="https://static.tumblr.com/5ojoydj/LnSqvo49u/audio.js"></script>
+    <script src="https://static.tumblr.com/5ojoydj/f41qynq0j/filter.js"></script>
     <script>
         const buttonLink = document.querySelectorAll(".posts__perma--note button");
         buttonLink.forEach(function(button, index) {
@@ -591,6 +613,7 @@
         });
 
         var sticky = new Sticky(".sticky");
+        var spoiler = new filterTags();
         
         // https://rachaelthemes.com/tumblr-controls
         function tumblrControls(e, r, t, o, s, l) {
@@ -601,7 +624,7 @@
 	        document.querySelector("#new-tumblr-controls").setAttribute("src", u);
         }
         
-        tumblrControls("{color:Posts Background Color}", "{AccentColor}", "{Name}"{block:Posts}{block:PermalinkPage}{block:Date}, "{PostID}", "{RelativePermalink}", "true"{/block:Date}{/block:PermalinkPage}{/block:Posts} );
+        tumblrControls("{color:Posts Background Color}", "{color:Posts Body Text Color}", "{Name}"{block:Posts}{block:PermalinkPage}{block:Date}, "{PostID}", "{RelativePermalink}", "true"{/block:Date}{/block:PermalinkPage}{/block:Posts} );
         
         const spotifyPlayers = document.querySelectorAll(".spotify_audio_player");
         if(spotifyPlayers) {
@@ -670,6 +693,10 @@
         });
         }
     </script>
-
+    
+    {block:Twitter}
+    <script type="text/javascript" src="https://static.tumblr.com/5ojoydj/K59qycgio/display_tweet.js"></script>
+    <script type="text/javascript" src="/tweets.js"></script>
+    {/block:Twitter}
 </body>
 </html>
