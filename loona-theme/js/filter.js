@@ -1,34 +1,51 @@
-function filter() {
-    const postsFiltered = document.querySelectorAll(".posts");
-    const listFilter = [
-        "spoiler",
-        "spoilers",
-        "warning",
-    ];
+/* 
+ * filterTags.js
+ * A plugin for filtering post using a tag system from Tumblr in vanilla JavaScript.
+ * @version 1.0.0
+ * @author Faiz IJ <github.com/fukou>
+ * @website https://fukuo.site
+*/
+function filterTags(options) {
+    let defaultOptions = {
+        selector: ".posts",
+        filterList: [
+            "spoiler",
+            "spoilers",
+            "warning",
+        ],
+        showTags: true,
+        filterButton: "View post",
+        filterTextWarning: "This post contains filtered tags"
+    }
+
+    options = { ...defaultOptions, ...options};
+
+    const postsFiltered = document.querySelectorAll(options.selector);
+    const listFilter = options.filterList;
 
     postsFiltered.forEach(function(item, idx) {
-        // const isFiltered = item.classList.contains("spoilers");
         const className = item.className.split(" ");
-        console.log(className);
 
         const containerFilter = document.createElement("div");
             containerFilter.className = "posts__filtered";
             containerFilter.innerHTML = `
-                <h2>This post contains filtered tags</h2>
+                <h2>${options.filterTextWarning}</h2>
                 <ul>
-                ${className.map(tag => {
+                ${options.showTags ? className.map(tag => {
                     let isTag = false
                         listFilter.filter(tags => {
                         if(tags === tag) isTag = true} ) 
                     return isTag ? `<li><a href="/tagged/${tag}">${tag}</a></li>` : '';
-                }).join('')}
+                }).join('') : ""}
                 </ul>
-                <button class="view-post">View post</button>
+                <button class="view-post">${options.filterButton}</button>
             `;
 
         let isFiltered = false;
         className.filter(a => listFilter.filter(b => {
             if(b === a) isFiltered = true} ));
+
+        
 
         if(isFiltered) {
             item.setAttribute("post-data", "filtered")
@@ -41,5 +58,3 @@ function filter() {
         }
     });
 }
-
-document.addEventListener("DOMContentLoaded", filter);

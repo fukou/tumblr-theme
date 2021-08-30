@@ -714,6 +714,7 @@ if(window.tumblrNotesLoaded)if(tumblrNotesLoaded(notes_html)==false)return;var m
     <script src="js/filter.js"></script>
     <script>
         var sticky = new Sticky(".sticky");
+        var spoilers = new filterTags();
         
         const fac = new FastAverageColor();
         const imageGrid = document.querySelectorAll(".posts figure.tmblr-full, .posts figure[data-tumblr-attribution], .posts__audio--album");
