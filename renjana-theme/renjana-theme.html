@@ -13,7 +13,7 @@
         |  |     |  `--'  | |  .  \  |  `--'  | |  `--'  |
         |__|      \______/  |__|\__\  \______/   \______/  
                        
-                         LOONA Theme v2.0
+                         Renjana Theme v.1.0.0
              
 -->
 <head>
@@ -27,11 +27,10 @@
         <meta name="description" content="{MetaDescription}">
     {/block:Description}
     
-    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/8qaqynq33/main.min.css">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/d2Lqysydb/main.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"> 
-     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
      <link rel="shortcut icon" href="{Favicon}">
@@ -39,8 +38,8 @@
      <link rel="alternate" type="application/rss+xml" href="{RSS}">
      <link href="https://cdn.jsdelivr.net/gh/boscoxvi/npfphotosets/npfphotosetstyle.css" rel="stylesheet" type="text/css">
      <link href="https://static.tumblr.com/0podkko/xIbplezmo/modified_photosets.css" rel="stylesheet">
-     <link rel="stylesheet" href="https://assets.tumblr.com/fonts/favorit/stylesheet.css?v=1">
      
+     {block:Hidden}
      <meta name="image:Background Image" content="">
      <meta name="image:Hero Sidebar Image" content="https://static.tumblr.com/5ojoydj/h0lqvp8so/hero.jpg">
         
@@ -49,8 +48,11 @@
      <meta name="color:Posts Body Heading Color" content="#111111" />
      <meta name="color:Posts Body Text Color" content="#444444" />
      
+     <meta name="text:Posts Filter Lists" content='"spoiler", "spoilers","warning"' />
+     <meta name="text:Posts Filter Button Text" content="View post"/>
+     <meta name="text:Posts Filter Warning Text" content="This post contains filtered tags"/>
      <meta name="text:Hero Top Section Image Height" content="55" />
-     
+    
      <meta name="select:Show Tags" content="d-block" title="Enable">
      <meta name="select:Show Tags" content="d-none" title="Disable">
      
@@ -60,6 +62,8 @@
      <meta name="if:Show Hero Sidebar Image" content="0">
      <meta name="if:Show Twitter Widget" content="0">
      
+     {/block:Hidden}
+     
      <style>
             :root {
                 --hero:url("{HeaderImage}");
@@ -67,14 +71,12 @@
                 
                 --bg: url("{image:Background Image}");
                 --heading-font:'Source Serif Pro', serif;
-                /*--body-font:  'Fira Sans', sans-serif;*/
-                --body-font: 'Favorit', sans-serif;
+                --body-font:  'Fira Sans', sans-serif;
                 --code-font:'Oxygen Mono', monospace;
                 
                 --white:255,255,255;
             
                 --accent-color-one:{RGBAccentColor}; /* {AccentColor} */
-                /*--accent-color-two:{RGBcolor:Accent Color Secondary};*/
             
                 --bg-color:{RGBBackgroundColor}; /* {BackgroundColor}*/
                 --bg-card:{RGBcolor:Posts Background Color};
@@ -317,9 +319,11 @@
                             {/block:Text}
                             
                             {block:Photo}
-                            <figure class="posts__photo" style="cursor: zoom-in;" onclick="Tumblr.Lightbox.init([{ width: {PhotoWidth-HighRes}, height: {PhotoHeight-HighRes}, low_res: '{PhotoURL-500}', high_res: '{PhotoURL-HighRes}' }]); $('body').toggleClass('tumblr_lightbox_active');return false;">
-                                <img src="{PhotoURL-HighRes}">
+                            {LinkOpenTag}
+                            <figure class="posts__photo">
+                                <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
                             </figure>
+                            {LinkCloseTag}
                             {block:Caption}
                             <div class="posts__caption">
                                 {block:NotReblog}{Caption}{/block:NotReblog}
@@ -581,7 +585,7 @@
             Copyright © {Name} {CopyrightYears}. All rights reserved.
             </div>
             <div class="footer__credit">
-            LOONA Theme by <a href="https://fukuo.tumblr.com">Fukuo</a>. Powered by <a
+            <a href="https://www.tumblr.com/theme/41018">Renjana Theme</a> by <a href="https://fukuo.tumblr.com">Fukuo</a>. Powered by <a
                 href="https://tumblr.com/" data-font="tumblr" aria-label="Tumblr"><svg class="svg-logo logo-tumblr" width="55px" viewBox="0 0 245 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g class="logotype" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd"><path d="M28.087 49.57h-8.286c-7.461 0-13.021-3.835-13.021-13.01V21.863H0v-7.957C7.461 11.97 10.582 5.556 10.94 0h7.749v12.616h9.04v9.248h-9.04v12.795c0 3.836 1.937 5.162 5.022 5.162h4.376v9.749zm143.951.43c-3.766 0-7.246-1.254-10.151-3.692v3.262h-11.372V7.993h-4.95V0h17.075v15.305c2.224-1.72 5.919-3.119 9.613-3.119 10.51 0 15.676 7.312 15.676 18.46 0 11.612-5.56 19.354-15.89 19.354zm18.115-.43v-7.921h4.197V7.993h-4.95V0h16.93v41.649h4.377v7.92h-20.554zm-112.456 0v-7.921h4.197V20.68h-4.95v-8.065H92.26V17.6c2.582-3.549 7.39-5.413 11.765-5.413 5.525 0 9.22 2.223 11.658 5.914 1.938-3.261 6.529-5.914 12.125-5.914 11.335 0 14.205 8.961 14.205 16.56v12.903h4.125v7.92h-20.16v-7.92h4.054V27.348c0-3.047-1.04-5.628-5.309-5.628-5.273 0-6.816 4.122-6.816 6.13v13.799h4.233v7.92h-20.267v-7.92H106V27.348c0-3.047-.86-5.628-5.093-5.628-5.238 0-6.96 4.122-6.96 6.13v13.799h4.162v7.92H77.697zm137.494 0v-7.921h4.09V20.68h-4.449v-8.065h15.39v5.341c1.9-3.548 6.133-5.77 10.725-5.77H245V22.76h-5.022c-3.766 0-8.717 1.541-8.717 8.566V41.65h4.126v7.92H215.19zM47.53 50c-11.765 0-14.348-8.853-14.348-14.552V12.616h12.411v22.33c0 3.083.754 5.52 4.807 5.52 6.313 0 7.246-4.695 7.246-5.807V20.681h-4.807v-8.065h16.86V41.65h3.55v7.92H59.296V44.91C56.641 48.172 51.762 50 47.529 50zm121.926-8.996c1.902-.215 6.278-.538 6.278-10.287 0-6.774-2.978-9.498-6.35-9.498-2.905 0-7.102 1.54-7.102 10.25 0 7.24 3.551 9.535 7.174 9.535z" fill-rule="evenodd"></path></g></svg></a></span>
             </div>
        </div>
@@ -613,7 +617,12 @@
         });
 
         var sticky = new Sticky(".sticky");
-        var spoiler = new filterTags();
+        var spoiler = new filterTags({
+            filterList: [{text:Posts Filter Lists}],
+            showTags: true,
+            filterButton: "{text:Posts Filter Button Text}",
+            filterTextWarning: "{text:Posts Filter Warning Text}"
+        });
         
         // https://rachaelthemes.com/tumblr-controls
         function tumblrControls(e, r, t, o, s, l) {

@@ -314,6 +314,11 @@ pre {
             box-shadow: none;
          }
 
+         a {
+            font-weight: bold;
+            color: rgba(var(--body-link), 1);
+         }
+
          h2 {
             margin-bottom: 1.25rem;
             text-align: center;
@@ -719,6 +724,12 @@ pre {
                &__name {
                   font-weight: bold;
                   font-size: 1.5rem;
+                  display: -webkit-box;
+
+                  max-width: 300px;
+                  -webkit-line-clamp: 1;
+                  -webkit-box-orient: vertical;
+                  overflow: hidden;
                }
                &__track,
                &__album {
@@ -757,6 +768,8 @@ pre {
                }
 
                .btn-play {
+                  flex: none;
+                  
                   cursor: pointer;
 
                   display: inline-flex;

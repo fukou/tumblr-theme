@@ -5,6 +5,7 @@
  * @author Faiz IJ <github.com/fukou>
  * @website https://fukuo.site
 */
+
 function filterTags(options) {
     let defaultOptions = {
         selector: ".posts",
@@ -44,8 +45,6 @@ function filterTags(options) {
         let isFiltered = false;
         className.filter(a => listFilter.filter(b => {
             if(b === a) isFiltered = true} ));
-
-        
 
         if(isFiltered) {
             item.setAttribute("post-data", "filtered")

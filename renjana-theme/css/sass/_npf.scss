@@ -296,6 +296,8 @@ iframe#new-tumblr-controls {
 .is-spotify {
    position: relative;
    padding-bottom: 80px;
+   
+   margin:1rem 0;
 }
 .is-spotify .spotify_audio_player {
    position: absolute;
@@ -384,7 +386,7 @@ iframe#new-tumblr-controls {
 }
 
 .d-hnone .wrapper {
-   margin-top: 3.5rem;
+   margin-top: 8rem;
 }
 
 @media (max-width: 60rem) {
