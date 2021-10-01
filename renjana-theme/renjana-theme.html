@@ -13,7 +13,7 @@
         |  |     |  `--'  | |  .  \  |  `--'  | |  `--'  |
         |__|      \______/  |__|\__\  \______/   \______/  
                        
-                         Renjana Theme v.1.0.0
+                         Renjana Theme v.1.0.2
              
 -->
 <head>
@@ -27,10 +27,10 @@
         <meta name="description" content="{MetaDescription}">
     {/block:Description}
     
-    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/FzAqzlsxl/main.min.css">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/qTor0b0lp/main.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
      <link rel="shortcut icon" href="{Favicon}">
@@ -71,7 +71,7 @@
                 
                 --bg: url("{image:Background Image}");
                 --heading-font:'Source Serif Pro', serif;
-                --body-font:  'Fira Sans', sans-serif;
+                --body-font: 'Inter', sans-serif;
                 --code-font:'Oxygen Mono', monospace;
                 
                 --white:255,255,255;
@@ -88,6 +88,10 @@
                 --tumblr-controls:rgba({RGBcolor:Posts Background Color}, 0.5);
             }
             
+            body {
+                font-feature-settings:"salt";
+            }
+            
             .d-block {
                 display:block;
             }
@@ -95,20 +99,11 @@
             .d-none {
                 display:none;
             }
-            
            
             @media (max-width:60rem) {
                 .is-first {
                     margin-bottom:2rem!important; 
                 }
-            }
-            
-            .wrapper__blog .posts .tmblr-full:last-child {
-                margin-bottom:0;
-            }
-            
-            .posts__answer:empty {
-                display:none;
             }
            
     {CustomCSS}
@@ -455,11 +450,11 @@
                                 {block:AudioPlayer} 
                                     {AudioPlayer} 
                                 {/block:AudioPlayer}
+                                {block:AlbumArt}
                                 <div class="posts__audio--album">
-                                    {block:AlbumArt}
                                     <img src="{AlbumArtURL}" alt=""/>
-                                    {/block:AlbumArt}
                                 </div>
+                                {/block:AlbumArt}
                                 <div class="posts__audio--player">
                                     <button class="btn-play">
                                         <i class="las la-play"></i>
@@ -515,6 +510,10 @@
                             {/block:Audio}
                             
                             {block:Date}
+                            <div class="posts__dated">
+                               <a href="{Permalink}">{lang:Posted on DayOfWeek DayOfMonth Month Year} ∙ {12Hour}:{Minutes}{AmPm}</a>
+                            </div>
+                            
                             {block:HasTags}
                             <div class="{select:Show Tags}">
                                 <div class="posts__tags">
