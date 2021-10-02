@@ -1,23 +1,30 @@
 :root {
     --heading-font:'Source Serif Pro', serif;
-    --body-font: 'Favorit', sans-serif;
-    // --body-font: 'Mulish', sans-serif;
+    --body-font: 'Inter', sans-serif;
     --code-font:'Oxygen Mono', monospace;
     
-    --white:#fff;
+    --white:255, 255, 255;
 
-    --primary-color:#40BF8C;
+    --accent:64, 191, 140;
 
-    --header-navigation-bg:#fff;
-    --header-navigation-link:#111;
+    // light
+    --bg-color:242, 242, 242;
+    --bg-card:255, 255, 255;
 
-    --hero-title:#fff;
-    --hero-description:#fff;
+    --heading-text:17,17,17;
+    --body-text:68,68,68;
+    --hero-text:255, 255, 255;
 
-    --bg-color:#F2F2F2;
-    --bg-card:#fff;
+    --body-link:17,17,17;
 
-    --heading-text:#111;
-    --body-text:#555;
-    --body-link:#111;
+
+    // dark
+    // --bg-color: 0,0,0;
+    // --bg-card: 34,34,34;
+
+    // --heading-text: 238,238,238;
+    // --body-text: 246,246,246;
+    // --hero-text: 238,238,238;
+
+    // --body-link: 204,204,204;
 }

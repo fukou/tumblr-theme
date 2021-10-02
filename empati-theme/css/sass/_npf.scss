@@ -1,5 +1,5 @@
 .npf_row {
-   margin: 1.75rem 0;
+   margin: 0;
    gap: 0rem;
 
    figure.tmblr-full {
@@ -24,7 +24,6 @@
 }
 
 figure.tmblr-full {
-   margin:1.5rem 0;
    img {
       border-radius: 8px;
    }
@@ -89,24 +88,6 @@ figure.tmblr-full {
 .reblog-list {
    position: relative;
 
-   + .reblog-list {
-      margin-top: 1.75rem;
-   }
-
-   &::after {
-      content: "";
-      display: block;
-
-      position: absolute;
-      left: -2.5rem;
-      bottom: -1rem;
-
-      width: calc(100% + 5rem);
-      height: 1px;
-
-      background-color: rgba(#111, 0.1);
-   }
-
    &:only-child,
    &:last-of-type {
       &::after {
@@ -118,10 +99,6 @@ figure.tmblr-full {
       display: flex;
       align-items: center;
       padding: 1rem 0 0 0;
-
-      & + div {
-         padding: 1rem 0;
-      }
 
       span {
          margin-left: 1rem;
@@ -142,7 +119,6 @@ figure.tmblr-full {
 
    &:not(:last-of-type) {
       position: relative;
-      padding-bottom: 0rem;
    }
 }
 
@@ -168,7 +144,7 @@ figure.tmblr-full {
 }
 
 .npf_photoset {
-   margin: 1.85rem -2.5rem;
+   margin: 0rem -2.5rem;
 }
 
 .npf_gallery_indicator {
@@ -186,7 +162,7 @@ figure.tmblr-full {
    color: var(--bg-card);
 }
 
-.posts__body .tmblr-attribution {
+.wrapper .posts__body .tmblr-attribution {
    position: relative;
    background-color: #111;
    color: var(--white);
@@ -299,6 +275,9 @@ iframe#new-tumblr-controls {
 }
 .soundcloud_audio_player {
    margin: 1.25rem 0;
+}
+.tumblr_audio_player {
+   width:100%;
 }
 .is-spotify {
    position: relative;
