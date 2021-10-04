@@ -52,6 +52,39 @@
          rel="stylesheet"
          type="text/css"
       />
+      <style>
+         :root {
+            --heading-font:'Source Serif Pro', serif;
+            --body-font: 'Inter', sans-serif;
+            --code-font:'Oxygen Mono', monospace;
+            
+            --white:255, 255, 255;
+
+            --accent:64, 191, 140;
+            --bg-verified:52, 135, 236;
+
+            /* light*/
+            --bg-color:242, 242, 242;
+            --bg-card:255, 255, 255;
+
+            --heading-text:17,17,17;
+            --body-text:68,68,68;
+            --hero-text:255, 255, 255;
+
+            --body-link:17,17,17;
+
+
+            /*dark
+            --bg-color: 0,0,0;
+            --bg-card: 34,34,34;
+
+            --heading-text: 238,238,238;
+            --body-text: 246,246,246;
+            --hero-text: 238,238,238;
+
+            --body-link: 204,204,204;*/
+         }
+      </style>
    </head>
    <body>
       <div class="is-bg-full"></div>
@@ -190,6 +223,13 @@
                   src="https://68.media.tumblr.com/ea5fcbb4fb4910958a5628d0fee78879/tumblr_o5unxzkSgG1qa2o8mo1_1280.png"
                   alt=""
                />
+               <div class="wrapper__hero--verified">
+                  <svg width="18" height="18" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M10.5213 2.62368C11.3147 1.75255 12.6853 1.75255 13.4787 2.62368L14.4989 3.74391C14.8998 4.18418 15.4761 4.42288 16.071 4.39508L17.5845 4.32435C18.7614 4.26934 19.7307 5.23857 19.6757 6.41554L19.6049 7.92905C19.5771 8.52388 19.8158 9.10016 20.2561 9.50111L21.3763 10.5213C22.2475 11.3147 22.2475 12.6853 21.3763 13.4787L20.2561 14.4989C19.8158 14.8998 19.5771 15.4761 19.6049 16.071L19.6757 17.5845C19.7307 18.7614 18.7614 19.7307 17.5845 19.6757L16.071 19.6049C15.4761 19.5771 14.8998 19.8158 14.4989 20.2561L13.4787 21.3763C12.6853 22.2475 11.3147 22.2475 10.5213 21.3763L9.50111 20.2561C9.10016 19.8158 8.52388 19.5771 7.92905 19.6049L6.41553 19.6757C5.23857 19.7307 4.26934 18.7614 4.32435 17.5845L4.39508 16.071C4.42288 15.4761 4.18418 14.8998 3.74391 14.4989L2.62368 13.4787C1.75255 12.6853 1.75255 11.3147 2.62368 10.5213L3.74391 9.50111C4.18418 9.10016 4.42288 8.52388 4.39508 7.92905L4.32435 6.41553C4.26934 5.23857 5.23857 4.26934 6.41554 4.32435L7.92905 4.39508C8.52388 4.42288 9.10016 4.18418 9.50111 3.74391L10.5213 2.62368Z" stroke="currentColor" stroke-width="1.5"/>
+                     <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                     </svg>
+                     
+               </div>
             </figure>
             <div class="wrapper__hero--desc">
                <h2>Empati Tamako</h2>
@@ -252,7 +292,7 @@
                <h2>This Tumblr has hardly any posts. None at all, in fact. <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M4.1 9.7l-.3.4.8.6.3-.4-.8-.6zm6 .6l.3.4.8-.6-.3-.4-.8.6zM7.5 14A6.5 6.5 0 011 7.5H0A7.5 7.5 0 007.5 15v-1zM14 7.5A6.5 6.5 0 017.5 14v1A7.5 7.5 0 0015 7.5h-1zM7.5 1A6.5 6.5 0 0114 7.5h1A7.5 7.5 0 007.5 0v1zm0-1A7.5 7.5 0 000 7.5h1A6.5 6.5 0 017.5 1V0zM4 6h1V5H4v1zm6 0h1V5h-1v1zm.9 3.7c-1.7-2.267-5.1-2.267-6.8 0l.8.6a3.25 3.25 0 015.2 0l.8-.6z" fill="currentColor"></path></svg></h2>
                
             </article> -->
-            <article class="posts posts__text">
+            <article class="posts posts-text">
                <div class="posts__inner">
                   <div class="posts__permalink">
                      <div class="posts__permalink--reblog">
@@ -550,7 +590,7 @@
                </div>
                
             </article>
-            <article class="posts posts__img">
+            <article class="posts posts-photo">
                <div class="posts__inner">
                   <div class="posts__permalink">
                      <div class="posts__permalink--reblog">

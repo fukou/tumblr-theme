@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="{block:English}en{/block:English}{block:German}de{/block:German}{block:French}fr{/block:French}{block:Italian}it{/block:Italian}{block:Japanese}ja{/block:Japanese}{block:Turkish}tr{/block:Turkish}{block:Spanish}es{/block:Spanish}{block:Russian}ru{/block:Russian}{block:Polish}pl{/block:Polish}{block:PortuguesePT}pt-PT{/block:PortuguesePT}{block:PortugueseBR}pt-BR{/block:PortugueseBR}{block:Dutch}nl{/block:Dutch}{block:Korean}ko{/block:Korean}{block:ChineseSimplified}zh-CN{/block:ChineseSimplified}{block:ChineseTraditional}zh-TW{/block:ChineseTraditional}{block:ChineseHK}zh-HK{/block:ChineseHK}{block:Indonesian}id{/block:Indonesian}{block:Hindi}hi{/block:Hindi}">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>{block:PermalinkPage}{block:PostSummary}{PostSummary} — {/block:PostSummary}{/block:PermalinkPage}{Title}{block:SearchPage} — {lang:Search results for SearchQuery}{/block:SearchPage}</title>{block:Description}
+            <meta name="description" content="{MetaDescription}">{/block:Description}
+            <meta name="theme-color" content="{BackgroundColor}">
+            {MobileAppHeaders}
+            <link rel="shortcut icon" href="{Favicon}">
+            <link rel="alternate" type="application/rss+xml" href="{RSS}">
+            <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/Wkmr0gkki/main.min.css">
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"/>
+            <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"/>
+            <link href="https://static.tumblr.com/0podkko/xIbplezmo/modified_photosets.css" rel="stylesheet">
+            <meta name="color:Posts Background Color" content="#ffffff" />
+            <meta name="color:Posts Body Link Color" content="#111111" />
+            <meta name="color:Posts Body Heading Color" content="#111111" />
+            <meta name="color:Posts Body Text Color" content="#444444" />
+            {PostTypographyStyles}
+            <style id="global">
+                :root {
+                    --heading-font:'Source Serif Pro', serif;
+                    --body-font: 'Inter', sans-serif;
+                    --code-font:'Oxygen Mono', monospace;
+                    
+                    --accent:{RGBAccentColor}; /* {AccentColor} */
+                
+                    --bg-color:{RGBBackgroundColor}; /* {BackgroundColor}*/
+                    --bg-card:{RGBcolor:Posts Background Color};
+                
+                    --body-text: {RGBcolor:Posts Body Text Color};
+                    --body-link: {RGBcolor:Posts Body Link Color};
+                    --heading-text: {RGBcolor:Posts Body Heading Color};
+                    --hero-text:255, 255, 255;
+            
+                    --bg-verified:52, 135, 236;
+                }
+                [photoset-layout] div img {
+                    margin:0!important;
+                }
+                .tmblr-full {
+                    margin: 0rem -2rem;
+                }
+                .tmblr-full img {
+                    width: 100%;
+                    height:auto;
+                }
+                .video__p {
+                    margin:0!important;
+                }
+                .modal__inner .posts-photo .posts__media [photoset-layout] > div { grid-column: 1/-1;}
+                .modal__inner .posts-photo .posts__media [photoset-layout] > div:not(:first-child) {
+                  display: none;
+                }
+
+                .photoset-count {
+                  display: inline-flex;
+                  align-items: center;
+                  position: absolute;
+                  right: 0;
+                  bottom: 0;
+                  z-index: 2;
+                  background: rgba(var(--accent), 0.75);
+                  color: rgba(var(--bg-card), 1);
+                  padding: 0.85rem 1rem;
+                }
+                .photoset-count svg { margin-left:0.5rem;}
+
+                .wrapper__blog.is-grid .posts:not(.posts-photoset-text):not(.posts-photoset):not(.posts-photo) .posts__user {display: none;}
+                .wrapper__blog.is-grid .posts.posts-photoset-text .posts__inner .posts__body{
+                   display: none;
+                }
+                .wrapper__blog.is-grid .posts.posts-photoset-text .posts__inner  [photoset-layout] > div:not(:first-child) {
+                  display: none;
+                }
+                .wrapper__blog.is-grid .posts.posts-photoset-text .posts__inner  [photoset-layout] { display: unset;}
+                .wrapper__blog.is-grid .posts.posts-photoset-text .posts__inner  [photoset-layout] div { position:relative; display:block;height:0;padding-bottom: 100%;}
+                .wrapper__blog.is-grid .posts.posts-photoset-text .posts__inner  [photoset-layout] div > img {
+                  position: absolute;
+                  left: 0;
+                  top:0;
+                  width:100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+
+                .wrapper__blog.is-grid .posts.posts-photoset-text .posts__inner::before {
+                   display: none;
+                }
+                .wrapper__blog .posts__media h1 {
+                   font-size: 1.5rem;
+                   padding:1rem 2rem;
+                   border-bottom: 1px solid rgba(var(--heading-text), 0.1);
+                }
+            </style>
+            <style id="custom">{CustomCSS}</style>
+        </head>
+        <body>
+            <div class="is-bg-full" aria-hidden="true"></div>
+            <div class="modal" role="dialog" tabindex="-1">
+                <button class="modal__close" type="button" aria-label="Close">
+                    <svg width="24" height="24" viewBox="0 0 44 44" aria-hidden="true" focusable="false" fill="currentColor">
+                       <path d="M0.549989 4.44999L4.44999 0.549988L43.45 39.55L39.55 43.45L0.549989 4.44999Z"/>
+                       <path d="M39.55 0.549988L43.45 4.44999L4.44999 43.45L0.549988 39.55L39.55 0.549988Z"/>
+                    </svg>
+               </button>
+               <div class="modal__inner"></div>
+           </div>
+           
+            <div class="iframe-container"><iframe id="new-tumblr-controls" src="" frameborder="0" scrolling="no" name="unified-controls" class="tmblr-iframe tmblr-iframe--unified-controls tmblr-iframe--loaded iframe-controls--desktop"></iframe></div>
+      
+            <nav class="nav">
+                 <div class="nav__inner">
+                    <ul>
+                       <li class="home actived">
+                          <a href="/"
+                             ><svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                             >
+                                <path
+                                   d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                                ></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                             </svg>
+                             Home</a
+                          >
+                       </li>
+                       <li>
+                          <a href="/archive"
+                             ><svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                             >
+                                <path
+                                   d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"
+                                ></path>
+                             </svg>
+                             Archive</a
+                          >
+                       </li>
+                       <li>
+                          <a href="/ask"
+                             ><svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                             >
+                                <path
+                                   d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                                ></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                             </svg>
+                             Message</a
+                          >
+                       </li>
+                       <li>
+                          <a href="/submit"
+                             ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>
+                             Submit</a
+                          >
+                       </li>
+                    </ul>
+                    <button class="nav__hamburger" aria-label="Navigation">
+                       <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                       >
+                          <line x1="3" y1="12" x2="21" y2="12"></line>
+                          <line x1="3" y1="6" x2="21" y2="6"></line>
+                          <line x1="3" y1="18" x2="21" y2="18"></line>
+                       </svg>
+                    </button>
+                 </div>
+            </nav>
+        
+            <header class="wrapper__hero">
+             <div class="wrapper__hero--inner">
+               {block:ShowAvatar}
+                <figure>
+                   <img
+                      src="{PortraitURL-96}"
+                      alt="{Name}"
+                      class="{AvatarShape}"
+                   />
+                   <div class="wrapper__hero--verified">
+                      <svg width="18" height="18" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                         <path d="M10.5213 2.62368C11.3147 1.75255 12.6853 1.75255 13.4787 2.62368L14.4989 3.74391C14.8998 4.18418 15.4761 4.42288 16.071 4.39508L17.5845 4.32435C18.7614 4.26934 19.7307 5.23857 19.6757 6.41554L19.6049 7.92905C19.5771 8.52388 19.8158 9.10016 20.2561 9.50111L21.3763 10.5213C22.2475 11.3147 22.2475 12.6853 21.3763 13.4787L20.2561 14.4989C19.8158 14.8998 19.5771 15.4761 19.6049 16.071L19.6757 17.5845C19.7307 18.7614 18.7614 19.7307 17.5845 19.6757L16.071 19.6049C15.4761 19.5771 14.8998 19.8158 14.4989 20.2561L13.4787 21.3763C12.6853 22.2475 11.3147 22.2475 10.5213 21.3763L9.50111 20.2561C9.10016 19.8158 8.52388 19.5771 7.92905 19.6049L6.41553 19.6757C5.23857 19.7307 4.26934 18.7614 4.32435 17.5845L4.39508 16.071C4.42288 15.4761 4.18418 14.8998 3.74391 14.4989L2.62368 13.4787C1.75255 12.6853 1.75255 11.3147 2.62368 10.5213L3.74391 9.50111C4.18418 9.10016 4.42288 8.52388 4.39508 7.92905L4.32435 6.41553C4.26934 5.23857 5.23857 4.26934 6.41554 4.32435L7.92905 4.39508C8.52388 4.42288 9.10016 4.18418 9.50111 3.74391L10.5213 2.62368Z" stroke="currentColor" stroke-width="1.5"/>
+                         <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                         </svg>
+                         
+                   </div>
+                </figure>
+                {/block:ShowAvatar}
+                <div class="wrapper__hero--desc">
+                  {block:ShowTitle}<h2>{Title}</h2>{/block:ShowTitle}
+                  {block:ShowDescription}{Description}{/block:ShowDescription}
+                </div>
+             </div>
+            </header>
+      
+            <main class="wrapper">
+                <section class="wrapper__toggle">
+                    <div class="wrapper__toggle--inner">
+                       <button class="grid">
+                          <svg
+                             xmlns="http://www.w3.org/2000/svg"
+                             width="16"
+                             height="16"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1.5"
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                          >
+                             <rect x="3" y="3" width="7" height="7"></rect>
+                             <rect x="14" y="3" width="7" height="7"></rect>
+                             <rect x="14" y="14" width="7" height="7"></rect>
+                             <rect x="3" y="14" width="7" height="7"></rect></svg>
+                             Grid
+                       </button>
+                       <button class="list actived">
+                          <svg
+                             xmlns="http://www.w3.org/2000/svg"
+                             width="16"
+                             height="16"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1.5"
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                          >
+                             <line x1="8" y1="6" x2="21" y2="6"></line>
+                             <line x1="8" y1="12" x2="21" y2="12"></line>
+                             <line x1="8" y1="18" x2="21" y2="18"></line>
+                             <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                             <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                             <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                          </svg>
+                          List
+                       </button>
+                    </div>
+                 </section>
+                 
+                 <section class="wrapper__blog is-list">
+                {block:Posts}
+                <article id="{PostID}" class="posts posts-{PostType}">
+                    <div class="posts__inner">
+                        <div class="posts__view">
+                         <a href="#" class="btn-post">See this post
+                            <svg
+                               xmlns="http://www.w3.org/2000/svg"
+                               width="24"
+                               height="24"
+                               viewBox="0 0 24 24"
+                               fill="none"
+                               stroke="currentColor"
+                               stroke-width="1.5"
+                               stroke-linecap="round"
+                               stroke-linejoin="round"
+                            >
+                               <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
+                        </div>
+                        <div class="posts__user">
+                           {block:NotReblog}<img src="{PortraitURL-30}" alt="{Name}"/><span>{Name}</span>{/block:NotReblog}
+                           {block:RebloggedFrom}<img src="{ReblogRootPortraitURL-30}" alt="{ReblogRootName}"/><span>{ReblogRootName}</span>{/block:RebloggedFrom}
+                          
+                        </div>
+                        
+                        <section class="posts__media">{block:Text}{block:Title}
+                            <h1>{Title}</h1>{/block:Title}{/block:Text}{block:Photo}
+                            <figure class="posts__image">
+                                {LinkOpenTag}
+                                    <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
+                                {LinkCloseTag}
+                            </figure>
+                            {/block:Photo}
+                            {block:Photoset}
+                            <div class="photoset-count">{PhotoCount} <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div>
+                            <div class="photoset-grid" photoset-layout="{PhotosetLayout}">{block:Photos}<div data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" onclick="lightbox(this)"><img src="{PhotoURL-HighRes}" /></div>{/block:Photos}</div>{block:Photoset}
+                            
+                            {block:Quote}
+                            <p class="npf_quote {Length}">{Quote}</p>{block:Source}
+                            <table>
+                                <tr>
+                                    <td>&mdash;</td>
+                                    <td>{Source}</td>
+                                </tr>
+                            </table>{/block:Source}{/block:Quote}{block:Link}
+                            <div class="npf-link-block {block:Thumbnail}has-poster not-{/block:Thumbnail}no-poster">
+                                <a href="{URL}" {Target}>{block:Thumbnail}
+                                    <div class="poster" style="background-image: url({Thumbnail-HighRes});">{/block:Thumbnail}
+                                        <div class="title">{Name}</div>{block:Thumbnail}
+                                    </div>{/block:Thumbnail}
+                                    <div class="bottom">{block:Excerpt}
+                                        <div class="description">{Excerpt}</div>{/block:Excerpt}{block:Host}
+                                        <div class="site-name">{Host}</div>{/block:Host}
+                                    </div>
+                                </a>
+                            </div>{/block:Link}{block:Chat}{block:Title}
+                            <h1>{Title}</h1>{/block:Title}{block:Lines}
+                            <p class="npf_chat">{block:Label}
+                                <b>{Label}</b>{/block:Label}
+                                {Line}
+                            </p>{/block:Lines}{/block:Chat}{block:Audio}{block:AudioEmbed}
+                            {AudioEmbed}{/block:AudioEmbed}{/block:Audio}
+                            {block:Video}<div class="video__p">{VideoEmbed-700}</div>{/block:Video}
+                            {block:Answer}
+                            <div class="posts__question">
+                              <img class="posts__answerer--img" src="{AskerPortraitURL-64}" alt="">
+                              <div class="posts__answerer--inner">
+                                  <div class="posts__question--asker">
+                                     {lang:Asker asked 2}
+                                  </div>
+                                 {Question}
+                              </div>
+                          </div>
+                          
+                          {block:Answerer}
+                           <div class="posts__answerer">
+                           <img class="posts__answerer--img" src="{AnswererPortraitURL-64}" alt="">
+                              <div class="posts__answerer--inner">
+                                  <div class="posts__answerer--asker">
+                                     {Answerer} replied
+                                  </div>
+                              {Answer}
+                              </div>
+                          </div>
+                          {/block:Answerer}
+                          {/block:Answer}
+                        </section>
+                        <section class="posts__body">{block:RebloggedFrom}{block:Reblogs}
+                            <div class="reblog-list">
+                                <div class="reblog-post-avatar">
+                                    {block:HasAvatar}
+                                        <img src="{PortraitURL-64}" />
+                                        <span>
+                                           {block:IsActive}{block:HasPermalink}<a href="{Permalink}" class="user-blog">{/block:HasPermalink}{Username}{block:HasPermalink}</a>{/block:HasPermalink}{/block:IsActive}
+                                            {block:IsDeactivated}
+                                            {block:HasPermalink}<a href="{Permalink}" class="user-blog is-deactivated">{/block:HasPermalink}{Username}{block:HasPermalink}</a>{/block:HasPermalink}
+                                            {/block:IsDeactivated}
+                                        </span>
+                                    {/block:HasAvatar}
+                                  </div>
+                                {Body}
+                            </div>{/block:Reblogs}{/block:RebloggedFrom}
+                            {block:NotReblog}
+                            <div class="original">{block:Text}
+                                {Body}{/block:Text}{block:Photo}{block:Caption}
+                                {Caption}{/block:Caption}{/block:Photo}{block:Panorama}{block:Caption}
+                                {Caption}{/block:Caption}{/block:Panorama}{block:Photoset}{block:Caption}
+                                {Caption}{/block:Caption}{/block:Photoset}{block:Link}{block:Description}
+                                {Description}{/block:Description}{/block:Link}{block:Audio}{block:Caption}
+                                {Caption}{/block:Caption}{/block:Audio}{block:Video}{block:Caption}
+                                {Caption}{/block:Caption}{/block:Video}{block:Answer}
+                                {Answer}{/block:Answer}
+                            </div>{/block:NotReblog}
+                        </section>
+                        <section class="posts__perma">
+                            <div class="posts__note"><a href="{Permalink}">{lang:Posted on DayOfWeek DayOfMonth Month Year} ∙ {12Hour}:{Minutes}{AmPm}</a></div>
+                        </section>
+                    </div>
+                    <footer class="posts__date" aria-hidden="true">
+                        <span class="count"></span>
+                        <span class="line"></span>
+                        <span>00:00</span>
+                    </footer>
+                </article>
+                {/block:Posts}
+                {block:Pagination}
+                  <nav class="pagination">
+                     <div class="pagination__info">
+                        {lang:Page CurrentPage of TotalPages}
+                     </div>
+                     <div class="pagination__inner">
+                        <a {block:PreviousPage}href="{PreviousPage}" class="is-link"{/block:PreviousPage}><i class="las la-angle-left"></i> {lang:Previous page}</a>
+                        <a {block:NextPage}href="{NextPage}" class="is-link"{/block:NextPage}>{lang:Next page} <i class="las la-angle-right"></i></a>
+                     </div>
+                  </nav>
+               {/block:Pagination}
+               </section>
+            </main>
+        
+          <script src="https://static.tumblr.com/5ojoydj/1N2r0d76f/audio.js" type="module"></script>
+          <script src="https://static.tumblr.com/5ojoydj/pVEr0d76j/modal.js" type="module"></script>
+          <script src="https://static.tumblr.com/5ojoydj/hPCr0d76l/toggle_post.js"></script>
+          <script src="https://cdn.jsdelivr.net/gh/boscoxvi/npfphotosets/npfphotosets.js"></script>
+          <script src="https://static.tumblr.com/0podkko/jfMplm3f8/modified_photosets.js"></script>
+          <script src="https://static.tumblr.com/0podkko/qWqq8va08/photosets.js"></script>
+          <script src="//unpkg.com/fast-average-color/dist/index.min.js"></script>
+          <script src="https://static.tumblr.com/5ojoydj/Wior0d76h/detect_color.js"></script>
+          <script>
+            const npfOptions = {
+                includeCommonPhotosets: false,
+                photosetMargins: "0",
+                //   insertGalleryIndicator:true,
+                galleryIndicatorClass: "npf_gallery_indicator",
+                galleryIndicatorContent: "<i class='las la-expand'></i>",
+             };
+            npfPhotosets(".posts", npfOptions);
+            undoPhotoset({
+              'posts': '.posts-text .posts__inner', // change '.post.text' to the text post selector
+              'text class': '', // change 'text' to the text post unique class (can be '')
+              'photoset class': '' // change 'photoset' to the photoset post unique class (can be '')
+             }, false); // true = pxu, false = css photosets
+            initPhotosets();
+             
+            function tumblrControls(e, r, t, o, s, l) {
+        	    var a = e.substr(e.indexOf("#") + 1),
+        		    m = r.substr(r.indexOf("#") + 1),
+        		    u = "https://"; "true" == l ? u = "https://www.tumblr.com/dashboard/iframe?tumblelogName=" + t + "&pid=" + o + "&src=https%3A%2F%2F" + t + ".tumblr.com%2Fpost%2F" + o + "%2F" + s.split("/").pop() + "#%7B%22searchQuery%22%3A%22%22%2C%22pushDown%22%3Afalse%2C%22useThemeColors%22%3Atrue%2C%22scrollHeader%22%3Afalse%2C%22themeHeaderImage%22%3A%22%22%2C%22themeBackgroundColor%22%3A%22%23" + a + "%22%2C%22themeTitleColor%22%3A%22%23" + m + "%22%2C%22themeAccentColor%22%3A%22%23" + m + "%22%2C%22isOpticaLike%22%3Atrue%2C%22shouldHideBlogSearchBar%22%3Afalse%7D" : u = "https://www.tumblr.com/dashboard/iframe?tumblelogName=" + t + "&src=https%3A%2F%2F" + t + ".tumblr.com%2F#%7B%22searchQuery%22%3A%22%22%2C%22pushDown%22%3Atrue%2C%22useThemeColors%22%3Atrue%2C%22scrollHeader%22%3Afalse%2C%22themeHeaderImage%22%3A%22%22%2C%22themeBackgroundColor%22%3A%22%23" + a + "%22%2C%22themeAccentColor%22%3A%22%23" + m + "%22%2C%22isOpticaLike%22%3Atrue%2C%22shouldHideBlogSearchBar%22%3Afalse%7D";
+    	        
+    	        document.querySelector("#new-tumblr-controls").setAttribute("src", u);
+            }
+            tumblrControls("{color:Posts Background Color}", "{color:Posts Body Text Color}", "{Name}"{block:Posts}{block:PermalinkPage}{block:Date}, "{PostID}", "{RelativePermalink}", "true"{/block:Date}{/block:PermalinkPage}{/block:Posts} );
+
+            const isTextPost = document.querySelectorAll(".wrapper__blog .posts");
+            isTextPost.forEach(function(item, idx) {
+               const containsPhoto = item.querySelector(".posts__inner .photoset-grid");
+               if(containsPhoto) {
+                  item.classList.add("posts-photoset-text");
+                  console.log("It works");
+               }
+            });
+          </script>
+    </body>
+</html>

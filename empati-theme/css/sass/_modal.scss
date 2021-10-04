@@ -54,13 +54,32 @@
              display: none;
          }
 
-         &__text {
+         &-text {
             @media (min-width:60rem) {
                margin:0 4.5rem;
             }
          }
 
-         &__img, &__music {
+         &-photo .posts__media {
+            grid-column: 1/2;
+            grid-row: 1/4;
+
+            position: relative;
+            height: 0;
+            padding-bottom: calc(100% + 35px);
+
+            img {
+               position: absolute;
+               left: 0;
+               top: 0;
+
+               width: 100%;
+               height: 100%;
+               object-fit: cover;
+            }
+         }
+
+         &-photo, &-audio {
              .posts__inner {
                 position: relative;
                 display: grid;
@@ -89,7 +108,7 @@
             align-items: center;
             justify-content: space-between;
 
-            padding:0.95rem 1rem;
+            padding:0.95rem 2rem;
             border-top: 1px solid rgba(0, 0, 0, 0.15);
 
             a {
@@ -201,25 +220,6 @@
             }
          }
 
-         &__image {
-            grid-column: 1/2;
-            grid-row: 1/4;
-
-            position: relative;
-            height: 0;
-            padding-bottom: calc(100% + 35px);
-
-            img {
-               position: absolute;
-               left: 0;
-               top: 0;
-
-               width: 100%;
-               height: 100%;
-               object-fit: cover;
-            }
-         }
-
          &__question {
             background-color: rgba(var(--heading-text), 0.05);
             color:rgba(var(--body-text), 1);
@@ -271,11 +271,17 @@
             }
          }
 
+         &__media {
+            h1 {
+               font-size: 1.5rem;
+               padding:1rem 2rem;
+               border-bottom: 1px solid rgba(var(--heading-text), 0.1);
+            }
+         }
+
          &__body {
             grid-row: 1/3;
             grid-column:2/4;
-
-            padding: 1rem 2rem;
             color: rgba(var(--body-text), 1);
 
             @media (max-width:60rem) {
