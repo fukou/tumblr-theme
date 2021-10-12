@@ -268,3 +268,62 @@ iframe#new-tumblr-controls {
    from { transform:translate(0px,60px); opacity: 0; opacity:1\9; }
    to   { transform:translate(0px,0px); opacity: 1; }
 }
+
+
+[photoset-layout] div img {
+   margin:0!important;
+}
+.tmblr-full {
+   margin: 0rem -2rem;
+}
+.tmblr-full img {
+   width: 100%;
+   height:auto;
+}
+.video__p {
+   margin:0!important;
+}
+.photoset-count {
+ display: inline-flex;
+ align-items: center;
+ position: absolute;
+ right: 0;
+ bottom: 0;
+ z-index: 2;
+ background: rgba(var(--accent), 1);
+ color: rgba(var(--bg-card), 1);
+ padding: 0.85rem 1rem;
+ border-radius: 10px 0 0 0;
+ @media (max-width:60rem) {
+    display: none;
+ }
+}
+.photoset-count svg { margin-left:0.5rem;}
+
+.read_more,
+.read-more {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   font-weight: bold;
+   text-decoration: none;
+   padding: 0.85rem 1rem;
+
+   margin: 2rem 0;
+
+   width: 100%;
+   color: rgba(var(--heading-text), 1);
+   border: 1px solid rgba(var(--heading-text), 0.35);
+
+   border-radius: 5px;
+
+   background-color: transparent;
+   
+}
+
+.tmblr-iframe--unified-controls {
+   @media (max-width:60rem) {
+      position: absolute!important;
+   }
+}

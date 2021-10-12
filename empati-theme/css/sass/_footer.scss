@@ -1,5 +1,5 @@
 .footer {
-    margin-top: 6.5rem;
+    margin-top: 3.5rem;
     padding:2rem 1.5rem;
     background-color: rgba(var(--bg-card), 1);
     color:rgba(var(--body-text), 1);
@@ -19,6 +19,9 @@
     }
     
     &__socmed {
+        @media (max-width:60rem) {
+            margin-bottom: 1rem;
+        }
         ul {
             display:flex;
             align-items: center;
