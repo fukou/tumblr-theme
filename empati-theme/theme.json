@@ -1,0 +1,7 @@
+{
+    "name": "fukuocommissions",
+    "html": "theme.html",
+    "files": {
+        "/*Replace me with /css/main.min.css*/" : "/css/main.min.css"
+    }
+ }
