@@ -1,5 +1,5 @@
 .posts-perma {
-    margin-top:6.5rem;
+    // margin-top:6.5rem;
     padding:2.5rem 2.75rem;
     background-color: rgba(var(--bg-card), 1);
     box-shadow: rgba(var(--heading-text), 0.15) 1.95px 1.95px 2.6px;
@@ -18,8 +18,6 @@
         }
 
         padding-bottom: 1rem;
-        margin-bottom: 2rem;
-        border-bottom: 3px solid rgba(var(--heading-text), 0.25);
     }
 
     &--data {
@@ -92,7 +90,7 @@ ol.notes {
 
             margin:1rem 0 1rem 3.25rem;
 
-            background-color: rgba(var(--bg-card), 1);
+            background-color: #eee;
             padding:1.5rem 1.25rem;
             border-radius: 30px 30px 30px 8px;
             border:0;
@@ -108,7 +106,7 @@ ol.notes {
             &:before {
                 left: -7px;
                 width: 20px;
-                background-color: rgba(var(--bg-card), 1);
+                background-color: #eee;
                 border-bottom-right-radius: 16px 14px;
               }
             
@@ -241,4 +239,4 @@ ol.notes {
 .like .liked+svg{opacity:1}
 .like .liked+svg path{fill:#ec5a5a}
 .like .like_button{position:relative}
-.like .like_button iframe{position:absolute;top:0;left:0;bottom:0;right:0;z-index:2;opacity:0}
+.like .like_button iframe{position:absolute;top:-10px;left:-2px;bottom:0;right:0;z-index:2;opacity:0}
