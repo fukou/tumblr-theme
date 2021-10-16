@@ -4,12 +4,51 @@
    top: 0;
    width: 100%;
    z-index: 4;
-   background-color: rgba(var(--bg-card), 0.95);
    padding: 1.25rem 2rem;
+
+   background-color: rgba(var(--bg-card), 1);
    border-top: 3px solid rgba(var(--accent), 1);
    box-shadow: rgba(var(--heading-text), 0.15) 1.95px 1.95px 2.6px;
 
-   backdrop-filter: blur(8px);
+   backdrop-filter: blur(4px);
+   transition: 0.4s;
+
+   &.with-hero {
+      background-color: rgba(var(--bg-card), 0.1);
+      border-bottom: 2px solid rgba(var(--bg-card), 0.25);
+   }
+
+   &:not(.with-hero) {
+      ul {
+         li {
+            a {
+               color:rgba(var(--heading-text), 1);
+            }
+            &.actived {
+               a {
+                  background-color: rgba(var(--heading-text), 0.1);
+               }
+            }
+         }
+      }
+   }
+
+   &.fade-in {
+      background-color: rgba(var(--bg-card),1 );
+
+      ul {
+         li {
+            a {
+               color:rgba(var(--heading-text), 1);
+            }
+            &.actived {
+               a {
+                  background-color: rgba(var(--heading-text), 0.1);
+               }
+            }
+         }
+      }
+   }
 
    &__hamburger {
        cursor: pointer;
@@ -27,6 +66,13 @@
 
        padding:0.85rem;
        border-radius: 50%;
+
+       &--close {
+         position: absolute;
+         right: 0;
+         top: 0;
+         margin: 1.25rem;
+       }
    }
 
    &__inner {
@@ -57,7 +103,7 @@
             a {
                display: inline-flex;
                align-items: center;
-               color: rgba(var(--heading-text), 1);
+               color: rgba(var(--header-link-color), 1);
                padding: 0.5rem 0.75rem;
 
                border-radius: 8px;
@@ -72,14 +118,14 @@
                }
 
                &:hover {
-                  background-color: rgba(var(--heading-text), 0.1);
+                  background-color: rgba(var(--header-link-color), 0.1);
                }
             }
 
             &.actived {
                a {
                   font-weight: bold;
-                  background-color: rgba(var(--heading-text), 0.1);
+                  background-color: rgba(var(--header-link-color), 0.1);
                }
             }
          }

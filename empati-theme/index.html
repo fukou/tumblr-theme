@@ -62,7 +62,8 @@
 
             --accent:64, 191, 140;
             --bg-verified:52, 135, 236;
-
+            
+            --header-link-color:242, 242, 242;
             /* light*/
             --bg-color:242, 242, 242;
             --bg-card:255, 255, 255;
@@ -114,6 +115,32 @@ grid-column: 1/3; }
          <div class="modal__inner"></div>
       </div>
 
+      <div class="link">
+         <div class="link__inner">
+            <button class="nav__hamburger nav__hamburger--close">
+               <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="link__main">
+               <div class="link__main--inner">
+                  <h2><span class="circle"><i class="lar la-user"></i></span> About me</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos minus <a href="/">numquam omnis repellat?</a> Iure quibusdam ad id debitis non rerum quidem doloremque dolore, minus nam ullam autem, quisquam deserunt.</p>
+               </div>
+               <div class="link__main--inner">
+                  <h2><span class="circle"><i class="las la-paperclip"></i></span> Quick links</h2>
+                  <ul class="quick">
+                     <li><a href="#">Commission me</a></li>
+                     <li><a href="#">Frequently Asked Question</a></li>
+                     <li><a href="#">Portfolio blog</a></li>
+                     <li><a href="#">Miscellaneous</a></li>
+                     <li><a href="#">Browse by tags</a></li>
+                     <li><a href="#">Other links</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div class="link__overlay"></div>
+      </div>
+
       <!-- <div class="iframe-container">
          <iframe
             id="new-tumblr-controls"
@@ -128,648 +155,13 @@ grid-column: 1/3; }
          ></iframe>
       </div> -->
 
-      <nav class="nav">
-         <div class="nav__inner">
-            <ul>
-               <li class="home actived">
-                  <a href="#"
-                     ><svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                     >
-                        <path
-                           d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
-                        ></path>
-                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                     </svg>
-                     Home</a
-                  >
-               </li>
-               <li>
-                  <a href="#"
-                     ><svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                     >
-                        <path
-                           d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"
-                        ></path>
-                     </svg>
-                     Archive</a
-                  >
-               </li>
-               <li>
-                  <a href="#"
-                     ><svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                     >
-                        <path
-                           d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                        ></path>
-                        <polyline points="22,6 12,13 2,6"></polyline>
-                     </svg>
-                     Message</a
-                  >
-               </li>
-               <li>
-                  <a href="#"
-                     ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>
-                     Submit</a
-                  >
-               </li>
-            </ul>
-            <button class="nav__hamburger" aria-label="Navigation">
-               <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-               >
-                  <line x1="3" y1="12" x2="21" y2="12"></line>
-                  <line x1="3" y1="6" x2="21" y2="6"></line>
-                  <line x1="3" y1="18" x2="21" y2="18"></line>
-               </svg>
-            </button>
-         </div>
-      </nav>
-
-      <header class="wrapper__hero">
-         <div class="wrapper__hero--inner">
-            <figure>
-               <img
-                  src="https://68.media.tumblr.com/ea5fcbb4fb4910958a5628d0fee78879/tumblr_o5unxzkSgG1qa2o8mo1_1280.png"
-                  alt=""
-               />
-               <div class="wrapper__hero--verified">
-                  <svg width="18" height="18" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                     <path d="M10.5213 2.62368C11.3147 1.75255 12.6853 1.75255 13.4787 2.62368L14.4989 3.74391C14.8998 4.18418 15.4761 4.42288 16.071 4.39508L17.5845 4.32435C18.7614 4.26934 19.7307 5.23857 19.6757 6.41554L19.6049 7.92905C19.5771 8.52388 19.8158 9.10016 20.2561 9.50111L21.3763 10.5213C22.2475 11.3147 22.2475 12.6853 21.3763 13.4787L20.2561 14.4989C19.8158 14.8998 19.5771 15.4761 19.6049 16.071L19.6757 17.5845C19.7307 18.7614 18.7614 19.7307 17.5845 19.6757L16.071 19.6049C15.4761 19.5771 14.8998 19.8158 14.4989 20.2561L13.4787 21.3763C12.6853 22.2475 11.3147 22.2475 10.5213 21.3763L9.50111 20.2561C9.10016 19.8158 8.52388 19.5771 7.92905 19.6049L6.41553 19.6757C5.23857 19.7307 4.26934 18.7614 4.32435 17.5845L4.39508 16.071C4.42288 15.4761 4.18418 14.8998 3.74391 14.4989L2.62368 13.4787C1.75255 12.6853 1.75255 11.3147 2.62368 10.5213L3.74391 9.50111C4.18418 9.10016 4.42288 8.52388 4.39508 7.92905L4.32435 6.41553C4.26934 5.23857 5.23857 4.26934 6.41554 4.32435L7.92905 4.39508C8.52388 4.42288 9.10016 4.18418 9.50111 3.74391L10.5213 2.62368Z" stroke="currentColor" stroke-width="1.5"/>
-                     <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-                     </svg>
-                     
-               </div>
-            </figure>
-            <div class="wrapper__hero--desc">
-               <h2>Empati Tamako</h2>
-               <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Magni tempora <a href="#">earum sequi saepe laboriosam</a>.
-                  Aperiam corrupti commodi suscipit maiores, tempora dolor aut
-                  nemo voluptatum praesentium vero sint amet molestias facere?
-               </p>
-            </div>
-         </div>
-      </header>
-
-      <main class="wrapper">
-         <section class="wrapper__toggle">
-            <div class="wrapper__toggle--inner">
-               <button class="grid">
-                  <svg
-                     xmlns="http://www.w3.org/2000/svg"
-                     width="16"
-                     height="16"
-                     viewBox="0 0 24 24"
-                     fill="none"
-                     stroke="currentColor"
-                     stroke-width="1.5"
-                     stroke-linecap="round"
-                     stroke-linejoin="round"
-                  >
-                     <rect x="3" y="3" width="7" height="7"></rect>
-                     <rect x="14" y="3" width="7" height="7"></rect>
-                     <rect x="14" y="14" width="7" height="7"></rect>
-                     <rect x="3" y="14" width="7" height="7"></rect></svg>
-                     Grid
-               </button>
-               <button class="list">
-                  <svg
-                     xmlns="http://www.w3.org/2000/svg"
-                     width="16"
-                     height="16"
-                     viewBox="0 0 24 24"
-                     fill="none"
-                     stroke="currentColor"
-                     stroke-width="1.5"
-                     stroke-linecap="round"
-                     stroke-linejoin="round"
-                  >
-                     <line x1="8" y1="6" x2="21" y2="6"></line>
-                     <line x1="8" y1="12" x2="21" y2="12"></line>
-                     <line x1="8" y1="18" x2="21" y2="18"></line>
-                     <line x1="3" y1="6" x2="3.01" y2="6"></line>
-                     <line x1="3" y1="12" x2="3.01" y2="12"></line>
-                     <line x1="3" y1="18" x2="3.01" y2="18"></line>
-                  </svg>
-                  List
-               </button>
-            </div>
-         </section>
-         <section class="wrapper__blog is-grid">
-            <!-- <article class="posts posts__empty">
-               <h2>This Tumblr has hardly any posts. None at all, in fact.</h2>
-               
-            </article> -->
-            <article class="posts posts-text">
-               <div class="posts__inner">
-                 <div class="posts__permalink">
-                     <div class="posts__permalink--avatar">
-                        <a href="#"><img src="https://assets.tumblr.com/images/default_avatar/sphere_closed_96.png" alt=""></a>
-                        <a href="#"><img src="https://assets.tumblr.com/images/default_avatar/octahedron_open_128.png" alt=""></a>
-                     </div>
-                     <div class="posts__permalink--action">
-                        <ul>
-                           <li><a href="{ReblogURL}"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/></svg></a></li>
-                           <li><a href="#" class="like"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a></li>
-                        </ul>
-                     </div>
-                 </div>
-                  <div class="posts__view">
-                     <a href="#" class="btn-post"
-                        >See this post
-                        <svg
-                           xmlns="http://www.w3.org/2000/svg"
-                           width="24"
-                           height="24"
-                           viewBox="0 0 24 24"
-                           fill="none"
-                           stroke="currentColor"
-                           stroke-width="1.5"
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                        >
-                           <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
-                  </div>
-                  <div class="posts__body">
-                     <div class="original">
-                        <h1>
-                           Chartbreaker: LOONA Cracked the Code to a K-Pop U.S.
-                           Radio Crossover
-                        </h1>
-                        <h2>
-                           The 12-member K-pop unit scored its first pop radio hit
-                           with “Star,” thanks to an intensive, years-long
-                           strategy.
-                        </h2>
-                        <p>
-                           <a
-                              href="https://href.li/?https://www.billboard.com/music/loona"
-                              target="_blank"
-                              >LOONA</a
-                           >
-                           member Yves didn’t believe it at first when the K-pop
-                           girl group debuted on <i>Billboard</i>’s Pop Airplay
-                           chart last month with its snappy synth-pop single,
-                           “Star.”“It sometimes feels unrealistic,” she says over
-                           Zoom from a conference room in Seoul. Reality will sink
-                           in, she believes, when she and LOONA’s 11 other members
-                           can all travel safely to the United States and hear it
-                           on the radio for themselves.
-                        </p>
-                        <div class="npf_photoset">
-                           <div class="npf_row" data-row-size="368">
-                              <figure
-                                 class="tmblr-full"
-                                 style="margin-right: 0px; height: 156.592px"
-                                 tabindex="0"
-                                 data-count="1"
-                              >
-                                 <img
-                                    class="post_media_photo image npf_image"
-                                    src="https://64.media.tumblr.com/b68d41c8a016740f9065e3f0835ba4c7/3a16c30a64da5e99-63/s1280x1920/54d7df8b95ecec75952f927a7d3aa4e8cb30233a.jpg"
-                                    alt="image"
-                                    data-highres="https://64.media.tumblr.com/b68d41c8a016740f9065e3f0835ba4c7/3a16c30a64da5e99-63/s1280x1920/54d7df8b95ecec75952f927a7d3aa4e8cb30233a.jpg"
-                                    data-orig-width="3840"
-                                    data-orig-height="1634"
-                                    data-image-size="156.59166666666667"
-                                    style="margin-top: 0px"
-                                 />
-                              </figure>
-                              <figure
-                                 class="tmblr-full"
-                                 style="height: 156.592px"
-                                 tabindex="0"
-                                 data-count="2"
-                              >
-                                 <img
-                                    class="post_media_photo image npf_image"
-                                    src="https://64.media.tumblr.com/ab7218ee93d2f6ece0f524e7b87c43f2/3a16c30a64da5e99-21/s1280x1920/af413941f44b71ef9effaec6118450a4926158df.jpg"
-                                    alt="image"
-                                    data-highres="https://64.media.tumblr.com/ab7218ee93d2f6ece0f524e7b87c43f2/3a16c30a64da5e99-21/s1280x1920/af413941f44b71ef9effaec6118450a4926158df.jpg"
-                                    data-orig-width="3840"
-                                    data-orig-height="1634"
-                                    data-image-size="156.59166666666667"
-                                    style="margin-top: 0px"
-                                 />
-                              </figure>
-                           </div>
-                        </div>
-                        <p>
-                           Only a handful of Korean acts have experienced that
-                           singular thrill. Despite K-pop’s strong physical sales,
-                           booming streaming numbers and titanic influence on
-                           social media (LOONA alone has 1.6 million Instagram
-                           followers), it has long struggled to gain traction on
-                           American radio, an institution that doesn’t play a lot
-                           of non-English pop songs. So Korean artists looking to
-                           break through on U.S. airwaves typically adapt to the
-                           market with strategic label partnerships, Western
-                           collaborations, and English-language singles — and LOONA
-                           has adopted the lattermost option with “Star.”
-                        </p>
-                        <figure class="tmblr-embed tmblr-full">
-                           <iframe
-                              id="embed-60f65f5c1fee9034634757"
-                              class="embed_iframe"
-                              src="https://safe.txmblr.com/svc/embed/inline/https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DzW-AIXAnLcE#embed-60f65f5c1fee9034634757-partied"
-                              scrolling="no"
-                              allowfullscreen="allowfullscreen"
-                              mozallowfullscreen=""
-                              webkitallowfullscreen=""
-                              width="700"
-                              height="393"
-                              frameborder="0"
-                           ></iframe>
-                        </figure>
-                        <p>
-                           Before LOONA ever attempted to cross over, though, the
-                           group — whose members range in age from 18 to 24 —
-                           promoted each member individually before debuting as a
-                           12-member unit under its Korean management company,
-                           BlockberryCreative. In an atypical move, the members of
-                           LOONA were announced over a two-year period: each month,
-                           a new face was revealed to the public — hence its Korean
-                           name, 이달의 소녀, which translates to “girl of the
-                           month” — along with a solo single. Throughout this
-                           ambitious pre-debut process, three official subunits
-                           were formed (1/3, ODD EYE CIRCLE, yyxy), and an
-                           elaborate fandom was created called the LOONAverse.
-                        </p>
-                        <p>
-                           As Heejin, Hyunjin, Haseul, Yeojin, ViVi, Kim Lip,
-                           Jinsoul, Choerry, Yves, Chuu, Go Won, and Olivia Hye
-                           were introduced, the spectrum of LOONA’s sound only grew
-                           more diverse, from the saccharine bombast of Chuu’s
-                           “Heart Attack” to Kim Lip’s hazy R&amp;B to the future
-                           bass intensity of JinSoul’s “Singing in the Rain” to the
-                           Grimes features on yyxy’s synth-heavy "love4eva.”
-                           Meanwhile, the anticipation for the full group to
-                           finally arrive grew more feverish.
-                        </p>
-                        <p class="npf_quote">
-                           “We were happy to be the main characters,” Chuu adds.
-                           “It took a long time to debut as a whole, but I’m proud
-                           that we’ve created our own unique characteristics.”
-                        </p>
-                        <p>
-                           Looking back, Heejin, who joined the company as a
-                           trainee at 15, says she was initially worried about the
-                           unusual process. “At first, there were lots of concerns,
-                           wondering if this project will be able to gain attention
-                           from the public since it was something very new,” she
-                           says. “Now, I’m very proud of my [solo] album and the
-                           fact that [our projects] became what makes LOONA so
-                           special.”
-                        </p>
-                        <div class="npf_photoset">
-                           <div
-                              class="npf_row"
-                              style="margin-bottom: 0px"
-                              data-row-size="245.33333333333334"
-                           >
-                              <figure
-                                 class="tmblr-full"
-                                 style="margin-right: 0px; height: 138px"
-                                 tabindex="0"
-                                 data-count="1"
-                              >
-                                 <img
-                                    class="post_media_photo image npf_image"
-                                    src="https://64.media.tumblr.com/976a32bbf2e58f60a189d985bbb6d6a9/3a16c30a64da5e99-cd/s1280x1920/66f56f5850086c6c3b2f07d204769161fc541bd3.jpg"
-                                    alt="image"
-                                    data-highres="https://64.media.tumblr.com/976a32bbf2e58f60a189d985bbb6d6a9/3a16c30a64da5e99-cd/s1280x1920/66f56f5850086c6c3b2f07d204769161fc541bd3.jpg"
-                                    data-orig-width="3840"
-                                    data-orig-height="2160"
-                                    data-image-size="138"
-                                    style="margin-top: 0px"
-                                 />
-                              </figure>
-                              <figure
-                                 class="tmblr-full"
-                                 style="margin-right: 0px; height: 138px"
-                                 tabindex="0"
-                                 data-count="2"
-                              >
-                                 <img
-                                    class="post_media_photo image npf_image"
-                                    src="https://64.media.tumblr.com/59ea910bc3873d8d60048a4fd090b5f2/3a16c30a64da5e99-3b/s1280x1920/dec3ea62e5a54c25ea1de65809dff4a9e410815e.png"
-                                    alt="image"
-                                    data-highres="https://64.media.tumblr.com/59ea910bc3873d8d60048a4fd090b5f2/3a16c30a64da5e99-3b/s1280x1920/dec3ea62e5a54c25ea1de65809dff4a9e410815e.png"
-                                    data-orig-width="3840"
-                                    data-orig-height="2160"
-                                    data-image-size="138"
-                                    style="margin-top: 0px"
-                                 />
-                              </figure>
-                              <figure
-                                 class="tmblr-full"
-                                 style="height: 138px"
-                                 tabindex="0"
-                                 data-count="3"
-                              >
-                                 <img
-                                    class="post_media_photo image npf_image"
-                                    src="https://64.media.tumblr.com/83b1bc9fff72a0d1742b8eec02ed1457/3a16c30a64da5e99-02/s1280x1920/b39fc5794d45eb97451c4b6ae06d9ac8370c0a2a.jpg"
-                                    alt="image"
-                                    data-highres="https://64.media.tumblr.com/83b1bc9fff72a0d1742b8eec02ed1457/3a16c30a64da5e99-02/s1280x1920/b39fc5794d45eb97451c4b6ae06d9ac8370c0a2a.jpg"
-                                    data-orig-width="3840"
-                                    data-orig-height="2160"
-                                    data-image-size="138"
-                                    style="margin-top: 0px"
-                                 />
-                              </figure>
-                           </div>
-                           <div class="npf_row" data-row-size="368">
-                              <figure
-                                 class="tmblr-full"
-                                 style="margin-right: 0px; height: 207px"
-                                 tabindex="0"
-                                 data-count="4"
-                              >
-                                 <img
-                                    class="post_media_photo image npf_image"
-                                    src="https://64.media.tumblr.com/b3bfe4b06cfe53e2e0a889ba48184c87/3a16c30a64da5e99-89/s1280x1920/fae17fb626251eaec526ab296ed5811c5f0130dc.jpg"
-                                    alt="image"
-                                    data-highres="https://64.media.tumblr.com/b3bfe4b06cfe53e2e0a889ba48184c87/3a16c30a64da5e99-89/s1280x1920/fae17fb626251eaec526ab296ed5811c5f0130dc.jpg"
-                                    data-orig-width="3840"
-                                    data-orig-height="2160"
-                                    data-image-size="207"
-                                    style="margin-top: 0px"
-                                 />
-                              </figure>
-                              <figure
-                                 class="tmblr-full"
-                                 style="height: 207px"
-                                 tabindex="0"
-                                 data-count="5"
-                              >
-                                 <img
-                                    class="post_media_photo image npf_image"
-                                    src="https://64.media.tumblr.com/7baccbc4db544ca24c2499d1ab3acb48/3a16c30a64da5e99-60/s1280x1920/da7693f353380746709cdf3d3d7f0a79b8649df1.jpg"
-                                    alt="image"
-                                    data-highres="https://64.media.tumblr.com/7baccbc4db544ca24c2499d1ab3acb48/3a16c30a64da5e99-60/s1280x1920/da7693f353380746709cdf3d3d7f0a79b8649df1.jpg"
-                                    data-orig-width="3840"
-                                    data-orig-height="2160"
-                                    data-image-size="207"
-                                    style="margin-top: 0px"
-                                 />
-                              </figure>
-                           </div>
-                        </div>
-                        <p>
-                           The intensive launch strategy culminated in August 2018
-                           with the release of LOONA’s first official single, the
-                           hyper and hooky “Hi High.” While the LOONAverse was a
-                           creative concept and fictional world built with the
-                           group’s fans, Orbits, in mind, LOONA has done fairly
-                           little press in the U.S., aside from a 2019 performance
-                           at KCON LA. Without much name recognition in America
-                           beyond Twitter and no support from a major label — but a
-                           strong belief in the crossover potential of “Star” —
-                           BlockberryCreative doubled down on an expansive global
-                           strategy.
-                        </p>
-                        <p>
-                           That plan started with the launch of a digital
-                           initiative last October called “Map of Orbits,” a
-                           website where LOONA’s fans could register to become a
-                           star in the group’s galaxy, with thousands of stars
-                           surrounding LOONA’s moon. From there, BlockberryCreative
-                           prioritized local promotion, investing in digital
-                           advertisements and a billboard in Los Angeles in support
-                           of LOONA’s third EP, <i>[12:00]</i>&nbsp;(pronounced
-                           “midnight”), which hit No. 112 on the Billboard 200 last
-                           October.
-                        </p>
-                        <p>
-                           (Source:
-                           <a
-                              href="https://href.li/?https://www.billboard.com/articles/columns/pop/9534163/chartbreaker-loona-star-us-radio-hit-k-pop/"
-                              title="Billboard"
-                              >Billboard</a
-                           >)
-                        </p>
-                     </div>
-                  </div>
-                  <div class="posts__perma">
-                     <div class="posts__note">Posted on December 4, 2021</div>
-                     <a href="#">Go to permalink page</a>
-                  </div>
-               </div>
-               <div class="posts__date">
-                  <span class="count"></span>
-                  <span class="line"></span>
-                  <span>00:00</span>
-               </div>
-               
-            </article>
-            <article class="posts posts-photo">
-               <div class="posts__inner">
-                  <div class="posts__permalink">
-                     <div class="posts__permalink--reblog">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/></svg>
-                         <a href="#">username</a>
-                     </div>
-                     <div class="posts__permalink--action">
-                        1.5k notes
-                     </div>
-                 </div>
-                  <div class="posts__view">
-                     <a href="#" class="btn-post"
-                        >See this post
-                        <svg
-                           xmlns="http://www.w3.org/2000/svg"
-                           width="24"
-                           height="24"
-                           viewBox="0 0 24 24"
-                           fill="none"
-                           stroke="currentColor"
-                           stroke-width="1.5"
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                        >
-                           <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
-                  </div>
-                  <div class="posts__user">
-                     <img
-                        src="https://64.media.tumblr.com/avatar_a87b46ed9c1e_30.pnj"
-                        alt=""
-                     />
-                     <span>sorracci</span>
-                  </div>
-                  <figure class="posts__image">
-                     <img
-                        src="https://64.media.tumblr.com/tumblr_m7k5q2ZmtM1qme88ko1_500.png"
-                        alt=""
-                     />
-                  </figure>
-                  <div class="posts__body">
-                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Itaque nihil accusantium, expedita dignissimos magni
-                        molestias ut mollitia! Cum eius necessitatibus atque non
-                        dignissimos sunt eaque assumenda architecto, maxime
-                        laborum totam.
-                     </p>
-                  </div>
-                  <div class="posts__perma">
-                     <div class="posts__note">Posted on December 4, 2021</div>
-                     <a href="#">Go to permalink page</a>
-                  </div>
-               </div>
-               <div class="posts__date">
-                  <span class="count"></span>
-                  <span class="line"></span>
-                  <span>00:00</span>
-               </div>
-            </article>
-            <article class="posts posts-audio">
-               <div class="posts__inner">
-                  <div class="posts__view">
-                     <a href="#" class="btn-post"
-                        >See this post
-                        <svg
-                           xmlns="http://www.w3.org/2000/svg"
-                           width="24"
-                           height="24"
-                           viewBox="0 0 24 24"
-                           fill="none"
-                           stroke="currentColor"
-                           stroke-width="1.5"
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                        >
-                           <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
-                  </div>
-                  <div class="posts__media">
-                     <div class="posts__audio">
-                        <span id="audio_player_139112836909"
-                           ><div class="audio_player">
-                              <iframe
-                                 class="
-                                    tumblr_audio_player
-                                    tumblr_audio_player_139112836909
-                                 "
-                                 src="https://empatitheme.tumblr.com/post/139112836909/audio_player_iframe/empatitheme/tumblr_n8f2xw8DoL1tucj98?audio_file=https%3A%2F%2Fa.tumblr.com%2Ftumblr_n8f2xw8DoL1tucj98o1_r1.mp3&amp;color=black&amp;simple=1"
-                                 allowtransparency="true"
-                                 scrolling="no"
-                                 width="207"
-                                 height="27"
-                                 frameborder="0"
-                              ></iframe></div
-                        ></span>
-                        <div class="posts__audio--player">
-                           <button class="btn-play" data-action="play">
-                              <span id="play">
-                                 <i class="las la-play"></i>
-                             </span>
-     
-                             <span id="pause" style="display: none">
-                              <i class="las la-pause"></i>
-                             </span>
-                             
-                           </button>
-                        </div>
-                        <div class="posts__audio--album">
-                           <img
-                              src="https://i1.sndcdn.com/artworks-000199538936-seu6wb-t500x500.jpg"
-                              alt=""
-                           />
-                        </div>
-                        <div class="posts__audio--info">
-                           <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="18"
-                              height="18"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                           >
-                              <circle cx="5.5" cy="17.5" r="2.5" />
-                              <circle cx="17.5" cy="15.5" r="2.5" />
-                              <path d="M8 17V5l12-2v12" />
-                           </svg>
-                           <div>Priscilla Ahn / Fine On The Outside</div>
-                        </div>
-                        <div class="posts__audio--visual" id="waveform"></div>
-                     </div>
-                  </div>
-                  <div class="posts__body">
-                    <p>Nec tempor ullamcorper eleifend massa, scelerisque nibh
-                     consequat. Sit purus quam sit proin ipsum. Hendrerit sed
-                     est sed ultrices adipiscing mollis interdum nulla quis. Sed
-                     id eget nibh fringilla bibendum pellentesque at nullam. Ut
-                     nisi metus maecenas mollis convallis. Ipsum nisi et,
-                     rhoncus commodo etiam. Risus, enim sed tortor, etiam
-                     elementum quis placerat tincidunt.</p>
-                  </div>
-               </div>
-               <div class="posts__date">
-                  <span class="count"></span>
-                  <span class="line"></span>
-                  <span>00:00</span>
-               </div>
-            </article>
-            <article class="posts posts-text">
-               <div class="posts__inner">
-                  <div class="posts__view">
-                     <a href="#" class="btn-post"
-                        >See this post
-                        <svg
-                           xmlns="http://www.w3.org/2000/svg"
-                           width="24"
-                           height="24"
-                           viewBox="0 0 24 24"
-                           fill="none"
-                           stroke="currentColor"
-                           stroke-width="1.5"
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                        >
-                           <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
-                  </div>
-                  <div class="posts__question">
-                     <div class="posts__question--asker">
-                        <svg
+      <div class="wrapper__blur">
+         <nav class="nav">
+            <div class="nav__inner">
+               <ul>
+                  <li class="home actived">
+                     <a href="#"
+                        ><svg
                            xmlns="http://www.w3.org/2000/svg"
                            width="20"
                            height="20"
@@ -780,282 +172,924 @@ grid-column: 1/3; }
                            stroke-linecap="round"
                            stroke-linejoin="round"
                         >
-                           <circle cx="12" cy="12" r="10"></circle>
                            <path
-                              d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"
+                              d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
                            ></path>
-                           <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                           <polyline points="9 22 9 12 15 12 15 22"></polyline>
                         </svg>
-                        <a href="#">Anonymous</a> asked
+                        Home</a
+                     >
+                  </li>
+                  <li>
+                     <a href="#"
+                        ><svg
+                           xmlns="http://www.w3.org/2000/svg"
+                           width="20"
+                           height="20"
+                           viewBox="0 0 24 24"
+                           fill="none"
+                           stroke="currentColor"
+                           stroke-width="1.5"
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                        >
+                           <path
+                              d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"
+                           ></path>
+                        </svg>
+                        Archive</a
+                     >
+                  </li>
+                  <li>
+                     <a href="#"
+                        ><svg
+                           xmlns="http://www.w3.org/2000/svg"
+                           width="20"
+                           height="20"
+                           viewBox="0 0 24 24"
+                           fill="none"
+                           stroke="currentColor"
+                           stroke-width="1.5"
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                        >
+                           <path
+                              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                           ></path>
+                           <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        Message</a
+                     >
+                  </li>
+                  <li>
+                     <a href="#"
+                        ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>
+                        Submit</a
+                     >
+                  </li>
+               </ul>
+               <button class="nav__hamburger" aria-label="Navigation">
+                  <svg
+                     xmlns="http://www.w3.org/2000/svg"
+                     width="24"
+                     height="24"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="1.5"
+                     stroke-linecap="round"
+                     stroke-linejoin="round"
+                  >
+                     <line x1="3" y1="12" x2="21" y2="12"></line>
+                     <line x1="3" y1="6" x2="21" y2="6"></line>
+                     <line x1="3" y1="18" x2="21" y2="18"></line>
+                  </svg>
+               </button>
+            </div>
+         </nav>
+   
+         <header class="wrapper__hero is-slanted" style='background-image: url("http://68.media.tumblr.com/579e208cc9189dd12c899157cf524a39/tumblr_nde9puPQud1smn4pqo10_1280.jpg");'>
+            <div class="wrapper__hero--inner">
+               <figure>
+                  <img
+                     src="https://68.media.tumblr.com/ea5fcbb4fb4910958a5628d0fee78879/tumblr_o5unxzkSgG1qa2o8mo1_1280.png"
+                     alt=""
+                  />
+                  <div class="wrapper__hero--verified">
+                     <svg width="18" height="18" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.5213 2.62368C11.3147 1.75255 12.6853 1.75255 13.4787 2.62368L14.4989 3.74391C14.8998 4.18418 15.4761 4.42288 16.071 4.39508L17.5845 4.32435C18.7614 4.26934 19.7307 5.23857 19.6757 6.41554L19.6049 7.92905C19.5771 8.52388 19.8158 9.10016 20.2561 9.50111L21.3763 10.5213C22.2475 11.3147 22.2475 12.6853 21.3763 13.4787L20.2561 14.4989C19.8158 14.8998 19.5771 15.4761 19.6049 16.071L19.6757 17.5845C19.7307 18.7614 18.7614 19.7307 17.5845 19.6757L16.071 19.6049C15.4761 19.5771 14.8998 19.8158 14.4989 20.2561L13.4787 21.3763C12.6853 22.2475 11.3147 22.2475 10.5213 21.3763L9.50111 20.2561C9.10016 19.8158 8.52388 19.5771 7.92905 19.6049L6.41553 19.6757C5.23857 19.7307 4.26934 18.7614 4.32435 17.5845L4.39508 16.071C4.42288 15.4761 4.18418 14.8998 3.74391 14.4989L2.62368 13.4787C1.75255 12.6853 1.75255 11.3147 2.62368 10.5213L3.74391 9.50111C4.18418 9.10016 4.42288 8.52388 4.39508 7.92905L4.32435 6.41553C4.26934 5.23857 5.23857 4.26934 6.41554 4.32435L7.92905 4.39508C8.52388 4.42288 9.10016 4.18418 9.50111 3.74391L10.5213 2.62368Z" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        
+                  </div>
+               </figure>
+               <div class="wrapper__hero--desc">
+                  <h2>Empati Tamako</h2>
+                  <p>
+                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                     Magni tempora <a href="#">earum sequi saepe laboriosam</a>.
+                     Aperiam corrupti commodi suscipit maiores, tempora dolor aut
+                     nemo voluptatum praesentium vero sint amet molestias facere?
+                  </p>
+               </div>
+            </div>
+         </header>
+   
+         <main class="wrapper">
+            <section class="wrapper__toggle">
+               <div class="wrapper__toggle--inner">
+                  <button class="grid">
+                     <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                     >
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect></svg>
+                        Grid
+                  </button>
+                  <button class="list">
+                     <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                     >
+                        <line x1="8" y1="6" x2="21" y2="6"></line>
+                        <line x1="8" y1="12" x2="21" y2="12"></line>
+                        <line x1="8" y1="18" x2="21" y2="18"></line>
+                        <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                        <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                        <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                     </svg>
+                     List
+                  </button>
+                  <span class="divider"></span>
+                  <button class="likes">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> Likes
+                  </button>
+               </div>
+            </section>
+            <section class="wrapper__blog is-grid">
+               <!-- <article class="posts posts__empty">
+                  <h2>This Tumblr has hardly any posts. None at all, in fact.</h2>
+                  
+               </article> -->
+               <article class="posts posts-text">
+                  <div class="posts__inner">
+                    <div class="posts__permalink">
+                        <div class="posts__permalink--avatar">
+                           <a href="#"><img src="https://assets.tumblr.com/images/default_avatar/sphere_closed_96.png" alt=""></a>
+                           <a href="#"><img src="https://assets.tumblr.com/images/default_avatar/octahedron_open_128.png" alt=""></a>
+                        </div>
+                        <div class="posts__permalink--action">
+                           <ul>
+                              <li><a href="{ReblogURL}"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/></svg></a></li>
+                              <li><a href="#" class="like"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a></li>
+                           </ul>
+                        </div>
+                    </div>
+                     <div class="posts__view">
+                        <a href="#" class="btn-post"
+                           >See this post
+                           <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                           >
+                              <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
                      </div>
-                     What is simplicity in web design?
+                     <div class="posts__body">
+                        <div class="original">
+                           <h1>
+                              Chartbreaker: LOONA Cracked the Code to a K-Pop U.S.
+                              Radio Crossover
+                           </h1>
+                           <h2>
+                              The 12-member K-pop unit scored its first pop radio hit
+                              with “Star,” thanks to an intensive, years-long
+                              strategy.
+                           </h2>
+                           <p>
+                              <a
+                                 href="https://href.li/?https://www.billboard.com/music/loona"
+                                 target="_blank"
+                                 >LOONA</a
+                              >
+                              member Yves didn’t believe it at first when the K-pop
+                              girl group debuted on <i>Billboard</i>’s Pop Airplay
+                              chart last month with its snappy synth-pop single,
+                              “Star.”“It sometimes feels unrealistic,” she says over
+                              Zoom from a conference room in Seoul. Reality will sink
+                              in, she believes, when she and LOONA’s 11 other members
+                              can all travel safely to the United States and hear it
+                              on the radio for themselves.
+                           </p>
+                           <div class="npf_photoset">
+                              <div class="npf_row" data-row-size="368">
+                                 <figure
+                                    class="tmblr-full"
+                                    style="margin-right: 0px; height: 156.592px"
+                                    tabindex="0"
+                                    data-count="1"
+                                 >
+                                    <img
+                                       class="post_media_photo image npf_image"
+                                       src="https://64.media.tumblr.com/b68d41c8a016740f9065e3f0835ba4c7/3a16c30a64da5e99-63/s1280x1920/54d7df8b95ecec75952f927a7d3aa4e8cb30233a.jpg"
+                                       alt="image"
+                                       data-highres="https://64.media.tumblr.com/b68d41c8a016740f9065e3f0835ba4c7/3a16c30a64da5e99-63/s1280x1920/54d7df8b95ecec75952f927a7d3aa4e8cb30233a.jpg"
+                                       data-orig-width="3840"
+                                       data-orig-height="1634"
+                                       data-image-size="156.59166666666667"
+                                       style="margin-top: 0px"
+                                    />
+                                 </figure>
+                                 <figure
+                                    class="tmblr-full"
+                                    style="height: 156.592px"
+                                    tabindex="0"
+                                    data-count="2"
+                                 >
+                                    <img
+                                       class="post_media_photo image npf_image"
+                                       src="https://64.media.tumblr.com/ab7218ee93d2f6ece0f524e7b87c43f2/3a16c30a64da5e99-21/s1280x1920/af413941f44b71ef9effaec6118450a4926158df.jpg"
+                                       alt="image"
+                                       data-highres="https://64.media.tumblr.com/ab7218ee93d2f6ece0f524e7b87c43f2/3a16c30a64da5e99-21/s1280x1920/af413941f44b71ef9effaec6118450a4926158df.jpg"
+                                       data-orig-width="3840"
+                                       data-orig-height="1634"
+                                       data-image-size="156.59166666666667"
+                                       style="margin-top: 0px"
+                                    />
+                                 </figure>
+                              </div>
+                           </div>
+                           <p>
+                              Only a handful of Korean acts have experienced that
+                              singular thrill. Despite K-pop’s strong physical sales,
+                              booming streaming numbers and titanic influence on
+                              social media (LOONA alone has 1.6 million Instagram
+                              followers), it has long struggled to gain traction on
+                              American radio, an institution that doesn’t play a lot
+                              of non-English pop songs. So Korean artists looking to
+                              break through on U.S. airwaves typically adapt to the
+                              market with strategic label partnerships, Western
+                              collaborations, and English-language singles — and LOONA
+                              has adopted the lattermost option with “Star.”
+                           </p>
+                           <figure class="tmblr-embed tmblr-full">
+                              <iframe
+                                 id="embed-60f65f5c1fee9034634757"
+                                 class="embed_iframe"
+                                 src="https://safe.txmblr.com/svc/embed/inline/https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DzW-AIXAnLcE#embed-60f65f5c1fee9034634757-partied"
+                                 scrolling="no"
+                                 allowfullscreen="allowfullscreen"
+                                 mozallowfullscreen=""
+                                 webkitallowfullscreen=""
+                                 width="700"
+                                 height="393"
+                                 frameborder="0"
+                              ></iframe>
+                           </figure>
+                           <p>
+                              Before LOONA ever attempted to cross over, though, the
+                              group — whose members range in age from 18 to 24 —
+                              promoted each member individually before debuting as a
+                              12-member unit under its Korean management company,
+                              BlockberryCreative. In an atypical move, the members of
+                              LOONA were announced over a two-year period: each month,
+                              a new face was revealed to the public — hence its Korean
+                              name, 이달의 소녀, which translates to “girl of the
+                              month” — along with a solo single. Throughout this
+                              ambitious pre-debut process, three official subunits
+                              were formed (1/3, ODD EYE CIRCLE, yyxy), and an
+                              elaborate fandom was created called the LOONAverse.
+                           </p>
+                           <p>
+                              As Heejin, Hyunjin, Haseul, Yeojin, ViVi, Kim Lip,
+                              Jinsoul, Choerry, Yves, Chuu, Go Won, and Olivia Hye
+                              were introduced, the spectrum of LOONA’s sound only grew
+                              more diverse, from the saccharine bombast of Chuu’s
+                              “Heart Attack” to Kim Lip’s hazy R&amp;B to the future
+                              bass intensity of JinSoul’s “Singing in the Rain” to the
+                              Grimes features on yyxy’s synth-heavy "love4eva.”
+                              Meanwhile, the anticipation for the full group to
+                              finally arrive grew more feverish.
+                           </p>
+                           <p class="npf_quote">
+                              “We were happy to be the main characters,” Chuu adds.
+                              “It took a long time to debut as a whole, but I’m proud
+                              that we’ve created our own unique characteristics.”
+                           </p>
+                           <p>
+                              Looking back, Heejin, who joined the company as a
+                              trainee at 15, says she was initially worried about the
+                              unusual process. “At first, there were lots of concerns,
+                              wondering if this project will be able to gain attention
+                              from the public since it was something very new,” she
+                              says. “Now, I’m very proud of my [solo] album and the
+                              fact that [our projects] became what makes LOONA so
+                              special.”
+                           </p>
+                           <div class="npf_photoset">
+                              <div
+                                 class="npf_row"
+                                 style="margin-bottom: 0px"
+                                 data-row-size="245.33333333333334"
+                              >
+                                 <figure
+                                    class="tmblr-full"
+                                    style="margin-right: 0px; height: 138px"
+                                    tabindex="0"
+                                    data-count="1"
+                                 >
+                                    <img
+                                       class="post_media_photo image npf_image"
+                                       src="https://64.media.tumblr.com/976a32bbf2e58f60a189d985bbb6d6a9/3a16c30a64da5e99-cd/s1280x1920/66f56f5850086c6c3b2f07d204769161fc541bd3.jpg"
+                                       alt="image"
+                                       data-highres="https://64.media.tumblr.com/976a32bbf2e58f60a189d985bbb6d6a9/3a16c30a64da5e99-cd/s1280x1920/66f56f5850086c6c3b2f07d204769161fc541bd3.jpg"
+                                       data-orig-width="3840"
+                                       data-orig-height="2160"
+                                       data-image-size="138"
+                                       style="margin-top: 0px"
+                                    />
+                                 </figure>
+                                 <figure
+                                    class="tmblr-full"
+                                    style="margin-right: 0px; height: 138px"
+                                    tabindex="0"
+                                    data-count="2"
+                                 >
+                                    <img
+                                       class="post_media_photo image npf_image"
+                                       src="https://64.media.tumblr.com/59ea910bc3873d8d60048a4fd090b5f2/3a16c30a64da5e99-3b/s1280x1920/dec3ea62e5a54c25ea1de65809dff4a9e410815e.png"
+                                       alt="image"
+                                       data-highres="https://64.media.tumblr.com/59ea910bc3873d8d60048a4fd090b5f2/3a16c30a64da5e99-3b/s1280x1920/dec3ea62e5a54c25ea1de65809dff4a9e410815e.png"
+                                       data-orig-width="3840"
+                                       data-orig-height="2160"
+                                       data-image-size="138"
+                                       style="margin-top: 0px"
+                                    />
+                                 </figure>
+                                 <figure
+                                    class="tmblr-full"
+                                    style="height: 138px"
+                                    tabindex="0"
+                                    data-count="3"
+                                 >
+                                    <img
+                                       class="post_media_photo image npf_image"
+                                       src="https://64.media.tumblr.com/83b1bc9fff72a0d1742b8eec02ed1457/3a16c30a64da5e99-02/s1280x1920/b39fc5794d45eb97451c4b6ae06d9ac8370c0a2a.jpg"
+                                       alt="image"
+                                       data-highres="https://64.media.tumblr.com/83b1bc9fff72a0d1742b8eec02ed1457/3a16c30a64da5e99-02/s1280x1920/b39fc5794d45eb97451c4b6ae06d9ac8370c0a2a.jpg"
+                                       data-orig-width="3840"
+                                       data-orig-height="2160"
+                                       data-image-size="138"
+                                       style="margin-top: 0px"
+                                    />
+                                 </figure>
+                              </div>
+                              <div class="npf_row" data-row-size="368">
+                                 <figure
+                                    class="tmblr-full"
+                                    style="margin-right: 0px; height: 207px"
+                                    tabindex="0"
+                                    data-count="4"
+                                 >
+                                    <img
+                                       class="post_media_photo image npf_image"
+                                       src="https://64.media.tumblr.com/b3bfe4b06cfe53e2e0a889ba48184c87/3a16c30a64da5e99-89/s1280x1920/fae17fb626251eaec526ab296ed5811c5f0130dc.jpg"
+                                       alt="image"
+                                       data-highres="https://64.media.tumblr.com/b3bfe4b06cfe53e2e0a889ba48184c87/3a16c30a64da5e99-89/s1280x1920/fae17fb626251eaec526ab296ed5811c5f0130dc.jpg"
+                                       data-orig-width="3840"
+                                       data-orig-height="2160"
+                                       data-image-size="207"
+                                       style="margin-top: 0px"
+                                    />
+                                 </figure>
+                                 <figure
+                                    class="tmblr-full"
+                                    style="height: 207px"
+                                    tabindex="0"
+                                    data-count="5"
+                                 >
+                                    <img
+                                       class="post_media_photo image npf_image"
+                                       src="https://64.media.tumblr.com/7baccbc4db544ca24c2499d1ab3acb48/3a16c30a64da5e99-60/s1280x1920/da7693f353380746709cdf3d3d7f0a79b8649df1.jpg"
+                                       alt="image"
+                                       data-highres="https://64.media.tumblr.com/7baccbc4db544ca24c2499d1ab3acb48/3a16c30a64da5e99-60/s1280x1920/da7693f353380746709cdf3d3d7f0a79b8649df1.jpg"
+                                       data-orig-width="3840"
+                                       data-orig-height="2160"
+                                       data-image-size="207"
+                                       style="margin-top: 0px"
+                                    />
+                                 </figure>
+                              </div>
+                           </div>
+                           <p>
+                              The intensive launch strategy culminated in August 2018
+                              with the release of LOONA’s first official single, the
+                              hyper and hooky “Hi High.” While the LOONAverse was a
+                              creative concept and fictional world built with the
+                              group’s fans, Orbits, in mind, LOONA has done fairly
+                              little press in the U.S., aside from a 2019 performance
+                              at KCON LA. Without much name recognition in America
+                              beyond Twitter and no support from a major label — but a
+                              strong belief in the crossover potential of “Star” —
+                              BlockberryCreative doubled down on an expansive global
+                              strategy.
+                           </p>
+                           <p>
+                              That plan started with the launch of a digital
+                              initiative last October called “Map of Orbits,” a
+                              website where LOONA’s fans could register to become a
+                              star in the group’s galaxy, with thousands of stars
+                              surrounding LOONA’s moon. From there, BlockberryCreative
+                              prioritized local promotion, investing in digital
+                              advertisements and a billboard in Los Angeles in support
+                              of LOONA’s third EP, <i>[12:00]</i>&nbsp;(pronounced
+                              “midnight”), which hit No. 112 on the Billboard 200 last
+                              October.
+                           </p>
+                           <p>
+                              (Source:
+                              <a
+                                 href="https://href.li/?https://www.billboard.com/articles/columns/pop/9534163/chartbreaker-loona-star-us-radio-hit-k-pop/"
+                                 title="Billboard"
+                                 >Billboard</a
+                              >)
+                           </p>
+                        </div>
+                     </div>
+                     <div class="posts__perma">
+                        <div class="posts__note">Posted on December 4, 2021</div>
+                        <a href="#">Go to permalink page</a>
+                     </div>
                   </div>
-                  <div class="posts__answer">
-                     <p>
-                        Simplicity in design is – at its most basic – the
-                        removal of all unnecessary elements from a design. This
-                        usually consists of a clean layout, a two or
-                        three-colour scheme and lots of white space. A clean
-                        layout features a few stand-out elements, but largely
-                        relies on the color scheme and white space to create the
-                        drama and interest.
-                     </p>
-                     <figure class="tmblr-full"><a class="post_media_photo_anchor" data-big-photo="https://64.media.tumblr.com/f69662ffaf7c332a1e4e6e66290a0d36/061a9dd7c1f22cf3-3f/s1280x1920/ca954061fa6542577d6956f2b95bb7f2a3da9492.jpg" data-big-photo-height="1280" data-big-photo-width="1920"><img class="post_media_photo image" src="https://64.media.tumblr.com/f69662ffaf7c332a1e4e6e66290a0d36/061a9dd7c1f22cf3-3f/s1280x1920/ca954061fa6542577d6956f2b95bb7f2a3da9492.jpg" alt="image"></a></figure>
-                     <p>
-                        A simple color scheme normally does not feature more
-                        than three colors, though of course there can be
-                        exceptions. But because simplicity in design means
-                        stripping out all unnecessary things, a color scheme
-                        that is limited to a text, an accent and perhaps a
-                        background color is all a simple design really needs.
-                     </p>
+                  <div class="posts__date">
+                     <span class="count"></span>
+                     <span class="line"></span>
+                     <span>00:00</span>
                   </div>
-                  <div class="posts__perma">
-                     <div class="posts__note">Posted on December 4, 2021</div>
-                     <a href="#">Go to permalink page</a>
+                  
+               </article>
+               <article class="posts posts-photo">
+                  <div class="posts__inner">
+                     <div class="posts__permalink">
+                        <div class="posts__permalink--reblog">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/></svg>
+                            <a href="#">username</a>
+                        </div>
+                        <div class="posts__permalink--action">
+                           1.5k notes
+                        </div>
+                    </div>
+                     <div class="posts__view">
+                        <a href="#" class="btn-post"
+                           >See this post
+                           <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                           >
+                              <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
+                     </div>
+                     <div class="posts__user">
+                        <img
+                           src="https://64.media.tumblr.com/avatar_a87b46ed9c1e_30.pnj"
+                           alt=""
+                        />
+                        <span>sorracci</span>
+                     </div>
+                     <figure class="posts__image">
+                        <img
+                           src="https://64.media.tumblr.com/tumblr_m7k5q2ZmtM1qme88ko1_500.png"
+                           alt=""
+                        />
+                     </figure>
+                     <div class="posts__body">
+                        <p>
+                           Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                           Itaque nihil accusantium, expedita dignissimos magni
+                           molestias ut mollitia! Cum eius necessitatibus atque non
+                           dignissimos sunt eaque assumenda architecto, maxime
+                           laborum totam.
+                        </p>
+                     </div>
+                     <div class="posts__perma">
+                        <div class="posts__note">Posted on December 4, 2021</div>
+                        <a href="#">Go to permalink page</a>
+                     </div>
                   </div>
-               </div>
-               <div class="posts__date">
-                  <span class="count"></span>
-                  <span class="line"></span>
-                  <span>00:00</span>
-               </div>
-            </article>
-            <article class="posts posts-text">
-               <div class="posts__inner">
-                  <div class="posts__view">
-                     <a href="#" class="btn-post"
-                        >See this post
-                        <svg
-                           xmlns="http://www.w3.org/2000/svg"
-                           width="24"
-                           height="24"
-                           viewBox="0 0 24 24"
-                           fill="none"
-                           stroke="currentColor"
-                           stroke-width="1.5"
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                        >
-                           <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
+                  <div class="posts__date">
+                     <span class="count"></span>
+                     <span class="line"></span>
+                     <span>00:00</span>
                   </div>
-                  <blockquote class="posts__quote">
-                     I’m trying to find my peace; I was made to believe there’s
-                     something wrong with me, and it hurts my heart.
-                     <cite> — Janelle Monáe (via wrists) </cite>
-                  </blockquote>
-               </div>
-               <div class="posts__date">
-                  <span class="count"></span>
-                  <span class="line"></span>
-                  <span>00:00</span>
-               </div>
-            </article>
-            <article class="posts posts--photo">
-               <div class="posts__inner">
-                  <div class="posts__view">
-                     <a href="#" class="btn-post"
-                        >See this post
-                        <svg
-                           xmlns="http://www.w3.org/2000/svg"
-                           width="24"
-                           height="24"
-                           viewBox="0 0 24 24"
-                           fill="none"
-                           stroke="currentColor"
-                           stroke-width="1.5"
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                        >
-                           <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
+               </article>
+               <article class="posts posts-audio">
+                  <div class="posts__inner">
+                     <div class="posts__view">
+                        <a href="#" class="btn-post"
+                           >See this post
+                           <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                           >
+                              <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
+                     </div>
+                     <div class="posts__media">
+                        <div class="posts__audio">
+                           <span id="audio_player_139112836909"
+                              ><div class="audio_player">
+                                 <iframe
+                                    class="
+                                       tumblr_audio_player
+                                       tumblr_audio_player_139112836909
+                                    "
+                                    src="https://empatitheme.tumblr.com/post/139112836909/audio_player_iframe/empatitheme/tumblr_n8f2xw8DoL1tucj98?audio_file=https%3A%2F%2Fa.tumblr.com%2Ftumblr_n8f2xw8DoL1tucj98o1_r1.mp3&amp;color=black&amp;simple=1"
+                                    allowtransparency="true"
+                                    scrolling="no"
+                                    width="207"
+                                    height="27"
+                                    frameborder="0"
+                                 ></iframe></div
+                           ></span>
+                           <div class="posts__audio--player">
+                              <button class="btn-play" data-action="play">
+                                 <span id="play">
+                                    <i class="las la-play"></i>
+                                </span>
+        
+                                <span id="pause" style="display: none">
+                                 <i class="las la-pause"></i>
+                                </span>
+                                
+                              </button>
+                           </div>
+                           <div class="posts__audio--album">
+                              <img
+                                 src="https://i1.sndcdn.com/artworks-000199538936-seu6wb-t500x500.jpg"
+                                 alt=""
+                              />
+                           </div>
+                           <div class="posts__audio--info">
+                              <svg
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 width="18"
+                                 height="18"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="1.5"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                              >
+                                 <circle cx="5.5" cy="17.5" r="2.5" />
+                                 <circle cx="17.5" cy="15.5" r="2.5" />
+                                 <path d="M8 17V5l12-2v12" />
+                              </svg>
+                              <div>Priscilla Ahn / Fine On The Outside</div>
+                           </div>
+                           <div class="posts__audio--visual" id="waveform"></div>
+                        </div>
+                     </div>
+                     <div class="posts__body">
+                       <p>Nec tempor ullamcorper eleifend massa, scelerisque nibh
+                        consequat. Sit purus quam sit proin ipsum. Hendrerit sed
+                        est sed ultrices adipiscing mollis interdum nulla quis. Sed
+                        id eget nibh fringilla bibendum pellentesque at nullam. Ut
+                        nisi metus maecenas mollis convallis. Ipsum nisi et,
+                        rhoncus commodo etiam. Risus, enim sed tortor, etiam
+                        elementum quis placerat tincidunt.</p>
+                     </div>
                   </div>
-                  <div class="posts__user">
-                     <img
-                        src="https://64.media.tumblr.com/avatar_c1c321c0b914_30.pnj"
-                        alt=""
-                     />
-                     <span>reki-jo</span>
+                  <div class="posts__date">
+                     <span class="count"></span>
+                     <span class="line"></span>
+                     <span>00:00</span>
                   </div>
-                  <figure class="posts__image">
-                     <img
-                        src="https://64.media.tumblr.com/tumblr_lyi7dwWXNQ1r9r4gko1_500.jpg"
-                        alt=""
-                     />
-                  </figure>
-                  <div class="posts__body">
-                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Itaque nihil accusantium, expedita dignissimos magni
-                        molestias ut mollitia! Cum eius necessitatibus atque non
-                        dignissimos sunt eaque assumenda architecto, maxime
-                        laborum totam.
-                     </p>
+               </article>
+               <article class="posts posts-text">
+                  <div class="posts__inner">
+                     <div class="posts__view">
+                        <a href="#" class="btn-post"
+                           >See this post
+                           <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                           >
+                              <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
+                     </div>
+                     <div class="posts__question">
+                        <div class="posts__question--asker">
+                           <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                           >
+                              <circle cx="12" cy="12" r="10"></circle>
+                              <path
+                                 d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"
+                              ></path>
+                              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                           </svg>
+                           <a href="#">Anonymous</a> asked
+                        </div>
+                        What is simplicity in web design?
+                     </div>
+                     <div class="posts__answer">
+                        <p>
+                           Simplicity in design is – at its most basic – the
+                           removal of all unnecessary elements from a design. This
+                           usually consists of a clean layout, a two or
+                           three-colour scheme and lots of white space. A clean
+                           layout features a few stand-out elements, but largely
+                           relies on the color scheme and white space to create the
+                           drama and interest.
+                        </p>
+                        <figure class="tmblr-full"><a class="post_media_photo_anchor" data-big-photo="https://64.media.tumblr.com/f69662ffaf7c332a1e4e6e66290a0d36/061a9dd7c1f22cf3-3f/s1280x1920/ca954061fa6542577d6956f2b95bb7f2a3da9492.jpg" data-big-photo-height="1280" data-big-photo-width="1920"><img class="post_media_photo image" src="https://64.media.tumblr.com/f69662ffaf7c332a1e4e6e66290a0d36/061a9dd7c1f22cf3-3f/s1280x1920/ca954061fa6542577d6956f2b95bb7f2a3da9492.jpg" alt="image"></a></figure>
+                        <p>
+                           A simple color scheme normally does not feature more
+                           than three colors, though of course there can be
+                           exceptions. But because simplicity in design means
+                           stripping out all unnecessary things, a color scheme
+                           that is limited to a text, an accent and perhaps a
+                           background color is all a simple design really needs.
+                        </p>
+                     </div>
+                     <div class="posts__perma">
+                        <div class="posts__note">Posted on December 4, 2021</div>
+                        <a href="#">Go to permalink page</a>
+                     </div>
                   </div>
-                  <div class="posts__perma">
-                     <div class="posts__note">Posted on December 4, 2021</div>
-                     <a href="#">Go to permalink page</a>
+                  <div class="posts__date">
+                     <span class="count"></span>
+                     <span class="line"></span>
+                     <span>00:00</span>
                   </div>
-               </div>
-
-               <div class="posts__date">
-                  <span class="count"></span>
-                  <span class="line"></span>
-                  <span>00:00</span>
-               </div>
-            </article>
-            <article class="posts posts--photo">
-               <div class="posts__inner">
-                  <div class="posts__view">
-                     <a href="#" class="btn-post"
-                        >See this post
-                        <svg
-                           xmlns="http://www.w3.org/2000/svg"
-                           width="24"
-                           height="24"
-                           viewBox="0 0 24 24"
-                           fill="none"
-                           stroke="currentColor"
-                           stroke-width="1.5"
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                        >
-                           <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
+               </article>
+               <article class="posts posts-text">
+                  <div class="posts__inner">
+                     <div class="posts__view">
+                        <a href="#" class="btn-post"
+                           >See this post
+                           <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                           >
+                              <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
+                     </div>
+                     <blockquote class="posts__quote">
+                        I’m trying to find my peace; I was made to believe there’s
+                        something wrong with me, and it hurts my heart.
+                        <cite> — Janelle Monáe (via wrists) </cite>
+                     </blockquote>
                   </div>
-                  <div class="posts__user">
-                     <img
-                        src="https://64.media.tumblr.com/avatar_b4b74782986a_30.pnj"
-                        alt=""
-                     />
-                     <span>prettycolors</span>
+                  <div class="posts__date">
+                     <span class="count"></span>
+                     <span class="line"></span>
+                     <span>00:00</span>
                   </div>
-                  <figure class="posts__image">
-                     <img
-                        src="https://64.media.tumblr.com/63d81fcc5d6045263f3a6161356b0c4b/tumblr_o28nhrFdjC1qzzelmo1_500.png"
-                        alt=""
-                     />
-                  </figure>
-                  <div class="posts__body">
-                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Itaque nihil accusantium, expedita dignissimos magni
-                        molestias ut mollitia! Cum eius necessitatibus atque non
-                        dignissimos sunt eaque assumenda architecto, maxime
-                        laborum totam.
-                     </p>
+               </article>
+               <article class="posts posts--photo">
+                  <div class="posts__inner">
+                     <div class="posts__view">
+                        <a href="#" class="btn-post"
+                           >See this post
+                           <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                           >
+                              <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
+                     </div>
+                     <div class="posts__user">
+                        <img
+                           src="https://64.media.tumblr.com/avatar_c1c321c0b914_30.pnj"
+                           alt=""
+                        />
+                        <span>reki-jo</span>
+                     </div>
+                     <figure class="posts__image">
+                        <img
+                           src="https://64.media.tumblr.com/tumblr_lyi7dwWXNQ1r9r4gko1_500.jpg"
+                           alt=""
+                        />
+                     </figure>
+                     <div class="posts__body">
+                        <p>
+                           Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                           Itaque nihil accusantium, expedita dignissimos magni
+                           molestias ut mollitia! Cum eius necessitatibus atque non
+                           dignissimos sunt eaque assumenda architecto, maxime
+                           laborum totam.
+                        </p>
+                     </div>
+                     <div class="posts__perma">
+                        <div class="posts__note">Posted on December 4, 2021</div>
+                        <a href="#">Go to permalink page</a>
+                     </div>
                   </div>
-                  <div class="posts__perma">
-                     <div class="posts__note">Posted on December 4, 2021</div>
-                     <a href="#">Go to permalink page</a>
+   
+                  <div class="posts__date">
+                     <span class="count"></span>
+                     <span class="line"></span>
+                     <span>00:00</span>
                   </div>
-               </div>
-               <div class="posts__date">
-                  <span class="count"></span>
-                  <span class="line"></span>
-                  <span>00:00</span>
-               </div>
-            </article>
-            <article class="posts posts--photo">
-               <div class="posts__inner">
-                  <div class="posts__view">
-                     <a href="#" class="btn-post"
-                        >See this post
-                        <svg
-                           xmlns="http://www.w3.org/2000/svg"
-                           width="24"
-                           height="24"
-                           viewBox="0 0 24 24"
-                           fill="none"
-                           stroke="currentColor"
-                           stroke-width="1.5"
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                        >
-                           <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
+               </article>
+               <article class="posts posts--photo">
+                  <div class="posts__inner">
+                     <div class="posts__view">
+                        <a href="#" class="btn-post"
+                           >See this post
+                           <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                           >
+                              <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
+                     </div>
+                     <div class="posts__user">
+                        <img
+                           src="https://64.media.tumblr.com/avatar_b4b74782986a_30.pnj"
+                           alt=""
+                        />
+                        <span>prettycolors</span>
+                     </div>
+                     <figure class="posts__image">
+                        <img
+                           src="https://64.media.tumblr.com/63d81fcc5d6045263f3a6161356b0c4b/tumblr_o28nhrFdjC1qzzelmo1_500.png"
+                           alt=""
+                        />
+                     </figure>
+                     <div class="posts__body">
+                        <p>
+                           Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                           Itaque nihil accusantium, expedita dignissimos magni
+                           molestias ut mollitia! Cum eius necessitatibus atque non
+                           dignissimos sunt eaque assumenda architecto, maxime
+                           laborum totam.
+                        </p>
+                     </div>
+                     <div class="posts__perma">
+                        <div class="posts__note">Posted on December 4, 2021</div>
+                        <a href="#">Go to permalink page</a>
+                     </div>
                   </div>
-                  <div class="posts__user">
-                     <img
-                        src="https://64.media.tumblr.com/avatar_add78c4f66b9_30.pnj"
-                        alt=""
-                     />
-                     <span>birries</span>
+                  <div class="posts__date">
+                     <span class="count"></span>
+                     <span class="line"></span>
+                     <span>00:00</span>
                   </div>
-                  <figure class="posts__image">
-                     <img
-                        src="https://64.media.tumblr.com/29ec32cdf9f6302b1cada7880afd7373/tumblr_npjwn3N5Ut1qa2o8mo1_500.png"
-                        alt=""
-                     />
-                  </figure>
-                  <div class="posts__body">
-                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Itaque nihil accusantium, expedita dignissimos magni
-                        molestias ut mollitia! Cum eius necessitatibus atque non
-                        dignissimos sunt eaque assumenda architecto, maxime
-                        laborum totam.
-                     </p>
+               </article>
+               <article class="posts posts--photo">
+                  <div class="posts__inner">
+                     <div class="posts__view">
+                        <a href="#" class="btn-post"
+                           >See this post
+                           <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                           >
+                              <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
+                     </div>
+                     <div class="posts__user">
+                        <img
+                           src="https://64.media.tumblr.com/avatar_add78c4f66b9_30.pnj"
+                           alt=""
+                        />
+                        <span>birries</span>
+                     </div>
+                     <figure class="posts__image">
+                        <img
+                           src="https://64.media.tumblr.com/29ec32cdf9f6302b1cada7880afd7373/tumblr_npjwn3N5Ut1qa2o8mo1_500.png"
+                           alt=""
+                        />
+                     </figure>
+                     <div class="posts__body">
+                        <p>
+                           Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                           Itaque nihil accusantium, expedita dignissimos magni
+                           molestias ut mollitia! Cum eius necessitatibus atque non
+                           dignissimos sunt eaque assumenda architecto, maxime
+                           laborum totam.
+                        </p>
+                     </div>
+                     <div class="posts__perma">
+                        <div class="posts__note">Posted on December 4, 2021</div>
+                        <a href="#">Go to permalink page</a>
+                     </div>
                   </div>
-                  <div class="posts__perma">
-                     <div class="posts__note">Posted on December 4, 2021</div>
-                     <a href="#">Go to permalink page</a>
+                  <div class="posts__date">
+                     <span class="count"></span>
+                     <span class="line"></span>
+                     <span>00:00</span>
                   </div>
-               </div>
-               <div class="posts__date">
-                  <span class="count"></span>
-                  <span class="line"></span>
-                  <span>00:00</span>
-               </div>
-            </article>
-            <article class="posts posts--photo">
-               <div class="posts__inner">
-                  <div class="posts__view">
-                     <a href="#" class="btn-post"
-                        >See this post
-                        <svg
-                           xmlns="http://www.w3.org/2000/svg"
-                           width="24"
-                           height="24"
-                           viewBox="0 0 24 24"
-                           fill="none"
-                           stroke="currentColor"
-                           stroke-width="1.5"
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                        >
-                           <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
+               </article>
+               <article class="posts posts--photo">
+                  <div class="posts__inner">
+                     <div class="posts__view">
+                        <a href="#" class="btn-post"
+                           >See this post
+                           <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                           >
+                              <path d="M7 17l9.2-9.2M17 17V7H7" /></svg></a>
+                     </div>
+                     <div class="posts__user">
+                        <img
+                           src="https://assets.tumblr.com/images/default_avatar/sphere_closed_64.png"
+                           alt=""
+                        />
+                        <span>fukuocommissions</span>
+                     </div>
+                     <figure class="posts__image">
+                        <img
+                           src="https://64.media.tumblr.com/976a32bbf2e58f60a189d985bbb6d6a9/605dd6b1acb6afe1-56/s1280x1920/2ea4d251045882f2cc3c25f27f9cfb545427b740.jpg"
+                           alt=""
+                        />
+                     </figure>
+                     <div class="posts__body">
+                        <p>
+                           Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                           Itaque nihil accusantium, expedita dignissimos magni
+                           molestias ut mollitia! Cum eius necessitatibus atque non
+                           dignissimos sunt eaque assumenda architecto, maxime
+                           laborum totam.
+                        </p>
+                     </div>
+                     <div class="posts__perma">
+                        <div class="posts__note">Posted on December 4, 2021</div>
+                        <a href="#">Go to permalink page</a>
+                     </div>
                   </div>
-                  <div class="posts__user">
-                     <img
-                        src="https://assets.tumblr.com/images/default_avatar/sphere_closed_64.png"
-                        alt=""
-                     />
-                     <span>fukuocommissions</span>
+                  <div class="posts__date">
+                     <span class="count"></span>
+                     <span class="line"></span>
+                     <span>00:00</span>
                   </div>
-                  <figure class="posts__image">
-                     <img
-                        src="https://64.media.tumblr.com/976a32bbf2e58f60a189d985bbb6d6a9/605dd6b1acb6afe1-56/s1280x1920/2ea4d251045882f2cc3c25f27f9cfb545427b740.jpg"
-                        alt=""
-                     />
-                  </figure>
-                  <div class="posts__body">
-                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Itaque nihil accusantium, expedita dignissimos magni
-                        molestias ut mollitia! Cum eius necessitatibus atque non
-                        dignissimos sunt eaque assumenda architecto, maxime
-                        laborum totam.
-                     </p>
-                  </div>
-                  <div class="posts__perma">
-                     <div class="posts__note">Posted on December 4, 2021</div>
-                     <a href="#">Go to permalink page</a>
-                  </div>
-               </div>
-               <div class="posts__date">
-                  <span class="count"></span>
-                  <span class="line"></span>
-                  <span>00:00</span>
-               </div>
-            </article>
+               </article>
+   
+            </section>
 
             <nav class="pagination">
                <!-- <button class="pagination__more">
@@ -1069,26 +1103,29 @@ grid-column: 1/3; }
                    <a href="#" class="is-link">Next page <i class="las la-angle-right"></i></a>
                </div>
            </nav>
-         </section>
-        
-      </main>
 
-      <footer class="footer">
-         <div class="footer__inner">
-              <div class="footer__socmed">
-                  <ul>
-                     <li><a href="https://instagram.com/" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M16.98 0a6.9 6.9 0 0 1 5.08 1.98A6.94 6.94 0 0 1 24 7.02v9.96c0 2.08-.68 3.87-1.98 5.13A7.14 7.14 0 0 1 16.94 24H7.06a7.06 7.06 0 0 1-5.03-1.89A6.96 6.96 0 0 1 0 16.94V7.02C0 2.8 2.8 0 7.02 0h9.96zm.05 2.23H7.06c-1.45 0-2.7.43-3.53 1.25a4.82 4.82 0 0 0-1.3 3.54v9.92c0 1.5.43 2.7 1.3 3.58a5 5 0 0 0 3.53 1.25h9.88a5 5 0 0 0 3.53-1.25 4.73 4.73 0 0 0 1.4-3.54V7.02a5 5 0 0 0-1.3-3.49 4.82 4.82 0 0 0-3.54-1.3zM12 5.76c3.39 0 6.2 2.8 6.2 6.2a6.2 6.2 0 0 1-12.4 0 6.2 6.2 0 0 1 6.2-6.2zm0 2.22a3.99 3.99 0 0 0-3.97 3.97A3.99 3.99 0 0 0 12 15.92a3.99 3.99 0 0 0 3.97-3.97A3.99 3.99 0 0 0 12 7.98zm6.44-3.77a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8z"/></svg></a></li>
-                     <li><a href="https://twitter.com/" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.37a9.6 9.6 0 0 1-2.83.8 5.04 5.04 0 0 0 2.17-2.8c-.95.58-2 1-3.13 1.22A4.86 4.86 0 0 0 16.61 2a4.99 4.99 0 0 0-4.79 6.2A13.87 13.87 0 0 1 1.67 2.92 5.12 5.12 0 0 0 3.2 9.67a4.82 4.82 0 0 1-2.23-.64v.07c0 2.44 1.7 4.48 3.95 4.95a4.84 4.84 0 0 1-2.22.08c.63 2.01 2.45 3.47 4.6 3.51A9.72 9.72 0 0 1 0 19.74 13.68 13.68 0 0 0 7.55 22c9.06 0 14-7.7 14-14.37v-.65c.96-.71 1.79-1.6 2.45-2.61z"/></svg></a></li>
-                     <li><a href="https://youtube.com/" aria-label="Youtube"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 3.5c.59 0 7.54.02 9.34.5a3.02 3.02 0 0 1 2.12 2.15C24 8.05 24 12 24 12v.04c0 .43-.03 4.03-.5 5.8A3.02 3.02 0 0 1 21.38 20c-1.76.48-8.45.5-9.3.51h-.17c-.85 0-7.54-.03-9.29-.5A3.02 3.02 0 0 1 .5 17.84c-.42-1.61-.49-4.7-.5-5.6v-.5c.01-.9.08-3.99.5-5.6a3.02 3.02 0 0 1 2.12-2.14c1.8-.49 8.75-.51 9.34-.51zM9.54 8.4v7.18L15.82 12 9.54 8.41z"/></svg></a></li>
-                     <li><a href="https://facebook.com/" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 0c.83 0 1.5.67 1.5 1.5v21c0 .83-.67 1.5-1.5 1.5h-6v-9h3l.75-3.75H16.5v-1.5c0-1.5.75-2.25 2.25-2.25h1.5V3.75h-3c-2.76 0-4.5 2.16-4.5 5.25v2.25h-3V15h3v9H1.5A1.5 1.5 0 0 1 0 22.5v-21C0 .67.67 0 1.5 0h21z"/></svg></a></li>
-                  </ul>
-              </div>
-              <div class="footer__credit">
-              Empati Tamako Theme by <a href="https://fukuo.tumblr.com">Fukuo</a>. Powered by <a
-                  href="https://tumblr.com/" data-font="tumblr" aria-label="Tumblr"><svg class="svg-logo logo-tumblr" width="55px" viewBox="0 0 245 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g class="logotype" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd"><path d="M28.087 49.57h-8.286c-7.461 0-13.021-3.835-13.021-13.01V21.863H0v-7.957C7.461 11.97 10.582 5.556 10.94 0h7.749v12.616h9.04v9.248h-9.04v12.795c0 3.836 1.937 5.162 5.022 5.162h4.376v9.749zm143.951.43c-3.766 0-7.246-1.254-10.151-3.692v3.262h-11.372V7.993h-4.95V0h17.075v15.305c2.224-1.72 5.919-3.119 9.613-3.119 10.51 0 15.676 7.312 15.676 18.46 0 11.612-5.56 19.354-15.89 19.354zm18.115-.43v-7.921h4.197V7.993h-4.95V0h16.93v41.649h4.377v7.92h-20.554zm-112.456 0v-7.921h4.197V20.68h-4.95v-8.065H92.26V17.6c2.582-3.549 7.39-5.413 11.765-5.413 5.525 0 9.22 2.223 11.658 5.914 1.938-3.261 6.529-5.914 12.125-5.914 11.335 0 14.205 8.961 14.205 16.56v12.903h4.125v7.92h-20.16v-7.92h4.054V27.348c0-3.047-1.04-5.628-5.309-5.628-5.273 0-6.816 4.122-6.816 6.13v13.799h4.233v7.92h-20.267v-7.92H106V27.348c0-3.047-.86-5.628-5.093-5.628-5.238 0-6.96 4.122-6.96 6.13v13.799h4.162v7.92H77.697zm137.494 0v-7.921h4.09V20.68h-4.449v-8.065h15.39v5.341c1.9-3.548 6.133-5.77 10.725-5.77H245V22.76h-5.022c-3.766 0-8.717 1.541-8.717 8.566V41.65h4.126v7.92H215.19zM47.53 50c-11.765 0-14.348-8.853-14.348-14.552V12.616h12.411v22.33c0 3.083.754 5.52 4.807 5.52 6.313 0 7.246-4.695 7.246-5.807V20.681h-4.807v-8.065h16.86V41.65h3.55v7.92H59.296V44.91C56.641 48.172 51.762 50 47.529 50zm121.926-8.996c1.902-.215 6.278-.538 6.278-10.287 0-6.774-2.978-9.498-6.35-9.498-2.905 0-7.102 1.54-7.102 10.25 0 7.24 3.551 9.535 7.174 9.535z" fill-rule="evenodd"></path></g></svg></a></span>
-              </div>
-         </div>
-      </footer>
+           <section class="wrapper__likes">
+
+           </section>
+         </main>
+   
+         <footer class="footer">
+            <div class="footer__inner">
+                 <div class="footer__socmed">
+                     <ul>
+                        <li><a href="https://instagram.com/" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M16.98 0a6.9 6.9 0 0 1 5.08 1.98A6.94 6.94 0 0 1 24 7.02v9.96c0 2.08-.68 3.87-1.98 5.13A7.14 7.14 0 0 1 16.94 24H7.06a7.06 7.06 0 0 1-5.03-1.89A6.96 6.96 0 0 1 0 16.94V7.02C0 2.8 2.8 0 7.02 0h9.96zm.05 2.23H7.06c-1.45 0-2.7.43-3.53 1.25a4.82 4.82 0 0 0-1.3 3.54v9.92c0 1.5.43 2.7 1.3 3.58a5 5 0 0 0 3.53 1.25h9.88a5 5 0 0 0 3.53-1.25 4.73 4.73 0 0 0 1.4-3.54V7.02a5 5 0 0 0-1.3-3.49 4.82 4.82 0 0 0-3.54-1.3zM12 5.76c3.39 0 6.2 2.8 6.2 6.2a6.2 6.2 0 0 1-12.4 0 6.2 6.2 0 0 1 6.2-6.2zm0 2.22a3.99 3.99 0 0 0-3.97 3.97A3.99 3.99 0 0 0 12 15.92a3.99 3.99 0 0 0 3.97-3.97A3.99 3.99 0 0 0 12 7.98zm6.44-3.77a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8z"/></svg></a></li>
+                        <li><a href="https://twitter.com/" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.37a9.6 9.6 0 0 1-2.83.8 5.04 5.04 0 0 0 2.17-2.8c-.95.58-2 1-3.13 1.22A4.86 4.86 0 0 0 16.61 2a4.99 4.99 0 0 0-4.79 6.2A13.87 13.87 0 0 1 1.67 2.92 5.12 5.12 0 0 0 3.2 9.67a4.82 4.82 0 0 1-2.23-.64v.07c0 2.44 1.7 4.48 3.95 4.95a4.84 4.84 0 0 1-2.22.08c.63 2.01 2.45 3.47 4.6 3.51A9.72 9.72 0 0 1 0 19.74 13.68 13.68 0 0 0 7.55 22c9.06 0 14-7.7 14-14.37v-.65c.96-.71 1.79-1.6 2.45-2.61z"/></svg></a></li>
+                        <li><a href="https://youtube.com/" aria-label="Youtube"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 3.5c.59 0 7.54.02 9.34.5a3.02 3.02 0 0 1 2.12 2.15C24 8.05 24 12 24 12v.04c0 .43-.03 4.03-.5 5.8A3.02 3.02 0 0 1 21.38 20c-1.76.48-8.45.5-9.3.51h-.17c-.85 0-7.54-.03-9.29-.5A3.02 3.02 0 0 1 .5 17.84c-.42-1.61-.49-4.7-.5-5.6v-.5c.01-.9.08-3.99.5-5.6a3.02 3.02 0 0 1 2.12-2.14c1.8-.49 8.75-.51 9.34-.51zM9.54 8.4v7.18L15.82 12 9.54 8.41z"/></svg></a></li>
+                        <li><a href="https://facebook.com/" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 0c.83 0 1.5.67 1.5 1.5v21c0 .83-.67 1.5-1.5 1.5h-6v-9h3l.75-3.75H16.5v-1.5c0-1.5.75-2.25 2.25-2.25h1.5V3.75h-3c-2.76 0-4.5 2.16-4.5 5.25v2.25h-3V15h3v9H1.5A1.5 1.5 0 0 1 0 22.5v-21C0 .67.67 0 1.5 0h21z"/></svg></a></li>
+                     </ul>
+                 </div>
+                 <div class="footer__credit">
+                 Empati Tamako Theme by <a href="https://fukuo.tumblr.com">Fukuo</a>. Powered by <a
+                     href="https://tumblr.com/" data-font="tumblr" aria-label="Tumblr"><svg class="svg-logo logo-tumblr" width="55px" viewBox="0 0 245 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g class="logotype" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd"><path d="M28.087 49.57h-8.286c-7.461 0-13.021-3.835-13.021-13.01V21.863H0v-7.957C7.461 11.97 10.582 5.556 10.94 0h7.749v12.616h9.04v9.248h-9.04v12.795c0 3.836 1.937 5.162 5.022 5.162h4.376v9.749zm143.951.43c-3.766 0-7.246-1.254-10.151-3.692v3.262h-11.372V7.993h-4.95V0h17.075v15.305c2.224-1.72 5.919-3.119 9.613-3.119 10.51 0 15.676 7.312 15.676 18.46 0 11.612-5.56 19.354-15.89 19.354zm18.115-.43v-7.921h4.197V7.993h-4.95V0h16.93v41.649h4.377v7.92h-20.554zm-112.456 0v-7.921h4.197V20.68h-4.95v-8.065H92.26V17.6c2.582-3.549 7.39-5.413 11.765-5.413 5.525 0 9.22 2.223 11.658 5.914 1.938-3.261 6.529-5.914 12.125-5.914 11.335 0 14.205 8.961 14.205 16.56v12.903h4.125v7.92h-20.16v-7.92h4.054V27.348c0-3.047-1.04-5.628-5.309-5.628-5.273 0-6.816 4.122-6.816 6.13v13.799h4.233v7.92h-20.267v-7.92H106V27.348c0-3.047-.86-5.628-5.093-5.628-5.238 0-6.96 4.122-6.96 6.13v13.799h4.162v7.92H77.697zm137.494 0v-7.921h4.09V20.68h-4.449v-8.065h15.39v5.341c1.9-3.548 6.133-5.77 10.725-5.77H245V22.76h-5.022c-3.766 0-8.717 1.541-8.717 8.566V41.65h4.126v7.92H215.19zM47.53 50c-11.765 0-14.348-8.853-14.348-14.552V12.616h12.411v22.33c0 3.083.754 5.52 4.807 5.52 6.313 0 7.246-4.695 7.246-5.807V20.681h-4.807v-8.065h16.86V41.65h3.55v7.92H59.296V44.91C56.641 48.172 51.762 50 47.529 50zm121.926-8.996c1.902-.215 6.278-.538 6.278-10.287 0-6.774-2.978-9.498-6.35-9.498-2.905 0-7.102 1.54-7.102 10.25 0 7.24 3.551 9.535 7.174 9.535z" fill-rule="evenodd"></path></g></svg></a></span>
+                 </div>
+            </div>
+         </footer>
+      </div>
 
       <script src="https://unpkg.com/wavesurfer.js"></script>
 
@@ -1099,6 +1136,7 @@ grid-column: 1/3; }
       <script src="https://cdn.jsdelivr.net/gh/boscoxvi/npfphotosets/npfphotosets.js"></script>
       <script src="//unpkg.com/fast-average-color/dist/index.min.js"></script>
       <script src="js/detect_color.js"></script>
+      <script src="js/modal_menu.js"></script>
       
 
       <script>
