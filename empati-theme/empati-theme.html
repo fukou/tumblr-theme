@@ -26,7 +26,7 @@
             {MobileAppHeaders}
             <link rel="shortcut icon" href="{Favicon}">
             <link rel="alternate" type="application/rss+xml" href="{RSS}">
-            <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/2Gzr12wof/main.min.css">
+            <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/YUmr14ie9/main.min.css">
             <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"/>
             <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"/>
             <link href="https://cdn.jsdelivr.net/gh/boscoxvi/npfphotosets/npfphotosetstyle.css" rel="stylesheet" type="text/css">
@@ -424,11 +424,11 @@
                                     
                                   </button>
                                  </div>
-                                 {block:AlbumArt}
                                  <div class="posts__audio--album">
+                                    {block:AlbumArt}
                                     <img src="{AlbumArtURL}" alt=""/>
+                                    {/block:AlbumArt}
                                  </div>
-                                 {/block:AlbumArt}
                                  <div class="posts__audio--info">
                                     <svg
                                        xmlns="http://www.w3.org/2000/svg"
@@ -450,7 +450,7 @@
                                  <div class="posts__audio--visual" id="waveform"></div>
                                </div>
                                {/block:Audio}
-                               {block:Video}<div class="video__p">{VideoEmbed-700}</div>{/block:Video}
+                               {block:Video}<div class="video__p">{Video-700}</div>{/block:Video}
                                {block:Answer}
                                <div class="posts__question">
                                  <img class="posts__answerer--img" src="{AskerPortraitURL-64}" alt="">
@@ -737,6 +737,35 @@
                    btn.parentElement.querySelector("button:last-child").classList.add("actived");
                 }
              });
+             
+            const spotifyPlayers = document.querySelectorAll(".spotify_audio_player");
+            if(spotifyPlayers) {
+                spotifyPlayers.forEach(function(sp, idx) {
+                    sp.parentElement.classList.add("is-spotify");
+                });
+            }
+            
+            // https://shythemes.tumblr.com/post/114792480648/minimal-soundcloud-player
+            const soundcloudColor = "{AccentColor}";
+            const soundcloudPlayers = document.querySelectorAll('.soundcloud_audio_player');
+            
+            if(soundcloudPlayers) {
+                soundcloudPlayers.forEach(function(s, idx) {
+                  const url = s.getAttribute("src").split('&')[0];
+                  const options = "&amp;liking=false&amp;sharing=false&amp;auto_play=false&amp;show_comments=false&amp;continuous_play=false&amp;buying=false&amp;show_playcount=false&amp;show_artwork=true&amp;origin=tumblr&amp;color=" + soundcloudColor.split('#')[1];
+                  s.setAttribute("src", url + options);
+                  s.setAttribute("height", 116);
+                  
+                  s.parentElement.classList.add("is-soundcloud");
+                });
+            }
+            
+            const bandCamp = document.querySelectorAll('.bandcamp_audio_player');
+            if(bandCamp) {
+                for(b of bandCamp) {
+                    b.parentElement.classList.add("is-bandcamp");
+                }
+            }
              
              // masonry
              let elem = document.querySelector(".wrapper__blog.is-masonry");

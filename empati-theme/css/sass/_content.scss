@@ -44,6 +44,12 @@ body {
       }
     }
   }
+
+  &.is-list {
+    .wrapper {
+      padding-top: 6rem;
+    }
+  }
 }
 
 html {
@@ -756,6 +762,7 @@ html {
           position: relative;
           height: 0;
           padding-bottom: 100%;
+          background-color:#555;
 
           // filter: blur(10px);
 
@@ -1232,7 +1239,6 @@ html {
 	}
 }
 .npf_chat {
-	padding: 0 2rem;
 	margin: 15px 0;
 }
 .original {
@@ -1268,6 +1274,7 @@ html {
 	.posts-audio {
 		.posts__inner {
 			min-height: auto !important;
+      max-height: 418px!important;
 			.posts__media {
 				grid-row: 1/4;
 				grid-column: 1/3;
