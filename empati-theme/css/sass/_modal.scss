@@ -53,8 +53,7 @@
 
       &__view,
       &__user,
-      &__date,
-      &__permalink {
+      &__date {
         display: none;
       }
 
@@ -82,7 +81,7 @@
         position: relative;
         height: 0;
         // padding-bottom: calc(100% + 35px);
-        padding-bottom: calc(100% - 120px);
+        padding-bottom: calc(100% - 60px);
 
         img {
           position: absolute;
@@ -101,8 +100,9 @@
         .posts__inner {
           position: relative;
           display: grid;
-          grid-template-rows: 1fr 1fr;
-          max-height: 650px;
+          // grid-template-rows: 1fr 1fr;
+          grid-template-rows: repeat(8, 1fr);
+          max-height: 600px;
 
           @media (max-width: 60rem) {
             grid-template-columns: 1fr;
@@ -111,7 +111,7 @@
 
         @media (min-width: 60rem) {
           .posts__body {
-            max-height: 545px;
+            max-height: 600px;
             overflow-x: hidden;
           }
         }
@@ -158,23 +158,6 @@
               }
             }
           }
-        }
-      }
-
-      &__perma {
-        grid-column: 3/4;
-        grid-row: 3/4;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        padding: 0.95rem 2rem;
-        border-top: 1px solid rgba(var(--heading-text), 0.15);
-
-        a {
-          color: rgba(var(--body-link), 1);
-          font-weight: bold;
         }
       }
 
@@ -390,8 +373,92 @@
         }
       }
 
+      &__permalink {
+        grid-row: 1/2;
+        grid-column: 3/4;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid rgba(var(--heading-text), 0.1);
+
+        &--avatar {
+          display: inline-flex;
+          align-items: center;
+          > .is-source {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 0rem;
+
+            a {
+              margin: 0 -0.25rem;
+              > img {
+                width: 40px;
+                height: 40px;
+                border-radius: 100%;
+                padding: 5px;
+                background-color: rgba(var(--bg-card), 1);
+                border: 1px solid rgba(var(--heading-text), 0.1);
+              }
+            }
+          }
+          > .is-notes {
+            margin-left: 1.25rem;
+            opacity: 0.65;
+            color:rgba(var(--heading-text), 1);
+            @media (max-width:45rem) {
+              display: none;
+            }
+            a {
+              color: rgba(var(--body-link), 1);
+            }
+          }
+        }
+
+        &--action {
+          ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 0.85rem;
+
+            margin: 0;
+            padding: 0;
+
+            li {
+              a {
+                display: inline-flex;
+                align-items: center;
+                padding: 0.5rem 0.5rem;
+                border: 1px solid rgba(var(--heading-text), 0.15);
+                color: rgba(var(--body-text), 1);
+                border-radius: 6px;
+              }
+            }
+          }
+        }
+      }
+
+      &__perma {
+        grid-column: 3/4;
+        grid-row: 8/-1;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 0.95rem 2rem;
+        border-top: 1px solid rgba(var(--heading-text), 0.15);
+
+        a {
+          color: rgba(var(--body-link), 1);
+          font-weight: bold;
+        }
+      }
+
       &__body {
-        grid-row: 1/3;
+        grid-row: 2/8;
         grid-column: 3/4;
         color: rgba(var(--body-text), 1);
 
@@ -451,6 +518,7 @@
     align-items: center;
 
     background-color: rgba(var(--accent), 1);
+    color:rgba(var(--bg-card), 1);
     border: 0;
     padding: 1rem 1rem;
     border-radius: 50%;
@@ -483,7 +551,7 @@
 				.tns-item {
 					position: relative;
 					height: 0;
-					padding-bottom: 13.95%;
+					padding-bottom: 20%;
 				}
 			}
 			.photoset-count {
@@ -521,6 +589,11 @@
 					background-color: rgba(var(--accent), 0.75);
 					text-shadow: 2px 2px 3px rgba(var(--accent), 0.75);
 					padding: 0.85rem 1rem;
+          transition: 0.5s;
+
+          &:hover {
+            background-color: rgba(var(--accent), 1);
+          }
 
           &[data-controls="prev"] {
             left: 0;
