@@ -1,0 +1,2319 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	 <!--
+           
+           Title:    {Title}
+           BlogURL: {BlogURL}
+           
+        _______  __    __   __  ___  ___   __    _____  
+        |   ____||  |  |  | |  |/  / |  |  |  |  /  __  \  
+        |  |__   |  |  |  | |  '  /  |  |  |  | |  |  |  |
+        |   __|  |  |  |  | |    <   |  |  |  | |  |  |  |
+        |  |     |  `--'  | |  .  \  |  `--'  | |  `--'  |
+        |__|      \______/  |__|\__\  \______/   \______/  
+                       
+                       (C) FUKUO.TUMBLR.COM
+                            
+         
+            Do not remove this comment and credit. If you have a problem with this theme, please contact me at fukuo-support.tumblr.com/contact/
+           
+           Credit:
+            
+           PXU Photoset Extended: https://github.com/PixelUnion/Extended-Tumblr-Photoset
+           Smooth Scroll: https://github.com/galambalazs/smoothscroll-for-websites?files=1
+           Lazy Load: https://github.com/tuupola/jquery_lazyload
+           jQuery: jquery.com
+           
+         -->
+
+    <title>{block:TagPage}{Tag} - {/block:TagPage} {block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {block:Description}
+    <meta name="description" content="{MetaDescription}" />
+    {/block:Description}
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600|Roboto:400,700,500|Source+Sans+Pro:400,600,700|Domine:400,700|Vidaloka' rel='stylesheet' type='text/css'>
+    <link href="http://static.tumblr.com/qudkd6d/OcDnl99gb/style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+            
+            <meta name="if:Colored Overlay on the Header" content="1"/>
+            <meta name="if:Selection Color" content="1"/>
+            <meta name="if:Show Blogroll" content="1"/>
+            <meta name="if:Smooth Scrolling" content="1"/>
+            <meta name="if:Show Tags" content="1"/>
+            <meta name="if:Lazy Load Posts" content="0"/>
+            
+            <meta name="image:Header Background" content="http://static.tumblr.com/5ojoydj/wp6o3en21/photo-1434394673726-e8232a5903b4.jpg"/>
+              
+            <meta name="select:Photosets Gutter" content="0" title="None">
+            <meta name="select:Photosets Gutter" content="1" title="1px">
+            <meta name="select:Photosets Gutter" content="2" title="2px">
+            <meta name="select:Photosets Gutter" content="4" title="4px">
+            <meta name="select:Photosets Gutter" content="6" title="6px">
+            
+            <meta name="select:Blur Option" content="0" title="None">
+            <meta name="select:Blur Option" content="1" title="1px">
+            <meta name="select:Blur Option" content="2" title="2px">
+            <meta name="select:Blur Option" content="4" title="4px">
+            <meta name="select:Blur Option" content="5" title="5px">
+            <meta name="select:Blur Option" content="8" title="8px">
+            
+            <meta name="select:Body Font" content="Source Sans Pro" title="Source Sans Pro">
+            <meta name="select:Body Font" content="Roboto" title="Roboto">
+            <meta name="select:Body Font" content="Arial" title="Arial">
+            <meta name="select:Body Font" content="Open Sans" title="Open Sans">
+            
+            <meta name="select:Header Font" content="Domine" title="Domine">
+            <meta name="select:Header Font" content="Source Sans Pro" title="Source Sans Pro">
+            <meta name="select:Header Font" content="Vidaloka" title="Vidaloka">
+            
+            <meta name="color:Accent Color" content="#e8bdbc" />
+            <meta name="color:Background Color" content="#eeeeee" />
+            
+            <meta name="color:Description Text Color" content="#ffffff" />
+            <meta name="color:Description Text Shadow" content="#111111" />
+            
+            <meta name="color:Body Text" content="#595959" />
+            <meta name="color:Header Text" content="#111111" />
+            <meta name="color:Body Ask Text" content="#444444" />
+            <meta name="color:Article" content="#ffffff" />
+            <meta name="color:Selection Color" content="#777777" />
+            <meta name="color:Selection Background" content="#f8ff92" />
+            <meta name="color:Links" content="#111111" />
+            <meta name="color:Tags Color" content="#bbbbbb" />
+            
+            <meta name="text:Custom Link One" content="Your custom link"/>
+            <meta name="text:Custom Link One URL" content="http://"/>
+            <meta name="text:Custom Link Two" content="Your custom link"/>
+            <meta name="text:Custom Link Two URL" content="http://"/>
+            <meta name="text:Custom Link Three" content="Your custom link"/>
+            <meta name="text:Custom Link Three URL" content="http://"/>
+            <meta name="text:Custom Link Four" content="Your custom link"/>
+            <meta name="text:Custom Link Four URL" content="http://"/>
+            <meta name="text:Custom Link Five" content="Your custom link"/>
+            <meta name="text:Custom Link Five URL" content="http://"/>
+            
+            <meta name="text:Categories Link One" content="Your categories link"/>
+            <meta name="text:Categories Link One URL" content="http://"/>
+            <meta name="text:Categories Link Two" content="Your categories link"/>
+            <meta name="text:Categories Link Two URL" content="http://"/>
+            <meta name="text:Categories Link Three" content="Your categories link"/>
+            <meta name="text:Categories Link Three URL" content="http://"/>
+            <meta name="text:Categories Link Four" content="Your categories link"/>
+            <meta name="text:Categories Link Four URL" content="http://"/>
+            <meta name="text:Categories Link Five" content="Your categories link"/>
+            <meta name="text:Categories Link Five URL" content="http://"/>
+    
+    {block:IfSmoothScrolling}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.1/SmoothScroll.min.js"></script>
+    {/block:IfSmoothScrolling}
+
+    <style>
+    
+    body {
+        background-color:{color:Background Color};
+        margin:0;
+        padding:0;
+        text-decoration:none;
+    }
+    
+    ::-webkit-scrollbar {
+                width:15px;
+                background-color:{color:Background Color};
+    }
+    ::-webkit-scrollbar-track {
+                border:7px solid {color:Background Color};
+                background-color:{color:Background Color};
+    }
+    ::-webkit-scrollbar-thumb {
+                border:7px solid  {color:Background Color};
+                background-color:{color:Header Text};
+    }
+    
+ 
+    iframe#tumblr_controls, .iframe-controls--desktop, .tmblr-iframe {
+        display:block;
+        position:absolute!important;
+        right:10px!important;
+        top:10px!important;
+        z-index:999999999999999999999999999!important;
+        opacity:0.8!important;
+    }
+
+
+    @keyframes fadein {
+        from { 
+            opacity: 0;
+        
+        }
+        
+        to   { 
+            opacity: 1; 
+        }
+    }
+    
+    /* Firefox < 16 */
+    @-moz-keyframes fadein {
+         from { 
+            opacity: 0;
+        }
+        
+        to   { 
+            opacity: 1; 
+        }
+    }
+    
+    /* Safari, Chrome and Opera > 12.1 */
+    @-webkit-keyframes fadein {
+         from { 
+            opacity: 0;
+        }
+        
+        to   { 
+            opacity: 1; 
+        }
+    }
+    
+    /* Internet Explorer */
+    @-ms-keyframes fadein {
+         from { 
+            opacity: 0;
+        }
+        
+        to   { 
+            opacity: 1;
+        }
+    }
+    
+    /* Opera < 12.1 */
+    @-o-keyframes fadein {
+        from { 
+            opacity: 0;
+        }
+        
+        to   { 
+            opacity: 1; 
+        }
+    }
+
+    {block:IfSelectionColor}
+    ::selection {
+        background:{color:Selection Background};
+        color:{color:Selection Color};
+        }
+     
+    ::-moz-selection {
+        background:{color:Selection Background};
+        color:{color:Selection Color};
+        }
+     
+    ::-webkit-selection {
+        background:{color:Selection Background};
+        color:{color:Selection Color};
+    }
+    {/block:IfSelectionColor}
+
+    
+    
+    .photo-slideshow {
+      margin-left:0px;
+      visibility: hidden;
+    }
+    
+    
+    #kepalanya {
+        position:absolute;
+        left:50%;
+        top:10%;
+        margin-left:-500px;
+        width:1000px;
+        height:100%;
+        background-color:{color:Article};
+        overflow:hidden;
+        border-radius:7px 7px 0px 0px;
+        -moz-border-radius:7px 7px 0px 0px;
+        -webkit-border-radius:7px 7px 0px 0px;
+        -o-border-radius:7px 7px 0px 0px;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+    } 
+    
+    .header_scroll {
+        position:fixed;
+        width:1000px;
+        margin-left:-500px;
+        height:70px;
+        background-color:{color:Article};
+        border-bottom:1px solid {color:Background Color};
+        left:50%;
+        top:-80px;
+        opacity: 1;
+        z-index:-999;
+        -webkit-transition: all 0.5s ease-out;
+        -moz-transition: all 0.5s ease-out;
+        -o-transition: all 0.5s ease-out;
+    }
+    
+    .header_scroll.scrolled {
+        top:0;
+        opacity: 1;
+        z-index:9999;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+    }
+    
+    
+    .header_scroll ul {
+        position:absolute;
+        margin:20px 0 0 600px;
+        width:350px;
+    }
+    
+    .header_scroll ul li {
+        list-style-type:none;
+        display:inline-block;
+    }
+    
+    .header_scroll ul li a {
+        position:relative;
+        font-weight:bold;
+        text-decoration:none;
+        color:{color:Header Text};
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size:18px;
+        margin-left:24px;
+        margin-right:5px;
+        text-transform:uppercase;
+    }
+    
+    .header_scroll ul li a:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        height: 3px;
+        width: 0;
+        transition: width 0s ease, background .5s ease;
+    }
+    
+    .header_scroll ul li a:after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: -5px;
+        height: 3px;
+        width: 0;
+        background:   {color:Accent Color};
+        transition: width .5s ease;
+    }
+    
+    .header_scroll ul li a:hover:before {
+        width: 100%;
+        background:   {color:Accent Color};
+        transition: width .5s ease;
+    }
+    
+    .header_scroll ul li a:hover:after {
+        width: 100%;
+        background: transparent;
+        transition: all 0s ease;
+    }
+    
+    .aslinya_dia {
+        position:absolute;
+        width:40px;
+        height:40px;
+        background-color:#ccc;
+        margin:12px 0 0 30px;
+        z-index: 10;
+        background-image:url('{PortraitURL-48}');
+        background-size:contain;
+        border-radius:100%;
+        -moz-border-radius:100%;
+        -o-border-radius:100%;
+        -webkit-border-radius:100%;
+    }
+    
+    .aslinya_dia span {
+        width:300px;
+        position:absolute;
+        margin:10px 0 0 55px;
+        font-family: '{select:Header Font}', serif;
+        font-size:15px;
+        color:#222;
+    }
+    
+    
+    .blur-background {
+        width:100%;
+        {block:PermalinkPage}
+        height:250px;
+        {/block:PermalinkPage}
+        {block:IndexPage}
+        height:800px;
+        {block:TagPage}
+        height:250px;
+        {/block:TagPage}
+        {/block:IndexPage}
+        position:absolute;
+        top:0px;
+        left:0px;
+        z-index: 1;
+        {block:IfColoredOverlayOnTheHeader}
+        background-blend-mode: multiply;
+        {/block:IfColoredOverlayOnTheHeader}
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position:0px -180px;
+        background-color: {color:Accent Color};
+        background-image: url('{image:Header Background}');
+    }
+    
+    .blur-backgrounds {
+        width:110%;
+        {block:PermalinkPage}
+        height:245px;
+        {/block:PermalinkPage}
+        {block:IndexPage}
+        height:800px;
+        {block:TagPage}
+        height:250px;
+        {/block:TagPage}
+        {/block:IndexPage}
+        position:absolute;
+        top:0px;
+        left:-10px;
+        z-index: 2;
+        background-size:cover;
+        {block:IfColoredOverlayOnTheHeader}
+        background-blend-mode: multiply;
+        {/block:IfColoredOverlayOnTheHeader}
+        background-repeat: no-repeat;
+        background-position:0px -180px;
+        background-color: {color:Accent Color};
+        background-image: url('{image:Header Background}');
+        -webkit-filter: blur({select:Blur Option}px);
+        -moz-filter: blur({select:Blur Option}px);
+        -o-filter: blur({select:Blur Option}px);
+        -ms-filter: blur({select:Blur Option}px);
+        filter: blur({select:Blur Option}px);
+    }
+    
+    
+    .blur-footer {
+        width:1000px;
+        height:150px;
+        position:absolute;
+        bottom:0px;
+        left:0px;
+        z-index: 1;
+        {block:IfColoredOverlayOnTheHeader}
+        background-blend-mode: multiply;
+        {/block:IfColoredOverlayOnTheHeader}
+        background-repeat: no-repeat;
+        background-size:contain;
+        background-position: center;
+        background-color: {color:Accent Color};
+        background-image: url('{image:Header Background}');
+    }
+    
+    .blur-footers {
+        width:1050px;
+        height:200px;
+        position:absolute;
+        bottom:-10px;
+        left:-10px;
+        z-index: 2;
+        {block:IfColoredOverlayOnTheHeader}
+        background-blend-mode: multiply;
+        {/block:IfColoredOverlayOnTheHeader}
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-color: {color:Accent Color};
+        background-image: url('{image:Header Background}');
+        -webkit-filter: blur({select:Blur Option}px);
+        -moz-filter: blur({select:Blur Option}px);
+        -o-filter: blur({select:Blur Option}px);
+        -ms-filter: blur({select:Blur Option}px);
+        filter: blur({select:Blur Option}px);
+    }
+    
+    .garispertama {
+        position:absolute;
+        left:0;
+        top:0;
+        width:100%;
+        height:50px;
+        z-index: 9;
+        background-color:{color:Header Text};
+        border-radius:7px 7px 0px 0px;
+    }
+    
+    .bulatsatu {
+        position:absolute;
+        width:18px;
+        height: 18px;
+        background-color: {color:Accent Color};
+        margin:15px 0 0 15px;
+        z-index: 10;
+         -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: fadein 1s; /* Firefox < 16 */
+        -ms-animation: fadein 1s; /* Internet Explorer */
+        -o-animation: fadein 1s; /* Opera < 12.1 */
+         animation: fadein 1s;
+        border-radius:100%;
+        -moz-border-radius:100%;
+        -o-border-radius:100%;
+        -webkit-border-radius:100%;
+    }
+    
+    .bulatdua {
+        position:absolute;
+        width:18px;
+        height: 18px;
+        background-color:#b8b3b9;
+        margin:15px 0 0 40px;
+        z-index: 10;
+         -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: fadein 4s; /* Firefox < 16 */
+        -ms-animation: fadein 4s; /* Internet Explorer */
+        -o-animation: fadein 4s; /* Opera < 12.1 */
+         animation: fadein 4s;
+        border-radius:100%;
+        -moz-border-radius:100%;
+        -o-border-radius:100%;
+        -webkit-border-radius:100%;
+    }
+    
+    .menu_bar {
+        {block:PermalinkPage}
+        display:none;
+        {/block:PermalinkPage}
+        {block:IndexPage}
+        display:block;
+        {block:TagPage}
+        display:none;
+        {/block:TagPage}
+        {/block:IndexPage}
+        cursor: pointer;
+        float:right;
+        width:50px;
+        height:50px;
+        margin-top:2.5px;
+        z-index:99999;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+    }
+    
+    .menu_bar.gesersedikit {
+        margin-left: 10px;
+        width:35px;
+    }
+    
+    .menu_bar span:nth-child(1).silang_s {
+        width:20px;
+        background-color:{color:Article};
+        margin-top:20px;
+        -ms-transform: rotate(45deg); /* IE 9 */
+        -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+        transform: rotate(45deg);
+    }
+    
+    .menu_bar span:nth-child(2).silang_d {
+      opacity:0;
+    }
+    
+    .menu_bar span:nth-child(3).silang_t {
+        width:20px;
+        background-color:{color:Article};
+        margin-top:20px;
+        -ms-transform: rotate(-45deg); /* IE 9 */
+        -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+        transform: rotate(-45deg);
+    }
+    
+    .menu_bar:hover span:nth-child(1) {
+        width:20px;
+        background-color:{color:Article};
+        margin-top:20px;
+        -ms-transform: rotate(90deg); /* IE 9 */
+        -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+        transform: rotate(90deg);
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+    }
+    
+    .menu_bar:hover span:nth-child(2) {
+        opacity:0;
+        margin-left:60px;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+    }
+    
+    
+    .menu_bar:hover span:nth-child(3) {
+        width:20px;
+        margin-top:20px;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+    }
+    
+    
+    
+    .menu_bar span:nth-child(1) {
+        position:absolute;
+        margin-top:12px;
+        width:30px;
+        height:3px;
+        background-color:{color:Article};
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+    }
+    
+    .menu_bar span:nth-child(2) {
+        position:absolute;
+        margin-top:20px;
+        width:30px;
+        height:3px;
+        background-color:{color:Article};
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+    }
+    
+    .menu_bar span:nth-child(3) {
+        position:absolute;
+        margin-top:28px;
+        width:30px;
+        height:3px;
+        background-color:{color:Article};
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+    }
+    
+    
+    .link_banyak {
+        display: none;
+        position:absolute;
+        left:0px;
+        top:0;
+        width:100%;
+        height:800px;
+        background-color:transparent;
+        z-index:6;
+    }
+    
+    .first_column {
+        width:100%;
+        height:295px;
+        border-bottom:1px solid  #fff;
+    }
+    
+    .first_column span:nth-child(1) {
+        display: block;
+        position:absolute;
+        top:6.3%;
+        left:0%;
+        width:33.33%;
+        height:245px;
+        border-right:1px solid {color:Description Text Color};
+        background-color:rgba({RGBcolor:Description Text Color}, 0.18);
+    }
+    
+    .first_column span:nth-child(1) > ul {
+        margin-top: 15%;
+        margin-left:10%;
+    }
+    
+    
+    .first_column span:nth-child(2) > ul {
+        width:400px;
+        margin-top: 5%;
+        margin-left:20%;
+    }
+    
+    
+    .first_column span:nth-child(1) > ul > li, .first_column span:nth-child(2) > ul > li {
+        list-style-type:decimal-leading-zero;
+        font-family: '{select:Header Font}', serif;
+        color:{color:Description Text Color};
+        text-shadow:2px 2px 0px rgba({RGBcolor:Description Text Shadow}, 0.15);
+    }
+    
+    .first_column span:nth-child(1) > ul > li a, .first_column span:nth-child(2) > ul > li a {
+        position: relative;
+        width:100%;
+        color:{color:Description Text Color};
+        text-decoration: none;
+        list-style-type: none;
+        line-height: 170%;
+        font-family: 'Domine', sans-serif;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+    }
+    
+    .first_column span:nth-child(1) > ul > li a:before, .first_column span:nth-child(2) > ul > li a:before {
+        content:'';
+        display: block;
+        position: absolute;
+        top:7px;
+        width:0%;
+        height:3px;
+        background-color: {color:Accent Color};
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+    }
+    
+    .first_column span:nth-child(1) > ul > li a:hover:before, .first_column span:nth-child(2) > ul > li a:hover:before  {
+        width:100%;
+    }
+    
+    .first_column span:nth-child(2) {
+        display: block;
+        position:absolute;
+        top:6.3%;
+        left:33.33%;
+        width:33.33%;
+        height:245px;
+        border-right:1px solid {color:Description Text Color};
+        background-color:rgba({RGBcolor:Description Text Color}, 0.18);
+    }
+    
+    .first_column span:nth-child(2) h1 {
+        color:{color:Description Text Color};
+        font-family: 'Source Sans Pro', sans-serif;
+        text-align: center;
+    }
+    
+    .first_column span:nth-child(3) {
+        display: block;
+        position:absolute;
+        top:6.3%;
+        left:66.66%;
+        width:33.35%;
+        height:245px;
+        overflow-x: hidden;
+        background-color:rgba({RGBcolor:Description Text Color}, 0.18);
+    }
+    
+    .first_column span:nth-child(3)::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .first_column span:nth-child(3) > ul  {
+        {block:IfShowBlogroll}
+        display:block;
+        {/block:IfShowBlogroll}
+        {block:IfNotShowBlogroll}
+        display:none;
+        {/block:IfNotShowBlogroll}
+        margin-left: -5%;
+    }
+    
+    .first_column span:nth-child(3) > ul > li.followingnya {
+        display:inline-block;
+        margin:4.1% 4%;
+        width:40px;
+        height:40px;
+        background-color:{color:Accent Color};
+        border:2px solid #fff;
+        border-radius:100%;
+    }
+    
+    li.followingnya img {
+        width:40px;
+        height:40px;
+        border-radius:100%;
+    }
+    
+    .second_column span:nth-child(1) {
+        display: block;
+        position:absolute;
+        top:37%;
+        left:0%;
+        width:33.33%;
+        height:240px;
+    }
+    
+    
+    .second_column span:nth-child(2) {
+        display: block;
+        position:absolute;
+        top:49%;
+        left:68%;
+        width:30px;
+        height:30px;
+        border-radius: 100%;
+        border:3px solid rgba(255, 255, 255, 0.18);
+        background-color:transparent;
+    }
+    
+    .second_column span:nth-child(3) {
+        display: block;
+        position:absolute;
+        top:53.3%;
+        left:70.9%;
+        width:15px;
+        height:3px;
+        background-color:rgba(255, 255, 255, 0.18);
+        -ms-transform: rotate(45deg); /* IE 9 */
+        -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+        transform: rotate(45deg);
+    }
+    
+    
+    .query {
+       position: absolute;
+       left:59%;
+       top:50%;
+       margin-top:-50px;
+       width:500px;
+       padding:30px;
+       border: 0;
+       outline: 0;
+       font-family: '{select:Body Font}', sans-serif;
+       font-size: 24px;
+       color: #fff;
+       border-radius:50px;
+       border:1px solid #fff;
+       background-color: transparent;
+       z-index:9999999999;
+    }
+    
+    ::-webkit-input-placeholder {color: inherit;}
+    :-moz-placeholder {color: inherit; opacity:1;}
+    ::-moz-placeholder {color: inherit; opacity:1;}
+    :-ms-input-placeholder {color: inherit;}
+    
+    input:focus::-webkit-input-placeholder {color: transparent;}
+    input:focus:-moz-placeholder {color: transparent;}
+    input:focus::-moz-placeholder {color: transparent;}
+    input:focus:-ms-input-placeholder { color: transparent;}
+    
+    .keterangannya {
+        {block:PermalinkPage}
+        display:none;
+        {/block:PermalinkPage}
+        {block:IndexPage}
+        display:block;
+        {block:TagPage}
+        display:none;
+        {/block:TagPage}
+        {/block:IndexPage}
+        position:absolute;
+        width:450px;
+        color:{color:Description Text Color};
+        text-shadow:2px 2px 0px rgba({RGBcolor:Description Text Shadow}, 0.15);
+        transform:translate(37%, 38%);
+        padding:10% 10% 10% 5%;
+        text-align: center;
+        z-index: 5;
+        opacity: 1;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+    }
+    
+    .fallback_keterangan {
+        {block:IfShowBlogroll}
+        display:none;
+        {/block:IfShowBlogroll}
+        {block:IfNotShowBlogroll}
+        display:block;
+        {/block:IfNotShowBlogroll}
+        position:absolute;
+        width:27.33%;
+        height:130px;
+        color:{color:Description Text Color};
+        text-shadow:2px 2px 0px rgba({RGBcolor:Description Text Shadow}, 0.15);
+        transform:translate(37%, 38%);
+        padding:2% 3% 9% 3%;
+        top:-5.5%;
+        right:120px;
+        text-align: justify;
+        overflow-x:hidden;
+        z-index: -1;
+        opacity:0;
+        font-family: '{select:Body Font}', sans-serif;
+        line-height:180%;
+        font-size:15.6px;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+    }
+    
+    .fallback_keterangan::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .fallback_keterangan.muncul_fallback {
+        opacity:1;
+        z-index:99;
+    }
+    
+    .keterangannya.muncul_pertama {
+         transform:translate(37%, 140%);
+         opacity: 0;
+    }
+    
+    .sumber_ikon {
+        position: absolute;
+        width: 60px;
+        height:60px;
+        background-image:url('{PortraitURL-48}');
+        background-size:contain;
+        left:50%;
+        top:0;
+        margin-left:-70px;
+        border-radius:100%;
+        -moz-border-radius:100%;
+        -o-border-radius:100%;
+        -webkit-border-radius:100%;
+        background-color:{color:Header Text};
+        border:5px solid {color:Article};
+    }
+    
+    .keterangannya span {
+        font-family: '{select:Body Font}', sans-serif;
+        line-height:180%;
+        font-size:17.6px;
+    }
+    
+    .kebawah_pos {
+        width:30px;
+        height:30px;
+        position:absolute;
+        bottom:25px;
+        left:50%;
+        margin-left:-50px;
+        background-color:transparent;
+        color:color:{color:Article};
+        text-shadow:none;
+        font-weight:100;
+        border-radius:100%;
+        -moz-border-radius:100%;
+        -o-border-radius:100%;
+        -webkit-border-radius:100%;
+        border:2px solid {color:Article};
+    }
+    
+    .kebawah_pos i {
+        margin-top:4px;
+        font-size:25px;
+        color:{color:Article};
+    }
+    
+    #posisi_asli {
+        width:350px;
+        position:absolute;
+        top:-160px;
+        left:-80px;
+        margin-left:10px;
+        z-index:9;
+    }
+    
+    
+    #posisi_benerannya {
+        width:200px;
+        position:absolute;
+        top:-156px;
+        left:-120px;
+        margin-left:40px;
+        z-index:9;
+    }
+    
+    .sumber_pos {
+        display:inline-block;
+    }
+    
+    .sumber_pos:nth-child(1) {
+        width:48px;
+        height:48px;
+        margin-left:120px;
+        background-color:#ccc;
+        -moz-border-radius:5px;
+        -o-border-radius:5px;
+        -webkit-border-radius:5px;
+    }
+    
+    .sumber_pos:nth-child(2) {
+        width:48px;
+        height:48px;
+        margin-left:120px;
+        background-color:{color:Header Text};
+        -moz-border-radius:5px;
+        -o-border-radius:5px;
+        -webkit-border-radius:5px;
+    }
+    
+    .sumber_pos img {
+        position:absolute;
+        margin-top:0px;
+        display:block;
+        width:48px;
+        height:48px;
+        -moz-border-radius:5px;
+        -o-border-radius:5px;
+        -webkit-border-radius:5px;
+    }
+    
+    .sumber_pos p {
+        width:200px;
+        position: absolute;
+        margin:25px 0 0 60px;
+        font-size: 14px;
+        color:{color:Description Text Color};
+        text-shadow:2px 2px 0px rgba({RGBcolor:Description Text Shadow}, 0.15);
+        font-family: '{select:Body Font}', sans-serif;
+    }
+    
+    .sumber_pos span {
+        width:300px;
+        position: absolute;
+        margin:2px 0 0 60px;
+        color:{color:Description Text Color};
+        text-shadow:2px 2px 0px rgba({RGBcolor:Description Text Shadow}, 0.15);
+        {block:TagPage}
+        text-shadow:0px 0px 0px rgba(0,0,0,0);
+        {/block:TagPage}
+        font-family: '{select:Body Font}', sans-serif;
+    }
+    
+    .sumber_pos span a {
+        color:#fff;
+        text-decoration:none;
+    }
+
+    #article_position {
+        position:absolute;
+        left:50%;
+        {block:PermalinkPage}
+        top:350px;
+        padding-top:20px;
+        {/block:PermalinkPage}
+        {block:IndexPage}
+        top:600px;
+        padding-top:80px;
+        {block:TagPage}
+        top:350px;
+        padding-top:20px;
+        {/block:TagPage}
+        {/block:IndexPage}
+        margin-left:-500px;
+        width:1000px;
+        margin-bottom: 300px;
+        background-color:{color:Article};
+        overflow:none;
+        z-index:999!important;
+    }
+    
+    .mengikutialur {
+        {block:PermalinkPage}
+        display:none;
+        {/block:PermalinkPage}
+        {block:IndexPage}
+        display:block;
+        {/block:IndexPage}
+        position:absolute;
+        width:240px;
+        top:60px;
+        right:-25px;
+        opacity:0.5;
+        z-index:9;
+    }
+    
+    .kembalialur {
+        {block:PermalinkPage}
+        display:block;
+        {/block:PermalinkPage}
+        position:absolute;
+        width:240px;
+        top:-190px;
+        right:15px;
+        z-index:9;
+    }
+    
+    .mengikutialur a, .kembalialur span {
+        color:white;
+        text-decoration:none;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size:13px;
+        margin-right:20px;
+    }
+    
+    .kembalialur span p {
+        position:absolute;
+        margin:-40px 0 0 23px;
+    }
+    
+    .kembalialur a {
+        display:block;
+        text-decoration:none;
+        margin-top:10px;
+        color:white;
+    }
+    
+    .holder_footer {
+        position: absolute;
+        z-index:9;
+    }
+
+    .bawahkaki {
+        position:absolute;
+        bottom:0px;
+        left:50%;
+        z-index:1;
+        overflow: hidden;
+        margin-left:-500px;
+        margin-bottom:-150px;
+        width:1000px;
+        height:160px;
+        background-color:{color:Header Text};
+        border-radius:0px 0px 7px 7px;
+    }
+    
+    .bawahkaki a {
+        color:{color:Description Text Color};
+        text-decoration: none;
+    }
+    
+    .linkkaki li {
+        list-style-type: none;
+        margin-left:10px;
+    }
+    
+    .linkkaki li a {
+        color:{color:Article};
+        font-size:13px;
+        text-transform:uppercase;
+        font-family: '{select:Body Font}', sans-serif;
+        text-decoration:none;
+    }
+    
+    .bawahkaki h1 {
+        color:{color:Article};
+        text-transform: uppercase;
+        text-align: left;
+        padding-top:8px;
+        text-indent: 50px;
+        font-family: '{select:Body Font}', sans-serif;
+        line-height:180%;
+        font-weight: 100;
+        font-size:19px;
+    }
+    
+    .post {
+        position: relative;
+        max-width:700px;
+        margin:0px 0 160px 115px;
+        font-size:19px;
+        background-color:{color:Article};
+        font-family: '{select:Body Font}', sans-serif;
+        line-height: 170%;
+        padding:35px;
+        color:{color:Body Text};
+    }
+    
+    .post img {
+        max-width:100%;
+        height:auto!important;
+    }
+    
+    .body_caption {
+        font-size:17.1px;
+        padding:50px 0 70px 0;
+    }
+    
+    .body_caption blockquote {
+        padding:0px 10px 0px 20px;
+        margin:10px 0 10px 0;
+        font-style: normal;
+        font-size:16px;
+        font-family: '{select:Header Font}', serif;
+        line-height: 190%;
+        color:{color:Header Text};
+        border-left:5px solid {color:Tags Color};
+    }
+    
+    .fukuobergelombang {
+        fill:none;
+        stroke:{color:Accent Color};
+        stroke-miterlimit:10;
+        
+    }
+    
+    .gelombangposisi {
+        position:absolute;
+        margin:20px 0 0 33%;
+        width:180px;
+    }
+    
+    .post ul li {
+        list-style-type:none;
+        padding-left:0px;
+        margin:0 0 0 -5px;
+    }
+
+    
+    .post ul li:before {
+        display:block;
+        content:'';
+        width:6px;
+        height:6px;
+        background-color:#fff;
+        border:2px solid {color:Accent Color};
+        position:absolute;
+        margin:14px 0 0 -30px;
+        -moz-border-radius:100%;
+        -o-border-radius:100%;
+        -webkit-border-radius:100%;
+    }
+    
+    .post.post_photo {
+        padding-bottom:5px;
+    }
+    
+    .post .kepada_teks {
+        {block:PermalinkPage}
+        display:none;
+        {/block:PermalinkPage}
+        {block:IndexPage}
+        display:block;
+        {/block:IndexPage}
+        text-align:center;
+        text-transform:uppercase;
+        font-size:14px;
+        padding-bottom:15px;
+        padding-left:25px;
+    }
+    
+    .post .tagged_post {
+        {block:IfShowTags}
+        display:block;
+        {/block:IfShowTags}
+        {block:IfNotShowTags}
+        display:none;
+        {/block:IfNotShowTags}
+        text-decoration:none;
+        margin-top:100px;
+        text-align:center;
+    }
+    
+    .post .tagged_post a {
+        font-size:11px;
+        color:{color:Tags Color};
+        margin-right:10px;
+        padding:5px 8px;
+        background-color:{color:Background Color};
+        text-transform:uppercase;
+        text-decoration:none;
+        -moz-border-radius:3px;
+        -o-border-radius:3px;
+        -webkit-border-radius:3px;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+    }
+    
+    .post .tagged_post a:hover {
+        color:{color:Header Text};
+    }
+    
+    .post:nth-child(odd) .kepada_foto {
+        padding:0px 12px 5px 12px;
+        position:absolute;
+        margin:20px 0 0 330px;
+        background-color:{color:Accent Color};
+        -moz-border-radius:100%;
+        -o-border-radius:100%;
+        -webkit-border-radius:100%;
+        z-index:999;
+    }
+    
+    .post:nth-child(even) .kepada_foto {
+        padding:0px 12px 5px 12px;
+        position:absolute;
+        margin:20px 0 0 735px;
+        background-color:{color:Accent Color};
+        -moz-border-radius:100%;
+        -o-border-radius:100%;
+        -webkit-border-radius:100%;
+        z-index:999;
+    }
+    
+    .post .kepada_foto a {
+        border:none;
+        text-decoration:none;
+    }
+    
+    .kepada_foto i {
+        color:#222;
+        font-size:14px;
+    }
+    
+    .kepada_teks i {
+        position:absolute;
+        margin:11px 0 0 -25px;
+    }
+    
+    .post .kepada_teks a { 
+       border:none; 
+       position:relative;
+       text-decoration:none;
+    }
+    
+    .kepada_teks a:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        height: 3px;
+        width: 0;
+        transition: width 0s ease, background .5s ease;
+    }
+    .kepada_teks a:after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: -5px;
+        height: 3px;
+        width: 0;
+        background:   {color:Accent Color};
+        transition: width .5s ease;
+    }
+    .kepada_teks a:hover:before {
+        width: 100%;
+        background:   {color:Accent Color};
+        transition: width .5s ease;
+    }
+    .kepada_teks a:hover:after {
+        width: 100%;
+        background: transparent;
+        transition: all 0s ease;
+    }
+
+    .post a {
+        color:{color:Links};
+        text-decoration: underline;
+    }
+    
+    .post hr {
+            width: 30%;
+            height: 1px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color:  {color:Accent Color};
+            color: #aaa;
+            border: 0 none;
+            margin-top: 5%;
+            margin-bottom: 5%;
+    
+    }
+    
+    a.read_more {
+        background-color:{color:Article};
+        border:2px solid {color:Tags Color};
+        color: {color:Tags Color};
+        padding:8px 15px;
+        border-radius:5px;
+        text-decoration:none;
+        text-transform: uppercase;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+    }
+    
+    a.read_more:hover {
+        border:2px solid {color:Accent Color};
+        color: {color:Accent Color};
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+    }
+    
+    .lt_fs {
+        font-size:65px;
+        float:left;
+        padding:1px 10px 1px 10px;
+        margin:10px 0 10px 0;
+        font-weight: 700;
+    }
+    
+    .post.post_text blockquote {
+        padding:0px 10px 0px 20px;
+        margin:10px 0 10px 0;
+        font-style: normal;
+        font-size:16px;
+        font-family: 'Domine', serif;
+        line-height: 190%;
+        color:{color:Header Text};
+        border-left:5px solid {color:Header Text};
+    }
+    
+    .post.post_text blockquote.bq_left {
+        width:350px;
+        float:left;
+        clear: left;
+        padding:1px 30px 1px 20px;
+        margin:10px 10px 10px -20px;
+        font-style: normal;
+        font-size:17px;
+        text-align:justify;
+        font-family: 'Domine', serif;
+        line-height: 190%;
+        color:{color:Header Text};
+        border-left:0px solid {color:Article};
+    }
+    
+    .post.post_text blockquote.bq_left:before {
+          color:{color:Tags Color};
+          float:left;
+          content:'\201C';
+          padding-top:40px;
+          font-style: normal;
+          font-size: 5em;
+          line-height: 0.1em;
+          margin-right: 0.25em;
+          vertical-align: 1.4em;
+    }
+    
+    .post:nth-child(odd) .post_image img {
+        max-width:70%;
+        margin:0px 0 0 -97px;
+        border-radius:5px;
+    }
+    
+    .post:nth-child(even) .post_image img {
+        max-width:70%;
+        margin:0px 0 0 305px;
+        border-radius:5px;
+    }
+    
+    .post_image a { border:none; }
+    
+    .post:nth-child(odd) .sumber_asli span {
+        width:450px;
+        position: absolute;
+        top:55px;
+        font-size:13px;
+        text-transform: uppercase;
+        left:8px;
+        color:white;
+        text-shadow:2px 1px 5px rgba(0,0,0,0.5);
+    }
+    
+    .post:nth-child(even) .sumber_asli span {
+        width:450px;
+        position: absolute;
+        top:55px;
+        font-size:13px;
+        text-transform: uppercase;
+        right:-90px;
+        color:white;
+        text-shadow:2px 1px 5px rgba(0,0,0,0.5);
+    }
+    
+    .sumber_asli span a {
+        color:#fff;
+        border:none;
+        text-decoration:none;
+    }
+    
+    .sumber_asli img {
+        position: absolute;
+        margin:2px 0 0 -50px;
+        width:30px;
+        height:30px;
+        border-radius:5px;
+    }
+    
+     .caption_post blockquote {
+        padding:0px 10px 0px 20px;
+        margin:10px 0 10px 0;
+        font-style: normal;
+        font-size:16px;
+        font-family: 'Domine', serif;
+        line-height: 190%;
+        color:{color:Header Text};
+        border:none;
+     }
+    
+     .post:nth-child(odd) .caption_post {
+        position: absolute;
+        width:45%;
+        min-height:100%;
+        max-height:400px;
+        overflow-x:hidden;
+        font-size:16px;
+        top:10px;
+        left:50%;
+        padding-right:20px;
+        margin-left:100px;
+    }
+    
+    
+    .post:nth-child(even) .caption_post {
+        position: absolute;
+        width:45%;
+        min-height:100%;
+        max-height:400px;
+        overflow-x:hidden;
+        font-size:16px;
+        top:10px;
+        left:-21.5%;
+        text-align:right;
+        padding-right:20px;
+        margin-left:100px;
+    }
+    
+    .caption_post::-webkit-scrollbar {
+                width:15px;
+                background-color:{color:Article};
+    }
+    .caption_post::-webkit-scrollbar-track {
+                border:7px solid {color:Article};
+                background-color:{color:Article};
+    }
+    .caption_post::-webkit-scrollbar-thumb {
+                border:7px solid  {color:Article};
+                background-color:{color:Header Text};
+    }
+    
+    .post h1 {
+        font-size:41px;
+        color:{color:Header Text};
+        font-family: '{select:Header Font}', serif;
+        text-align:center;
+        line-height:170%;
+    }
+    
+    .post h1 a { 
+        border:none; 
+        text-decoration:none;
+    }
+    
+    .post h1:after {
+        content:'';
+        display: block;
+        margin-top:30px;
+        margin-left:auto;
+        margin-right: auto;
+        width:20%;
+        height:7px;
+        background-color:{color:Accent Color};
+    }
+    
+    .post h2 {
+        font-size:31px;
+        color:{color:Header Text};
+        font-family: '{select:Header Font}', serif;
+        text-align:left;
+        line-height:170%;
+    }
+    
+    .post h3 {
+        font-size:21px;
+        color:{color:Header Text};
+        font-family: '{select:Header Font}', serif;
+        text-align:left;
+        line-height:170%;
+    }
+    
+    .post h4 {
+        font-size:18px;
+        color:{color:Header Text};
+        font-family: '{select:Header Font}', serif;
+        text-align:left;
+        line-height:170%;
+    }
+    
+    
+    .kutipan {
+        text-align: left;
+        font-size:23px;
+        line-height: 190%;
+        color:#444;
+        font-family: '{select:Header Font}', serif;
+    }
+    
+    .kutipan:before {
+          color:   {color:Accent Color};
+          content:'\201C';
+          font-style: normal;
+          font-size: 4em;
+          line-height: 0.1em;
+          margin-right: 0.25em;
+          vertical-align: -0.4em;
+    }
+    
+    .kutipan_asal {
+        text-align: center;
+        font-size:17px;
+        line-height: 190%;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    
+    .kutipan_asal i {
+        font-size:14px;
+        padding-right:10px;
+    }
+    
+    .kutipan_asal a {
+        border:none;
+    }
+    
+    .pertanyaan {
+        text-align: center;
+        font-size:18px;
+        padding-top: 10%;
+        line-height: 190%;
+        color:{color:Body Ask Text};
+        font-family: '{select:Header Font}', serif;
+    }
+    
+    .pertanyaan span {
+        text-align: center;
+        text-transform: uppercase;
+        font-size:22px;
+        font-weight: 600;
+        line-height: 190%;
+        font-family: '{select:Body Font}', sans-serif;
+    }
+    
+    .pertanyaan a {
+        text-decoration:none;
+    }
+    
+    .pertanyaan span:before {
+        content:'?';
+        position:absolute;
+        background-color:{color:Header Text};
+        color:white;
+        width:40px;
+        height:40px;
+        border-radius: 100%;
+        left:50%;
+        margin-left:-31px;
+        top:5%;
+    }
+    
+    .jawaban {
+        text-align: justify;
+        font-size:19px;
+        line-height: 190%;
+        font-family: '{select:Body Font}', sans-serif;
+    }
+    
+    .holder_audio {
+        padding-bottom:190px;
+    }
+    
+    .curhat {
+        padding-bottom:140px;
+    }
+    
+    .post_chat .gelombangposisi {
+        margin-top:50px;
+    }
+    
+    .post_chat {
+        padding-bottom:120px;
+    }
+    
+    .post_chat .tagged_post {
+        margin-top:-100px;
+    }
+    
+    .tumblr_audio_player {
+        position: absolute;
+        left:50%;
+        top:50%;
+        margin-left:-25px;
+        margin-top: -25px;
+        width:50px;
+        height:50px;
+        z-index:999;
+        border-radius:3%;
+        opacity:0.8;
+    }
+    
+    .audio {
+        position: absolute;
+        left:15%;
+        top:50%;
+        margin-top: -100px;
+        margin-left:-5px;
+        width:100px;
+        height:100px;
+        background-color:#000;
+        z-index:999;
+        border-radius:3%;
+        opacity:0.8;
+    }
+    
+    .audioplayer {
+        position:absolute;
+        margin-left:200px;
+        margin-top:-10px;
+    }
+    
+    .artist , .play {
+        width:350px;
+        margin-top:-7px;
+        margin-left:90px;
+        padding:15px;
+        font-size:16px;
+        background-color: #eee;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+    
+    .artist span, .play span {
+        float:right;
+    }
+ 
+    .track {
+        width:350px;
+        margin-top:-7px;
+        margin-left:110px;
+        padding:15px;
+        background-color:{color:Accent Color};
+        color:{color:Header Text};
+        font-size:16px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        }
+    
+    .albumart {
+        position:absolute;
+        width:250px;
+        height:250px;
+        left:5%;
+        top:4%;
+        background-color:#ccc;
+        border-radius:2%;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+    
+    .albumart span {
+        padding:0px 12px 5px 12px;
+        position:absolute;
+        margin:15px 0 0 200px;
+        background-color:{color:Accent Color};
+        -moz-border-radius:100%;
+        -o-border-radius:100%;
+        -webkit-border-radius:100%;
+        z-index:999;
+    }
+    
+    .albumart span i {
+        color:#222;
+        font-size:14px;
+    }
+    
+    
+    .albumart img {
+        width:250px;
+        height:250px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+    
+    .videonya {
+          position: relative;
+          padding-bottom: 75%;
+          height: 0;
+          overflow: hidden; 
+     }
+    
+    .videonya iframe, 
+    .videonya object, 
+    .videonya embed {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+     }
+
+    .paginationnya {
+        display:block;
+        width:280px;
+        position: absolute;
+        bottom:40px;
+        left:300%;
+    }
+    
+    .paginationnya a {
+        margin-left:30px;
+        font-family: 'Source Sans Pro', sans-serif;
+        line-height:180%;
+        font-weight: 100;
+        text-transform:uppercase;
+        font-size:19px;
+    }
+
+
+    #perma_p {
+        z-index:999;
+        padding:10px;
+        width:940px;
+        margin:-80px 0 50px 0px;
+    }
+    
+    #perma_p li {
+        position:relative;
+        display:inline-block;
+        list-style-type:none;
+        margin:1.1%;
+    }
+     
+    #perma_p img.avatar {
+        position:relative;
+        display:block;
+        width:25px;
+        margin:0.45%;
+        -webkit-border-radius:4px;
+        border-radius:4px;
+        -moz-border-radius:4px;
+        -o-border-radius:4px;
+    }
+    
+    .like:before {
+        content:'';
+        display:block;
+        background-image:url('http://static.tumblr.com/5ojoydj/oHio0cav8/like_white_fukuo.png');
+        background-size: 13px 13px;
+        background-position:0px 0px;
+        background-repeat: no-repeat;
+        position:absolute;
+        margin:16px 0 0 16px;
+        background-color:#d95e40;
+        width:14px;
+        height:14px;
+        z-index:1;
+        -moz-border-radius:7px;
+        -o-border-radius:7px;
+        -webkit-border-radius:7px;
+    }
+    
+    .reblog:before {
+        content:'';
+        display:block;
+        background-image:url('http://static.tumblr.com/5ojoydj/b2lo0catt/reblog_fukuo_white.png');
+        background-size: 13px 13px;
+        background-position:0px 0px;
+        background-repeat: no-repeat;
+        position:absolute;
+        margin:16px 0 0 16px;
+        background-color:#56bc8a;
+        width:14px;
+        height:14px;
+        z-index:1;
+        -moz-border-radius:7px;
+        -o-border-radius:7px;
+        -webkit-border-radius:7px;
+    }
+    
+    #perma_p span.action {
+        display:none!important;
+    }
+    
+    #perma_p blockquote {
+        display:none!important;
+    }
+    
+   .more_notes_link {
+        position:relative;
+        display:inline-block;
+        width:17px;
+        height:17px;
+        padding:5px;
+        background-color:{color:Article};
+        border:1px solid {color:Accent Color};
+        color:{color:Accent Color};
+        font-size:0px;
+        top:-12px;
+        margin:5px 0 0 0px;
+        text-align:center;
+        line-height:100%:;
+        -webkit-border-radius:4px;
+        border-radius:4px;
+        -moz-border-radius:4px;
+        -o-border-radius:4px;
+    }
+
+    a.more_notes_link {
+        color:{color:Accent Color};
+        text-decoration:none;
+    }
+    
+    .more_notes_link:before {
+        font-size:20px;
+        display:block;
+        margin:-3px auto auto 1px;
+        font-weight:600;
+        content:'+';
+    }
+    
+    .notes_loading {
+        position:absolute;
+        margin:10px 0 0 0;
+        font-family:consolas;
+        font-size:40px;
+        color:transparent;
+        text-transform:uppercase;
+        background-size: 65px 0px;
+        background-position:0px 0px;
+        background-repeat: no-repeat;
+        width:100px;
+    }
+    
+    {CustomCSS}
+    
+    </style>   
+    
+    <!-- Lazy Load Effects by Mika Tuupola -->
+{block:IfLazyLoadPosts}
+    <script type="text/javascript" src="http://static.tumblr.com/bmdsqsc/8mXm7q8vn/jquery.js"></script>
+    <script type="text/javascript" src="http://static.tumblr.com/bmdsqsc/ogWm7q8w1/lazyload.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    var $j = jQuery.noConflict();
+    $j(function() {
+    if (navigator.platform == "iPad" || navigator.platform == "iPhone") return;
+    $j("img").lazyload({
+    placeholder : "http://static.tumblr.com/twte3d7/RSvlio0k5/grey.gif",
+    effect: "fadeIn",
+    });
+    });
+</script>
+{/block:IfLazyLoadPosts}
+
+</head>
+<body>
+
+        <div id="kepalanya">
+                <!-- main background -->
+            <div class="blur-background">
+            </div>
+            <!-- a fallback -->
+            <div class="blur-backgrounds">
+            </div>
+            
+            <div class="garispertama">
+            <!-- menu -->
+                <div class="menu_bar">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+          </div>
+          
+          <div class="header_scroll">
+              <div class="aslinya_dia"><span>{Name}</span></div>
+              <!-- links // a fallback -->
+              <ul>
+                  <li><a href="/">{lang:Home}</a><li>
+                  <li><a href="/archive">{lang:Archive}</a><li>
+                  {block:AskEnabled}
+                  <li><a href="/ask">ASK ME</a><li>
+                  {/block:AskEnabled}
+                  <li><a href="{RSS}">{lang:RSS}</a><li>
+              </ul>
+          </div>
+          
+          <a title="go to index page" href="/">
+          <div class="bulatsatu"></div>
+          <div class="bulatdua"></div>
+          </a>
+          
+          <div class="link_banyak">
+                <div class="first_column">
+                    <span>
+                        <ul>
+                            {block:IfCustomLinkOne}<li><a href="{text:Custom Link One URL}">{text:Custom Link One}</a></li>{/block:IfCustomLinkOne}
+                            {block:IfCustomLinkTwo}<li><a href="{text:Custom Link Two URL}">{text:Custom Link Two}</a></li>{/block:IfCustomLinkTwo}
+                            {block:IfCustomLinkThree}<li><a href="{text:Custom Link Three URL}">{text:Custom Link Three}</a></li>{/block:IfCustomLinkThree}
+                            {block:IfCustomLinkFour}<li><a href="{text:Custom Link Four URL}">{text:Custom Link Four}</a></li>{/block:IfCustomLinkFour}
+                            {block:IfCustomLinkFive}<li><a href="{text:Custom Link Five URL}">{text:Custom Link Five}</a></li>{/block:IfCustomLinkFive}
+                        </ul>
+                    </span>
+                    <span>
+                        <h1>Categories</h1>
+                        <ul>
+                            {block:IfCategoriesLinkOne}<li><a href="{text:Categories Link One URL}">{text:Categories Link One}</a></li>{/block:IfCategoriesLinkOne}
+                            {block:IfCategoriesLinkTwo}<li><a href="{text:Categories Link Two URL}">{text:Categories Link Two}</a></li>{/block:IfCategoriesLinkTwo}
+                            {block:IfCategoriesLinkThree}<li><a href="{text:Categories Link Three URL}">{text:Categories Link Three}</a></li>{/block:IfCategoriesLinkThree}
+                            {block:IfCategoriesLinkFour}<li><a href="{text:Categories Link Four URL}">{text:Categories Link Four}</a></li>{/block:IfCategoriesLinkFour}
+                            {block:IfCategoriesLinkFive}<li><a href="{text:Categories Link Five URL}">{text:Categories Link Five}</a></li>{/block:IfCategoriesLinkFive}
+                        </ul>
+                    </span>
+                    <span>
+                       {block:Following}
+                        <ul>
+                            {block:Followed}
+                            <li class="followingnya">
+                            <a title="{FollowedName}" href="{FollowedURL}">
+                            <img src="{FollowedPortraitURL-48}">
+                            </a>
+                            </li>
+                            {block:Followed}
+                        </ul>
+                    {/block:Following}
+                    </span>
+                </div>
+                <div class="second_column">
+                    <span><form class="search" action="javascript:return false">
+<input type="text" class="query" placeholder="Search tags..">
+</form></span>
+                    <span></span>
+                    <span></span>
+                </div>
+          </div>
+            
+          <div class="fallback_keterangan">
+               {Description}
+          </div>
+              
+          <div class="keterangannya">
+              <div class="sumber_ikon"></div>
+              <span>
+                 {Description}
+              </span>
+              
+              <a class="kebawah_pos" href="#" onclick="$('#article_position').animatescroll({scrollSpeed:450,easing:'easeOutQuart'}); return false;"><i class="fa fa-angle-down"></i></a>
+              
+          </div>
+        </div>
+       
+        <section id="article_position">
+            
+        {block:Posts}
+        
+        <article class="post {block:Text}post_text{/block:Text}{block:Photo}post_photo{/block:Photo}{block:Chat}post_chat{/block:Chat}">
+        
+   {block:Text}
+        {block:Title}
+                <h1><a href="{Permalink}">{Title}</a></h1>
+        {/block:Title}
+        
+        
+                   <div class="kepada_teks"><a href="{Permalink}"><i class="fa fa-external-link"></i> Posted on {DayOfWeek}  with {NoteCountWithLabel}, {TimeAgo}</a> </div>
+        {Body}
+        <br>
+        {block:More}<center><a class="read_more" href="{Permalink}">{lang:Keep reading} &nbsp; <i class="fa fa-angle-right"></i></a></center>{/block:More}
+    {/block:Text}
+ 
+{block:Photo}
+        {block:PermalinkPage}
+        
+        
+        <img src="{PhotoURL-500}" width="700px">
+        
+            <div class="body_caption">
+            {block:Caption}{Caption}{/block:Caption}
+            </div>
+                    
+        {/block:PermalinkPage}
+
+
+    {block:IndexPage}
+    <div class="kepada_foto"><a href="{Permalink}"><i class="fa fa-link"></i></a></div>
+    
+    <div class="sumber_asli">
+    {block:RebloggedFrom}
+    <span><img src="{ReblogRootPortraitURL-30}"> <a href="{ReblogRootURL}">{ReblogRootName} POSTED THIS POST</a></span> 
+    {/block:RebloggedFrom}
+    {block:NotReblog} 
+    <span><img src="{PortraitURL-30}"> <a href="/">{Name} POSTED THIS POST</a></span> 
+    {/block:NotReblog}
+    </div>
+    <div class="post_image">
+        {LinkOpenTag}
+        <meta name="{PhotoAlt}" content="{PhotoAlt}"/>
+        <img src="{PhotoURL-500}" width="500px" alt="{PhotoAlt}"/>
+        {LinkCloseTag}
+    </div>
+    
+    <div class="caption_post truncate">
+        {block:Caption}{Caption}{/block:Caption}
+    </div>
+    {/block:IndexPage}
+    {/block:Photo}
+     
+    {block:Photoset}
+    <div class="photo-slideshow" id="photoset_{PostID}" data-layout="{PhotosetLayout}">{block:Photos}<div class="photo-data"><div class="pxu-photo"><img src="{PhotoURL-500}" width="{PhotoWidth-500}" height="{PhotoHeight-500}" data-highres="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}"></div><a class="tumblr-box" rel="post-{PostID}" href="{PhotoURL-HighRes}"></a></div>{/block:Photos}</div>
+    
+     <div class="body_caption">
+     {block:Caption}{Caption}{/block:Caption}
+     </div>
+     
+                <div class="kepada_teks"><a href="{Permalink}"><i class="fa fa-external-link"></i> Posted on {DayOfWeek}  with {NoteCountWithLabel}, {TimeAgo}</a> </div>
+    {/block:Photoset}
+     
+    {block:Quote}
+    <div class="kutipan">{Quote}</div>
+    <hr></hr>
+            {block:Source}
+            <div class="kutipan_asal"> <i class="fa fa-link"></i> {Source} </div>
+            {/block:Source}
+                     <div class="kepada_teks"><a href="{Permalink}"><i class="fa fa-external-link"></i> Posted on {DayOfWeek}  with {NoteCountWithLabel}, {TimeAgo}</a> </div>
+    {/block:Quote}
+     
+    {block:Link}
+    <h1>
+            <a href="{URL}" {Target}>{Name}</a>
+    </h1>
+                    {block:Description}
+                    {Description}
+            {/block:Description}
+    {/block:Link}
+     
+    {block:Chat}
+            {block:Title}
+            <h1>{Title}</h1>
+                    {/block:Title}
+                    <div class="curhat">
+            {block:Lines}
+            <div class="ngomong">
+                            {block:Label}<b>{Label}</b>{/block:Label}
+                     {Line}
+                    <br>
+            </div>
+            {/block:Lines}
+                    </div>
+                     <div class="kepada_teks"><a href="{Permalink}"><i class="fa fa-external-link"></i> {lang:Posted on Month DayOfMonth Year with NoteCount notes}</a> </div>
+    {/block:Chat}
+     
+    {block:Audio}
+    <div class="holder_audio">
+        <div class="audio">{AudioPlayerBlack}</div>
+            <div class="albumart">
+            <span><a href="{Permalink}"><i class="fa fa-link"></i></a></span>
+                {block:AlbumArt}
+                <img src="{AlbumArtURL}">
+                {/block:AlbumArt}
+            </div>
+            
+            <div class="audioplayer">
+                <div class="artist"> 
+                {block:Artist} <b>Artist:</b> {Artist}{/block:Artist} <span><i class="fa fa-user"></i></span></div> 
+                <br /> 
+                <div class="track"><span><i class="fa fa-list"></i></span> &nbsp; <b>Track:</b> {block:TrackName} "{TrackName}" {/block:TrackName} </div> <br /> <b> 
+                <div class="play">Plays: </b> {PlayCountWithLabel} <span><i class="fa fa-play"></i></span> </div> 
+            </div>
+    </div>
+    {/block:Audio}
+     
+    {block:Video}
+            {block:PermalinkPage}<div class="videonya">{Video-500}</div>{/block:PermalinkPage}
+                    {block:IndexPage}<div class="videonya">{Video-500}</div>{/block:IndexPage}
+           
+            {block:Caption}{Caption}{/block:Caption}
+                      <div class="kepada_teks"><a href="{Permalink}"><i class="fa fa-external-link"></i> Posted on {DayOfWeek}  with {NoteCountWithLabel}, {TimeAgo}</a> </div>
+    {/block:Video}
+     
+    {block:Answer}
+        <div class="pertanyaan">
+                 <span>{Asker} sent a message:</span>
+                   <br>
+                        {Question}
+                        </div>
+                        <hr></hr>
+        <div class="jawaban">
+                {Answer}
+                </div>
+                       <div class="kepada_teks"><a href="{Permalink}"><i class="fa fa-external-link"></i> Posted on {DayOfWeek}  with {NoteCountWithLabel}, {TimeAgo}</a> </div>
+        {/block:Answer}
+        
+    {block:HasTags}
+    <div class="tagged_post">
+         {block:Tags} <a href="{TagURL}">#{Tag}</a> {/block:Tags}
+    </div>
+    {/block:HasTags}
+    
+    <div class="gelombangposisi">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 95.7 50" style="enable-background:new 0 0 95.7 50;" xml:space="preserve">
+<g id="XMLID_1_">
+	<path id="gelombangukuran" class="fukuobergelombang" d="M4.1,18c7.4,0,7.4,16,14.9,16c7.4,0,7.4-16,14.9-16c7.5,0,7.5,16,14.9,16c7.5,0,7.5-16,14.9-16
+		c7.5,0,7.5,16,14.9,16c7.5,0,7.5-16,14.9-16"/>
+</g>
+</svg>
+</div>
+
+</article>
+
+     
+        {block:TagPage}
+        <div id="posisi_benerannya">
+                <div class="sumber_pos"><img src="{PortraitURL-48}"> <span>{Name}</span><p>post tagged with {Tag}</p></div>
+         </div>
+        {/block:TagPage}
+        
+        {block:PermalinkPage}
+         {block:RebloggedFrom} 
+            <!-- only show on permalink page -->
+             <div id="posisi_asli">
+                <div class="sumber_pos"><img src="{ReblogRootPortraitURL-48}"><span><a href="{ReblogRootURL}">{ReblogRootName}</a></span><p>originally by</p></div>
+                <div class="sumber_pos"><img src="{ReblogParentPortraitURL-48}"><span><a href="{ReblogParentURL}">{ReblogParentName}</a></span><p>reblogged from</p></div>
+            </div>
+        {/block:RebloggedFrom} 
+        
+        {block:NotReblog} 
+        
+         <div id="posisi_benerannya">
+                <div class="sumber_pos"><img src="{PortraitURL-48}"> <span>{Name}</span><p>posted this</p></div>
+         </div>
+            
+        {/block:NotReblog}
+        
+            
+            <div id="perma_p">
+                {block:PostNotes}
+                {PostNotes-64}
+                {/block:PostNotes}
+            </div>
+        {/block:PermalinkPage}
+    {/block:Posts}
+    
+    <footer class="bawahkaki">
+                 <!-- main background -->
+                    <div class="blur-footer">
+                    </div>
+                    <!-- a fallback -->
+                    <div class="blur-footers">
+                    </div>
+                 <div class="holder_footer">
+                 <!-- NO, Don't be stupid. -->
+                    <h1>A theme by <a href="http://fukuo.tumblr.com/">Fukuo</a></h1>
+                    <ul class="linkkaki">
+                        <li><a href="{RSS}">{lang:RSS}</a></li>
+                        <li><a href="/archive">{lang:Archive}</a></li>
+                        <li><a href="/">{lang:Random}</a></li>
+                    </ul>
+                    
+                        
+                        {block:PermalinkPagination} 
+                         <div class="paginationnya">
+                             
+                               {block:PreviousPost}
+                                <a href="{PreviousPost}"><i class="fa fa-angle-left"></i> &nbsp; {lang:Prev post} </a>
+                                {/block:PreviousPost}
+                                
+                                {block:NextPost}
+                                <a href="{NextPost}">{lang:Next post} &nbsp; <i class="fa fa-angle-right"></i></a>
+                                {/block:NextPost}
+                                
+                            </div>
+                        {/block:PermalinkPagination} 
+                        
+                        {block:Pagination}
+                             <div class="paginationnya">
+                             
+                               {block:PreviousPage}
+                                <a href="{PreviousPage}"><i class="fa fa-angle-left"></i> &nbsp; {lang:Prev} PAGE </a>
+                                {/block:PreviousPage}
+                                
+                                {block:NextPage}
+                                <a href="{NextPage}">{lang:Next page} &nbsp; <i class="fa fa-angle-right"></i></a>
+                                {/block:NextPage}
+                                
+                            </div>
+                        {/block:Pagination}
+                     
+                </div>
+             </footer>
+             
+        </section>
+             
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://static.tumblr.com/5ojoydj/ORDn2opj4/fukuo-scroll.js"></script>
+<script src="http://static.tumblr.com/5ojoydj/4GOn2op0v/modernizr.min.js"></script>
+<script src="http://static.tumblr.com/qudkd6d/Az6nkemqr/pxuphotoset.min.js"></script>
+<script src="http://static.tumblr.com/5ojoydj/98Zoa18uj/jquery.succinct.js"></script>
+    <script>
+        $(document).ready(function() {
+           // PXU Photoset Extended
+           $('.photo-slideshow').pxuPhotoset({
+               lightbox: true,
+               rounded: true,
+               gutter: '{select:Photosets Gutter}px',
+               borderRadius: '5px',
+               photoset: '.photo-slideshow',
+               photoWrap: '.photo-data',
+               photo: '.pxu-photo'
+           });
+           
+            $('.truncate').succinct({
+                size: 420
+            });
+            
+            if (location.pathname == "/ask") {
+                $('.kembalialur').remove();
+            }
+            
+             if ($('p:contains("The URL you requested could not be found.")').text()) {
+                $(".kembalialur").remove();
+             }
+    
+             $('.menu_bar').click(function() {
+                $(this).toggleClass('gesersedikit');
+                $('.menu_bar span:nth-child(1)').toggleClass('silang_s');
+                $('.menu_bar span:nth-child(2)').toggleClass('silang_d');
+                $('.menu_bar span:nth-child(3)').toggleClass('silang_t');
+                $('.keterangannya').toggleClass('muncul_pertama');
+                $('.link_banyak').fadeToggle(500);
+                $('.fallback_keterangan').toggleClass('muncul_fallback');
+                $('.mengikutialur').fadeToggle(500);
+        });
+            
+             $('.search').submit(function(event){
+               var value = $('input:first').val();
+               location.replace('http://{Name}.tumblr.com/tagged/' + value);
+               });
+
+             $("p").remove(":contains('Source:'),:contains('via ')");
+             });
+        
+            $(window).scroll(function() {
+                
+                if ($(window).scrollTop() > 600) {
+                  $('.header_scroll').addClass('scrolled');
+                } else {
+                  $('.header_scroll').removeClass('scrolled');
+                };
+          });
+    </script>
+    
+	</body>
+</html>

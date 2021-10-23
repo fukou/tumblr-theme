@@ -1,63 +1,67 @@
 // truncate script
 let truncate = (element, limit, after) => {
-    if (!element || !limit) return;
+  if (!element || !limit) return;
 
-    let content = element.innerHTML.trim();
+  let content = element.innerHTML.trim();
 
-    content = content.split(' ').slice(0, limit);
-    content = content.join(' ') + (after ? after : '');
+  content = content.split(" ").slice(0, limit);
+  content = content.join(" ") + (after ? after : "");
 
-    element.innerHTML = content;
+  element.innerHTML = content;
 };
 
 const container = document.querySelector(".wrapper__featured--slider");
-const container__slider = document.querySelector(".wrapper__featured--slider__inner");
-const postLength = tumblr_api_read["posts-total"];
+const container__slider = document.querySelector(
+  ".wrapper__featured--slider__inner"
+);
 
 // console.log(container.innerHTML.trim() !== '');
 
-for (let k = 0; k < postLength; k++) {
-    const post = tumblr_api_read.posts[k];
+for (let k = 0; k < 5; k++) {
+  let post = tumblr_api_read.posts[k];
+  console.log(post);
 
-    const caption = post["photo-caption"];
-    const body = post["regular-body"];
-    const date = post["date"];
+  const caption = post["photo-caption"];
+  const body = post["regular-body"];
+  const date = post["date"];
 
-    const img = post["photo-url-1280"];
+  const img = post["photo-url-1280"];
 
-    const question = post["question"];
-    const quote = post["quote-text"];
-    const quote_source = post["quote-source"];
+  const question = post["question"];
+  const quote = post["quote-text"];
+  const quote_source = post["quote-source"];
 
-    const chat = post["conversation-text"];
-    const album = post["id3-album"];
-    const artist = post["id3-artist"];
-    const title_album = post["id3-title"];
+  const chat = post["conversation-text"];
+  const album = post["id3-album"];
+  const artist = post["id3-artist"];
+  const title_album = post["id3-title"];
 
-    const url = post["url"];
-    const type = post["type"];
+  const url = post["url"];
+  const type = post["type"];
 
-    const card = document.createElement("div");
-    card.className = 'card';
+  const card = document.createElement("div");
+  card.className = "card";
 
-    if (type === "photo") {
-        card.innerHTML = `
+  if (type === "photo") {
+    card.innerHTML = `
                 <article class="slider">
                     <figure class="slider__image">
                         <img src="${img}" alt="">
                         <figcaption class="slider__caption">
-                            <div>${caption}</div>
+                            <div>${caption ? caption : null}</div>
                             <div class="slider__date">
-                              Posted on <a href="${url}">${date.substring(0, 16)}</a>
+                              Posted on <a href="${url}">${date.substring(
+      0,
+      16
+    )}</a>
                             </div>
                         </figcaption>
                     </figure>
                 </article>
                 `;
-        truncate(card.querySelector('.slider__caption div'), 8, '...');
-
-    } else if (type === "regular") {
-        card.innerHTML = `
+    truncate(card.querySelector(".slider__caption div"), 8, "...");
+  } else if (type === "regular") {
+    card.innerHTML = `
                 <article class="slider">
                     <div class="slider__icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
@@ -68,13 +72,13 @@ for (let k = 0; k < postLength; k++) {
                         </svg>
                     </div>
                     <div class="slider__body">
-                        ${body}...
+                       <a href="${url}">${body}...</a>
                     </div>
                 </article>
                 `;
-        truncate(card.querySelector('.slider__body'), 22, '...');
-    } else if (type === "answer") {
-        card.innerHTML = `
+    truncate(card.querySelector(".slider__body"), 22, "...");
+  } else if (type === "answer") {
+    card.innerHTML = `
                 <article class="slider answer">
                     <div class="slider__icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
@@ -84,8 +88,8 @@ for (let k = 0; k < postLength; k++) {
                     </div>
                 </article>
                 `;
-    } else if (type === "quote") {
-        card.innerHTML = `
+  } else if (type === "quote") {
+    card.innerHTML = `
                 <article class="slider quote">
                     <div class="slider__icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
@@ -98,8 +102,8 @@ for (let k = 0; k < postLength; k++) {
                     </div>
                 </article>
                 `;
-    } else if (type === "conversation") {
-        card.innerHTML = `
+  } else if (type === "conversation") {
+    card.innerHTML = `
                 <article class="slider chat">
                     <a href="${url}">
                     <div class="slider__icon is-center">
@@ -108,8 +112,8 @@ for (let k = 0; k < postLength; k++) {
                     </a>
                 </article>
                 `;
-    } else if (type === "audio") {
-        card.innerHTML = `
+  } else if (type === "audio") {
+    card.innerHTML = `
                 <article class="slider audio">
                     <a href="${url}">
                     <div class="slider__icon is-center is-center-top">
@@ -123,48 +127,70 @@ for (let k = 0; k < postLength; k++) {
                     </a>
                 </article>
                 `;
-    }
-    container__slider.appendChild(card);
+  }
+  container__slider.appendChild(card);
 }
 
-
-const tumblr_blog = document.querySelectorAll(".slider__caption > div .tumblr_blog, .slider__body .tumblr_blog");
+const tumblr_blog = document.querySelectorAll(
+  ".slider__caption > div .tumblr_blog, .slider__body .tumblr_blog"
+);
 if (tumblr_blog) {
-    for (let j = 0; j < tumblr_blog.length; j++) {
-        const username = tumblr_blog[j].innerText;
-        const username_deactivated = username.replace(/-deactivated.*/, '');
+  for (let j = 0; j < tumblr_blog.length; j++) {
+    const username = tumblr_blog[j].innerText;
+    const username_deactivated = username.replace(/-deactivated.*/, "");
 
-        if (username.includes('deactivated')) {
-            tumblr_blog[j].parentNode.lastChild.remove();
-            tumblr_blog[j].innerHTML = username_deactivated;
+    if (username.includes("deactivated")) {
+      tumblr_blog[j].parentNode.lastChild.remove();
+      tumblr_blog[j].innerHTML = username_deactivated;
 
-            tumblr_blog[j].insertAdjacentHTML('afterend', '<sup>(deactivated)</sup>');
-        } else {
-            tumblr_blog[j].insertAdjacentHTML('beforebegin', `<img class="tumblr_blog_img" src="https://api.tumblr.com/v2/blog/${username}.tumblr.com/avatar/512">`);
-            tumblr_blog[j].parentNode.lastChild.remove();
-        }
+      tumblr_blog[j].insertAdjacentHTML("afterend", "<sup>(deactivated)</sup>");
+    } else {
+      tumblr_blog[j].insertAdjacentHTML(
+        "beforebegin",
+        `<img class="tumblr_blog_img" src="https://api.tumblr.com/v2/blog/${username}.tumblr.com/avatar/512">`
+      );
+      tumblr_blog[j].parentNode.lastChild.remove();
     }
+  }
 }
 
 const slider = tns({
-    container: ".wrapper__featured--slider__inner",
-    slideBy: "page",
-    loop: false,
-    autoplay: false,
-    nav: false,
-    gutter: 30,
-    controlsContainer: "#customize-controls",
-    "responsive": {
-        "350": {
-            "items": 1,
-            "controls": true,
-            "edgePadding": 0
-        },
-        "900": {
-            "controls": true,
-            "items": 1,
-            edgePadding: 0,
-            gutter: 40
-        }
+  container: ".wrapper__featured--slider__inner",
+  slideBy: "page",
+  loop: false,
+  autoplay: false,
+  nav: false,
+  gutter: 30,
+  controlsContainer: "#customize-controls",
+  responsive: {
+    350: {
+      items: 1,
+      controls: true,
+      edgePadding: 0,
     },
+    900: {
+      controls: true,
+      items: 1,
+      edgePadding: 0,
+      gutter: 40,
+    },
+  },
 });
+
+const isTextPost = document.querySelectorAll(".wrapper__featured--slider__inner .card");
+isTextPost.forEach(function (item, idx) {
+  const containsPhotosets = item.querySelector(".npf_row");
+
+  if (containsPhotosets) {
+    item.classList.add("posts-photoset-text");
+  }
+});
+
+// const isPinned = document.querySelectorAll(".wrapper__blog .posts");
+// isPinned.forEach(function(i, idx) {
+//     const pinned = i.classList.contains("pinned");
+
+//     if(pinned) {
+//         console.log("Yes");
+//     }
+// });
