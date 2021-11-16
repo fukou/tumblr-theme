@@ -1,0 +1,72 @@
+.posts__media > .audio_player {
+    display: flex;
+    align-items: center;
+    margin-bottom:1.25rem;
+}
+ 
+.custom_audio_buttons {
+    //  position: absolute;
+    //  left: 50%;
+    //  top:50%;
+    //  transform: translate(-50%, -50%);
+
+     height: 3rem;
+     width: 3rem;
+     background: #111;
+     color: #fff;
+     padding: 2.65rem 2.5rem 2.5rem 2.5rem;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin: 0 1rem 0 0;
+     border-radius: 8px;
+     cursor:pointer;
+}
+ .custom_audio_buttons svg {
+     width  : 1.35em;
+     height : 1.35em;
+}
+ .custom_audio_error_icon svg {
+     stroke : red;
+}
+ 
+ .custom_audio_duration {
+     display : inline;
+}
+
+.audio_player {
+    &--album {
+        display: block;
+        position: relative;
+        width:350px;
+        height: 0;
+        padding-bottom:35%;
+
+        img {
+            position: absolute;
+            left: 0;
+            top:0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+ 
+ .audio_player .custom_audio_seekbar {
+     width      : 100%;
+     height     : 0.5em;
+     background : #dfdfdf;
+     margin:0 1rem;
+     border-radius: 8px;
+     overflow: hidden;
+}
+ .audio_player .custom_audio_seekbar_progress {
+     width      : 0;
+     height     : 100%;
+     background : #07362c;
+}
+ 
+ .audio_info p {
+     margin : 0.25em 0;
+ }
