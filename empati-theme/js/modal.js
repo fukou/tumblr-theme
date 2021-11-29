@@ -2,7 +2,7 @@ let nonModalNodes = document.querySelectorAll(
    'body *:not(.modal):not([tabindex="-1"])'
 );
 
-const allPosts = document.querySelectorAll(".posts");
+const allPosts = document.querySelectorAll(".posts:not(.posts__empty)");
 const modal = document.querySelector(".modal");
 const modal__inner = document.querySelector(".modal__inner");
 const modal__close = document.querySelector(".modal__close");
