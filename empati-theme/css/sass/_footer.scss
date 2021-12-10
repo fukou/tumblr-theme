@@ -45,6 +45,12 @@
                     background-color: rgba(var(--accent), 1);
                     color:rgba(var(--bg-card), 1);
 
+                    text-decoration: none;
+
+                    i {
+                        font-size: 22px;
+                    }
+
                     svg {
                         width:16px;
                         height: 16px;
