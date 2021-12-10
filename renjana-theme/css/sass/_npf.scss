@@ -78,22 +78,22 @@
    position: relative;
 
    + .reblog-list {
-      margin-top: 1.75rem;
+      // margin-top: 1.75rem;
    }
 
-   &::after {
-      content: "";
-      display: block;
+   // &::after {
+   //    content: "";
+   //    display: block;
 
-      position: absolute;
-      left: -2.25rem;
-      bottom: -1rem;
+   //    position: absolute;
+   //    left: -2.25rem;
+   //    bottom: -1rem;
 
-      width: calc(100% + 4.5rem);
-      height: 1px;
+   //    width: calc(100% + 4.5rem);
+   //    height: 1px;
 
-      background-color: rgba(var(--heading-text), 0.1);
-   }
+   //    background-color: rgba(var(--heading-text), 0.1);
+   // }
 
    &:only-child,
    &:last-of-type {
@@ -108,7 +108,7 @@
       padding: 1rem 0 0 0;
 
       & + div {
-         padding: 1rem 0;
+         // padding: 1rem 0;
       }
 
       span {
@@ -154,7 +154,7 @@
 }
 
 .npf_photoset {
-   margin: 1.85rem -2rem;
+   margin: 0rem -2rem;
 }
 
 .npf_gallery_indicator {
@@ -172,13 +172,13 @@
    color: var(--bg-card);
 }
 
-.posts__body .tmblr-attribution {
+.wrapper__blog .posts__body .tmblr-attribution {
    position: relative;
    background-color: rgba(var(--heading-text), 1);
    color: rgba(var(--bg-card), 1);
    padding: 0.65rem 1rem;
 
-   margin-top: -0.85rem;
+   margin:0!important;
    z-index: 2;
 
    font-size: 0.85rem;
@@ -229,8 +229,7 @@ hr {
    background-color: rgba(var(--heading-text), 0.3);
    color: #aaa;
    border: 0 none;
-   margin-top: 2.5rem;
-   margin-bottom: 2.5rem;
+   margin:2rem 0;
 
    &::before {
       position: absolute;

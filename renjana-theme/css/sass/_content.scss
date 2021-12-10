@@ -5,11 +5,14 @@ body {
    background-size: cover;
 
    font-family: var(--body-font);
+   font-size: 15px;
    scroll-behavior: smooth;
 }
 
 pre {
    white-space: pre-wrap;
+   background-color: rgba(var(--heading-text), 0.1);
+   overflow-x: scroll;
 }
 
 * {
@@ -204,6 +207,11 @@ pre {
 
          margin-bottom: 4.5rem;
 
+         &.is-sticky {
+            position: sticky;
+            top:3rem;
+         }
+
          @media (max-width:60rem) {
             border-radius: 0px;
             margin-bottom: 0rem;
@@ -343,6 +351,21 @@ pre {
             border-radius: 0px;
          }
 
+         &-empty {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10rem 2rem;
+
+            > h1 {
+               font-size: 1.35rem;
+            }
+         }
+
+         &.is-permalink {
+            overflow: hidden;
+         }
+
          & + .posts {
             margin-top: 4.5rem;
 
@@ -402,27 +425,27 @@ pre {
             display: flex;
             align-items: center;
 
-            .tmblr-full {
-               position: relative;
-               margin: 0;
-               flex: 1 1 0%;
-               height: 0;
-               padding-bottom: 35%;
+            // .tmblr-full {
+            //    position: relative;
+            //    margin: 0;
+            //    flex: 1 1 0%;
+            //    height: 0;
+            //    padding-bottom: 35%;
 
-               img {
-                  position: absolute;
-                  left: 0;
-                  top: 0;
-                  width: 100%;
-                  height: 100%;
-                  object-position: center;
-                  border-radius: 0;
-               }
-            }
+            //    img {
+            //       position: absolute;
+            //       left: 0;
+            //       top: 0;
+            //       width: 100%;
+            //       height: 100%;
+            //       object-position: center;
+            //       border-radius: 0;
+            //    }
+            // }
          }
 
          .tmblr-full {
-            margin: 1.35rem -2rem;
+            margin: 0rem -2rem;
             img {
                width: 100%;
             }
@@ -438,7 +461,7 @@ pre {
             text-decoration: none;
             padding: 0.85rem 1rem;
 
-            margin: 2.5rem 0 0 0;
+            margin: 2rem 0;
 
             width: 100%;
             color: rgba(var(--heading-text), 1);
@@ -474,9 +497,19 @@ pre {
             }
          }
 
+         &__dated {
+            padding:1rem 2rem;
+            border-top:1px solid rgba(var(--heading-text), 0.1);
+
+            a {
+               text-decoration: none;
+               color:rgba(var(--body-link), 1);
+            }
+         }
+
          &__body,
          &__caption {
-            padding: 1.5rem 2rem;
+            padding: 0 2rem 0rem 2rem;
 
             a {
                color: rgba(var(--body-link), 1);
@@ -497,7 +530,7 @@ pre {
             h5 {
                clear: both;
                font-family: var(--heading-font);
-               margin: 1rem 0 1.38rem;
+               margin: 1rem 0;
                font-weight: 600;
                line-height: 1.3;
                color: rgba(var(--heading-text), 1);
@@ -505,12 +538,15 @@ pre {
                scroll-margin-top: 1.25rem;
             }
 
-            p + p {
-               margin-top: 1rem;
+            // p + p {
+            //    margin-top: 1rem;
+            // }
+
+            p {
+               margin:1rem 0;
             }
 
             h1 {
-               margin-top: 0;
                font-size: 1.828rem;
             }
 
@@ -642,7 +678,7 @@ pre {
                margin:1.35rem -1.5rem;
 
                &:last-child {
-                  margin-bottom: 0;
+                  // margin-bottom: 0;
                }
             }
 
@@ -662,19 +698,23 @@ pre {
 
          &__answer {
             border-top: 1px solid rgba(var(--heading-text), 0.1);
-            padding: 1.5rem 2.25rem;
+            padding: 0rem 2rem;
+
+            &:empty {
+               display: none;
+            }
 
             a {
                color:rgba(var(--body-link), 1);
             }
 
-            p + p {
-               margin-top: 1rem;
+            p {
+               margin:1rem 0;
             }
 
             h1,
             h2 {
-               margin-bottom: 1rem;
+               margin:1rem 0;
             }
          }
 
@@ -690,11 +730,14 @@ pre {
 
             &--album {
                flex: 0 0 25%;
+               height: 156px;
                clip-path: circle(82.1% at 15% 50%);
 
                @media (max-width: 60rem) {
                   clip-path: circle(73.9% at 49% 14%);
                }
+
+               background-size: cover;
 
                img {
                   margin-right: auto;
@@ -748,7 +791,7 @@ pre {
 
                display: flex;
                align-items: center;
-               padding: 0 1.35rem;
+               padding: 1rem 1.35rem;
 
                @media (max-width: 60rem) {
                   flex-direction: column;
@@ -863,7 +906,7 @@ pre {
 
             overflow: hidden;
 
-            padding: 1rem 1rem;
+            padding: 1rem 2rem;
             border-top: 1px solid rgba(var(--heading-text), 0.1);
 
             border-radius: 0 0 5px 5px;
@@ -883,6 +926,8 @@ pre {
             }
 
             .pinned {
+               flex: none;
+
                position: relative;
                display: inline-flex;
                align-items: center;
@@ -894,7 +939,7 @@ pre {
 
                margin-left: -1rem;
 
-               padding-left: 1.25rem;
+               // padding-left: 1.25rem;
                padding-right: 1.25rem;
 
                z-index: 2;
@@ -1350,3 +1395,131 @@ ol.notes {
        padding:0.25rem 0.5rem;
    }
 }
+
+.is-likes {
+   h2 {
+      padding: 0.5rem 0 0 0;
+      margin: 1rem 0 0.75rem 0rem;
+      text-align: center;
+   }
+}
+ 
+ .posts-liked {
+   &__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin: 1rem;
+      width: calc(100% - 2rem);
+      height: auto;
+      background-color: rgba(var(--accent-color-one), 0.25);
+      color: rgba(var(--heading-text), 0.75);
+      padding: 0.85rem 1rem;
+      border-radius: 6px;
+      word-break: initial;
+      text-align: center;
+      text-decoration: none;
+   }
+   &__question {
+      padding: 1rem;
+      margin: 1rem;
+      border-radius: 5px;
+      background-color: rgba(var(--heading-text), 0.1);
+    
+      p, h1, h2, h3, h4 {
+        margin: 1rem 0;
+      }
+    
+      a {
+        color: rgba(var(--body-link), 1);
+      }
+   }
+   figure.tmblr-full {
+      margin: 1rem 0;
+  
+      .post_media_photo.image {
+        width: 100%;
+      }
+    }
+  
+    div.npf_row {
+      align-items: stretch !important;
+      margin-bottom: 0 !important;
+      margin-left: (-15px) !important;
+      margin-right: (-15px) !important;
+  
+      .npf_col {
+        display: flex !important;
+  
+        figure {
+          padding-bottom: 0 !important;
+  
+          img {
+            position: static !important;
+          }
+        }
+      }
+    }
+  
+   header {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      a {
+         display: flex;
+         align-items: center;
+         gap: 0.65rem;
+         text-decoration: none;
+         font-weight: 500;
+         color: rgba(var(--body-link), 1);
+         word-break: break-word;
+         img {
+            border-radius: 6px;
+          }
+       }
+   }
+
+   margin: 1rem;
+   border: 1px solid rgba(0, 0, 0, 0.1);
+   border-radius: 5px;
+   overflow: hidden;
+   font-size: 0.9rem;
+ 
+   iframe {
+     width: 100%;
+   }
+ 
+   iframe.tumblr_audio_player {
+     width: 100%;
+   }
+ 
+   section {
+     &.media {
+       .npf_quote.medium {
+         font-size: 1.35rem;
+         padding: 1rem;
+       }
+ 
+       .npf_quote_source {
+         padding: 1rem;
+ 
+         a {
+           color: rgba(var(--body-link), 1);
+         }
+       }
+     }
+ 
+     &.body {
+       padding: 0 1rem;
+ 
+       a {
+         color: rgba(var(--body-link), 1);
+         word-break: break-word;
+       }
+ 
+       h1, h2, h3, p {
+         margin: 1rem 0;
+       }
+     }
+   }
+ }

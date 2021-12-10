@@ -42,8 +42,8 @@
         text-align: center;
         font-weight: bold;
 
-        background-color:  rgba(var(--heading-text), 0.2);
-        color:  rgba(var(--body-link), 1)!important;
+        background-color: rgba(var(--accent-color-one), 0.25);
+        color: rgba(var(--heading-text), 0.75)!important;
     }
     
     &__user {

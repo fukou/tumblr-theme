@@ -12,17 +12,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"> 
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-</head>
-<body class="d-hblock is-right">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <header class="hero" id="hero" style="background-image:var(--hero);">
+        <style>
+            :root {
+            --hero: url("/img/hero.jpg");
+            /* --bg: url('https://static.tumblr.com/5ojoydj/jKqqvmbx3/white-waves.png'); */
+            --heading-font:'Source Serif Pro', serif;
+            --body-font: 'Inter', sans-serif;
+            --code-font:'Oxygen Mono', monospace;
+
+            --accent-color-one:12,28,106;
+            --accent-color-two:235,1,114;
+            
+            --white:255,255,255;
+
+            --bg-color:229,229,229;
+            --bg-card:255,255,255;
+
+            --heading-text:17,17,17;
+            --body-text:68,68,68;
+            --body-link:17,17,17;
+        }
+        </style>
+</head>
+<body class="d-hnone is-right">
+
+    <!-- <header class="hero" id="hero" style="background-image:var(--hero);">
         <div class="hero__inner">
             <form action="">
                 <input type="search" name="" id="" placeholder="What are you looking for?">
                 <button type="submit" aria-label="Search"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
             </form>
         </div>
-    </header>
+    </header> -->
     <main class="wrapper">
         <!-- <div class="wrapper__top">
             <div class="wrapper__top--inner">
@@ -31,7 +54,7 @@
         </div> -->
 
         <section class="wrapper__inner">
-            <aside class="wrapper__sidebar" data-sticky-container >
+            <aside class="wrapper__sidebar">
                 <div class="wrapper__sidebar--inner">
                     <div class="wrapper__sidebar--hero">
                         <img src="https://64.media.tumblr.com/f6395bca7a86e8efa6807271b64fb7f4/tumblr_p4jpsnKZQu1qze3hdo1_500.gifv" alt="">
@@ -66,7 +89,57 @@
                     </div>
                 </div>
 
-                <div class="wrapper__sidebar--inner sticky is-nav" data-margin-top="50" data-sticky-for="1023">
+                <div class="wrapper__sidebar--inner is-nav is-likes">
+                    
+                    <h2>Recently Liked</h2>
+                    
+                        <article class="posts-liked">
+                            <header><a href="https://idledee.tumblr.com/post/669873945086951424/thats-it-its-split-it-wont-recover-just-frame?is_liked_post=1"><img src="https://64.media.tumblr.com/f7d5d418d62658a4ed6c805149397de8/79c95eedb9a652e8-d1/s30x30u_c1/d5f0076d722b0859c044d6b9e9fca4adf228874a.pnj">idledee</a></header>
+                            <section class="media">
+                            
+                            <div id="photoset_669873945086951424" class="html_photoset">    <iframe id="photoset_iframe_669873945086951424" name="photoset_iframe_669873945086951424" class="photoset" scrolling="no" frameborder="0" height="181" width="100%" style="border: 0px; background-color: transparent; overflow: hidden; height: 180.8px;" src="/post/669873945086951424/photoset_iframe/idledee/tumblr_r3o3ihwhUu1tbel4d/0/false" onload="var els = this.contentWindow.document.getElementsByClassName('photoset');if (els.length) this.style.height = els[0].getBoundingClientRect().height + 'px';"></iframe></div>
+                            </section>
+                            
+                            <section class="body">
+                            
+                            <div class="reblog">
+                                <p class="user">
+                                    <a href="https://idledee.tumblr.com/post/669777815287349248" target="_blank"><strong class="username">idledee</strong>
+                                    </a>
+                                </p>
+                                <p>thats it, it’s split, it won’t recover. just frame the halves and call them a whole.</p>
+                            </div>
+                            
+                            
+                            </section>
+                        </article>
+                    
+                        <article class="posts-liked">
+                            <header><a href="https://faluvtha.tumblr.com/post/145853962616/i-dont-know-whats-worse-to-not-know-what-you?is_liked_post=1"><img src="https://64.media.tumblr.com/avatar_b6b6dba94b7a_30.pnj">faluvtha</a></header>
+                            <section class="media">
+                            
+                            <p class="npf_quote medium">I don’t know what’s worse: to not know what you are and be happy, or to become what you’ve always wanted to be, and feel alone.</p><p class="npf_quote_source">— Daniel Keyes (via <a href="https://href.li/?http://quotemadness.com/" class="tumblr_blog" target="_blank">quotemadness</a></p>
+                            </section>
+                            
+                            <section class="body">
+                            
+                            <div class="reblog">
+                                <p class="user">
+                                    <a href="https://faluvtha.tumblr.com/post/145853962616/i-dont-know-whats-worse-to-not-know-what-you" target="_blank"><strong class="username">faluvtha</strong>
+                                    </a>
+                                </p>
+                                <p>Daniel Keyes (via <a href="https://href.li/?http://quotemadness.com/" target="_blank">quotemadness</a></p>
+                            </div>
+                            
+                            
+                            </section>
+                        </article>
+                    
+                    <a href="/likes" class="posts-liked__button">More liked posts</a>
+                    
+                </div>
+
+                <div class="wrapper__sidebar--inner is-sticky">
                     <div class="wrapper__sidebar--body">
                         <h2>Quick Links</h2>
                         <ul class="additional-links">       
@@ -90,7 +163,38 @@
                 </div>
             </aside>
             <div class="wrapper__blog">
-                <article class="posts spoilers warning">
+
+                <article class="posts posts-empty">
+                   <h1> This Tumblr hasn't made any posts.</h1>
+                </article>
+
+                <article class="posts">
+                    <div class="posts__perma">
+                        <div class="posts__perma--reblog">
+                            <a href="https://iltailtailta.tumblr.com/post/663799222419832832/relaxing">iltailtailta</a>
+                            
+                        </div> 
+                        
+                        <div class="posts__perma--note">
+                            
+
+                            <button><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                            <ul class="posts__perma--popup">
+                                <li><a href="https://www.tumblr.com/reblog/iltailtailta/663799222419832832/u7NS1aU7">Reblog</a></li>
+                                <li class="like-b"><div class="like_button" data-post-id="663799222419832832" data-blog-name="iltailtailta" id="like_button_663799222419832832"><iframe id="like_iframe_663799222419832832" src="https://assets.tumblr.com/assets/html/like_iframe.html?_v=66c22ab5319d742bca5762b8d18f9d06#name=iltailtailta&amp;post_id=663799222419832832&amp;color=black&amp;rk=u7NS1aU7" scrolling="no" class="like_toggle" allowtransparency="true" name="like_iframe_663799222419832832" width="20" height="20" frameborder="0"></iframe></div></li>
+                                <li><a href="https://iltailtailta.tumblr.com/post/663799222419832832/relaxing">55 notes</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="posts__body">
+                        <div class="npf_photoset"><figure class="tmblr-full" style="margin-bottom: 0px;" tabindex="0" data-count="1"><a class="post_media_photo_anchor" data-big-photo="https://64.media.tumblr.com/d78a6b8132e690c0e5be6500ebaa797b/4882a9e976bf201a-ae/s1280x1920/8ecf956e830bfa59fa4013537a7f2ce1a7fa9d10.gifv" data-big-photo-height="336" data-big-photo-width="600"><img class="post_media_photo image npf_image" src="https://64.media.tumblr.com/d78a6b8132e690c0e5be6500ebaa797b/4882a9e976bf201a-ae/s640x960/94f8a71e52cbbfd668eeb639929fec0020dd2a54.gifv" alt="image"></a></figure><figure class="tmblr-full" tabindex="0" data-count="2"><a class="post_media_photo_anchor" data-big-photo="https://64.media.tumblr.com/97b37cb51e159de65a60990c2476e5ec/4882a9e976bf201a-fc/s1280x1920/e501168f8627b549f955168c09d05e320e749024.gifv" data-big-photo-height="337" data-big-photo-width="600"><img class="post_media_photo image npf_image" src="https://64.media.tumblr.com/97b37cb51e159de65a60990c2476e5ec/4882a9e976bf201a-fc/s640x960/6683fd193fb917a04a4e6dca6ac948f331163db1.gifv" alt="image"></a></figure></div><p>relaxing</p><p><a href="https://href.li/?https://twitter.com/iltailtailta">twitter</a> | <a href="https://href.li/?https://instagram.com/iltailtailta">insta</a> | <a href="https://href.li/?http://twitch.tv/iltailtailta">twitch</a></p>
+                    </div>
+                    <div class="posts__dated">
+                        Posted on 29 June, 2021 ∙ 11:45am
+                    </div>
+                </article> 
+
+                <article class="posts">
                     <div class="posts__perma">
                         <div class="posts__perma--reblog">
                             <a href="#">username</a>
@@ -163,6 +267,9 @@
                              simplest
                              designs, white space dominates the page.</p>
                      </div>
+                     <div class="posts__dated">
+                        Posted on 29 June, 2021
+                    </div>
                      <div class="posts__tags">
                          <div class="posts__tags--inner">
                              <ul>
@@ -175,7 +282,7 @@
                      </div>
                 </article>
                  
-                <article class="posts spoiler pinned">
+                <article class="posts pinned">
                     <div class="posts__perma">
                         <div class="posts__perma--reblog">
                             <a href="#">username</a>
@@ -245,7 +352,7 @@
                             </ul>
                         </div>
                     </div>
-                </article>
+                </article> 
 
                 <article class="posts posts-perma" style="display: none;">
                     <div class="posts-perma__info">
@@ -323,7 +430,7 @@ if(window.tumblrNotesLoaded)if(tumblrNotesLoaded(notes_html)==false)return;var m
                         <span id="audio_player_182706474891">
                             <div class="audio_player"><iframe class="tumblr_audio_player tumblr_audio_player_149898316298" src="https://musicinanime.tumblr.com/post/149898316298/audio_player_iframe/musicinanime/tumblr_ocud8c6Vgs1rf7z9d?audio_file=https%3A%2F%2Fa.tumblr.com%2Ftumblr_ocud8c6Vgs1rf7z9do1.mp3&amp;color=black&amp;simple=1" allowtransparency="true" scrolling="no" width="207" height="27" frameborder="0"></iframe></div>
                         </span>
-                        <div class="posts__audio--album">
+                        <div class="posts__audio--album" style="background-image:url('https://64.media.tumblr.com/58f9ed2573d6cc71d1e805ff744d01df/tumblr_mjcin8WReA1rb8evoo2_r1_250.png');">
                             <img src="https://64.media.tumblr.com/tumblr_ocud8c6Vgs1rf7z9do1_1472760445_cover.png"
                                 alt="">
                         </div>
@@ -359,7 +466,7 @@ if(window.tumblrNotesLoaded)if(tumblrNotesLoaded(notes_html)==false)return;var m
                     </div>
                 </article>
 
-                <article class="posts">
+                <!-- <article class="posts">
                     <div class="posts__perma">
                         <div class="posts__perma--reblog">
                             <a href="#">username</a>
@@ -400,9 +507,9 @@ if(window.tumblrNotesLoaded)if(tumblrNotesLoaded(notes_html)==false)return;var m
                             </ul>
                         </div>
                     </div>
-                </article>
+                </article> -->
 
-                <article class="posts posts_text" id="654757308740550656">
+                <!-- <article class="posts posts_text" id="654757308740550656">
                     <div class="posts__perma">
                         <div class="posts__perma--reblog">
                             <a href="#">username</a>
@@ -505,9 +612,9 @@ if(window.tumblrNotesLoaded)if(tumblrNotesLoaded(notes_html)==false)return;var m
                             Ultrices dui sapien eget mi proin sed libero. Ipsum dolor sit amet consectetur adipiscing
                             elit pellentesque habitant. Ac turpis egestas integer eget aliquet nibh praesent. </p>
                     </div>
-                </article>
+                </article> -->
 
-                <article class="posts " id="654682818670100480">
+                <!-- <article class="posts " id="654682818670100480">
                     <div class="posts__perma">
                         <div class="posts__perma--reblog">
                             <a href="#">username</a>
@@ -566,6 +673,21 @@ if(window.tumblrNotesLoaded)if(tumblrNotesLoaded(notes_html)==false)return;var m
                 </article>
 
                 <article class="posts">
+                    <div class="posts__perma">
+                        <div class="posts__perma--reblog">
+                            <a href="#">username</a>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/></svg>
+                            <a href="#">username</a>
+                        </div>
+                        <div class="posts__perma--note">
+                            <button><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                            <ul class="posts__perma--popup">
+                                <li><a href="#">Reblog</a></li>
+                                <li><a href="#">Like</a></li>
+                                <li><a href="#">1.5k notes</a></li>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="posts__body">
                         <div class="reblog-list">
                             <div class="reblog-post-avatar"><img
@@ -638,10 +760,24 @@ if(window.tumblrNotesLoaded)if(tumblrNotesLoaded(notes_html)==false)return;var m
                             </ul>
                         </div>
                     </div>
-                </article>
+                </article> -->
 
-                <article class="posts">
-                   
+                <!-- <article class="posts">
+                    <div class="posts__perma">
+                        <div class="posts__perma--reblog">
+                            <a href="#">username</a>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/></svg>
+                            <a href="#">username</a>
+                        </div>
+                        <div class="posts__perma--note">
+                            <button><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                            <ul class="posts__perma--popup">
+                                <li><a href="#">Reblog</a></li>
+                                <li><a href="#">Like</a></li>
+                                <li><a href="#">1.5k notes</a></li>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="posts__body">
                         <h1>An example post</h1>
                         <h2>Another heading here</h2>
@@ -673,7 +809,10 @@ if(window.tumblrNotesLoaded)if(tumblrNotesLoaded(notes_html)==false)return;var m
                             velit magna. Ornare facilisi nulla eu mattis eget feugiat elit aenean. Nibh eleifend
                             posuere auctor cursus id massa nunc. Neque, duis odio amet urna eget.</p>
                     </div>
-                </article>
+                    <div class="posts__dated">
+                        Posted on September, 21 2021
+                    </div>
+                </article> -->
             </div>
 
             <nav class="pagination">

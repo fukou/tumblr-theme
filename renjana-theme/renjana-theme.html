@@ -13,7 +13,7 @@
         |  |     |  `--'  | |  .  \  |  `--'  | |  `--'  |
         |__|      \______/  |__|\__\  \______/   \______/  
                        
-                         Renjana Theme v.1.0.2
+                         Renjana Theme v.1.0.3
              
 -->
 <head>
@@ -27,7 +27,7 @@
         <meta name="description" content="{MetaDescription}">
     {/block:Description}
     
-    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/qTor0b0lp/main.min.css">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/8MAr3wqeo/main.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
@@ -64,7 +64,7 @@
      
      {/block:Hidden}
      
-     <style>
+     <style id="global">
             :root {
                 --hero:url("{HeaderImage}");
                 --hero-height:{text:Hero Top Section Image Height};
@@ -99,14 +99,27 @@
             .d-none {
                 display:none;
             }
+
+            {block:PermalinkPage}
+            .posts__perma--note {
+                display: none;
+            }
+            {/block:PermalinkPage}
+
+            {block:IfHideBorderTopSidebar}
+            .wrapper__sidebar--inner {
+                border:0!important;
+            }
+            {/block:HideBorderTopSidebar}
            
             @media (max-width:60rem) {
                 .is-first {
                     margin-bottom:2rem!important; 
                 }
             }
-           
-    {CustomCSS}
+    </style>
+    <style id="custom">
+        {CustomCSS}
     </style>
 </head>
 <body class="{select:Hero Top Section Image}" style="background-image:var(--bg);">
@@ -128,7 +141,7 @@
             {/block:SearchPage}
         </div>
         <section class="wrapper__inner">
-            <aside class="wrapper__sidebar" data-sticky-container>
+            <aside class="wrapper__sidebar">
                 <div class="wrapper__sidebar--inner is-first">
                     {block:IfShowHeroSidebarImage}
                     <div class="wrapper__sidebar--hero">
@@ -184,8 +197,82 @@
                 {/block:Twitter}
                 {/block:IfShowTwitterWidget}
                 
+                {block:Likes}
+                <div class="wrapper__sidebar--inner is-nav is-likes">
+                    {block:HasLikedPosts}
+                    <h2>{lang:Recently Liked}</h2>
+                    {block:LikedPosts limit="2"}
+                        <article class="posts-liked">
+                            <header><a href="{Permalink}"><img src="{PostBlogPortraitURL-30}">{PostBlogName}</a></header>
+                            <section class="media">{block:Text}{block:Title}
+                            <h1>{Title}</h1>{/block:Title}{/block:Text}{block:Photo}
+                            <figure{block:HighRes} class="tmblr-full"{/block:HighRes}>
+                                {LinkOpenTag}
+                                    <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"{block:Exif} title="{block:Camera} {Camera} {/block:Camera}{block:Aperture} {Aperture} {/block:Aperture}{block:Exposure} {Exposure} {/block:Exposure}{block:FocalLength} {FocalLength} {/block:FocalLength}"{/block:Exif}>
+                                {LinkCloseTag}
+                            </figure>{/block:Photo}
+                            {block:Photoset}
+                            {Photoset}{/block:Photoset}{block:Quote}
+                            <p class="npf_quote {Length}">{Quote}</p>{block:Source}<p class="npf_quote_source">&mdash; {Source}</p>{/block:Source}{/block:Quote}{block:Link}
+                            <div class="npf-link-block {block:Thumbnail}has-poster not-{/block:Thumbnail}no-poster">
+                                <a href="{URL}" {Target}>{block:Thumbnail}
+                                    <div class="poster" style="background-image: url({Thumbnail-HighRes});">{/block:Thumbnail}
+                                        <div class="title">{Name}</div>{block:Thumbnail}
+                                    </div>{/block:Thumbnail}
+                                    <div class="bottom">{block:Excerpt}
+                                        <div class="description">{Excerpt}</div>{/block:Excerpt}{block:Host}
+                                        <div class="site-name">{Host}</div>{/block:Host}
+                                    </div>
+                                </a>
+                            </div>{/block:Link}{block:Chat}{block:Title}
+                            <h1>{Title}</h1>{/block:Title}{block:Lines}
+                            <p class="npf_chat">{block:Label}
+                                <b>{Label}</b>{/block:Label}
+                                {Line}
+                            </p>{/block:Lines}{/block:Chat}{block:Audio}{block:AudioPlayer}{AudioPlayer}{/block:AudioPlayer}{/block:Audio}{block:Video}
+                            {Video-500}{/block:Video}{block:Answer}
+                            <div class="posts-liked__question">
+                                <strong class="username">{Asker}</strong>
+                                <blockquote>{Question}</blockquote>
+                            </div>{block:Answerer}
+                            <div class="posts-liked__question">
+                                <strong class="username">{Answerer}</strong>
+                                <blockquote>{Answer}</blockquote>
+                            </div>{/block:Answerer}{/block:Answer}
+                            </section>
+                            
+                            <section class="body">
+                            {block:Reblogs}
+                            <div class="reblog">
+                                <p class="user">{block:HasPermalink}
+                                    <a href="{Permalink}" target="_blank">{/block:HasPermalink}<strong class="username{block:IsDeactivated} deactivated{/block:IsDeactivated}">{Username}</strong>{block:HasPermalink}
+                                    </a>{/block:HasPermalink}
+                                </p>
+                                {Body}
+                            </div>
+                            {/block:Reblogs}
+                            {block:NotReblog}
+                            <div class="original">{block:Text}
+                                {Body}{/block:Text}{block:Photo}{block:Caption}
+                                {Caption}{/block:Caption}{/block:Photo}{block:Panorama}{block:Caption}
+                                {Caption}{/block:Caption}{/block:Panorama}{block:Photoset}{block:Caption}
+                                {Caption}{/block:Caption}{/block:Photoset}{block:Link}{block:Description}
+                                {Description}{/block:Description}{/block:Link}{block:Audio}{block:Caption}
+                                {Caption}{/block:Caption}{/block:Audio}{block:Video}{block:Caption}
+                                {Caption}{/block:Caption}{/block:Video}{block:Answer}
+                                {Answer}{/block:Answer}
+                            </div>
+                            {/block:NotReblog}
+                            </section>
+                        </article>
+                    {/block:LikedPosts}
+                    <a href="/likes" class="posts-liked__button">{lang:More liked posts}</a>
+                    {/block:HasLikedPosts}
+                </div>
+                {/block:Likes}	
+                
                 {block:HasPages} 
-                <div class="wrapper__sidebar--inner is-nav sticky" data-margin-top="85" data-sticky-for="1023">
+                <div class="wrapper__sidebar--inner is-nav is-sticky">
                     <div class="wrapper__sidebar--body">
                         <h2>Quick Links</h2>
                             <ul class="additional-links">
@@ -200,34 +287,42 @@
                 {/block:HasPages}
             </aside>
             <div class="wrapper__blog">
+                {block:IndexPage}
+                       {block:NoPosts}
+                            <article class="posts posts-empty">
+                              <h2>{lang:This Tumblr hasnt made any posts}</h2>
+                           </article>
+                       {/block:NoPosts}
+                {/block:IndexPage}
+
                 {block:Posts inlineMediaWidth="700" inlineNestedMediaWidth="700"}
                     <article class="posts posts-{PostType}{block:PinnedPostLabel} pinned{/block:PinnedPostLabel} {TagsAsClasses}" id="{PostID}">
-                        {block:Date}
-                             <div class="posts__perma">
-                                <div class="posts__perma--reblog">
-                                    <a href="{Permalink}">{Name}</a>
-                                    {block:RebloggedFrom} 
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/></svg>
-                                    <a href="{ReblogParentURL}">{ReblogParentName}</a>
-                                    {/block:RebloggedFrom}
-                                </div> 
-                                
-                                <div class="posts__perma--note">
-                                    {block:Actions}
-                                        <div class="post-cta-action">
-                                            <a href="{url}" rel="nofollow noreferrer noopener" target="_blank">{text}</a>
-                                        </div>
-                                    {/block:Actions}
+                            {block:Date}
+                                <div class="posts__perma">
+                                    <div class="posts__perma--reblog">
+                                        <a href="{Permalink}">{Name}</a>
+                                        {block:RebloggedFrom} 
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/></svg>
+                                        <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                                        {/block:RebloggedFrom}
+                                    </div> 
+                                    
+                                    <div class="posts__perma--note">
+                                        {block:Actions}
+                                            <div class="post-cta-action">
+                                                <a href="{url}" rel="nofollow noreferrer noopener" target="_blank">{text}</a>
+                                            </div>
+                                        {/block:Actions}
 
-                                    <button><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
-                                    <ul class="posts__perma--popup">
-                                        <li><a href="{ReblogURL}">Reblog</a></li>
-                                        <li class="like-b">{LikeButton}</li>
-                                        <li><a href="{Permalink}" {Target}>{NoteCountWithLabel}</a></li>
-                                    </ul>
+                                        <button><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                                        <ul class="posts__perma--popup">
+                                            <li><a href="{ReblogURL}">Reblog</a></li>
+                                            <li class="like-b">{LikeButton}</li>
+                                            <li><a href="{Permalink}" {Target}>{NoteCountWithLabel}</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                         {/block:Date}
+                            {/block:Date}
                             
                             {block:Quote}
                              <div class="posts__quote">
@@ -592,7 +687,6 @@
 
     <script src="https://static.tumblr.com/0podkko/jfMplm3f8/modified_photosets.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/boscoxvi/npfphotosets/npfphotosets.js"></script>
-    <script src="https://static.tumblr.com/5ojoydj/YMnpxsxmz/sticky.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
     <script src="//unpkg.com/fast-average-color/dist/index.min.js"></script>
     <script src="https://static.tumblr.com/5ojoydj/PRhqvo498/tags.js"></script> 
@@ -615,7 +709,6 @@
               });
         });
 
-        var sticky = new Sticky(".sticky");
         var spoiler = new filterTags({
             filterList: [{text:Posts Filter Lists}],
             showTags: true,
@@ -703,7 +796,7 @@
     </script>
     
     {block:Twitter}
-    <script type="text/javascript" src="https://static.tumblr.com/5ojoydj/K59qycgio/display_tweet.js"></script>
+    <script type="text/javascript" src="https://static.tumblr.com/5ojoydj/mpgr3wqfp/display_tweet.js"></script>
     <script type="text/javascript" src="/tweets.js"></script>
     {/block:Twitter}
 </body>
