@@ -13,7 +13,7 @@
         |  |     |  `--'  | |  .  \  |  `--'  | |  `--'  |
         |__|      \______/  |__|\__\  \______/   \______/  
                        
-                         Renjana Theme v.1.0.3
+                         Renjana Theme v.1.0.4
              
 -->
 <head>
@@ -27,7 +27,7 @@
         <meta name="description" content="{MetaDescription}">
     {/block:Description}
     
-    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/XFtr3wrbm/main.min.css">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/SEGr3yftw/main.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
@@ -56,8 +56,8 @@
      <meta name="select:Show Tags" content="d-block" title="Enable">
      <meta name="select:Show Tags" content="d-none" title="Disable">
      
-     <meta name="select:Hero Top Section Image" content="d-hblock" title="Enable">
      <meta name="select:Hero Top Section Image" content="d-hnone" title="Disable">
+     <meta name="select:Hero Top Section Image" content="d-hblock" title="Enable">
      
      <meta name="if:Hide Border Top Sidebar" content="0">
      <meta name="if:Show Hero Sidebar Image" content="0">
@@ -158,7 +158,7 @@
                             <li {block:HomePage} class="current"{/block:HomePage}><a href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> {lang:Home}</a></li>
                             <li><a href="/archive"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><path d="M14 3v5h5M16 13H8M16 17H8M10 9H8"/></svg> {lang:Archive}</a></li>
                             {block:AskEnabled}
-                            <li {block:AskPage} class="current"{/block:AskPage}><a href="/ask"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 12H16c-.7 2-2 3-4 3s-3.3-1-4-3H2.5"/><path d="M5.5 5.1L2 12v6c0 1.1.9 2 2 2h16a2 2 0 002-2v-6l-3.4-6.9A2 2 0 0016.8 4H7.2a2 2 0 00-1.8 1.1z"/></svg> {block:English}Inbox{/block:English}{block:German}Posteingang{/block:German}{block:French}Boîte de réception{/block:French}{block:Italian}Posta in arrivo{/block:Italian}{block:Japanese}受信ボックス{/block:Japanese}{block:Turkish}Gelen Kutusu{/block:Turkish}{block:Spanish}Bandeja de entrada{/block:Spanish}{block:Russian}Входящие{/block:Russian}{block:Polish}Skrzynka odbiorcza{/block:Polish}{block:PortuguesePT}Caixa de entrada{/block:PortuguesePT}{block:PortugueseBR}Caixa de entrada{/block:PortugueseBR}{block:Dutch}Inbox{/block:Dutch}{block:Korean}수신함{/block:Korean}{block:ChineseSimplified}收件箱{/block:ChineseSimplified}{block:ChineseTraditional}收件匣{/block:ChineseTraditional}{block:ChineseHK}收件匣{/block:ChineseHK}{block:Indonesian}Kotak masuk{/block:Indonesian}{block:Hindi}इनबॉक्स{/block:Hindi}</a></li>
+                            <li {block:AskPage} class="current"{/block:AskPage}><a href="/ask"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 12H16c-.7 2-2 3-4 3s-3.3-1-4-3H2.5"/><path d="M5.5 5.1L2 12v6c0 1.1.9 2 2 2h16a2 2 0 002-2v-6l-3.4-6.9A2 2 0 0016.8 4H7.2a2 2 0 00-1.8 1.1z"/></svg> {AskLabel}</a></li>
                             {/block:AskEnabled}
                             {block:SubmissionsEnabled}
                             <li {block:SubmitPage} class="current"{/block:SubmitPage}><a href="/submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="14 2 18 6 7 17 3 17 3 13 14 2"></polygon><line x1="3" y1="22" x2="21" y2="22"></line></svg> {SubmitLabel}</a></li>
@@ -296,7 +296,7 @@
                 {/block:IndexPage}
 
                 {block:Posts inlineMediaWidth="700" inlineNestedMediaWidth="700"}
-                    <article class="posts posts-{PostType}{block:PinnedPostLabel} pinned{/block:PinnedPostLabel} {TagsAsClasses}" id="{PostID}">
+                    <article class="posts posts-{PostType}{block:PinnedPostLabel} pinned{/block:PinnedPostLabel} {TagsAsClasses}{block:PermalinkPage}is-permalink{/block:PermalinkPage}" id="{PostID}">
                             {block:Date}
                                 <div class="posts__perma">
                                     <div class="posts__perma--reblog">

@@ -1401,10 +1401,12 @@ ol.notes {
       padding: 0.5rem 0 0 0;
       margin: 1rem 0 0.75rem 0rem;
       text-align: center;
+      color:rgba(var(--heading-text), 1);
    }
 }
  
  .posts-liked {
+   color:rgba(var(--body-text), 1);
    &__button {
       display: inline-flex;
       align-items: center;
