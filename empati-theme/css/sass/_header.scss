@@ -73,6 +73,12 @@
          top: 0;
          margin: 1.25rem;
        }
+
+       &:not(.is-visible) {
+         visibility: hidden;
+         opacity: 0;
+         pointer-events: none;
+       }
    }
 
    &__inner {
