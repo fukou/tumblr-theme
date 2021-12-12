@@ -76,6 +76,7 @@
             <meta name="text:DeviantArt URL" content=""/>
             <meta name="text:Reddit URL" content=""/>
             <meta name="text:Discord URL" content=""/>
+            <meta name="text:Kofi URL" content=""/>
             {/block:Hidden}
 
             {PostTypographyStyles}
@@ -632,6 +633,10 @@
                                  {block:IfDiscordURL}
                                  <li><a href="{text:Discord URL}"><i class="lab la-discord"></i></a></li>
                                  {/block:IfDiscordURL}
+
+                                 {block:IfKofiURL}
+                                 <li><a href="{text:Kofi URL}"><i class="las la-mug-hot"></i></a></li>
+                                 {/block:IfKofiURL}
                            </ul>
                      </div>
                      <div class="footer__credit">
