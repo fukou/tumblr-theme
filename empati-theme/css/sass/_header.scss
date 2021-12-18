@@ -67,17 +67,21 @@
        padding:0.85rem;
        border-radius: 50%;
 
+       &:not(.is-visible) {
+         visibility: hidden;
+         opacity: 0;
+         pointer-events: none;
+       }
+
        &--close {
          position: absolute;
          right: 0;
          top: 0;
          margin: 1.25rem;
-       }
 
-       &:not(.is-visible) {
-         visibility: hidden;
-         opacity: 0;
-         pointer-events: none;
+         opacity: 1!important;
+         visibility: visible!important;
+         pointer-events: auto!important;
        }
    }
 
