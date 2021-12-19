@@ -30,7 +30,6 @@
 
   &__inner {
     display: grid;
-    // grid-template-columns: 1fr 1fr minmax(auto, 62.5rem) 1fr 1fr;
     grid-template-columns: 1fr 1fr minmax(auto, 75rem) 1fr 1fr;
     margin: 3.5rem 1rem;
 
@@ -47,8 +46,6 @@
       border-radius: 8px;
 
       border: 1px solid rgba(var(--heading-text), 0.1);
-
-      // box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05);
       box-shadow: rgba(var(--heading-text), 0.15) 1.95px 1.95px 2.6px;
 
       &__view,
@@ -70,18 +67,19 @@
 
       &-audio {
         @media (min-width: 60rem) {
-          margin: 0 8.5rem;
+          margin: 0 3.5rem;
+        }
+        .posts__media {
+          grid-area: Photo;
         }
       }
 
       &-photo .posts__media {
-        grid-column: 1/3;
-        grid-row: 1/4;
+        grid-area: Photo;
 
         position: relative;
         height: 0;
-        // padding-bottom: calc(100% + 35px);
-        padding-bottom: calc(100% - 30px);
+        padding-bottom: calc(100% - 0px);
 
         img {
           position: absolute;
@@ -100,12 +98,29 @@
         .posts__inner {
           position: relative;
           display: grid;
-          // grid-template-rows: 1fr 1fr;
-          grid-template-rows: repeat(8, 1fr);
-          max-height: 600px;
+          display: grid;
+          grid-template-columns: 2.5fr 1fr 1fr;
+          grid-template-rows: 0.5fr 1fr 1fr 1fr;
+          gap: 0px 0px;
+          grid-template-areas:
+              "Photo Perma Perma"
+              "Photo Content Content"
+              "Photo Content Content"
+              "Photo Content Content"
+              "Photo Content Content"
+              "Photo Content Content"
+              "Photo Date Date";
 
           @media (max-width: 60rem) {
             grid-template-columns: 1fr;
+            grid-template-areas:
+            "Perma Perma Perma"
+            "Photo Photo Photo"
+            "Photo Photo Photo "
+            "Photo Photo Photo "
+            "Content Content Content"
+            "Content Content Content"
+            "Date Date Date";
           }
         }
 
@@ -120,18 +135,6 @@
       &-photo, &-photoset, &-audio {
         .posts__tags {
           display: none;
-        }
-      }
-
-      &-photo {
-        .posts__inner {
-          grid-template-columns: 45rem auto;
-        }
-      }
-
-      &-audio {
-        .posts__inner {
-          grid-template-columns: 25rem auto;
         }
       }
 
@@ -166,8 +169,6 @@
       }
 
       &__audio {
-        grid-column: 1/2;
-        grid-row: 1/4;
         position: relative;
         border-right: 1px solid rgba(0, 0, 0, 0.15);
 
@@ -175,17 +176,10 @@
           display: none;
        }
 
-        @media (max-width: 60rem) {
-          grid-column: 1/4;
-          grid-row: auto;
-        }
-
         &--album {
           position: relative;
           height: 0;
           padding-bottom: 100%;
-
-          //    filter: blur(10px);
 
           img {
             position: absolute;
@@ -374,8 +368,8 @@
       }
 
       &__permalink {
-        grid-row: 1/2;
-        grid-column: 3/4;
+        grid-area: Perma;
+
         position: relative;
         display: flex;
         align-items: center;
@@ -441,8 +435,7 @@
       }
 
       &__perma {
-        grid-column: 3/4;
-        grid-row: 8/-1;
+        grid-area: Date;
 
         display: flex;
         align-items: center;
@@ -458,8 +451,8 @@
       }
 
       &__body {
-        grid-row: 2/8;
-        grid-column: 3/4;
+        grid-area: Content;
+
         color: rgba(var(--body-text), 1);
 
         @media (max-width: 60rem) {
