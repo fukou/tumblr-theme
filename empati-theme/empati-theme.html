@@ -13,7 +13,7 @@
         |  |     |  `--'  | |  .  \  |  `--'  | |  `--'  |
         |__|      \______/  |__|\__\  \______/   \______/  
                        
-                    Empati (Tamako) Theme v.1.0.2
+                    Empati (Tamako) Theme v.1.0.3
              
 -->
 
@@ -26,7 +26,7 @@
             {MobileAppHeaders}
             <link rel="shortcut icon" href="{Favicon}">
             <link rel="alternate" type="application/rss+xml" href="{RSS}">
-            <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/0Kgr4d46s/main.min.css">
+            <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/tjjr7cj1m/main.min.css">
             <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"/>
             <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"/>
             <link href="https://cdn.jsdelivr.net/gh/boscoxvi/npfphotosets/npfphotosetstyle.css" rel="stylesheet" type="text/css">
@@ -54,6 +54,7 @@
             <meta name="select:Posts Type" content="is-grid" title="Show Grid Posts">
             <meta name="select:Posts Type" content="is-list" title="Show List Posts">
             <meta name="select:Posts Type" content="is-masonry" title="Show Masonry Posts">
+            <meta name="select:Posts Type" content="is-alternative" title="Show Alternative Posts">
             
             <meta name="color:Header Navigation Link Color" content="#EEEEEE" />
             <meta name="color:Header Description Text Color" content="#777777" />
@@ -109,6 +110,10 @@
                 
                 @import url('https://rsms.me/inter/inter.css');
                 
+                body {
+                  font-feature-settings: "salt", "cv11", "ccmp", "kern";
+                }
+
                 html {
                     font-size:{select:Font Size}px;
                 }

@@ -97,7 +97,8 @@
       &-audio {
         .posts__inner {
           position: relative;
-          display: grid;
+          max-height:600px;
+
           display: grid;
           grid-template-columns: 2.5fr 1fr 1fr;
           grid-template-rows: 0.5fr 1fr 1fr 1fr;
@@ -364,6 +365,7 @@
           font-size: 1.5rem;
           padding: 1rem 2rem;
           border-bottom: 1px solid rgba(var(--heading-text), 0.1);
+          color:rgba(var(--heading-text), 1);
         }
       }
 
