@@ -47,7 +47,7 @@ function filterTags(options) {
             if(b === a) isFiltered = true} ));
 
         if(isFiltered) {
-            item.setAttribute("post-data", "filtered")
+            item.setAttribute("data-post-type", "filtered")
             item.prepend(containerFilter);
 
             item.querySelector(".view-post").addEventListener("click", function() {
@@ -57,3 +57,11 @@ function filterTags(options) {
         }
     });
 }
+
+const metaTags = `
+<meta name="text:Posts Filter Lists" content='"spoiler", "spoilers","warning"' />
+<meta name="text:Posts Filter Button Text" content="View post"/>
+<meta name="text:Posts Filter Warning Text" content="This post contains filtered tags"/>
+`;
+
+document.head.appendChild(metaTags);
