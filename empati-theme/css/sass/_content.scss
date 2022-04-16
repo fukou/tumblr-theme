@@ -71,8 +71,24 @@ body {
         gap: 1rem;
         grid-auto-flow: row dense;
         grid-auto-rows: 290px;
+        @media (max-width:60rem) {
+          display: flex;
+          flex-direction: column;
+        }
 
         .posts {
+          &.posts-photo-text {
+            .posts__body {
+              .reblog-list {
+                figure.tmblr-full:first-of-type {
+                  padding-bottom: 150%;
+                  ~ p {
+                    display: none;
+                  }
+                }
+              }
+            }
+          }
           &.posts-photoset-text {
             .posts__inner {
               [photoset-layout] div {
@@ -80,15 +96,22 @@ body {
               }
             }
           }
-          &__inner {
-            height: 100%;
+          &__users {
+            @media (max-width:60rem) {
+              display: none!important;
+            }
           }
-          &__image {
-            padding-bottom:135%;
-          }
-          &__audio {
-            &--album {
+          @media (min-width:60.15rem) {
+            &__inner {
+              height: 100%;
+            }
+            &__image {
               padding-bottom:135%;
+            }
+            &__audio {
+              &--album {
+                padding-bottom:135%;
+              }
             }
           }
         }
