@@ -292,6 +292,12 @@ pre {
                   border-radius: 30px;
 
                   text-decoration: none;
+                  transition:0.5s;
+                  
+                  &:hover {
+                     background-color: rgba(var(--accent-color-one), 1);
+                     color:rgba(var(--bg-card), 1);
+                  }
                }
             }
          }
