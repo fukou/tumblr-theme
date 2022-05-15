@@ -89,14 +89,16 @@ body {
               }
             }
           }
-          &.posts-photoset-text {
-            .posts__inner {
-              [photoset-layout] div {
-                padding-bottom:135%;
+          @media (min-width:60.15rem) {
+            &.posts-photoset-text {
+              .posts__inner {
+                [photoset-layout] div {
+                  padding-bottom:135%;
+                }
               }
             }
           }
-          &__users {
+          &__user {
             @media (max-width:60rem) {
               display: none!important;
             }
@@ -132,10 +134,6 @@ body {
       }
     }
   }
-}
-
-html {
-  font-feature-settings: "salt", "cv11", "ccmp", "kern";
 }
 
 * {
