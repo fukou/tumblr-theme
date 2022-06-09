@@ -1,0 +1,164 @@
+.music {
+    position: relative;
+    background-color: rgba(var(--accent-2), 0.25);
+    // background-image: url("https://static.tumblr.com/5ojoydj/7N6qj4do6/cartographer.png");
+    background-repeat: repeat;
+    max-width: 100%;
+    min-height: 285px;
+    overflow: hidden;
+    border-radius: 8px;
+    &__progress {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 1px;
+      height: 5px;
+      background: #777;
+      -webkit-transition: width 0.1s linear;
+      transition: width 0.1s linear;
+    }
+
+    &__inner {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: calc(100% - 2rem);
+      height: 65%;
+      margin: 1rem;
+      background-color: #f4f4ec;
+      border-radius: 5px;
+      background-size: cover;
+      background-image: url("https://i.gifer.com/JZSF.gif");
+    }
+
+    &__counts {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 0.35rem;
+      padding: 0.25rem 0.5rem;
+      color: #333;
+      font-weight: bold;
+      background-color: rgba(255, 255, 255, 0.5);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border-radius: 5px;
+    }
+
+    &__duration {
+      position: absolute;
+      bottom: -0.85rem;
+      left: 0;
+      width: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      background-color: #333;
+      color:white;
+      padding: 0.5rem 0.5rem;
+      font-weight: bold;
+    
+      .currentDurs::after {
+        content: "/";
+        margin: 0 1rem;
+      }
+    }
+
+    &__information {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 1.5rem 1rem;
+      font-size: 0.9rem;
+      color: rgba(var(--heading-text), 1);
+      text-align: center;
+    }
+
+    &__button {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      padding: 0 1rem;
+    
+      [class*="play-"] {
+        cursor: pointer;
+        width: 2.5rem;
+        height: 2.5rem;
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        border: 0;
+        background: #444;
+        color: white;
+        border-radius: 50%;
+        -webkit-transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+        transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    
+        &:disabled {
+          opacity: 0.15;
+          cursor: not-allowed;
+        }
+    
+        &:hover {
+          -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+        }
+    
+        &:focus, &:focus-within {
+          outline-color: transparent;
+          outline-width: 0;
+          -webkit-box-shadow: 0 0 0 2.5px #88b8ff;
+          box-shadow: 0 0 0 2.5px #88b8ff;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    &__player {
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      width: 70%;
+      -webkit-transform: translate(-50%, -60%);
+      transform: translate(-50%, -60%);
+      height: 25%;
+      background-color: rgba(34, 34, 34, 0.5);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+    
+      &:before {
+        left: 1rem;
+      }
+    
+      &::after {
+        right: 1rem;
+      }
+    }
+
+  }
+ 

@@ -1,0 +1,25 @@
+.calendar {
+  padding: 1.5em;
+  background-color:  rgba(var(--accent-2), 0.25);
+  border:2px solid rgba(var(--accent-2), 1);
+  border-radius: 8px;
+
+  &__month {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.25rem;
+    padding-bottom: 1.5rem;
+  }
+
+  &__days {
+      > div {
+          text-align: center;
+      }
+  }
+
+  &__days,
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+}

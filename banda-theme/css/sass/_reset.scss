@@ -84,3 +84,16 @@ select {
     font-size:14px;
   }
 }
+
+.container {
+  max-width: 60rem;
+  margin:0 auto;
+
+  &--medium {
+    max-width: 50rem;
+  }
+
+  &--small {
+    max-width: 40rem;
+  }
+}
