@@ -1,5 +1,5 @@
 // https://interactjs.io/docs/draggable/
-const elements = document.querySelectorAll('.posts__tags ul.t-draggable');
+const elements = document.querySelectorAll('.posts__tags.t-draggable ul');
 var x = 0; var y = 0;
 
 if(elements) {
