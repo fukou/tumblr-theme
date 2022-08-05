@@ -13,7 +13,7 @@
         |  |     |  `--'  | |  .  \  |  `--'  | |  `--'  |
         |__|      \______/  |__|\__\  \______/   \______/  
                        
-                         Renjana Theme v.1.0.6
+                         Renjana Theme v.1.0.7
              
 -->
 <head>
@@ -27,7 +27,7 @@
         <meta name="description" content="{MetaDescription}">
     {/block:Description}
     
-    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/Y4Srbx4c6/main.min.css">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/5uIrg4wq3/main.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"> 
@@ -55,6 +55,9 @@
     
      <meta name="select:Show Tags" content="d-block" title="Enable">
      <meta name="select:Show Tags" content="d-none" title="Disable">
+     
+     <meta name="select:Tags Options" content="t-normal" title="Normal">
+     <meta name="select:Tags Options" content="t-draggable" title="Draggable">
      
      <meta name="select:Hero Top Section Image" content="d-hnone" title="Disable">
      <meta name="select:Hero Top Section Image" content="d-hblock" title="Enable">
@@ -607,7 +610,7 @@
                             
                             {block:HasTags}
                             <div class="{select:Show Tags}">
-                                <div class="posts__tags">
+                                <div class="posts__tags {select:Tags Options}">
                                     {block:PinnedPostLabel} 
                                     <span class="pinned"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>{lang:Pinned Post}</span>                  
                                     {/block:PinnedPostLabel} 
@@ -685,7 +688,7 @@
     <script src="https://cdn.jsdelivr.net/gh/boscoxvi/npfphotosets/npfphotosets.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
     <script src="//unpkg.com/fast-average-color/dist/index.min.js"></script>
-    <script src="https://static.tumblr.com/5ojoydj/PRhqvo498/tags.js"></script> 
+    <script src="https://static.tumblr.com/5ojoydj/lYTrg4wcn/tags.js"></script> 
     <script src="https://static.tumblr.com/5ojoydj/X4Fqvo49g/parallax.js"></script>
     <script src="https://static.tumblr.com/5ojoydj/LnSqvo49u/audio.js"></script>
     <script src="https://static.tumblr.com/5ojoydj/f41qynq0j/filter.js"></script>
