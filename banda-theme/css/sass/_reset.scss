@@ -79,7 +79,7 @@ select {
 }
 
 
-@media (max-width:60rem) {
+@media (max-width:992px) {
   html {
     font-size:14px;
   }
@@ -96,4 +96,15 @@ select {
   &--small {
     max-width: 40rem;
   }
+}
+
+.visually-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
 }

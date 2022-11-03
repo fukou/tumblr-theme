@@ -13,11 +13,9 @@
     &__info {
         position: relative;
         background-color: rgba(var(--bg-card), 1);
-        border:1px solid rgba(0, 0, 0, 0.1);
+        border:1px solid rgba(var(--heading-text), 0.15);
         color: rgba(var(--body-text), 1);
         border-radius: 5px;
-        // box-shadow: 3px 4px 9px rgba(0, 0, 0, 0.06);
-        box-shadow: rgba(var(--heading-text), 0.15) 1.95px 1.95px 2.6px;
         padding:1rem 1.25rem;
 
         @media (max-width:60rem) {
@@ -38,7 +36,7 @@
                 background-color: rgba(var(--heading-text), 1);
             }
 
-            background-color:rgba(var(--accent), 1);
+            background-color:rgba(var(--accent-3), 1);
             color: rgba(var(--bg-card), 1);
 
             padding:1rem 1.25rem;

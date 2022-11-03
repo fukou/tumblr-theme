@@ -39,7 +39,7 @@
      <meta name="color:Selection Text Color" content="#333333" />
      <meta name="color:Selection Text Background Color" content="#f8ff92" />
      
-     <meta name="if:Featured Posts" content="1"/>
+     <meta name="if:Featured Posts" content="0"/>
      <meta name="if:Selection Color" content="1"/>
      <meta name="if:Search Bar On Navigation" content="0"/>
      
@@ -78,7 +78,7 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
      <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/min/tiny-slider.helper.ie8.js"></script><![endif]-->
      
-    <style>
+    <style id="global">
             :root {
                 --hero:url("{HeaderImage}");
                 
@@ -215,8 +215,9 @@
             .nav__navigation ul li a.current-page::before {
                 width:100%;
             }
-            
-          {CustomCSS}
+    </style>
+    <style id="custom">
+         {CustomCSS}
     </style>
 </head>
 <body>
@@ -812,7 +813,7 @@
                     {/block:Pagination}
                 </nav>
                 
-                 <footer class="footer" data-aos="fade-in" data-aos-delay="300">
+                 <footer class="footer">
                     <div class="footer__inner">
                         <div class="footer__copyright">
                             Copyright © {Name} {CopyrightYears}. All rights reserved.
@@ -931,7 +932,7 @@
         const npfOptions = {
            includeCommonPhotosets: false,
            photosetMargins:"30",
-           insertGalleryIndicator:true,
+           insertGalleryIndicator:false,
            galleryIndicatorClass:"npf_gallery_indicator",
            galleryIndicatorContent:"<i class='las la-expand'></i>"
         }

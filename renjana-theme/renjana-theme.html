@@ -21,16 +21,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="{AccentColor}">
     {block:Description}
         <meta name="description" content="{MetaDescription}">
     {/block:Description}
     
-    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/5uIrg4wq3/main.min.css">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/f9brkruye/main.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;600;800&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"> 
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
      <link rel="shortcut icon" href="{Favicon}">
@@ -38,7 +37,8 @@
      <link rel="alternate" type="application/rss+xml" href="{RSS}">
      <link href="https://cdn.jsdelivr.net/gh/boscoxvi/npfphotosets/npfphotosetstyle.css" rel="stylesheet" type="text/css">
      <link href="https://static.tumblr.com/0podkko/xIbplezmo/modified_photosets.css" rel="stylesheet">
-     
+     <link rel="stylesheet" type="text/css" href="https://assets.tumblr.com/fonts/favorit/stylesheet.css?v=1">
+
      {block:Hidden}
      <meta name="image:Background Image" content="">
      <meta name="image:Hero Sidebar Image" content="https://static.tumblr.com/5ojoydj/h0lqvp8so/hero.jpg">
@@ -47,6 +47,12 @@
      <meta name="color:Posts Body Link Color" content="#111111" />
      <meta name="color:Posts Body Heading Color" content="#111111" />
      <meta name="color:Posts Body Text Color" content="#444444" />
+     
+     <meta name="select:Font Family" content="Be Vietnam Pro, sans-serif" title="Be Vietnam Pro">
+     <meta name="select:Font Family" content="Favorit, sans-serif" title="Favorit (Tumblr)">
+     <meta name="select:Font Family" content="Inter, sans-serif" title="Inter">
+     <meta name="select:Font Family" content="Roboto, sans-serif" title="Roboto">
+     <meta name="select:Font Family" content="Source Sans Pro, sans-serif" title="Source Sans Pro">
      
      <meta name="text:Posts Filter Lists" content='"spoiler", "spoilers","warning"' />
      <meta name="text:Posts Filter Button Text" content="View post"/>
@@ -69,15 +75,17 @@
      
      <style id="global">
             :root {
+                --title-font: {TitleFont};
+                --title-font-weight:{TitleFontWeight};
+
                 --hero:url("{HeaderImage}");
                 --hero-height:{text:Hero Top Section Image Height};
                 
                 --bg: url("{image:Background Image}");
-                --heading-font:'Source Serif Pro', serif;
-                --body-font: 'Be Vietnam Pro', sans-serif;
-                --code-font:'Consolas', monospace;
                 
-                --white:255,255,255;
+                --heading-font:{select:Font Family};
+                --body-font: {select:Font Family};
+                --code-font:'Consolas', monospace;
             
                 --accent-color-one:{RGBAccentColor}; /* {AccentColor} */
             
@@ -91,14 +99,6 @@
                 --tumblr-controls:rgba({RGBcolor:Posts Background Color}, 0.5);
             }
             
-            .d-block {
-                display:block;
-            }
-            
-            .d-none {
-                display:none;
-            }
-
             {block:PermalinkPage}
             .posts__perma--note {
                 display: none!important;
@@ -110,12 +110,6 @@
                 border:0!important;
             }
             {/block:IfHideBorderTopSidebar}
-           
-            @media (max-width:60rem) {
-                .is-first {
-                    margin-bottom:2rem!important; 
-                }
-            }
     </style>
     <style id="custom">
         {CustomCSS}
@@ -149,7 +143,7 @@
                     {/block:IfShowHeroSidebarImage}
                     <div class="wrapper__sidebar--body">
                         {block:ShowAvatar}<a href="/"><img class="wrapper__sidebar--avatar {AvatarShape} {block:IfNotShowHeroSidebarImage}mt-normal{/block:IfNotShowHeroSidebarImage}" src="{PortraitURL-128}" alt="{Name}"></a>{/block:ShowAvatar}
-                        {block:ShowTitle}<h2>{Title}</h2>{/block:ShowTitle}
+                        {block:ShowTitle}<h2 id="title">{Title}</h2>{/block:ShowTitle}
                         {block:ShowDescription}{Description}{/block:ShowDescription}
                     </div>
                      <nav>
@@ -296,6 +290,9 @@
 
                 {block:Posts inlineMediaWidth="700" inlineNestedMediaWidth="700"}
                     <article class="posts posts-{PostType}{block:PinnedPostLabel} pinned{/block:PinnedPostLabel} {TagsAsClasses}{block:PermalinkPage}is-permalink{/block:PermalinkPage}" id="{PostID}">
+                            {block:PinnedPostLabel} 
+                            <div class="pinned__label"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>{lang:Pinned Post}</div>                  
+                            {/block:PinnedPostLabel}
                             {block:Date}
                                 <div class="posts__perma">
                                     <div class="posts__perma--reblog">
@@ -611,10 +608,6 @@
                             {block:HasTags}
                             <div class="{select:Show Tags}">
                                 <div class="posts__tags {select:Tags Options}">
-                                    {block:PinnedPostLabel} 
-                                    <span class="pinned"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>{lang:Pinned Post}</span>                  
-                                    {/block:PinnedPostLabel} 
-                                    
                                     <div class="posts__tags--inner">
                                         <ul>
                                             {block:Tags}

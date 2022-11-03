@@ -1,0 +1,431 @@
+<!-- 
+    - page '' by skye southcodes.tumblr.com
+    - modify as you please but please do not touch the credit
+    - any errors? need help? have questions? let me know!
+    southcodes.tumblr.com/inbox
+    
+    - normalize css by https://github.com/necolas
+    - fonts by google
+    - icon font by http://fontawesome.io/icons/
+    - isotope filters https://codepen.io/desandro/pen/beeEKr/e24ee19a0727784a4f3b7d9b9be0d977
+    - pop ups http://jsfiddle.net/JKurcik/WGPhG/1124/
+
+ -->
+ <!DOCTYPE html>
+ <html>
+ <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#">
+   <title>duscae</title>
+     
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+     <style>figure{margin:0}.tmblr-iframe{position:absolute}.tmblr-iframe.hide{display:none}.tmblr-iframe--amp-cta-button{visibility:hidden;position:fixed;bottom:10px;left:50%;transform:translateX(-50%);z-index:100}.tmblr-iframe--amp-cta-button.tmblr-iframe--loaded{visibility:visible;animation:iframe-app-cta-transition .2s ease-out}</style><link rel="stylesheet" media="screen" href="https://assets.tumblr.com/client/prod/standalone/blog-network-npf/index.build.css?_v=28e129e6980bd6eb62e58629b2950a27"><link rel="shortcut icon" href="https://64.media.tumblr.com/4a1c8bcbfe50e206b30c16c8e5f20fb3/67993117dc89d15d-40/s128x128u_c1/af94f8b1b24c04192c4a98e8e44328e38d7ddf8d.jpg">
+     <meta name="description" content=""/>
+ 
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Passions+Conflict&display=swap" rel="stylesheet">
+     
+     <!-- normalize -->
+     <link href="https://necolas.github.io/normalize.css/7.0.0/normalize.css" rel="stylesheet">
+     
+     <link rel="stylesheet" type="text/css" href="the rumor . photocards page.css">
+ 
+ <style>
+     :root {
+    --background:#fafafa;
+    --box-background: #fff;
+    --text:#333;
+    --links: #8cb3db;
+    --links-hover: #36608c;
+    --borders:#eee;
+    --icons: rgb(223, 160, 137);
+
+    /* keep this number as a rgba */
+    --description-background: rgba(255,255,255,.7)
+  }
+  
+.tmblr-iframe {margin:.7rem;opacity:.6;-ms-transform: scale(0.85);-webkit-transform: scale(0.85); /* Safari */transform: scale(0.85);}
+.tmblr-iframe:hover {opacity:.8;}
+
+::-webkit-scrollbar-thumb:vertical {border-left:2px solid var(--borders);}
+::-webkit-scrollbar {width:6px}
+::-webkit-scrollbar-track-piece{margin:5px 0;}
+
+* {box-sizing: border-box;}
+
+pre {font-family:consolas;
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4- */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;}      /* Internet Explorer 5.5+ */
+body, figure{margin:0;padding:0}
+html{font: 14px 'Karla', sans-serif;}
+body {font-size:14px;color:var(--text);background:var(--background);}
+a {text-decoration: none;color:var(--links);word-break:break-word;}
+a:hover {color:var(--links-hover);}
+blockquote {margin:0;padding:0;}
+img {max-width:100%;height: auto;display: block;margin:0}
+hr {border:0;border-top:1px solid var(--borders);margin:0;}
+ul,ol,li {list-style: none;margin:0;padding:0;}
+
+#wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 90vw;
+    max-width: 60rem;
+    background-color: var(--box-background);
+    height: 90vh;
+    max-height: 35rem;
+    display: flex;
+    position: relative;
+    border: 1px solid var(--borders);
+}
+
+#left-column {
+    height: 100%;
+    max-width: 25rem;
+    width: 35%;
+    background-position: center center;
+    /* sidebar image */
+    background-image: url(https://64.media.tumblr.com/3594313ef414250056cd95f422bf969d/aa4aca2a6ae9f90d-6c/s540x810/2a135c3402dd55d1e78258937b6fa6ff5be0653a.pnj);
+}
+
+#left-column-content {
+    position: absolute;
+    bottom:0;
+    left:0;
+    overflow: auto;
+    margin:1rem;width: calc(35% - 3.5rem);
+}
+
+#main-nav {
+    text-align: right;
+    margin-bottom: -1rem;
+}
+
+#main-nav li {
+    display: inline-block;
+    margin-right: 1rem;
+    background-color: rgba(255,255,255,.7);
+    width:3rem;
+    height:3rem;
+    line-height: 3rem;
+    text-align: center;
+    border-radius: 100%;
+    font-size: 1.2rem;
+    border: 1px solid var(--borders);
+}
+
+#main-nav .nav-icon{
+    width: 20px;
+    height: 20px;
+    color:var(--icons);
+}
+
+#popup-button {
+    color:black;
+    background-color: green;
+}
+
+li#popup-button {
+    transition-duration: .2s;
+    cursor: pointer;
+}
+.active-button {
+    transform: rotate(45deg);
+    transition-duration: .2s;
+    background-color:var(--icons)!important;
+}
+
+.active-button .fa-solid{color:var(--description-background)!important;}
+
+#page-description {
+    padding: 1.5rem 1rem 1rem;
+    background-color: var(--description-background);  
+    max-height: 9rem;
+    overflow: auto; 
+}
+
+#page-description p:first-of-type{margin-top: 0;}
+#page-description p:last-of-type{margin-bottom: 0;}
+
+#right-column {
+    height: calc(100% - 4rem);
+    width: 65%;
+    min-width: calc(100% - 25rem);
+    background-color: var(--box-background);
+    overflow: auto;
+    margin:2rem;
+    position: relative;
+}
+
+h1 {
+    font:400 6rem 'Passions Conflict', cursive;
+    margin:0 0 1rem 1rem;color:rgb(223, 160, 137);
+    word-spacing: -.8rem;
+    /* text-shadow: 5px -1px #333; */
+}
+
+#divider {
+    margin-bottom: 3rem;
+}
+
+#main-content {
+}
+
+#main-content .grid-item{
+    width: calc(50% - 2rem);
+    margin:2rem 1rem;
+    background-color: lightblue;
+}
+
+/* pop ups */
+
+
+#main-popup {
+    position: absolute;top:0;bottom:0;left:0;right:0;
+    background-color: lightblue;
+    z-index: 1;
+    display: none;
+}
+
+.group-popup {
+    display: none;position: absolute;top:0;bottom:0;left:0;right:0;
+    background-color: #add8e6;
+    z-index: 1;
+}
+.grid-item {
+    /* width:10rem;
+   height:5rem;
+   float:right;
+   display: inline-block;
+   background-color: pink; */
+}
+
+/* MEDIA */
+
+@media only screen and (min-width:700px) and (max-width:1400px) {
+
+}
+
+@media only screen and (min-width:0px) and (max-width:699px) {
+
+}
+ </style>
+ </head>
+ <body>
+
+<!--
+
+  filters template
+
+  <div class="page-filters">
+    <ul>
+      <li data-filter="*" class="active">All projects</li>
+      <li data-filter="filters-class">filters-title</li>
+      <li data-filter="filters-class">filters-title</li>
+      <li data-filter="filters-class">filters-title</li>
+    </ul>
+  </div>
+
+  <div class="grid">
+    <div class="grid-item filters-class">filter item</div>
+    <div class="grid-item filters-class">filter item</div>
+    <div class="grid-item filters-class">filter item</div>
+  </div>
+
+-->
+
+
+<div id="wrapper">
+<main>
+  
+<!-- left column start -->
+<section id="left-column">
+  <!-- find the css #left-column to change the image -->
+
+  <div id="left-column-content">
+
+    <nav id="main-nav"><ul>
+
+      <li><a href=""><i class="nav-icon fa-solid fa-home"></i></a></li>
+      <li><a href=""><i class="nav-icon fa-solid fa-envelope"></i></a></li>
+      <li id="popup-button"><i class="nav-icon fa-solid fa-plus"></i></li>
+    </ul></nav>
+
+    <article id="page-description">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloribus voluptatibus. Similique doloremque tempora molestias, reprehenderit corrupti provident quaerat sequi explicabo eos maiores aliquam tempore obcaecati, pariatur exercitationem ipsa magnam.</p>
+    </article>
+  </div>
+
+</section>
+<!-- left column end -->
+
+  
+<!-- right column star -->
+<section id="right-column">
+
+    <!-- page popup start -->
+    <section id="main-popup">
+      a
+    </section>
+    <!-- page popup end -->
+
+    <!-- page title -->
+    <h1>the rumor</h1>
+
+    <hr id="divider">
+
+    <article id="main-content">
+        
+        <div class="page-filters">
+            <ul>
+            <li data-filter="*" class="active">All projects</li>
+            <li data-filter=".ggs">ggs</li>
+            <li data-filter=".bgs">bgs</li>
+            <li data-filter=".soloist">solo</li>
+            </ul>
+        </div>
+
+        <div class="grid">
+
+
+            <div class="grid-item ggs" onClick="openPopup('div1');">
+                
+                open popup
+
+            </div>
+            <div class="grid-item bgs"  onClick="openPopup('div2');">ikon</div>
+            <!--<div class="grid-item soloist">hyuna</div>-->
+        </div>
+
+    </article>
+
+    <!-- pop ups -->
+    <div id="div1" class="group-popup">
+        <div class="cancel" onclick="closePopup();">close</div>
+ 
+        <div class="page-filters">
+            <ul>
+            <li data-filter="*" class="active">All projects</li>
+            <li data-filter=".ggs">ggs</li>
+            <li data-filter=".bgs">bgs</li>
+            <li data-filter=".soloist">solo</li>
+            </ul>
+        </div>
+
+        <div class="grid">
+            <div class="grid-item soloist">hyuna</div>
+            <div class="grid-item bgs">ikon</div>
+            <div class="grid-item ggs">dreamcatcher</div>
+        </div>
+
+
+    </div>
+    <div id="div2" class="group-popup">
+        <div class="cancel" onclick="closePopup();">xxx</div>
+        
+        <div class="page-filters">
+          <ul>
+          <li data-filter="*" class="active">All projects</li>
+          <li data-filter=".ggs">ggs</li>
+          <li data-filter=".bgs">bgs</li>
+          <li data-filter=".soloist">solo</li>
+          </ul>
+      </div>
+
+      <div class="grid">
+          <div class="grid-item soloist">hyuna</div>
+          <div class="grid-item bgs">ikon</div>
+          <div class="grid-item ggs">dreamcatcher</div>
+      </div>
+    </div>
+</section>
+<!-- right column end -->
+
+</main>
+</div>
+<!-- do not touch -->
+<div style="position:fixed;bottom:2rem;right:2rem;z-index:999999999999999999999!important;font-size:.7rem;letter-spacing:.03rem;"><a href="https://southcodes.tumblr.com" title="coded by southcodes" target="_blank">SC</a></div>
+
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<!-- isotope -->
+<script src="https://npmcdn.com/imagesloaded@4.1.0/imagesloaded.pkgd.min.js"></script>
+<script src="https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+
+<!-- font icon -->
+<script src="https://kit.fontawesome.com/0993e30c04.js" crossorigin="anonymous"></script>
+
+<script>
+$(document).ready(function(){ 
+
+    // open main pop up button animation
+    $("#popup-button").click(function() {
+        $("#popup-button").toggleClass("active-button");
+    });
+
+    // main pop up open/close
+    $('#popup-button').click(function(){
+      $('#main-popup').fadeToggle(300);
+      return false;
+  });
+  
+});
+
+// pop ups
+function openPopup(el) {
+    $('.group-popup').hide();
+    $('#' + el).fadeIn(200);   
+}
+
+function closePopup() {
+    $('.group-popup').fadeOut(300);
+}
+
+
+// isotope
+function enableIsotope() {
+  // for each filters
+  $('.page-filters').each( function( i, buttonGroup ) {
+    var $buttonGroup = $( buttonGroup );
+
+    // init isotope
+    var $grid = $buttonGroup.next('.grid');
+    $grid.imagesLoaded( function() {
+      $grid.isotope({
+        itemSelector: '.grid-item'
+      })
+    });
+    
+    // button click
+    $buttonGroup.on( 'click', 'li', function() {
+      var $this = $( this );
+      // filter isotope
+      var filterValue = $this.attr('data-filter');
+      $grid.isotope({ filter: filterValue });
+      // change selected
+      $buttonGroup.find('.active').removeClass('active');
+      $this.addClass('active');
+    });
+  });
+
+};
+enableIsotope();
+
+$('.grid-item').on('click', function() {
+  $('.grid').isotope('layout');
+});
+</script>
+
+</body>
+</html>

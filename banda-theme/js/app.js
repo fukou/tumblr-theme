@@ -1,99 +1,35 @@
 var app = {
   init: function () {
-    // app.loadPosts();
-    app.loadTabs();
-    // app.loadAudio();
-    // app.postNPF();
-    // app.postTruncated();
-    // app.postPhotosets();
-    // app.postSoundCloud();
-    // app.postSpotify();
-    // app.postBandCamp();
-    // app.postAudio();
-    app.musicPlayer();
-    // methods
-    app.truncate();
-    app.darkMode();
-  },
-  loadPosts: () => {
-    const allPosts = document.querySelectorAll(".wrapper__inner--lists .posts");
-    allPosts.forEach(function (post, idx) {
-      if (post) {
-        post.addEventListener("click", function (e) {
-          e.preventDefault();
-
-          for (let a of allPosts) {
-            a.classList.remove("is-selected");
-          }
-          
-          e.target.parentElement.classList.add("is-selected");
-
-          document
-            .querySelector(".wrapper__inner--details")
-            .classList.add("is-filled");
-
-          document.querySelector(".wrapper__inner--details").scrollTop = 0;
-          
-          var noteCount = e.target.nextElementSibling.querySelector(".notes-button").getAttribute("href");
-          const postID = e.target.parentElement.id;
-          let postURL = "/post/" + postID;
-          let domain = window.location.hostname;
-
-          const newURL = postURL;
-          const source = `
-                <div class="wrapper__inner--source">
-                    <div class="wrapper__inner--url">
-                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg></span>
-                        <span class="url"><a href="${postURL}">${domain}${postURL}</a></span>
-                        </div>
-                        <div class="wrapper__inner--date">
-                          Posted on Monday, 1 November 2021
-                        </div>
-                </div>
-               `;
-
-          // posts  
-          var xhr = new XMLHttpRequest();
-          xhr.onreadystatechange = function () {
-            if (this.readyState === 4) {
-              var doc = this.response;
-              var article = doc.querySelector(
-                ".wrapper__inner--blog > div"
-              ).innerHTML;
-              //  https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState
-              window.history.replaceState("", "", newURL);
-              document.querySelector("#toAppend").innerHTML = article;
-              document.querySelector(".wrapper__inner--link").innerHTML =
-                source;
-              app.postAudio(".posts");
-              app.postNPF();
-              app.postPhotosets();
-              app.postSoundCloud();
-              app.postSpotify();
-              app.postBandCamp();
-            }
-          };
-          xhr.open("GET", postURL, true);
-          xhr.responseType = "document";
-          xhr.send();
-
-
-          // notes
-          var notes = new XMLHttpRequest();
-          notes.onreadystatechange = function () {
-            if (this.readyState === 4) {
-              var note = this.response;
-              document.querySelector("#toNotes").innerHTML = note;
-            }
-          };
-          notes.open("GET", noteCount, true);
-          notes.send();
-        });
-      }
-    });
+    app.loadTabs()
+    app.loadAudio()
+    app.postNPF()
+    app.postPhotosets()
+    app.postSoundCloud()
+    app.postSpotify()
+    app.postBandCamp()
+    app.postAudio()
+    app.masonry()
+    app.darkMode()
+    app.openMenu()
+    app.openSidebar()
+    app.shortenPost()
+    app.draggable()
+    app.checkPhotoNPF()
+    app.themeSettings()
   },
   loadTabs: () => {
-    const tabs = new Tabby("[data-tabs]");
+    if (
+      typeof document.querySelector("[data-tabs]") != "undefined" &&
+      document.querySelector("[data-tabs]") != null &&
+      document.querySelector('body[data-blog-style="notion"]')
+    ) {
+      const tabs = new Tabby("[data-tabs]");
+
+      const firstTabs = document.querySelector(
+        ".wrapper__inner--thumbs__list:first-of-type"
+      );
+      tabs.toggle(firstTabs);
+    }
   },
   loadAudio: () => {
     app.postAudio(".posts");
@@ -107,11 +43,8 @@ var app = {
     };
     npfPhotosets(".posts", npfOptions);
   },
-  // postTruncated: () => {
-  //     app.truncate(".wrapper__inner--lists .posts .posts__body > div");
-  // },
   postPhotosets: () => {
-    initPhotosets();
+    initPhotosets()
   },
   postSoundCloud: () => {
     const soundcloudColor = "#de8100";
@@ -154,181 +87,23 @@ var app = {
     };
     const isAudio = new customAudio(settings);
   },
-  truncate: (
-    element,
-    isType = "sentences",
-    isLength = 10,
-    isReadmore = false
-  ) => {
-    if (document.querySelectorAll(element).length) {
-      const isTruncatedOptions = {
-        truncate: isType,
-        length: isLength,
-        readMore: isReadmore,
-      };
-
-      let isTruncated = new Cuttr(element, isTruncatedOptions);
+  masonry: () => {
+    // masonry
+    let elem = document.querySelector(".wrapper__inner--lists .masonry");
+    if (typeof elem != "undefined" && elem != null) {
+      let msnry = new Masonry(elem, {
+        // options
+        itemSelector: "article.posts",
+        columnWidth: ".grid-sizer",
+        horizontalOrder: true,
+        gutter: 30,
+        percentPosition: true,
+      });
+      imagesLoaded(elem).on("progress", function () {
+        // layout Masonry after each image loads
+        msnry.layout();
+      });
     }
-  },
-  musicPlayer: () => {
-    window.addEventListener("load", () => {
-      const tracks = [
-        {
-          name: "CRIMEWAVE by Crystal Castles",
-          cover: "https://64.media.tumblr.com/tumblr_m6z52kYe2J1qc8uv9o1_cover.jpg",
-          src: "https://a.tumblr.com/tumblr_m6z52kYe2J1qc8uv9o1.mp3",
-        },
-        {
-          name: "SATURN by Sleeping at Last",
-          cover:
-            "https://64.media.tumblr.com/tumblr_nv99cfKo8b1qa9270o1_1443222159_cover.jpg",
-          src: "https://a.tumblr.com/tumblr_nv99cfKo8b1qa9270o1.mp3",
-        },
-        {
-          name: "THE GIRL IN BYAKKOYA by Susumu Hirasawa",
-          cover:
-            "https://64.media.tumblr.com/tumblr_mmjp5wTAeL1rqe52oo1_1368126501_cover.jpg",
-          src: "https://a.tumblr.com/tumblr_mmjp5wTAeL1rqe52oo1.mp3",
-        },
-        {
-          name: "ALEXANDER by Jirapah",
-          cover:
-            "https://64.media.tumblr.com/tumblr_n35avkZ5aR1tw93h7o1_1396008272_cover.jpg",
-          src: "https://a.tumblr.com/tumblr_n35avkZ5aR1tw93h7o1.mp3",
-        }
-      ];
-    
-      const play = document.querySelector(".play-btn");
-      const next = document.querySelector(".play-next");
-      const prev = document.querySelector(".play-prev");
-    
-      let audio = document.querySelector(".audio");
-      let title = document.querySelector(".music__information");
-      let cover = document.querySelector(".music__inner");
-      let progress = document.querySelector(".music__progress");
-      let counts = document.querySelector(".music__counts");
-      let dursContainer = document.querySelector(".music__duration");
-      let durs = document.querySelector(".totalDurs");
-      let currentDurs = document.querySelector(".currentDurs");
-      let percent = 0;
-      let current = 0;
-      let timer;
-    
-      play.addEventListener("click", playAudio);
-      next.addEventListener("click", nextAudio);
-      prev.addEventListener("click", prevAudio);
-      audio.addEventListener("playing", function (_event) {
-        let duration = _event.target.duration;
-        advance(duration, audio);
-      });
-    
-      audio.addEventListener("pause", function (_event) {
-        clearTimeout(timer);
-      });
-    
-      tracks.forEach((track) => {
-        console.table(track);
-      });
-    
-      load();
-    
-      function load(index) {
-        this.current = index;
-        title.innerHTML = tracks[current]["name"];
-        cover.setAttribute(
-          "style",
-          "background:url('" +
-            tracks[current]["cover"] +
-            "'); background-size:cover;background-position:center;background-repeat:no-repeat;"
-        );
-        audio.innerHTML = `<source src="${tracks[current]["src"]}" type="audio/mp3">`;
-  
-        counts.innerHTML = `${current + 1} / ${tracks.length}`;
-    
-        audio.load();
-        buttonAudio();
-    
-        audio.onloadedmetadata = function () {
-          // console.log("Loaded metadata for duration=%s",
-          //             durations(audio.duration));
-          durs.innerHTML = durations(audio.duration);
-        };
-    
-        audio.ontimeupdate = function () {
-          currentDurs.innerHTML = durations(audio.currentTime);
-        };
-    
-        audio.onended = function () {
-          play.innerHTML = `<i class="las la-play"></i>`;
-          progress.style.width = 0 + "%";
-        };
-      }
-    
-      function playAudio() {
-        if (audio.paused) {
-          this.innerHTML = `<i class="las la-pause"></i>`;
-          audio.play();
-        } else {
-          this.innerHTML = `<i class="las la-play"></i>`;
-          audio.pause();
-        }
-      }
-    
-      function nextAudio() {
-        if (current < tracks.length - 1 || !audio.paused) {
-          play.innerHTML = `<i class="las la-play"></i>`;
-          current++;
-          load(current);
-    
-          buttonAudio();
-        }
-      }
-    
-      function prevAudio() {
-        if (current > 0 || !audio.paused) {
-          play.innerHTML = `<i class="las la-play"></i>`;
-          current--;
-          load(current);
-    
-          buttonAudio();
-        }
-      }
-    
-      function buttonAudio() {
-        prev.disabled = current <= 0;
-        next.disabled = current >= tracks.length - 1;
-      }
-    
-      function startTimer(duration, element) {
-        if (percent < 100) {
-          timer = setTimeout(function () {
-            advance(duration, element);
-          }, 100);
-        }
-      }
-    
-      function durations(currentTime) {
-        var d = currentTime;
-        var sec,
-          min = Number();
-        sec = Math.floor(d);
-        min = Math.floor(sec / 60);
-        min = min >= 10 ? min : "0" + min;
-        sec = Math.floor(sec % 60);
-        sec = sec >= 10 ? sec : "0" + sec;
-    
-        return min + ":" + sec;
-      }
-    
-      function advance(duration, element) {
-        increment = 10 / duration;
-        percent = Math.min(increment * element.currentTime * 10, 100);
-        progress.style.width = percent + "%";
-        startTimer(duration, element);
-      }
-    
-      // https://awik.io/determine-color-bright-dark-using-javascript/
-    });    
   },
   darkMode: () => {
     const btnLight = document.querySelector('button[data-type-button="light"]');
@@ -341,9 +116,9 @@ var app = {
       document.body.classList.add("dark-theme");
       btnDark.classList.add("is-actived");
       btnLight.classList.remove("is-actived");
-    } 
-    
-    btnDark.addEventListener("click", function() {
+    }
+
+    btnDark.addEventListener("click", function () {
       btnDark.classList.add("is-actived");
       btnLight.classList.remove("is-actived");
 
@@ -352,18 +127,158 @@ var app = {
       localStorage.setItem("theme", theme);
     });
 
-    btnLight.addEventListener("click", function() {
+    btnLight.addEventListener("click", function () {
       btnDark.classList.remove("is-actived");
       btnLight.classList.add("is-actived");
-     
+
       theme = "light";
       document.body.classList.remove("dark-theme");
       localStorage.setItem("theme", theme);
-    })
-  
-  }
-};
+    });
+  },
+  openMenu: () => {
+    const btn = document.querySelector(".controls > button");
+    const popup = document.querySelector(".wrapper__inner--popup");
+    btn.addEventListener("click", function () {
+      popup.classList.toggle("is-shown");
+
+      if (popup.classList.contains("is-shown")) {
+        this.innerHTML = `<svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L6.75 17.25"></path>
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.75 6.75L17.25 17.25"></path></svg>`;
+        this.nextElementSibling.classList.add("is-disabled");
+      } else {
+        this.innerHTML = `<svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.25 19.25L15.5 15.5M4.75 11C4.75 7.54822 7.54822 4.75 11 4.75C14.4518 4.75 17.25 7.54822 17.25 11C17.25 14.4518 14.4518 17.25 11 17.25C7.54822 17.25 4.75 14.4518 4.75 11Z"></path></svg>`;
+        this.nextElementSibling.classList.remove("is-disabled");
+      }
+    });
+  },
+  openSidebar: () => {
+    const btn = document.querySelector(".controls > .hamburger");
+    const sidebar = document.querySelector(".wrapper__sidebar");
+    btn.addEventListener("click", function () {
+      sidebar.classList.toggle("is-shown");
+      document.body.classList.toggle("is-hidden");
+
+      if (sidebar.classList.contains("is-shown")) {
+        this.innerHTML = `<svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L6.75 17.25"></path>
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.75 6.75L17.25 17.25"></path></svg>`;
+        this.previousElementSibling.classList.add("is-disabled");
+      } else {
+        this.innerHTML = `<svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.75 5.75H19.25"></path>
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.75 18.25H19.25"></path>
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.75 12H19.25"></path></svg>`;
+        this.previousElementSibling.classList.remove("is-disabled");
+      }
+    });
+  },
+  shortenPost: () => {
+    const elem = document.querySelector(".wrapper__inner--lists .masonry");
+    if (typeof elem != "undefined" && elem != null) {
+      document
+        .querySelectorAll(
+          "article.posts-text:not(.posts-photo-text):not(.posts-photoset-text)"
+        )
+        .forEach(function (post) {
+          let postBody = post.querySelector(".posts__inner");
+          if (postBody != null && postBody.clientHeight >= 600) {
+            postBody.classList.add("is-truncated");
+          }
+        });
+    }
+  },
+  draggable: () => {
+    interact(".draggable").draggable({
+      // enable inertial throwing
+      inertia: true,
+      // keep the element within the area of it's parent
+      // modifiers: [
+      //   interact.modifiers.restrictRect({
+      //     restriction: "parent",
+      //     endOnly: false,
+      //   }),
+      // ],
+      // enable autoScroll
+      autoScroll: false,
+
+      listeners: {
+        // call this function on every dragmove event
+        move: dragMoveListener,
+        // call this function on every dragend event
+      },
+    });
+
+    function dragMoveListener(event) {
+      var target = event.target;
+      // keep the dragged position in the data-x/data-y attributes
+      var x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
+      var y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
+
+      // translate the element
+      target.style.transform = "translate(" + x + "px, " + y + "px)";
+
+      // update the posiion attributes
+      target.setAttribute("data-x", x);
+      target.setAttribute("data-y", y);
+    }
+
+    // this function is used later in the resizing and gesture demos
+    window.dragMoveListener = dragMoveListener;
+  },
+  checkPhotoNPF: () => {
+    const isTextPost = document.querySelectorAll(
+      ".wrapper__inner--lists .posts"
+    );
+    isTextPost.forEach(function (item, idx) {
+      const containsPhotosets = item.querySelector(
+        ".posts__inner .photoset-grid"
+      );
+      const containsPhoto = item.querySelector(
+        ".posts__inner .reblog-list figure.tmblr-full:first-of-type"
+      );
+
+      if (containsPhotosets) {
+        item.classList.add("posts-photoset-text");
+      } else if (containsPhoto) {
+        item.classList.add("posts-photo-text");
+      }
+    });
+  },
+  themeSettings: () => {
+    if (
+      document.querySelector('body[data-blog-style="simple"]') ||
+      document.querySelector('body[data-blog-style="notion"]')
+    ) {
+      document.querySelectorAll(".posts-main").forEach(function (p) {
+        p.querySelector(".posts__view").remove();
+      });
+    }
+
+    if (document.querySelector('body[data-blog-style="notion"]')) {
+      document
+        .querySelector(".is-widgets > a")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          this.classList.toggle("is-clicked");
+          document
+            .querySelector(".wrapper__inner--widgets")
+            .classList.toggle("is-shown");
+
+          if (this.classList.contains("is-clicked")) {
+            this.innerHTML =
+              '<svg width="24" height="24" fill="none" viewBox="0 0 24 24"> <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.75 4.75H15.25C17.4591 4.75 19.25 6.54086 19.25 8.75V15.25C19.25 17.4591 17.4591 19.25 15.25 19.25H8.75C6.54086 19.25 4.75 17.4591 4.75 15.25V8.75C4.75 6.54086 6.54086 4.75 8.75 4.75Z"></path><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7.75 12.75C7.75 12.75 9 15.25 12 15.25C15 15.25 16.25 12.75 16.25 12.75"></path><circle cx="14" cy="10" r="1" fill="currentColor"></circle><circle cx="10" cy="10" r="1" fill="currentColor"></circle></svg> Hide widgets';
+          } else {
+            this.innerHTML =
+              '<svg width="24" height="24" fill="none" viewBox="0 0 24 24"> <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.75 4.75H15.25C17.4591 4.75 19.25 6.54086 19.25 8.75V15.25C19.25 17.4591 17.4591 19.25 15.25 19.25H8.75C6.54086 19.25 4.75 17.4591 4.75 15.25V8.75C4.75 6.54086 6.54086 4.75 8.75 4.75Z"></path><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7.75 12.75C7.75 12.75 9 15.25 12 15.25C15 15.25 16.25 12.75 16.25 12.75"></path><circle cx="14" cy="10" r="1" fill="currentColor"></circle><circle cx="10" cy="10" r="1" fill="currentColor"></circle></svg> Show widgets';
+          }
+        });
+    }
+  },
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   app.init();
-});
+})

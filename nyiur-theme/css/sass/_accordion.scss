@@ -1,0 +1,48 @@
+details {
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    color: var(--heading-text);
+    background-color: var(--bg-card);
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+
+    &[open] summary::before {
+        content: "-";
+        line-height: 0.9;
+    }
+
+    summary {
+        position: relative;
+        font-size: 1.15em;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10;
+        display: block;
+        padding: 1.65rem 2rem;
+
+        &::before {
+            content: "+";
+            position: absolute;
+            top: 50%;
+            right: 0.5em;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            width: 1em;
+            height: 1em;
+            margin-right: 1em;
+            background: var(--primary-color);
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 1em;
+            line-height: 1;
+            text-align: center;
+            border-radius: 50%;
+        }
+    }
+
+    .inner__details {
+        padding: 1.8rem;
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+}

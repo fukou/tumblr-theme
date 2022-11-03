@@ -40,10 +40,6 @@
 .reblog-list {
    position: relative;
    padding:0 2rem;
-   
-   &:not(:first-child) {
-      border-top: 1px solid rgba(var(--heading-text), 0.1);
-   }
 
    &:only-child,
    &:last-of-type {
@@ -58,13 +54,14 @@
       padding: 1rem 0 0 0;
 
       span {
-         margin-left: 1rem;
+         margin-left: 0rem;
       }
 
       img {
          width: 30px;
          height: 30px;
          border-radius: 5px;
+         margin-right: 1rem;
       }
 
       .user-blog {
@@ -163,7 +160,7 @@ figure[data-tumblr-attribution] {
 
 span.search_query,
 span.tag {
-   border-bottom: 2px dashed currentColor;
+   border-bottom: 2px dotted currentColor;
 }
 
 hr {
@@ -193,40 +190,9 @@ hr {
    }
 }
 
-.tmblr-iframe-compact .tmblr-iframe--unified-controls {
-   width: 100% !important;
-}
-
-@media (min-width: 60rem) {
-   .iframe-controls--phone-mobile,
-   .tmblr-iframe--app-cta-button,
-   .tmblr-iframe:not(#new-tumblr-controls) {
-      visibility: hidden !important;
-      display: none !important;
-   }
-}
-
-.iframe-container,
-iframe#new-tumblr-controls {
-   position: unset;
-   top: 0px;
-   left: 0px;
-   height: 54px;
-   width: 100% !important;
-   background: var(--bg-post);
-   z-index: 10;
-}
-
-@media (max-width: 60rem) {
-   .iframe-container,
-   iframe#new-tumblr-controls {
-      visibility: hidden !important;
-      display: none !important;
-   }
-}
-
 .tmblr-lightbox .lightbox-image {
    height: auto;
+   max-height: unset;
 }
 
 .npf_photoset div.npf_row figure.tmblr-full:first-child {
@@ -258,7 +224,7 @@ iframe#new-tumblr-controls {
    margin:0!important;
 }
 .tmblr-full {
-   margin: 0rem -2rem;
+   margin: 1rem -2rem;
 }
 .tmblr-full img {
    width: 100%;

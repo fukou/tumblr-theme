@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+{block:Options}
+    <meta name="image:Image" content="https://static.tumblr.com/2wliono/hy7pfab69/aurora.png">
+    <meta name="color:Colour" content="#36465d">
+    <meta name="font:Font" content="{TitleFont}">
+    <meta name="select:Dropdown" content="Example Option 1">
+    <meta name="select:Dropdown" content="Example Option 2">
+    <meta name="select:Dropdown" content="Example Option 3">
+    <meta name="if:Boolean" content="1">
+    <meta name="text:Text" content="Example Input">
+{/block:Options}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{block:PermalinkPage}{block:PostSummary}{PostSummary} — {/block:PostSummary}{/block:PermalinkPage}{Title}{block:SearchPage} — {lang:Search results for SearchQuery}{/block:SearchPage}</title>{block:Description}
+        <meta name="description" content="{MetaDescription}">{/block:Description}
+        <meta name="theme-color" content="{BackgroundColor}">
+        {MobileAppHeaders}
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        <link rel="stylesheet" href="https://static.tumblr.com/2wliono/Vf7pfceur/normalize.css">
+        <script src="https://cdn.jsdelivr.net/gh/cferdinandi/tabby/dist/js/tabby.polyfills.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://assets.tumblr.com/fonts/favorit/stylesheet.css?v=1">
+        {PostTypographyStyles}
+        <style id="global">
+            :root {
+                --TitleFont: {TitleFont};
+                --TitleFontWeight: {TitleFontWeight};
+                --BackgroundColor: {BackgroundColor};
+                --TitleColor: {TitleColor};
+                --AccentColor: {AccentColor};
+            }
+            body {
+                font-family:'Favorit', sans-serif;
+            }
+        </style>
+        <style id="custom">{CustomCSS}</style>
+    </head>
+    <body>
+        <main class="wrapper">
+
+            {block:SearchPage}
+            <h1>{lang:Found SearchResultCount results for SearchQuery}{block:NoSearchResults}{lang:No search results for SearchQuery}{/block:NoSearchResults}</h1>{/block:SearchPage}{block:TagPage}
+            <h1>{lang:TagResultCount posts tagged Tag}</h1>{/block:TagPage}{block:DayPage}
+            <h1>{DayOfWeek} {DayOfMonth}{DayOfMonthSuffix} {Month} {Year}</h1>{/block:DayPage}
+            
+            {block:Posts}
+            <article {block:Date}id="{PostID}" {/block:Date}class="{PostType} posts">
+            
+                <section class="posts__media">{block:Text}{block:Title}
+                    <h1>{Title}</h1>{/block:Title}{/block:Text}{block:Photo}
+                    <figure{block:HighRes} class="tmblr-full"{/block:HighRes}>
+                        {LinkOpenTag}
+                            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"{block:Exif} title="{block:Camera} {Camera} {/block:Camera}{block:Aperture} {Aperture} {/block:Aperture}{block:Exposure} {Exposure} {/block:Exposure}{block:FocalLength} {FocalLength} {/block:FocalLength}"{/block:Exif}>
+                        {LinkCloseTag}
+                    </figure>{/block:Photo}{block:Panorama}
+                    <figure class="tmblr-full">
+                        {LinkOpenTag}
+                            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"{block:Exif} title="{block:Camera} {Camera} {/block:Camera}{block:Aperture} {Aperture} {/block:Aperture}{block:Exposure} {Exposure} {/block:Exposure}{block:FocalLength} {FocalLength} {/block:FocalLength}"{/block:Exif}>
+                        {LinkCloseTag}
+                    </figure>{/block:Panorama}{block:Photoset}
+                    {Photoset}{/block:Photoset}{block:Quote}
+                    <p class="npf_quote {Length}">{Quote}</p>{block:Source}
+                    <table>
+                        <tr>
+                            <td>&mdash;</td>
+                            <td>{Source}</td>
+                        </tr>
+                    </table>{/block:Source}{/block:Quote}{block:Link}
+                    <div class="npf-link-block {block:Thumbnail}has-poster not-{/block:Thumbnail}no-poster">
+                        <a href="{URL}" {Target}>{block:Thumbnail}
+                            <div class="poster" style="background-image: url({Thumbnail-HighRes});">{/block:Thumbnail}
+                                <div class="title">{Name}</div>{block:Thumbnail}
+                            </div>{/block:Thumbnail}
+                            <div class="bottom">{block:Excerpt}
+                                <div class="description">{Excerpt}</div>{/block:Excerpt}{block:Host}
+                                <div class="site-name">{Host}</div>{/block:Host}
+                            </div>
+                        </a>
+                    </div>{/block:Link}{block:Chat}{block:Title}
+                    <h1>{Title}</h1>{/block:Title}{block:Lines}
+                    <p class="npf_chat">{block:Label}
+                        <b>{Label}</b>{/block:Label}
+                        {Line}
+                    </p>{/block:Lines}{/block:Chat}{block:Audio}{block:AudioEmbed}
+                    {AudioEmbed}{/block:AudioEmbed}{/block:Audio}{block:Video}
+                    {VideoEmbed-700}{/block:Video}{block:Answer}
+                    <div>
+                        <img class="avatar" src="{AskerPortraitURL-64}" alt="">
+                        <strong class="username">{Asker}</strong>
+                        <blockquote>{Question}</blockquote>
+                    </div>{block:Answerer}
+                    <div>
+                        <img class="avatar" src="{AnswererPortraitURL-64}" alt="">
+                        <strong class="username">{Answerer}</strong>
+                        <blockquote>{Answer}</blockquote>
+                    </div>{/block:Answerer}{/block:Answer}
+                </section>
+                <section class="posts__body">
+                     {block:RebloggedFrom}
+                        {block:Reblogs}
+                            <div class="reblog-list">
+                                 <div class="reblog-post-avatar">
+                                    {block:IsActive}
+                                        {block:HasPermalink}
+                                        <a href="{Permalink}" class="user-blog">{/block:HasPermalink}{Username}{block:HasPermalink}</a>
+                                        {/block:HasPermalink}
+                                    {/block:IsActive}
+                                    {block:IsDeactivated}
+                                         {block:HasPermalink}
+                                         <a href="{Permalink}" class="user-blog is-deactivated">{/block:HasPermalink}{Username}{block:HasPermalink}</a>
+                                         {/block:HasPermalink}
+                                    {/block:IsDeactivated}
+                                </div>
+                                {Body}
+                            </div>
+                        {/block:Reblogs}
+                    {/block:RebloggedFrom}
+                    {block:NotReblog}
+                         <div class="original">
+                            {block:Text}
+                            {Body}{/block:Text}{block:Photo}{block:Caption}
+                            {Caption}{/block:Caption}{/block:Photo}{block:Panorama}{block:Caption}
+                            {Caption}{/block:Caption}{/block:Panorama}{block:Photoset}{block:Caption}
+                            {Caption}{/block:Caption}{/block:Photoset}{block:Link}{block:Description}
+                            {Description}{/block:Description}{/block:Link}{block:Audio}{block:Caption}
+                            {Caption}{/block:Caption}{/block:Audio}{block:Video}{block:Caption}
+                            {Caption}{/block:Caption}{/block:Video}{block:Answer}
+                            {Answer}{/block:Answer}
+                        </div>
+                     {/block:NotReblog}
+                </section>
+                
+                {block:Date}
+                <footer class="posts__perma">{block:ContentSource}
+                    <section class="source">
+                        <a href="{SourceURL}" title="{SourceTitle}">{block:SourceLogo}
+                            <img src="{BlackLogoURL}" alt="{SourceTitle}">{/block:SourceLogo}{block:NoSourceLogo}
+                            <p>{lang:Source}: {SourceTitle}</p>{/block:NoSourceLogo}
+                        </a>
+                    </section>{/block:ContentSource}{block:HasTags}
+                    <section class="tags">{block:Tags}
+                        <a href="{TagURL}">{Tag}</a>{/block:Tags}
+                    </section>{/block:HasTags}
+                    <section class="panel">{block:NoteCount}
+                        <a class="stats" href="{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}
+                    </section>
+                    
+                    {block:PermalinkPage}
+                        {block:PostNotes}
+                        
+                        <section id="notes">
+                            {PostNotes}
+                        </section>
+                        
+                        <ul data-tabs>
+                           <li><a href="#reblog" data-tabby-default>Reblog</a></li>
+                           <li><a href="#likes">Likes</a></li>
+                           <li><a href="#replies">Replies</a></li>
+                        </ul>
+                        
+                         <section id="likes">
+                         </section>
+                         <section id="reblog">
+                         </section>
+                         <section id="replies">
+                         </section>
+                         
+                        {/block:PostNotes}
+                    
+                    <a href="{postNotesURL}" class="notes-button">Load more notes</a>
+                    {/block:PermalinkPage}
+                    
+                </footer>{/block:Date}
+            </article>{/block:Posts}
+
+             
+            <nav class="wrapper__pagination">
+                {block:Pagination}{block:PreviousPage}
+                <a id="previous" href="{PreviousPage}">{lang:Previous}</a>{/block:PreviousPage}{block:NextPage}
+                <a id="next" href="{NextPage}">{lang:Next}</a>{/block:NextPage}{/block:Pagination}{block:PermalinkPagination}{block:PreviousPost}
+                <a id="previous" href="{PreviousPost}">{lang:Previous post}</a>{/block:PreviousPost}{block:NextPost}
+                <a id="next" href="{NextPost}">{lang:Next post}</a>{/block:NextPost}{/block:PermalinkPagination}{block:DayPagination}{block:PreviousDayPage}
+                <a id="previous" href="{PreviousDayPage}">{lang:Previous day}</a>{/block:PreviousDayPage}{block:NextDayPage}
+                <a id="next" href="{NextDayPage}">{lang:Next day}</a>{/block:NextDayPage}{/block:DayPagination}
+            </nav>
+        </main>
+       
+        
+        <script>
+            let hasClass = (element, cls) => {
+                return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+            }
+            
+            const isNoteOriginal = document.querySelector("#notes");
+            const isNoteReblog = document.querySelector("#reblog");
+            const isNoteLikes = document.querySelector("#likes");
+            const isNoteReplies = document.querySelector("#replies");
+            
+            const isNoteLists = isNoteOriginal.children[0].childNodes;
+            
+            isNoteOriginal.style.display = "none"; 
+            
+            const transformNotes = () => {
+                for(const note of isNoteLists) {
+                    if(note) {
+                        if(hasClass(note, 'like')) {
+                            isNoteLikes.appendChild(note);
+                            hasClass(note, 'original_post') ? note.style.display = "note" : "";
+                        } else if(hasClass(note, 'reblog')) {
+                            isNoteReblog.appendChild(note);
+                            hasClass(note, 'original_post') ? note.style.display = "note" : "";
+                        } else if(hasClass(note, 'with_commentary') ||
+            hasClass(note, 'reply')) {
+                            isNoteReplies.appendChild(note);
+                        }
+                    }
+                }   
+            }
+            transformNotes();
+            
+            if(!isNoteReplies.children) {
+                isNoteReplies.style.display = "none";
+                document.querySelector('ul[data-tabs] li:last-of-type').style.display = "none";
+            }
+            
+            document.querySelector('.notes-button').addEventListener("click", (e) => {
+                e.preventDefault();
+                var xhr = new XMLHttpRequest();
+                var notesAjax = e.target.getAttribute("href");
+                
+                xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    var notes_html = xhr.responseText.split("<!-- START " + "NOTES -->")[1].split("<!-- END " + "NOTES -->")[0];
+                    if (window.tumblrNotesLoaded)
+                      if (tumblrNotesLoaded(notes_html) == false) return;
+                    var more_notes_link = document.getElementById(
+                      "more_notes_{PostID}"
+                    );
+                    var notes = more_notes_link.parentNode;
+                    notes.removeChild(more_notes_link);
+                    notes.innerHTML += notes_html;
+                    if (window.tumblrNotesInserted) tumblrNotesInserted(notes_html);
+                  }
+                }
+
+                xhr.open('GET', notesAjax, true);
+                xhr.send();
+                
+                xhr.addEventListener("load", transformNotes());
+            });
+            
+            if (typeof document.querySelector("[data-tabs]") != "undefined" && document.querySelector("[data-tabs]") != null) {
+                const tabs = new Tabby("[data-tabs]");
+            }
+        </script>
+    </body>
+</html>

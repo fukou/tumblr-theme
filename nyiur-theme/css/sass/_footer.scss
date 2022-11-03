@@ -1,7 +1,7 @@
 .footer {
     padding-bottom: 3.5rem;
     margin-top: 4.5rem;
-    color:var(--heading-text);
+    color:var(--heading-text-hero);
 
     &__inner {
         display: flex;
@@ -20,7 +20,7 @@
         }
 
         a {
-            color:var(--heading-text);
+            color:var(--heading-text-hero);
             font-weight: bold;
         }
     }

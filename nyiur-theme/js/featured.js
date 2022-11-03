@@ -17,7 +17,7 @@ const container__slider = document.querySelector(
 
 // console.log(container.innerHTML.trim() !== '');
 
-for (let k = 0; k < 5; k++) {
+for (let k = 0; k < 3; k++) {
   let post = tumblr_api_read.posts[k];
   console.log(post);
 

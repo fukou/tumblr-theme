@@ -16,6 +16,61 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
     <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/min/tiny-slider.helper.ie8.js"></script><![endif]-->
     <link rel="stylesheet" href="https://assets.tumblr.com/fonts/favorit/stylesheet.css?v=1">
+    <style id="main">
+        :root {
+        --hero: url('./img/hero.jpg');
+
+        --heading-font:'PT Serif', serif;
+        --body-font: 'PT Sans', sans-serif;
+        --code-font:'Oxygen Mono', monospace;
+        
+        --white:#fff;
+
+        --bg-color:#FFFFFF;
+        --bg-card:#fff;
+
+        --bg-post:#F2F2F2;
+
+        --button-switch:#111;
+
+        --primary-color:#FEB0BD;
+        --secondary-color:#BF848E;
+        --tertiary-color:#9E6D75;
+
+        --heading-text:#111;
+        --heading-text-hero:#111;
+
+        --body-text:#333;
+        --body-text-hero:#333;
+
+        --body-link:#111;
+
+        --header-navigation-link: #111;
+    }
+
+    body.dark-theme {
+        --hue: 210;
+    
+        --bg-color: hsl(var(--hue), 20%, 13%);
+        --body-text: hsl(var(--hue), 10%, 80%);
+        --body-text-hero: hsl(var(--hue), 10%, 80%);
+
+        --button-switch: hsl(var(--hue), 20%, 25%);
+
+        --primary-color:hsl(var(--hue), 20%, 35%);
+
+        --bg-post:hsl(var(--hue), 20%, 16%);
+        --bg-card: hsl(var(--hue), 20%, 22%);
+
+        --heading-text: hsl(0, 0%, 90%);
+        --heading-text-hero: hsl(0, 0%, 90%);
+
+        --body-link:hsl(0, 5%, 90%);
+        --body-link:hsl(0, 5%, 90%);
+
+        --header-navigation-link: hsl(var(--hue), 10%, 80%);
+    }
+    </style>
 </head>
 
 <body>
@@ -114,7 +169,7 @@
                 </div>
             </div>
 
-            <div class="wrapper__blog is-half">
+            <div class="wrapper__blog">
 
                 <article class="posts pinned">
                     <div class="posts__pinned">
@@ -906,7 +961,7 @@ multiplyByFive(69);
         </section>
     </main>
 
-    <script type="text/javascript" src="https://nyiurtheme.tumblr.com/api/read/json?&tagged=featured"></script>
+    <script type="text/javascript" src="https://theamazingdigitalart.tumblr.com/api/read/json?&tagged=featured"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <!-- <script src="js/npf.js"></script> -->
 

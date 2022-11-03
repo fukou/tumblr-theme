@@ -51,30 +51,31 @@
             list-style: none;
             li {
                 & + li {
-                    margin-left: 1.65rem;
+                    margin-left: 1.25rem;
                 }
 
                 &.nav__menu--actived {
                     a {
                         font-weight: bold;
+                        background-color: rgba(var(--header-navigation-link), 0.1);
                         
-                        &::before {
-                            content:'';
+                        // &::before {
+                        //     content:'';
 
-                            display: inline-flex;
-                            width:14px;
-                            height: 14px;
+                        //     display: inline-flex;
+                        //     width:14px;
+                        //     height: 14px;
 
-                            margin-right: 0.5rem;
-                            transform: translateY(1px);
+                        //     margin-right: 0.5rem;
+                        //     transform: translateY(1px);
 
-                            background:var(--header-navigation-link);
+                        //     background:var(--header-navigation-link);
 
-                            mask-position: center;
-                            mask-repeat: no-repeat;
-                            mask-size: 14px;
-                            mask-image: url("data:image/svg+xml,<svg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 0L13.971 8.029L22 11L13.971 13.971L11 22L8.029 13.971L0 11L8.029 8.029L11 0Z' fill='%23111'/></svg>");
-                        }
+                        //     mask-position: center;
+                        //     mask-repeat: no-repeat;
+                        //     mask-size: 14px;
+                        //     mask-image: url("data:image/svg+xml,<svg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 0L13.971 8.029L22 11L13.971 13.971L11 22L8.029 13.971L0 11L8.029 8.029L11 0Z' fill='%23111'/></svg>");
+                        // }
                     }
                 }
 
@@ -85,25 +86,32 @@
                     position: relative;
                     font-family: var(--heading-font);
                     color:var(--header-navigation-link);
+                    padding:0.385rem 0.85rem;
+                    border-radius: 8px;
+                    border:2px solid rgba(var(--header-navigation-link), 0.1);
 
                     text-decoration: none;
+                    transition: 0.5s;
 
-                    &::after {
-                        content:'';
-                        position: absolute;
-                        left:0;
-                        bottom: -0.15rem;
+                    // &::after {
+                    //     content:'';
+                    //     position: absolute;
+                    //     left:0;
+                    //     bottom: -0.15rem;
 
-                        display: block;
-                        width:0%;
-                        height: 2px;
+                    //     display: block;
+                    //     width:0%;
+                    //     height: 2px;
 
-                        background-color: currentColor;
-                        transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
-                    }
+                    //     background-color: currentColor;
+                    //     transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+                    // }
 
-                    &:hover::after {
-                        width: 100%;
+                    // &:hover::after {
+                    //     width: 100%;
+                    // }
+                    &:hover {
+                        background-color: rgba(var(--header-navigation-link), 0.15);
                     }
                 }
             }
@@ -133,7 +141,7 @@
             border-radius: 50%;
 
             &.btn-nav {
-                border:2px solid var(--header-navigation-link);
+                border:2px solid rgba(var(--header-navigation-link), 0.1);
                 background:transparent;
 
                 color:var(--header-navigation-link);

@@ -1,13 +1,19 @@
 .music {
     position: relative;
-    background-color: rgba(var(--accent-2), 0.25);
+    background-color: rgba(var(--accent-2), 0.35);
+    backdrop-filter: blur(10px);
     // background-image: url("https://static.tumblr.com/5ojoydj/7N6qj4do6/cartographer.png");
     background-repeat: repeat;
     max-width: 100%;
-    min-height: 285px;
+    min-height: 295px;
     overflow: hidden;
     border-radius: 8px;
+    border:1px solid rgba(var(--bg-card), 0.1);
+    box-shadow: rgba(var(--accent-2), 0.15) 0px 7px 29px 0px;
+
     &__progress {
+      display: none;
+
       position: absolute;
       left: 0;
       bottom: 0;
@@ -22,11 +28,10 @@
       position: absolute;
       left: 0;
       top: 0;
-      width: calc(100% - 2rem);
+      width: calc(100% - 0rem);
       height: 65%;
-      margin: 1rem;
+      // margin: 1rem;
       background-color: #f4f4ec;
-      border-radius: 5px;
       background-size: cover;
       background-image: url("https://i.gifer.com/JZSF.gif");
     }
@@ -47,9 +52,9 @@
 
     &__duration {
       position: absolute;
-      bottom: -0.85rem;
+      bottom: -4.5rem;
       left: 0;
-      width: 100%;
+      width: calc(100% - 2rem);
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -59,10 +64,14 @@
       -webkit-box-pack: center;
       -ms-flex-pack: center;
       justify-content: center;
-      background-color: #333;
-      color:white;
+      background-color: rgba(var(--accent-2), 1);
+      color:rgba(var(--bg-card), 1);
       padding: 0.5rem 0.5rem;
       font-weight: bold;
+
+      border-radius: 6px;
+
+      margin:1rem;
     
       .currentDurs::after {
         content: "/";
@@ -73,11 +82,11 @@
     &__information {
       position: absolute;
       left: 0;
-      bottom: 0;
+      bottom: -0.25rem;
       width: 100%;
-      padding: 1.5rem 1rem;
+      padding:5rem 1rem 1.5rem 1rem;
       font-size: 0.9rem;
-      color: rgba(var(--heading-text), 1);
+      color: rgba(var(--bg-card), 1);
       text-align: center;
     }
 
@@ -135,6 +144,10 @@
           box-shadow: 0 0 0 2.5px #88b8ff;
           border-radius: 50%;
         }
+      }
+
+      .play-btn {
+        border:2px solid rgba(var(--accent-2), 1);
       }
     }
 
