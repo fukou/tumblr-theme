@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{Title} &mdash; Document</title>
+
+    <link rel="stylesheet" media="screen" href="https://assets.tumblr.com/client/prod/standalone/blog-network-npf/index.build.css?_v=c451b85cf126275a22cf7ca62ddacdc0">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;600&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400;1,600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://assets.tumblr.com/fonts/favorit/stylesheet.css?v=1">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+
+    <!-- tabs -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cferdinandi/tabby@12.0.0/dist/css/tabby-ui.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/tabby@12.0.0/dist/js/tabby.polyfills.min.js"></script>
+
+    <link href="https://static.tumblr.com/0podkko/xIbplezmo/modified_photosets.css" rel="stylesheet">
+
+    <style id="main">
+        :root {
+            --title-font:'Instrument Serif', serif;
+            --title-font-weight: bold;
+
+            --heading-font:'Instrument Serif', serif;
+            --body-font:'Favorit', sans-serif;
+            --code-font: 'Consolas', monospace;
+
+            --accent:243, 162, 187;
+            --bg-color: 255,255,255;
+            --bg-post-color:238,238,238;
+
+            --bg-img: url('https://assets.tumblr.com/images/x.gif?v=1');
+
+            --bg-card: 255,255,255;
+            --body-text: 68,68,68;
+            --body-link: 17,17,17;
+            --heading-text: 17,17,17;
+
+            --bg-card-pinned:var(--bg-card);
+            --bg-card-pinned-border:210, 153, 159;
+
+            --pinned-label-bg:210, 153, 159;
+            --pinned-label-text:255,255,255;
+
+            --post-bubble-bg:238,238,238;
+            --post-bubble-text:17,17,17;
+
+            --border-color:221, 221, 221;
+
+            --btn-primary:17,17,17;
+            --btn-text-primary:255,255,255;
+
+            --btn-primary-hover:243, 162, 187;
+            --btn-text-primary-hover:17, 17, 17;
+
+            --hero-bg-img:url('https://64.media.tumblr.com/e49f461a531846bcec600d692238c8de/f18b046763e6605c-8b/s2048x3072/ec1a5a467d5948e18580a61ee23452519b10fa7b.jpg');
+            --hero-bg::238,238,238;
+            --hero-color: 17, 17, 17;
+
+            --header-navigation-bg:  255,255,255;
+            --header-navigation-text: 17, 17, 17;
+            --header-navigation-text-hover:210, 153, 159;
+
+            --header-navigation-circle-one:243, 162, 187;
+            --header-navigation-circle-two:17, 17, 17;
+
+            --footer-bg-top:248, 232, 233;
+            --footer-text-top:17, 17, 17;
+
+            --footer-bg-bottom:210, 153, 159;
+            --footer-text-bottom:255,255,255;
+
+            --footer-text-link:17, 17, 17;
+            --footer-text-link-hover:210, 153, 159;
+
+            --tags-button-bg:255,255,255;
+            --tags-button-text:140, 140, 140;
+            --tags-button-border:196, 196, 196;
+            --tags-button-bg-hover:248, 232, 233;
+            --tags-button-text-hover:17, 17, 17;
+
+            --action-button-bg:255,255,255;
+            --action-button-text:17, 17, 17;
+            --action-button-border:196, 196, 196;
+            --action-button-bg-hover:248, 232, 233;
+            --action-button-text-hover:17, 17, 17;
+
+            --slider-button-bg:17, 17, 17;
+            --slider-button-text:255,255,255;
+
+            --social-media-btn:17, 17, 17;
+            --social-media-btn-text:255,255,255;
+            --social-media-btn-hover:243, 162, 187;
+            --social-media-btn-text-hover:17, 17, 17;
+
+            --hero-overlay:17, 17, 17;
+            --hero-overlay-level:0;
+            --hero-height:465px;
+
+            --text-xxl: clamp(2rem, (1rem + 2.5vw), 3rem);
+            --text-xl: clamp(1.25rem, (1rem + 2.5vw), 2rem);
+            --text-lg: clamp(1rem, (1rem + 2.5vw), 1.125rem);
+            --text-md: clamp(0.85rem, (1rem + 2.5vw) 1rem);
+            --text-sm: clamp(0.65rem, (1rem + 2.5vw), 0.85rem);
+
+            --padding-lg: clamp(2rem, 2.5vw, 2.25rem);
+            --padding-md: clamp(1.45rem, 2.5vw, 2rem);
+            --padding-sm: clamp(1rem, 2.5vw, 1.5rem);
+
+            --blog-width:900px;
+
+            --font-size:14px;
+             font-size:var(--font-size);
+        }
+    </style>
+    <style id="custom">
+        {CustomCSS}
+    </style>
+</head>
+<body data-type-page="index" data-blog-style="masonry" class="is-featured is-scrollbar is-sidebar is-three-column">
+    
+    <nav class="nav">
+        <div class="nav__inner | container--width-xl margin--x-auto">
+            <div class="nav__logo">
+                <div class="nav__logo__circle nav__logo__circle-one" aria-hidden="true"></div>
+                <div class="nav__logo__circle nav__logo__circle-two" aria-hidden="true"></div>
+            </div>
+            <div class="nav__links | flex flex--align-center">
+                <ul class="nav__menu">
+                    <li class="nav__menu__item nav__menu__item-active"><a href="/">Home</a></li>
+                    <li class="nav__menu__item"><a href="/archive">Archive</a></li>
+                    <li class="nav__menu__item"><a href="/ask">Inbox</a></li>
+                    <li class="nav__menu__item"><a href="/random">Random</a></li>
+                </ul>
+                <div class="nav__button">
+                    <button class="btn-nav" aria-label="Navigation"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="1"></circle>
+                            <circle cx="19" cy="12" r="1"></circle>
+                            <circle cx="5" cy="12" r="1"></circle>
+                        </svg></button>
+                    <button class="btn-dark" aria-label=""><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+  
+    <main class="wrapper | container--width-xl margin--x-auto">
+        <header class="wrapper__hero" style="background-image: var(--hero-bg-img);">
+            <div class="wrapper__hero__overlay"></div>
+            <div class="wrapper__hero__inner">
+                <a href="/" id="avatar"><img src="https://64.media.tumblr.com/6071fec0cd95ba8e0b2cbfd72ac8a2e5/f18b046763e6605c-43/s128x128u_c1/483fdc27ba68092b43bf50c8991d086d5bec4d50.pnj" alt=""/></a>
+                <h1>Nyiur</h1>
+                <p>Nyiur tanpa akar yang kuat, mercusuar yang sirna cahyanya dan akhirnya beralaskan semua yang disiratkan Ibumu. Sumpah serapah terucap, isyaratkan keraguan. Hilanglah semua kepercayaan itu bertaut semua yang hitam. Kuingin bergegas pergi merantau di negeri berempati hidup tanpa Ilahi yang membunuh angan-angan kecil. </p>
+                <div class="btn__wrapper | margin--top-30" data-wrapper-type="row">
+                    <a href="#" class="btn btn__primary">Button link here</a>
+                    <ul class="wrapper__hero__socmed">
+                        <li><a href="#" title="Twitter">
+                              <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                 <title>Twitter icon</title>
+                                 <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                              </svg></a></li>
+                        <li><a href="#" title="Patreon">
+                              <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                 <title>Patreon icon</title>
+                                 <path
+                                    d="M0 .48v23.04h4.22V.48zm15.385 0c-4.764 0-8.641 3.88-8.641 8.65 0 4.755 3.877 8.623 8.641 8.623 4.75 0 8.615-3.868 8.615-8.623C24 4.36 20.136.48 15.385.48z" />
+                              </svg></a></li>
+                        <li><a href="#" title="Twitch">
+                              <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                 <title>Twitch icon</title>
+                                 <path
+                                    d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z" />
+                              </svg>
+                           </a></li>
+                        <li><a href="#" title="YouTube">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                 <path
+                                    d="M12.04 3.5c.59 0 7.54.02 9.34.5a3.02 3.02 0 0 1 2.12 2.15C24 8.05 24 12 24 12v.04c0 .43-.03 4.03-.5 5.8A3.02 3.02 0 0 1 21.38 20c-1.76.48-8.45.5-9.3.51h-.17c-.85 0-7.54-.03-9.29-.5A3.02 3.02 0 0 1 .5 17.84c-.42-1.61-.49-4.7-.5-5.6v-.5c.01-.9.08-3.99.5-5.6a3.02 3.02 0 0 1 2.12-2.14c1.8-.49 8.75-.51 9.34-.51zM9.54 8.4v7.18L15.82 12 9.54 8.41z" />
+                              </svg>
+                           </a></li>
+                        <li><a href="#" title="Instagram">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                 <path
+                                    d="M16.98 0a6.9 6.9 0 0 1 5.08 1.98A6.94 6.94 0 0 1 24 7.02v9.96c0 2.08-.68 3.87-1.98 5.13A7.14 7.14 0 0 1 16.94 24H7.06a7.06 7.06 0 0 1-5.03-1.89A6.96 6.96 0 0 1 0 16.94V7.02C0 2.8 2.8 0 7.02 0h9.96zm.05 2.23H7.06c-1.45 0-2.7.43-3.53 1.25a4.82 4.82 0 0 0-1.3 3.54v9.92c0 1.5.43 2.7 1.3 3.58a5 5 0 0 0 3.53 1.25h9.88a5 5 0 0 0 3.53-1.25 4.73 4.73 0 0 0 1.4-3.54V7.02a5 5 0 0 0-1.3-3.49 4.82 4.82 0 0 0-3.54-1.3zM12 5.76c3.39 0 6.2 2.8 6.2 6.2a6.2 6.2 0 0 1-12.4 0 6.2 6.2 0 0 1 6.2-6.2zm0 2.22a3.99 3.99 0 0 0-3.97 3.97A3.99 3.99 0 0 0 12 15.92a3.99 3.99 0 0 0 3.97-3.97A3.99 3.99 0 0 0 12 7.98zm6.44-3.77a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8z" />
+                              </svg>
+                           </a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="wrapper__inner">
+            <section class="wrapper__featured">
+                <div class="wrapper__featured__content">
+                    <h2>Featured posts</h2>
+                    <p>Hey, this is an example test for the body text of the featured section. You can add the text as many much as possible. Thank you.</p>
+                    <ul class="wrapper__featured__controls | margin--top-30" id="customize-controls">
+                        <li>
+                            <button class="prev">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M19 12H6M12 5l-7 7 7 7" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="next"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=1.5
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h13M12 5l7 7-7 7" />
+                                </svg></button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="wrapper__featured__slideshow">
+                    <div class="slideshow slideshow-all"
+                    data-items="1"
+                    data-items-md="1"
+                    data-items-sm="1"
+                    data-loop="false"
+                    data-arrow="true"
+                    data-autoplay="false"
+                    data-speed="500"
+                    data-dots="false"
+                    data-controls-container="#customize-controls"
+                    data-autoplaytime="1000"></div>
+                </div>
+            </section>
+            <section class="wrapper__content">
+                <div class="wrapper__blog" id="blog">
+                  <article
+                     class="posts posts-photo  pinned here_s_how_tag_will_look_like amazing_isn_t_it please_tell_me_if_it_looks_good_on_your_end wohoooo  reblog">
+                     <div class="posts__dated posts__dated__pinned"><span class="posts__pinned__label flex flex--align-center"> <svg
+                              class="margin--right-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"></path>
+                              <circle cx="12" cy="10" r="3"></circle>
+                           </svg> Pinned Post</span>
+                     </div>
+                     <div class="posts__dated">
+                        <div class="posts__dated__perma">
+                           <a
+                              href="https://fukuo-commission.tumblr.com/post/671619677771939840/aukives-dont-talk-to-me-or-my-gf-ever-again">December
+                              12, 2021</a>
+                        </div>
+                        <div class="posts__dated__action"><a
+                              href="https://fukuo-commission.tumblr.com/post/671619677771939840/aukives-dont-talk-to-me-or-my-gf-ever-again"
+                              class="flex flex--align-center"><span class="is-notes">5,714 notes</span> <svg class="margin--left-10"
+                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                 <g fill="none" fill-rule="evenodd">
+                                    <path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"></path>
+                                 </g>
+                              </svg></a></div>
+                     </div>
+                     <section class="posts__media">
+                        <figure class="photo"><a href="https://fukuo-commission.tumblr.com/image/671619677771939840"><img
+                                 src="https://64.media.tumblr.com/e07945c8167e3b1419c3b696e12af0ed/3cb383282e62ad36-20/s1280x1920/f76689c7ab22c72a16fc0c1fbfeda81d6961c8ac.png"
+                                 alt="aukives:
+                  ““Don’t talk to me or my gf ever again.” ”"></a></figure>
+                     </section>
+                     <section class="posts__body">
+                        <div class="reblog-list">
+                           <div class="reblog-post-avatar"><img src="https://64.media.tumblr.com/avatar_2dc04a30b54b_64.pnj"><span><a
+                                    href="https://aukives.tumblr.com/post/663477499559329792" class="user-blog">aukives</a></span>
+                           </div>
+                           <p>“Don’t talk to me or my gf ever again.”</p>
+                        </div>
+                     </section>
+                     <div class="posts__bottom">
+                        <div class="posts__bottom__tags"><a href="#" class="posts__bottom__tags-btn"><svg
+                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                 <line x1="4" y1="9" x2="20" y2="9"></line>
+                                 <line x1="4" y1="15" x2="20" y2="15"></line>
+                                 <line x1="10" y1="3" x2="8" y2="21"></line>
+                                 <line x1="16" y1="3" x2="14" y2="21"></line>
+                              </svg></a>
+                           <ul>
+                              <li><a href="https://fukuo-commission.tumblr.com/tagged/here%27s%20how%20tag%20will%20look%20like">#here's
+                                    how tag will look like</a></li>
+                  
+                              <li><a href="https://fukuo-commission.tumblr.com/tagged/amazing%20isn%27t%20it%3F">#amazing isn't it?</a>
+                              </li>
+                  
+                              <li><a
+                                    href="https://fukuo-commission.tumblr.com/tagged/please%20tell%20me%20if%20it%20looks%20good%20on%20your%20end">#please
+                                    tell me if it looks good on your end</a></li>
+                  
+                              <li><a href="https://fukuo-commission.tumblr.com/tagged/wohoooo">#wohoooo</a></li>
+                  
+                           </ul>
+                        </div>
+                        <div class="posts__bottom__action">
+                           <ul>
+                              <li><a href="https://www.tumblr.com/reblog/fukuo-commission/671619677771939840/xXBVbHr7"><svg
+                                       xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                       <path d="M17 2.1l4 4-4 4"></path>
+                                       <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"></path>
+                                       <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"></path>
+                                    </svg></a></li>
+                              <li><a class="like">
+                                    <div class="like_button liked" data-post-id="671619677771939840" data-blog-name="fukuo-commission"
+                                       id="like_button_671619677771939840"><iframe id="like_iframe_671619677771939840"
+                                          src="https://assets.tumblr.com/assets/html/like_iframe.html?_v=66c22ab5319d742bca5762b8d18f9d06#name=fukuo-commission&amp;post_id=671619677771939840&amp;color=black&amp;rk=xXBVbHr7&amp;root_id=663477499559329792"
+                                          scrolling="no" class="like_toggle" allowtransparency="true"
+                                          name="like_iframe_671619677771939840" width="20" height="20" frameborder="0"></iframe></div><svg
+                                       xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                       <path
+                                          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                       </path>
+                                    </svg>
+                                 </a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </article>
+                    <article class="posts posts-text reblog posts-photo-text">
+                        <div class="posts__dated">
+                            <div class="posts__dated__perma"> 
+                               <a href="https://fukuo-commission.tumblr.com/post/719734027938037760/heyy-sorry-to-just-come-straight-asking-for-help">June 06, 2023</a>
+                            </div>
+                            <div class="posts__dated__action">
+                               <a href="https://fukuo-commission.tumblr.com/post/719734027938037760/heyy-sorry-to-just-come-straight-asking-for-help" class="flex flex--align-center">
+                                  <span class="is-notes">100 notes</span> 
+                                  <svg class="margin--left-10" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                     <g fill="none" fill-rule="evenodd">
+                                        <path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"></path>
+                                     </g>
+                                  </svg>
+                               </a>
+                            </div>
+                         </div>
+                       <section class="posts__media"></section>
+                       <section class="posts__body">
+                          <div class="reblog-list">
+                             <div class="reblog-post-avatar"><img src="https://44.media.tumblr.com/314138cbbada9027028a374454583f68/72bd39308927fe34-55/s64x64u_c1_f1/d5b6d79ee8966284a196ec54de3f2afa9424af3b.gif"><span><a href="https://jv.tumblr.com/post/704015958186082304" class="user-blog">jv</a></span> 
+                             </div>
+                             <p></p>
+                             <p>And some of you may not have heard this peak of human culture, but... just after Twitter purchase by Elon Musk got confirmed, a bunch of (serious) journalist put together a Twitter Space (a live audio streaming where any of the attendees can ask to participate) about what was going to happen next, and ... <a class="tumblelog" href="https://tmblr.co/MUW6wPm0eIDFOoCiZ6fxDrA">@tumblr</a> joined. And... they invited tumblr to speak. I can't describe how much joy this moment brought me and how fucking proud made me of being part of our little entropy generator here:</p>
+                             <figure class="tmblr-full">
+                                <figcaption class="audio-caption"><span class="tmblr-audio-meta audio-details"><span class="tmblr-audio-meta title">Last twitter space</span><span class="tmblr-audio-meta artist"></span><span class="tmblr-audio-meta album"></span></span></figcaption>
+                                <audio controls="controls">
+                                   <source src="https://64.media.tumblr.com/1d0cb16912601b6d967fb6043981e9d5/01a3bb22ec5c021a-cf/62fe227cf38636dd64b5fb7da1bcae7d1166dd45.mp3" type="audio/mpeg">
+                                </audio>
+                             </figure>
+                          </div>
+                          <div class="reblog-list">
+                             <div class="reblog-post-avatar"><img src="https://64.media.tumblr.com/c42a35ab4c6abb81176dc8f2c2ac713b/4a758036f8fde3c5-dc/s64x64u_c1/82f0f5ad1b712e2e50eb313e3015b565e8dc3908.pnj"><span><a href="https://hera-the-wizard.tumblr.com/post/704033334319251456" class="user-blog">hera-the-wizard</a></span> 
+                             </div>
+                             <p>canon Tumblr voice</p>
+                          </div>
+                          <div class="reblog-list">
+                             <div class="reblog-post-avatar"><img src="https://64.media.tumblr.com/6d195d09c15194a663b18e5fe75f10ce/76bed6a84859b5ad-45/s64x64u_c1/17cb0a010e38a9d87c0d8d22ae70d63cce3cdcee.pnj"><span><a href="https://thenewborndeity.tumblr.com/post/704061363151060992" class="user-blog">thenewborndeity</a></span> 
+                             </div>
+                             <p>I DONT KNOW WHAT I EXPECTED BUT MY EXPECTATIOBS WERE BY FUCKING FAR EXCEEDED</p>
+                          </div>
+                          <div class="reblog-list">
+                             <div class="reblog-post-avatar"><img src="https://64.media.tumblr.com/69ee26d2c05e4193d54386c7f8e3b396/866cf539fc4658fe-97/s64x64u_c1/b26ef7c3f48f607a37a541e0b30e24fb3782c6c3.pnj"><span><a href="https://icecreamsoup.tumblr.com/post/704083535532818433" class="user-blog">icecreamsoup</a></span> 
+                             </div>
+                             <p>TUMBLR VOICE REVEAL!????</p>
+                          </div>
+                          <div class="reblog-list">
+                             <div class="reblog-post-avatar"><img src="https://64.media.tumblr.com/df80e87007f93291603744acf7ee5b1c/3c1aad5b86208171-f6/s64x64u_c1/f193eadaace800a00ee8daee149c604de74673f9.pnj"><span><a href="https://curiusmeep.tumblr.com/post/718179652283318272" class="user-blog">curiusmeep</a></span> 
+                             </div>
+                             <p>this is the best interview ever. omg.</p>
+                          </div>
+                       </section>
+                       <div class="posts__bottom">
+                        <div class="posts__bottom__tags ">
+                           <a href="#" class="posts__bottom__tags-btn">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                 <line x1="4" y1="9" x2="20" y2="9"></line>
+                                 <line x1="4" y1="15" x2="20" y2="15"></line>
+                                 <line x1="10" y1="3" x2="8" y2="21"></line>
+                                 <line x1="16" y1="3" x2="14" y2="21"></line>
+                              </svg>
+                           </a>
+                           <ul>
+                              <li><a href="https://fukuo-commission.tumblr.com/tagged/great%21">#great!</a></li>
+                              <li><a href="https://fukuo-commission.tumblr.com/tagged/amazing%21">#amazing!</a></li>
+                              <li><a href="https://fukuo-commission.tumblr.com/tagged/ok%20noted">#ok noted</a></li>
+                              <li><a href="https://fukuo-commission.tumblr.com/tagged/here%20is%20some%20example%20tags">#here is some example tags</a></li>
+                           </ul>
+                        </div>
+                        <div class="posts__bottom__action">
+                           <ul>
+                              <li>
+                                 <a href="https://www.tumblr.com/reblog/fukuo-commission/719734027938037760/0pnBD9SW">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                       <path d="M17 2.1l4 4-4 4"></path>
+                                       <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"></path>
+                                       <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"></path>
+                                    </svg>
+                                 </a>
+                              </li>
+                              <li>
+                                 <a class="like">
+                                    <div class="like_button liked" data-post-id="719734027938037760" data-blog-name="fukuo-commission" id="like_button_719734027938037760"><iframe id="like_iframe_719734027938037760" src="https://assets.tumblr.com/assets/html/like_iframe.html?_v=66c22ab5319d742bca5762b8d18f9d06#name=fukuo-commission&amp;post_id=719734027938037760&amp;color=black&amp;rk=0pnBD9SW&amp;root_id=719615361047232512" scrolling="no" class="like_toggle" allowtransparency="true" name="like_iframe_719734027938037760" width="20" height="20" frameborder="0"></iframe></div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                    </article>         
+           
+                    <article class="posts posts-answer  great amazing ok_noted here_is_some_example_tags  reblog" id="719734027938037760">
+                       <div class="posts__dated">
+                          <div class="posts__dated__perma"> 
+                             <a href="https://fukuo-commission.tumblr.com/post/719734027938037760/heyy-sorry-to-just-come-straight-asking-for-help">June 06, 2023</a>
+                          </div>
+                          <div class="posts__dated__action">
+                             <a href="https://fukuo-commission.tumblr.com/post/719734027938037760/heyy-sorry-to-just-come-straight-asking-for-help" class="flex flex--align-center">
+                                <span class="is-notes">100 notes</span> 
+                                <svg class="margin--left-10" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <g fill="none" fill-rule="evenodd">
+                                      <path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"></path>
+                                   </g>
+                                </svg>
+                             </a>
+                          </div>
+                       </div>
+                       <section class="posts__media">
+                          <div class="posts__question">
+                             <img class="posts__answerer--img" src="https://64.media.tumblr.com/833c8f0cec4b6fcb7647e71e9a98d985/a4a3d588c0ceebc8-97/s64x64u_c1/3305c92001975ae75b93220ff1ac59220924e531.pnj" alt="">
+                             <div class="posts__answerer--inner">
+                                <div class="posts__question--asker"><a href="https://sweethipocrisy.tumblr.com/">sweethipocrisy</a> asked
+                                </div>
+                                <p>heyy! sorry to just come straight asking for help, but i'm a stress eater. everytime i'm nervous or stresses or sad i just eat a lot, and that's startibg to affect my health, since i'm going trough a lot. do you have any tips for self control?</p>
+                             </div>
+                          </div>
+                          <div class="posts__answerer">
+                             <img class="posts__answerer--img" src="https://64.media.tumblr.com/3ba73bbf5456b9f8e2722a6ef8486c96/7860be87d6c05ae1-50/s64x64u_c1/d653872d31a39a82a7453c7ca759ed38f71d6394.pnj" alt="">
+                             <div class="posts__answerer--inner">
+                                <div class="posts__answerer--asker"><a href="https://glimmry.tumblr.com/post/719615361047232512/heyy-sorry-to-just-come-straight-asking-for-help" class="answerer">glimmry</a> replied
+                                </div>
+                                <p>Hi angel, I don’t mind you asking at all, I’m really glad you’re reaching out and seeking help :) I know that overcoming the urge to stress eat can feel like a challenging habit to break, but don’t worry, it’s completely doable! Here are some tips to help you manage and reduce urges to stress eat and develop healthier eating patterns:</p>
+                                <h1>How to stop overeating ₊˚⊹♡</h1>
+                                <ol>
+                                   <li><b>Identify triggers:</b>&nbsp;Recognize the situations, emotions, or thoughts that trigger your stress eating urges. Keep a journal to track your eating habits, emotions, and circumstances surrounding your stress eating episodes. Keep a&nbsp;food diary&nbsp;to track when and why you stress eat. Understanding your emotional and environmental triggers can help you avoid or manage them more effectively.</li>
+                                   <li><b>Develop alternative&nbsp;coping mechanisms :</b>&nbsp;Find healthier ways to cope with your emotions, such as talking to a friend, engaging in physical activity, practicing mindfulness or meditation, or engaging in a hobby.</li>
+                                   <li><b>Eat regular meals and snacks:</b>&nbsp;Skipping meals or restricting your food intake can lead to increased hunger and stress eating. Don’t skip meals, as this can lead to overeating later in the day. Aim to eat balanced meals and snacks at regular intervals throughout the day. </li>
+                                   <li><b>Avoid&nbsp;restrictive diets:</b>&nbsp;Strict diets&nbsp;that eliminate entire food groups or severely limit&nbsp;caloric intake&nbsp;can contribute to binge eating. As mentioned before, focus on a&nbsp;balanced diet&nbsp;that includes a variety of foods and allows for occasional treats.</li>
+                                   <li><b>Portion control</b>: Use smaller plates and serve yourself smaller portions. This can help you eat less without feeling deprived.</li>
+                                   <li><b>Stay hydrated</b>: Drinking water before and during meals can help you feel full and prevent overeating. Sometimes, thirst can be mistaken for hunger.</li>
+                                   <li><b>Choose high-fiber and high-protein foods</b>: These foods can help you feel full and satisfied for longer periods, reducing the likelihood of overeating.</li>
+                                   <li><b>Get enough sleep</b>: Sleep deprivation can increase hunger and cravings, making it more difficult to control your eating habits.</li>
+                                   <li><b>Practice&nbsp;mindful eating:</b>&nbsp;Eating while watching TV, working, or using your phone can lead to mindless eating. Try to create a calm and focused environment for meals. Slow down and pay attention to your hunger and&nbsp;fullness cues. Savor your food, and avoid eating while distracted. Focus on the experience of eating – the taste, texture, and aroma of your food. Eat slowly and savor each bite. This can help you recognize when you’re full and prevent stress eating.</li>
+                                   <li><b>Create a supportive environment:</b>&nbsp;Surround yourself with people who understand your struggles and can provide encouragement and support. Consider joining a support group or working with a therapist!</li>
+                                   <li><b>Be patient and compassionate with yourself:</b>&nbsp;Overcoming stress eating is a process that takes time, effort, and self-compassion. Acknowledge your progress and be kind to yourself when you experience setbacks.</li>
+                                </ol>
+                                <p>Wishing you all the best! xx</p>
+                             </div>
+                          </div>
+                       </section>
+                       <section class="posts__body"></section>
+                       <div class="posts__bottom">
+                          <div class="posts__bottom__tags ">
+                             <a href="#" class="posts__bottom__tags-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <line x1="4" y1="9" x2="20" y2="9"></line>
+                                   <line x1="4" y1="15" x2="20" y2="15"></line>
+                                   <line x1="10" y1="3" x2="8" y2="21"></line>
+                                   <line x1="16" y1="3" x2="14" y2="21"></line>
+                                </svg>
+                             </a>
+                             <ul>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/great%21">#great!</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/amazing%21">#amazing!</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/ok%20noted">#ok noted</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/here%20is%20some%20example%20tags">#here is some example tags</a></li>
+                             </ul>
+                          </div>
+                          <div class="posts__bottom__action">
+                             <ul>
+                                <li>
+                                   <a href="https://www.tumblr.com/reblog/fukuo-commission/719734027938037760/0pnBD9SW">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M17 2.1l4 4-4 4"></path>
+                                         <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"></path>
+                                         <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                                <li>
+                                   <a class="like">
+                                      <div class="like_button liked" data-post-id="719734027938037760" data-blog-name="fukuo-commission" id="like_button_719734027938037760"><iframe id="like_iframe_719734027938037760" src="https://assets.tumblr.com/assets/html/like_iframe.html?_v=66c22ab5319d742bca5762b8d18f9d06#name=fukuo-commission&amp;post_id=719734027938037760&amp;color=black&amp;rk=0pnBD9SW&amp;root_id=719615361047232512" scrolling="no" class="like_toggle" allowtransparency="true" name="like_iframe_719734027938037760" width="20" height="20" frameborder="0"></iframe></div>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                             </ul>
+                          </div>
+                       </div>
+                    </article>
+           
+                    <article class="posts posts-text oh_me_gosh amazing spectacularrrrr never_seeen_beforeeee reblog posts-photo-text" id="719372337248632832">
+                       <div class="posts__dated">
+                          <div class="posts__dated__perma"> 
+                             <a href="https://fukuo-commission.tumblr.com/post/719372337248632832">June 06, 2023</a>
+                          </div>
+                          <div class="posts__dated__action">
+                             <a href="https://fukuo-commission.tumblr.com/post/719372337248632832" class="flex flex--align-center">
+                                <span class="is-notes">2,370 notes</span> 
+                                <svg class="margin--left-10" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <g fill="none" fill-rule="evenodd">
+                                      <path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"></path>
+                                   </g>
+                                </svg>
+                             </a>
+                          </div>
+                       </div>
+                       <section class="posts__media"></section>
+                       <section class="posts__body ">
+                          <div class="reblog-list">
+                             <div class="reblog-post-avatar"><img src="https://64.media.tumblr.com/52454c436c223573aecf601237ac7ea0/fdb02f25539864d8-fa/s64x64u_c1/ede15fbfbfcf357cf2a7ea3ff4025256718d0f0d.jpg"><span><a href="https://titsay.tumblr.com/post/719208155712749568" class="user-blog">titsay</a></span> 
+                             </div>
+                             <p></p>
+                             <div class="npf_row">
+                                <div class="npf_col">
+                                   <figure class="tmblr-full"><a class="post_media_photo_anchor" data-big-photo="https://64.media.tumblr.com/a91e4f7b913e978e8d5e1a5dc5e0a0bc/42cbcc82bbafe0eb-6a/s1280x1920/8ef2990ba4c7111d6142d9233b085739351d0a33.jpg" data-big-photo-height="2048" data-big-photo-width="1462"><img class="post_media_photo image" src="https://64.media.tumblr.com/a91e4f7b913e978e8d5e1a5dc5e0a0bc/42cbcc82bbafe0eb-6a/s1280x1920/8ef2990ba4c7111d6142d9233b085739351d0a33.jpg" srcset="https://64.media.tumblr.com/a91e4f7b913e978e8d5e1a5dc5e0a0bc/42cbcc82bbafe0eb-6a/s75x75_c1/724210379640474e7ff9b83bd29f385a6061b9b0.jpg 75w, https://64.media.tumblr.com/a91e4f7b913e978e8d5e1a5dc5e0a0bc/42cbcc82bbafe0eb-6a/s100x200/3dc28057f9e4a4074c5d97c108c630d706b182e7.jpg 100w, https://64.media.tumblr.com/a91e4f7b913e978e8d5e1a5dc5e0a0bc/42cbcc82bbafe0eb-6a/s250x400/8f419d6efbe88d7ed0133a59904df5a42d044c82.jpg 250w, https://64.media.tumblr.com/a91e4f7b913e978e8d5e1a5dc5e0a0bc/42cbcc82bbafe0eb-6a/s400x600/7dd714ce8c8b092b2fefe8c93259e71047c35581.jpg 400w, https://64.media.tumblr.com/a91e4f7b913e978e8d5e1a5dc5e0a0bc/42cbcc82bbafe0eb-6a/s500x750/a7dadff74adfcf33bf903a2d5e3ee34739c9aa6c.jpg 500w, https://64.media.tumblr.com/a91e4f7b913e978e8d5e1a5dc5e0a0bc/42cbcc82bbafe0eb-6a/s540x810/a653755781cb7ce02f34c5fecad161994025e616.jpg 540w, https://64.media.tumblr.com/a91e4f7b913e978e8d5e1a5dc5e0a0bc/42cbcc82bbafe0eb-6a/s640x960/67b655fa85ac88dd3a30abfdb8a25e6d3b7c7aa7.jpg 640w, https://64.media.tumblr.com/a91e4f7b913e978e8d5e1a5dc5e0a0bc/42cbcc82bbafe0eb-6a/s1280x1920/8ef2990ba4c7111d6142d9233b085739351d0a33.jpg 1280w, https://64.media.tumblr.com/a91e4f7b913e978e8d5e1a5dc5e0a0bc/42cbcc82bbafe0eb-6a/s2048x3072/f47c3fbe2ab8d2757f3f0f5250ef5505a2e8707d.jpg 1462w" sizes="(max-width: 1280px) 100vw, 1280px" alt="image"></a></figure>
+                                </div>
+                             </div>
+                             <p>life's better with color 🌈</p>
+                          </div>
+                       </section>
+                       <div class="posts__bottom">
+                          <div class="posts__bottom__tags ">
+                             <a href="#" class="posts__bottom__tags-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <line x1="4" y1="9" x2="20" y2="9"></line>
+                                   <line x1="4" y1="15" x2="20" y2="15"></line>
+                                   <line x1="10" y1="3" x2="8" y2="21"></line>
+                                   <line x1="16" y1="3" x2="14" y2="21"></line>
+                                </svg>
+                             </a>
+                             <ul>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/oh%20ME%20goSH">#oh ME goSH</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/amazING">#amazING</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/sPECTAcularrrrr">#sPECTAcularrrrr</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/never%20SEEEN%20befOrEEEE">#never SEEEN befOrEEEE</a></li>
+                             </ul>
+                          </div>
+                          <div class="posts__bottom__action">
+                             <ul>
+                                <li>
+                                   <a href="https://www.tumblr.com/reblog/fukuo-commission/719372337248632832/ex0QtrPI">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M17 2.1l4 4-4 4"></path>
+                                         <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"></path>
+                                         <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                                <li>
+                                   <a class="like">
+                                      <div class="like_button" data-post-id="719372337248632832" data-blog-name="fukuo-commission" id="like_button_719372337248632832"><iframe id="like_iframe_719372337248632832" src="https://assets.tumblr.com/assets/html/like_iframe.html?_v=66c22ab5319d742bca5762b8d18f9d06#name=fukuo-commission&amp;post_id=719372337248632832&amp;color=black&amp;rk=ex0QtrPI&amp;root_id=719208155712749568" scrolling="no" class="like_toggle" allowtransparency="true" name="like_iframe_719372337248632832" width="20" height="20" frameborder="0"></iframe></div>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                             </ul>
+                          </div>
+                       </div>
+                    </article>
+           
+                    <article class="posts posts-photo  art pixel_art favorite  reblog" id="719089056042139648">
+                       <div class="posts__dated">
+                          <div class="posts__dated__perma"> 
+                             <a href="https://fukuo-commission.tumblr.com/post/719089056042139648/tofupixel-seeing-all-my-twitter-mutuals-on">June 06, 2023</a>
+                          </div>
+                          <div class="posts__dated__action">
+                             <a href="https://fukuo-commission.tumblr.com/post/719089056042139648/tofupixel-seeing-all-my-twitter-mutuals-on" class="flex flex--align-center">
+                                <span class="is-notes">1,625 notes</span> 
+                                <svg class="margin--left-10" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <g fill="none" fill-rule="evenodd">
+                                      <path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"></path>
+                                   </g>
+                                </svg>
+                             </a>
+                          </div>
+                       </div>
+                       <section class="posts__media">
+                          <figure class="photo"><a href="https://fukuo-commission.tumblr.com/image/719089056042139648"><img src="https://64.media.tumblr.com/34cce9d905b3712e4096b241b54bbaa0/a3d570b51e64a937-22/s1280x1920/36952cf5b8cd45f6910082802f7c0b8034ea729d.png" alt="tofupixel:
+                             “seeing all my twitter mutuals on tumblr is like nature is healing
+                             anyway heres a new ghibli study i started
+                             ”"></a></figure>
+                       </section>
+                       <section class="posts__body">
+                          <div class="reblog-list">
+                             <div class="reblog-post-avatar"><img src="https://64.media.tumblr.com/cf96729454f4168f36d0af4ea465d251/b6a32286f6e63ed6-c2/s64x64u_c1/1173c883030590e7a52c1f1e64db9667d95076a4.pnj"><span><a href="https://tofupixel.tumblr.com/post/700676659551059969" class="user-blog">tofupixel</a></span> 
+                             </div>
+                             <p>seeing all my twitter mutuals on tumblr is like nature is healing</p>
+                             <p>anyway heres a new ghibli study i started</p>
+                          </div>
+                       </section>
+                       <div class="posts__bottom">
+                          <div class="posts__bottom__tags ">
+                             <a href="#" class="posts__bottom__tags-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <line x1="4" y1="9" x2="20" y2="9"></line>
+                                   <line x1="4" y1="15" x2="20" y2="15"></line>
+                                   <line x1="10" y1="3" x2="8" y2="21"></line>
+                                   <line x1="16" y1="3" x2="14" y2="21"></line>
+                                </svg>
+                             </a>
+                             <ul>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/art">#art</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/pixel%20art">#pixel art</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/favorite">#favorite</a></li>
+                             </ul>
+                          </div>
+                          <div class="posts__bottom__action">
+                             <ul>
+                                <li>
+                                   <a href="https://www.tumblr.com/reblog/fukuo-commission/719089056042139648/DwQaOriS">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M17 2.1l4 4-4 4"></path>
+                                         <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"></path>
+                                         <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                                <li>
+                                   <a class="like">
+                                      <div class="like_button liked" data-post-id="719089056042139648" data-blog-name="fukuo-commission" id="like_button_719089056042139648"><iframe id="like_iframe_719089056042139648" src="https://assets.tumblr.com/assets/html/like_iframe.html?_v=66c22ab5319d742bca5762b8d18f9d06#name=fukuo-commission&amp;post_id=719089056042139648&amp;color=black&amp;rk=DwQaOriS&amp;root_id=700676659551059969" scrolling="no" class="like_toggle" allowtransparency="true" name="like_iframe_719089056042139648" width="20" height="20" frameborder="0"></iframe></div>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                             </ul>
+                          </div>
+                       </div>
+                    </article>
+           
+                    <article class="posts posts-text  i_see_isee about_that how_about_you you_waht  reblog" id="719088332771147776">
+                       <div class="posts__dated">
+                          <div class="posts__dated__perma"> 
+                             <a href="https://fukuo-commission.tumblr.com/post/719088332771147776">June 06, 2023</a>
+                          </div>
+                          <div class="posts__dated__action">
+                             <a href="https://fukuo-commission.tumblr.com/post/719088332771147776" class="flex flex--align-center">
+                                <span class="is-notes">21,504 notes</span> 
+                                <svg class="margin--left-10" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <g fill="none" fill-rule="evenodd">
+                                      <path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"></path>
+                                   </g>
+                                </svg>
+                             </a>
+                          </div>
+                       </div>
+                       <section class="posts__media"></section>
+                       <section class="posts__body ">
+                          <div class="reblog-list">
+                             <div class="reblog-post-avatar"><img src="https://64.media.tumblr.com/fba967c6e2427d64f98e86d6ec03b3c0/42121d37302681d0-f7/s64x64u_c1/4a5f16c048cb4b76b739c65a25baa762aa37fc44.jpg"><span><a href="https://photomatt.tumblr.com/post/696629352701493248" class="user-blog">photomatt</a></span> 
+                             </div>
+                             <p></p>
+                             <h1>Why “Go Nuts, Show Nuts” Doesn’t Work in 2022</h1>
+                             <p>For those who don’t know or remember, Tumblr used to have a policy around porn that was literally “Go nuts, show nuts. Whatever.” That was memorable and hilarious, and for many people, <a href="https://href.li/?https://sea.mashable.com/life/19369/the-death-of-tumblr-porn-left-a-void-no-other-site-can-fill">Tumblr both hosted and helped with the discovery of a unique type of adult content</a>.</p>
+                             <p>In 2018, when Tumblr was owned by Verizon, they swung in the other direction and instituted an <a href="https://href.li/?https://www.theverge.com/2018/12/3/18123752/tumblr-adult-content-porn-ban-date-explicit-changes-why-safe-mode">adult content ban</a> that took out not only porn but also a ton of art and artists – including a ban on what must have been fun for a lawyer to write, <a href="https://href.li/?https://knowyourmeme.com/memes/female-presenting-nipples">female presenting nipples</a>. This policy is currently still in place, though the Tumblr and Automattic teams are working to make it more open and common-sense, and <a href="https://photomatt.tumblr.com/post/696578252906659840/staff-introducing-community-labels-as-you">the community labels launch is a first step toward that</a>.</p>
+                             <p>That said, no modern internet service in 2022 can have the rules that Tumblr did in 2007. I am personally extremely libertarian in terms of what consenting adults should be able to share, and I agree with “go nuts, show nuts” in principle, but the casually porn-friendly era of the early internet is currently impossible. Here’s why:</p>
+                             <ol>
+                                <li>Credit card companies are anti-porn. You’ve probably heard how <a href="https://href.li/?https://www.cbsnews.com/news/visa-mastercard-wont-allow-charges-pornhub/">Pornhub can’t accept credit cards</a> anymore. Or seen the <a href="https://href.li/?https://www.vice.com/en/article/epng3j/mastercard-now-requires-documented-consent-from-adult-sites">new rules from Mastercard</a>. Whatever crypto-utopia might come in the coming decades, today if you are blocked from banks, credit card processing, and financial services, you’re blocked from the modern economy. The vast majority of Automattic’s revenue comes from people buying our services and auto-renewing on credit cards, including the <a href="https://www.tumblr.com/settings/ad-free-browsing">ads-free browsing upgrade</a> that Tumblr recently launched. If we lost the ability to process credit cards, it wouldn’t just threaten Tumblr, but also the <a href="https://href.li/?https://automattic.com/about/">2,000+ people in 97 countries </a>that work at Automattic across all our products.</li>
+                                <li>App stores, particularly Apple’s, are anti-porn. Tumblr started in 2007, the same year the iPhone was released. Originally, the iPhone didn’t have an App Store, and the speed of connectivity and quality of the screen meant that people didn’t use their smartphone very much and mostly interacted with Tumblr on the web, using desktop and laptop computers (really). Today 40% of our signups and 85% of our page views come from people on mobile apps, not on the web. Apple has its own rules for what’s allowed in their App Store, and the interpretation of those rules can vary depending on who is reviewing your app on any given day. Previous decisions on what’s allowed can be reversed any time you submit an app update, which we do several times a month. If Apple permanently banned Tumblr from the App Store, we’d probably have to shut the service down. If you want apps to allow more adult content, please lobby Apple. No one in the App Store has any effective power, even multi-hundred-billion companies like Facebook/Meta <a href="https://href.li/?https://www.cnbc.com/2022/02/02/facebook-says-apple-ios-privacy-change-will-cost-10-billion-this-year.html">can be devastated when Apple changes its policies</a>. Aside: Why do Twitter and Reddit get away with tons of super hardcore content? Ask Apple, because I don’t know. My guess is that Twitter and Reddit are too big for Apple to block so they decided to make an example out of Tumblr, which has “only” 102 million monthly visitors. Maybe Twitter gets blocked by Apple sometimes too but can’t talk about it because they’re a public company and it would scare investors.</li>
+                                <li>There are lots of new rules around verifying consent and age in adult content. The rise of smartphones also means that everyone has a camera that can capture pictures and video at any time. Non-consensual sharing has grown exponentially and has been a huge problem on dedicated porn sites like Pornhub – and governments have rightly been expanding laws and regulations to make sure everyone being shown in online adult content is of legal age and has consented to the material being shared. Tumblr has no way to go back and identify the featured persons or the legality of every piece of adult content that was shared on the platform and taken down in 2018, nor does it have the resources or expertise to do that for new uploads.</li>
+                                <li>Porn requires different service providers up and down the stack. In addition to a company primarily serving adult content not having access to normal financial services and being blocked by app stores, they also need specialized service providers – for example, for their bandwidth and network connections. Most traditional investors won’t fund primarily adult businesses, and may not even be allowed to by their LP agreements. (When Starbucks started selling alcohol at select stores, <a href="https://href.li/?https://www.seattletimes.com/business/pax-world-sells-shares-over-liqueur/">some investors were forced to sell their stock</a>.)</li>
+                             </ol>
+                             <p>If you wanted to start an adult social network in 2022, you’d need to be web-only on iOS and side load on Android, take payment in crypto, have a way to convert crypto to fiat for business operations without being blocked, do a ton of work in age and identity verification and compliance so you don’t go to jail, protect all of that identity information so you don’t dox your users, and make a ton of money. I estimate you’d need at least $7 million a year for every 1 million daily active users to support server storage and bandwidth (the GIFs and videos shared on Tumblr use a ton of both) in addition to hosting, moderation, compliance, and developer costs.&nbsp;</p>
+                             <p>I do hope that a dedicated service or company is started that will replace what people used to get from porn on Tumblr. It may already exist and I don’t know about it. They’ll have an uphill battle under current regimes, and if you think that’s a bad thing please try to change the regimes. Don’t attack companies following legal and business realities as they exist.</p>
+                          </div>
+                       </section>
+                       <div class="posts__bottom">
+                          <div class="posts__bottom__tags ">
+                             <a href="#" class="posts__bottom__tags-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <line x1="4" y1="9" x2="20" y2="9"></line>
+                                   <line x1="4" y1="15" x2="20" y2="15"></line>
+                                   <line x1="10" y1="3" x2="8" y2="21"></line>
+                                   <line x1="16" y1="3" x2="14" y2="21"></line>
+                                </svg>
+                             </a>
+                             <ul>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/%3F%3F%3F%3F">#????</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/i%20see%20isee">#i see isee</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/about%20that">#about that</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/how%20about%20you">#how about you</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/you%20waht">#you waht</a></li>
+                             </ul>
+                          </div>
+                          <div class="posts__bottom__action">
+                             <ul>
+                                <li>
+                                   <a href="https://www.tumblr.com/reblog/fukuo-commission/719088332771147776/WJG7iyOa">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M17 2.1l4 4-4 4"></path>
+                                         <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"></path>
+                                         <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                                <li>
+                                   <a class="like">
+                                      <div class="like_button liked" data-post-id="719088332771147776" data-blog-name="fukuo-commission" id="like_button_719088332771147776"><iframe id="like_iframe_719088332771147776" src="https://assets.tumblr.com/assets/html/like_iframe.html?_v=66c22ab5319d742bca5762b8d18f9d06#name=fukuo-commission&amp;post_id=719088332771147776&amp;color=black&amp;rk=WJG7iyOa&amp;root_id=696629352701493248" scrolling="no" class="like_toggle" allowtransparency="true" name="like_iframe_719088332771147776" width="20" height="20" frameborder="0"></iframe></div>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                             </ul>
+                          </div>
+                       </div>
+                    </article>
+           
+                    <article class="posts posts-text nice_art here_s_tag_for_you love_the_colours_yo reblog posts-photo-text" id="719088314149437440">
+                       <div class="posts__dated">
+                          <div class="posts__dated__perma"> 
+                             <a href="https://fukuo-commission.tumblr.com/post/719088314149437440">June 06, 2023</a>
+                          </div>
+                          <div class="posts__dated__action">
+                             <a href="https://fukuo-commission.tumblr.com/post/719088314149437440" class="flex flex--align-center">
+                                <span class="is-notes">468 notes</span> 
+                                <svg class="margin--left-10" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <g fill="none" fill-rule="evenodd">
+                                      <path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"></path>
+                                   </g>
+                                </svg>
+                             </a>
+                          </div>
+                       </div>
+                       <section class="posts__media"></section>
+                       <section class="posts__body ">
+                          <div class="reblog-list">
+                             <div class="reblog-post-avatar"><img src="https://64.media.tumblr.com/8007c08cd0701b2d370c06aa62a466cc/c1c5bf58322cb052-3f/s64x64u_c1/7a2d5cd68820639d16a10cfe6f756670619be6f4.jpg"><span><a href="https://lotusinjadewell.tumblr.com/post/687548851947798528" class="user-blog">lotusinjadewell</a></span> 
+                             </div>
+                             <p></p>
+                             <div class="npf_row">
+                                <div class="npf_col">
+                                   <figure class="tmblr-full"><a class="post_media_photo_anchor" data-big-photo="https://64.media.tumblr.com/8a992d98d224fa5c7391b1eb2ad2ed4f/dad14ab620db679e-ab/s1280x1920/55dac5a6d83d553ca2d2922ffa92650d82c2b45a.jpg" data-big-photo-height="2000" data-big-photo-width="2000"><img class="post_media_photo image" src="https://64.media.tumblr.com/8a992d98d224fa5c7391b1eb2ad2ed4f/dad14ab620db679e-ab/s1280x1920/55dac5a6d83d553ca2d2922ffa92650d82c2b45a.jpg" srcset="https://64.media.tumblr.com/8a992d98d224fa5c7391b1eb2ad2ed4f/dad14ab620db679e-ab/s75x75_c1/5b35dc06802716ef286a5b5a2a8c7db2d4ff8601.jpg 75w, https://64.media.tumblr.com/8a992d98d224fa5c7391b1eb2ad2ed4f/dad14ab620db679e-ab/s100x200/4eb2b70b64198d18135b3091c793be90a5024354.jpg 100w, https://64.media.tumblr.com/8a992d98d224fa5c7391b1eb2ad2ed4f/dad14ab620db679e-ab/s250x400/f736b390c97c97cd41d6899e3e72ca18fae0b793.jpg 250w, https://64.media.tumblr.com/8a992d98d224fa5c7391b1eb2ad2ed4f/dad14ab620db679e-ab/s400x600/5975c80fae4e08c3c6ab69ef53a59a8acc35a1c3.jpg 400w, https://64.media.tumblr.com/8a992d98d224fa5c7391b1eb2ad2ed4f/dad14ab620db679e-ab/s500x750/3caed772effc224dae71e6643c4a91d1fd5e13a9.jpg 500w, https://64.media.tumblr.com/8a992d98d224fa5c7391b1eb2ad2ed4f/dad14ab620db679e-ab/s540x810/c5f75340d492f85321afa438533ded27a7ffbdfd.jpg 540w, https://64.media.tumblr.com/8a992d98d224fa5c7391b1eb2ad2ed4f/dad14ab620db679e-ab/s640x960/9c39d0a76787c2728efcb96df06bd7cfffb00c2c.jpg 640w, https://64.media.tumblr.com/8a992d98d224fa5c7391b1eb2ad2ed4f/dad14ab620db679e-ab/s1280x1920/55dac5a6d83d553ca2d2922ffa92650d82c2b45a.jpg 1280w, https://64.media.tumblr.com/8a992d98d224fa5c7391b1eb2ad2ed4f/dad14ab620db679e-ab/s2048x3072/b77605a4de44990ea19b15c2002a86cc57dd81cf.jpg 2000w" sizes="(max-width: 1280px) 100vw, 1280px" alt="image"></a></figure>
+                                </div>
+                                <div class="npf_col">
+                                   <figure class="tmblr-full"><a class="post_media_photo_anchor" data-big-photo="https://64.media.tumblr.com/99ef9958fe81229412b83b8de9647dd8/dad14ab620db679e-e9/s1280x1920/ece927e5f0b34fe4206aef4aa6526ed3f400501b.jpg" data-big-photo-height="2000" data-big-photo-width="2000"><img class="post_media_photo image" src="https://64.media.tumblr.com/99ef9958fe81229412b83b8de9647dd8/dad14ab620db679e-e9/s1280x1920/ece927e5f0b34fe4206aef4aa6526ed3f400501b.jpg" srcset="https://64.media.tumblr.com/99ef9958fe81229412b83b8de9647dd8/dad14ab620db679e-e9/s75x75_c1/c5d679c257b7962da5432a502ce2b087a3e51475.jpg 75w, https://64.media.tumblr.com/99ef9958fe81229412b83b8de9647dd8/dad14ab620db679e-e9/s100x200/c694abea9f1c498bad1e3dbf0b0f005ec480318b.jpg 100w, https://64.media.tumblr.com/99ef9958fe81229412b83b8de9647dd8/dad14ab620db679e-e9/s250x400/e50e649932d2da45fdcbbc42693dd662e3b15198.jpg 250w, https://64.media.tumblr.com/99ef9958fe81229412b83b8de9647dd8/dad14ab620db679e-e9/s400x600/d2d0f79c5e5cf8a9fa4347a93ef48708370063d5.jpg 400w, https://64.media.tumblr.com/99ef9958fe81229412b83b8de9647dd8/dad14ab620db679e-e9/s500x750/a7e36a945351363735d6703ed838534907ee6809.jpg 500w, https://64.media.tumblr.com/99ef9958fe81229412b83b8de9647dd8/dad14ab620db679e-e9/s540x810/438670f28300decda834bc83b54a11257c55a270.jpg 540w, https://64.media.tumblr.com/99ef9958fe81229412b83b8de9647dd8/dad14ab620db679e-e9/s640x960/0438397aa45bcb08c5f930e994a751cf3dab0c9b.jpg 640w, https://64.media.tumblr.com/99ef9958fe81229412b83b8de9647dd8/dad14ab620db679e-e9/s1280x1920/ece927e5f0b34fe4206aef4aa6526ed3f400501b.jpg 1280w, https://64.media.tumblr.com/99ef9958fe81229412b83b8de9647dd8/dad14ab620db679e-e9/s2048x3072/7e0b41aaed7d1f52f1140d902700d37f078b4190.jpg 2000w" sizes="(max-width: 1280px) 100vw, 1280px" alt="image"></a></figure>
+                                </div>
+                             </div>
+                             <div class="npf_row">
+                                <div class="npf_col">
+                                   <figure class="tmblr-full"><a class="post_media_photo_anchor" data-big-photo="https://64.media.tumblr.com/013c0b879ed83e98cc440abdc9504718/dad14ab620db679e-1d/s1280x1920/426fd2b508d477a965d4cb49c5daa2d85dc79398.jpg" data-big-photo-height="2000" data-big-photo-width="2000"><img class="post_media_photo image" src="https://64.media.tumblr.com/013c0b879ed83e98cc440abdc9504718/dad14ab620db679e-1d/s1280x1920/426fd2b508d477a965d4cb49c5daa2d85dc79398.jpg" srcset="https://64.media.tumblr.com/013c0b879ed83e98cc440abdc9504718/dad14ab620db679e-1d/s75x75_c1/e787f6688d03a0c461547489f3de5c5c7c1b1470.jpg 75w, https://64.media.tumblr.com/013c0b879ed83e98cc440abdc9504718/dad14ab620db679e-1d/s100x200/d187ce9801e7a1a7f45441b867f364366e298182.jpg 100w, https://64.media.tumblr.com/013c0b879ed83e98cc440abdc9504718/dad14ab620db679e-1d/s250x400/eb3efbdd27d84c26d4f1ddcd6cf9c1c648985d75.jpg 250w, https://64.media.tumblr.com/013c0b879ed83e98cc440abdc9504718/dad14ab620db679e-1d/s400x600/7c6da751c2486a2d0f3acb93ad3050d06100898c.jpg 400w, https://64.media.tumblr.com/013c0b879ed83e98cc440abdc9504718/dad14ab620db679e-1d/s500x750/79fae91966f7642e096d04904c1e6472316a0291.jpg 500w, https://64.media.tumblr.com/013c0b879ed83e98cc440abdc9504718/dad14ab620db679e-1d/s540x810/820397e4f650f88f29a717ea556e0078e29056d8.jpg 540w, https://64.media.tumblr.com/013c0b879ed83e98cc440abdc9504718/dad14ab620db679e-1d/s640x960/3712839bede81f4f18100e89e4a3418d56b1b626.jpg 640w, https://64.media.tumblr.com/013c0b879ed83e98cc440abdc9504718/dad14ab620db679e-1d/s1280x1920/426fd2b508d477a965d4cb49c5daa2d85dc79398.jpg 1280w, https://64.media.tumblr.com/013c0b879ed83e98cc440abdc9504718/dad14ab620db679e-1d/s2048x3072/779cb7982c4c3c7b353d72d2ed2dbfc5c9090db1.jpg 2000w" sizes="(max-width: 1280px) 100vw, 1280px" alt="image"></a></figure>
+                                </div>
+                                <div class="npf_col">
+                                   <figure class="tmblr-full"><a class="post_media_photo_anchor" data-big-photo="https://64.media.tumblr.com/e253237896b8b3346d1381ad2146a8ef/dad14ab620db679e-9d/s1280x1920/74e1f86f6027cbd7fca95456ac9892cddbb460d4.jpg" data-big-photo-height="2000" data-big-photo-width="2000"><img class="post_media_photo image" src="https://64.media.tumblr.com/e253237896b8b3346d1381ad2146a8ef/dad14ab620db679e-9d/s1280x1920/74e1f86f6027cbd7fca95456ac9892cddbb460d4.jpg" srcset="https://64.media.tumblr.com/e253237896b8b3346d1381ad2146a8ef/dad14ab620db679e-9d/s75x75_c1/472f6a4a0b61ece234635b48a70985a2845972e7.jpg 75w, https://64.media.tumblr.com/e253237896b8b3346d1381ad2146a8ef/dad14ab620db679e-9d/s100x200/07a8efe6a75fcfa6e9444817c988d2710b3f3072.jpg 100w, https://64.media.tumblr.com/e253237896b8b3346d1381ad2146a8ef/dad14ab620db679e-9d/s250x400/f59f25eccad87e7f062cf39cda3271989a51f06f.jpg 250w, https://64.media.tumblr.com/e253237896b8b3346d1381ad2146a8ef/dad14ab620db679e-9d/s400x600/6fec1a341f4564c0f05de88466b9c8cf29ab8a5b.jpg 400w, https://64.media.tumblr.com/e253237896b8b3346d1381ad2146a8ef/dad14ab620db679e-9d/s500x750/03b07d27efda38789b47ce554d7c87e0e286ce86.jpg 500w, https://64.media.tumblr.com/e253237896b8b3346d1381ad2146a8ef/dad14ab620db679e-9d/s540x810/fb3c1db35e768ecdf91ce1389bc2b0e9eac0c94e.jpg 540w, https://64.media.tumblr.com/e253237896b8b3346d1381ad2146a8ef/dad14ab620db679e-9d/s640x960/4b1dd02940bd57d4bd7473699a5878dec282130a.jpg 640w, https://64.media.tumblr.com/e253237896b8b3346d1381ad2146a8ef/dad14ab620db679e-9d/s1280x1920/74e1f86f6027cbd7fca95456ac9892cddbb460d4.jpg 1280w, https://64.media.tumblr.com/e253237896b8b3346d1381ad2146a8ef/dad14ab620db679e-9d/s2048x3072/2682565d510c5690e65bf9414906ea427759a153.jpg 2000w" sizes="(max-width: 1280px) 100vw, 1280px" alt="image"></a></figure>
+                                </div>
+                             </div>
+                             <div class="npf_row">
+                                <div class="npf_col">
+                                   <figure class="tmblr-full"><a class="post_media_photo_anchor" data-big-photo="https://64.media.tumblr.com/9035340bab675895a6c8bac4b69ddbc7/dad14ab620db679e-77/s1280x1920/c067cae9e023eea11c3c046844fdf3db2054d997.jpg" data-big-photo-height="2000" data-big-photo-width="2000"><img class="post_media_photo image" src="https://64.media.tumblr.com/9035340bab675895a6c8bac4b69ddbc7/dad14ab620db679e-77/s1280x1920/c067cae9e023eea11c3c046844fdf3db2054d997.jpg" srcset="https://64.media.tumblr.com/9035340bab675895a6c8bac4b69ddbc7/dad14ab620db679e-77/s75x75_c1/f68cfd928754686aad25bf76473528a0771a2ab4.jpg 75w, https://64.media.tumblr.com/9035340bab675895a6c8bac4b69ddbc7/dad14ab620db679e-77/s100x200/58292bd48dd02a09b2a53a1e859cf3b3488cde7a.jpg 100w, https://64.media.tumblr.com/9035340bab675895a6c8bac4b69ddbc7/dad14ab620db679e-77/s250x400/efb7b0f200f47bde7b193fe3cc68718b7c17eb3c.jpg 250w, https://64.media.tumblr.com/9035340bab675895a6c8bac4b69ddbc7/dad14ab620db679e-77/s400x600/8d673ad463035e7a7c44c93595bff4e2d927496d.jpg 400w, https://64.media.tumblr.com/9035340bab675895a6c8bac4b69ddbc7/dad14ab620db679e-77/s500x750/40bd4d04649eb255e5edef4a13f40108f8fdacb4.jpg 500w, https://64.media.tumblr.com/9035340bab675895a6c8bac4b69ddbc7/dad14ab620db679e-77/s540x810/8914dde02b8d469bd06f70850a034053810a5932.jpg 540w, https://64.media.tumblr.com/9035340bab675895a6c8bac4b69ddbc7/dad14ab620db679e-77/s640x960/b168e87b2173f877e6296aa38752caca3d1ea48b.jpg 640w, https://64.media.tumblr.com/9035340bab675895a6c8bac4b69ddbc7/dad14ab620db679e-77/s1280x1920/c067cae9e023eea11c3c046844fdf3db2054d997.jpg 1280w, https://64.media.tumblr.com/9035340bab675895a6c8bac4b69ddbc7/dad14ab620db679e-77/s2048x3072/40ee51ccdb9409921ff7410a361fcb142130e322.jpg 2000w" sizes="(max-width: 1280px) 100vw, 1280px" alt="image"></a></figure>
+                                </div>
+                                <div class="npf_col">
+                                   <figure class="tmblr-full"><a class="post_media_photo_anchor" data-big-photo="https://64.media.tumblr.com/bc38f0a3fe6627aa6f230b29f966edf4/dad14ab620db679e-13/s1280x1920/3e668688d35ea65dc835b6ddba8d162492faddec.jpg" data-big-photo-height="2000" data-big-photo-width="2000"><img class="post_media_photo image" src="https://64.media.tumblr.com/bc38f0a3fe6627aa6f230b29f966edf4/dad14ab620db679e-13/s1280x1920/3e668688d35ea65dc835b6ddba8d162492faddec.jpg" srcset="https://64.media.tumblr.com/bc38f0a3fe6627aa6f230b29f966edf4/dad14ab620db679e-13/s75x75_c1/fa9d0c1d4b9b98f501aa8f4ea0244037205c9ef6.jpg 75w, https://64.media.tumblr.com/bc38f0a3fe6627aa6f230b29f966edf4/dad14ab620db679e-13/s100x200/480517ecf6a250443a6343a040f6983632e60c9e.jpg 100w, https://64.media.tumblr.com/bc38f0a3fe6627aa6f230b29f966edf4/dad14ab620db679e-13/s250x400/85019178a9f5e2f42d6587ee657527b437a8ea3c.jpg 250w, https://64.media.tumblr.com/bc38f0a3fe6627aa6f230b29f966edf4/dad14ab620db679e-13/s400x600/677f628556a13e919a14016c7789a05fc82a5451.jpg 400w, https://64.media.tumblr.com/bc38f0a3fe6627aa6f230b29f966edf4/dad14ab620db679e-13/s500x750/50cbfc71fc0efb40bf784a816c2848811e19371b.jpg 500w, https://64.media.tumblr.com/bc38f0a3fe6627aa6f230b29f966edf4/dad14ab620db679e-13/s540x810/68d03acdbf8f79ca4dfc26cf1262c340181ed64f.jpg 540w, https://64.media.tumblr.com/bc38f0a3fe6627aa6f230b29f966edf4/dad14ab620db679e-13/s640x960/2f91c78b1d8015e85d01428225935e39cea5cf69.jpg 640w, https://64.media.tumblr.com/bc38f0a3fe6627aa6f230b29f966edf4/dad14ab620db679e-13/s1280x1920/3e668688d35ea65dc835b6ddba8d162492faddec.jpg 1280w, https://64.media.tumblr.com/bc38f0a3fe6627aa6f230b29f966edf4/dad14ab620db679e-13/s2048x3072/e57eab827661fc0ce3825d29dcf1a79d95a6fb8a.jpg 2000w" sizes="(max-width: 1280px) 100vw, 1280px" alt="image"></a></figure>
+                                </div>
+                             </div>
+                             <div class="npf_row">
+                                <div class="npf_col">
+                                   <figure class="tmblr-full"><a class="post_media_photo_anchor" data-big-photo="https://64.media.tumblr.com/567c6fb353965d521e8d0bcbe9982daa/dad14ab620db679e-fa/s1280x1920/e019739a061c272e628fc4e64e2b48c6a665c016.jpg" data-big-photo-height="2000" data-big-photo-width="2000"><img class="post_media_photo image" src="https://64.media.tumblr.com/567c6fb353965d521e8d0bcbe9982daa/dad14ab620db679e-fa/s1280x1920/e019739a061c272e628fc4e64e2b48c6a665c016.jpg" srcset="https://64.media.tumblr.com/567c6fb353965d521e8d0bcbe9982daa/dad14ab620db679e-fa/s75x75_c1/833c01f27e736d428aa97c055b3952057e05f853.jpg 75w, https://64.media.tumblr.com/567c6fb353965d521e8d0bcbe9982daa/dad14ab620db679e-fa/s100x200/f8cc0a6ec15f76bddf999f21aee5e1e11e48bd74.jpg 100w, https://64.media.tumblr.com/567c6fb353965d521e8d0bcbe9982daa/dad14ab620db679e-fa/s250x400/3a7d48373bccf05d67bd880c21daa1e3c6f4102d.jpg 250w, https://64.media.tumblr.com/567c6fb353965d521e8d0bcbe9982daa/dad14ab620db679e-fa/s400x600/1f2372c408ed60db5c4a823ab75368c4ef60f071.jpg 400w, https://64.media.tumblr.com/567c6fb353965d521e8d0bcbe9982daa/dad14ab620db679e-fa/s500x750/fcfeb6f51db0ee6fec22836e6c1407b3132d8d42.jpg 500w, https://64.media.tumblr.com/567c6fb353965d521e8d0bcbe9982daa/dad14ab620db679e-fa/s540x810/99b99793576e8c2be758cab7a83a209132fb4a56.jpg 540w, https://64.media.tumblr.com/567c6fb353965d521e8d0bcbe9982daa/dad14ab620db679e-fa/s640x960/2ba47324cc668b5451b1e8a8d5924c9951ca542e.jpg 640w, https://64.media.tumblr.com/567c6fb353965d521e8d0bcbe9982daa/dad14ab620db679e-fa/s1280x1920/e019739a061c272e628fc4e64e2b48c6a665c016.jpg 1280w, https://64.media.tumblr.com/567c6fb353965d521e8d0bcbe9982daa/dad14ab620db679e-fa/s2048x3072/848b6e74a78c453f8169d7317111f76501fe6152.jpg 2000w" sizes="(max-width: 1280px) 100vw, 1280px" alt="image"></a></figure>
+                                </div>
+                                <div class="npf_col">
+                                   <figure class="tmblr-full"><a class="post_media_photo_anchor" data-big-photo="https://64.media.tumblr.com/e2a97a5f641ec4d721b0205540ac9369/dad14ab620db679e-a6/s1280x1920/ba8c8e3526c2c9a5d6ad117c1d2b20ecc1a80085.jpg" data-big-photo-height="2000" data-big-photo-width="2000"><img class="post_media_photo image" src="https://64.media.tumblr.com/e2a97a5f641ec4d721b0205540ac9369/dad14ab620db679e-a6/s1280x1920/ba8c8e3526c2c9a5d6ad117c1d2b20ecc1a80085.jpg" srcset="https://64.media.tumblr.com/e2a97a5f641ec4d721b0205540ac9369/dad14ab620db679e-a6/s75x75_c1/9266954e05f5406fd024ccb457448c11a062a706.jpg 75w, https://64.media.tumblr.com/e2a97a5f641ec4d721b0205540ac9369/dad14ab620db679e-a6/s100x200/273e7d4fcf07fed98c560030f3d178a18c6cfdd1.jpg 100w, https://64.media.tumblr.com/e2a97a5f641ec4d721b0205540ac9369/dad14ab620db679e-a6/s250x400/77670d8b5be7c338cb99cbdb12e2a9a5cb69a029.jpg 250w, https://64.media.tumblr.com/e2a97a5f641ec4d721b0205540ac9369/dad14ab620db679e-a6/s400x600/29c01aa5dae21adf54edc51f4806fc2a4cd87119.jpg 400w, https://64.media.tumblr.com/e2a97a5f641ec4d721b0205540ac9369/dad14ab620db679e-a6/s500x750/edd7bf08bff7893a1aecf12c85be2dd462bdb346.jpg 500w, https://64.media.tumblr.com/e2a97a5f641ec4d721b0205540ac9369/dad14ab620db679e-a6/s540x810/5139fc7a47413afce7b2ea76c5496454c7bd75fb.jpg 540w, https://64.media.tumblr.com/e2a97a5f641ec4d721b0205540ac9369/dad14ab620db679e-a6/s640x960/8df14392bfcec53d94c4accc9fb61fdd2e04c5ce.jpg 640w, https://64.media.tumblr.com/e2a97a5f641ec4d721b0205540ac9369/dad14ab620db679e-a6/s1280x1920/ba8c8e3526c2c9a5d6ad117c1d2b20ecc1a80085.jpg 1280w, https://64.media.tumblr.com/e2a97a5f641ec4d721b0205540ac9369/dad14ab620db679e-a6/s2048x3072/24bad100a0b21e1fbe9fa1bddba668cde5996daf.jpg 2000w" sizes="(max-width: 1280px) 100vw, 1280px" alt="image"></a></figure>
+                                </div>
+                             </div>
+                             <div class="npf_row">
+                                <div class="npf_col">
+                                   <figure class="tmblr-full"><a class="post_media_photo_anchor" data-big-photo="https://64.media.tumblr.com/0dd86107b8299efef62ddf87b085cfec/dad14ab620db679e-4d/s1280x1920/e0ebd959385e184bf66a65b166b798956934d248.jpg" data-big-photo-height="2000" data-big-photo-width="2000"><img class="post_media_photo image" src="https://64.media.tumblr.com/0dd86107b8299efef62ddf87b085cfec/dad14ab620db679e-4d/s1280x1920/e0ebd959385e184bf66a65b166b798956934d248.jpg" srcset="https://64.media.tumblr.com/0dd86107b8299efef62ddf87b085cfec/dad14ab620db679e-4d/s75x75_c1/78f1296b4744e2c75ae01719b66d2a6f5efdccc5.jpg 75w, https://64.media.tumblr.com/0dd86107b8299efef62ddf87b085cfec/dad14ab620db679e-4d/s100x200/f7f17ba5b81d6aeed51f255b099e514d631965bb.jpg 100w, https://64.media.tumblr.com/0dd86107b8299efef62ddf87b085cfec/dad14ab620db679e-4d/s250x400/72f83a402827dfab80844a26edf118ee5b831951.jpg 250w, https://64.media.tumblr.com/0dd86107b8299efef62ddf87b085cfec/dad14ab620db679e-4d/s400x600/8f147e730c91752fea12c1aca1c1935c3b168eab.jpg 400w, https://64.media.tumblr.com/0dd86107b8299efef62ddf87b085cfec/dad14ab620db679e-4d/s500x750/5b78d2c73193913c7f0872edefad15e20ee1d4b2.jpg 500w, https://64.media.tumblr.com/0dd86107b8299efef62ddf87b085cfec/dad14ab620db679e-4d/s540x810/26618887e78927400eec14b49e94b5415e779511.jpg 540w, https://64.media.tumblr.com/0dd86107b8299efef62ddf87b085cfec/dad14ab620db679e-4d/s640x960/26c3b6b937b1768bcb248e862a82ca48034ec4a1.jpg 640w, https://64.media.tumblr.com/0dd86107b8299efef62ddf87b085cfec/dad14ab620db679e-4d/s1280x1920/e0ebd959385e184bf66a65b166b798956934d248.jpg 1280w, https://64.media.tumblr.com/0dd86107b8299efef62ddf87b085cfec/dad14ab620db679e-4d/s2048x3072/668d17e294baafdce966dbe406742ebb7babe4d6.jpg 2000w" sizes="(max-width: 1280px) 100vw, 1280px" alt="image"></a></figure>
+                                </div>
+                                <div class="npf_col">
+                                   <figure class="tmblr-full"><a class="post_media_photo_anchor" data-big-photo="https://64.media.tumblr.com/0ad36f3280f0034948f315407e6a071f/dad14ab620db679e-16/s1280x1920/5a7f06698a9dc8e31d64d18cc067b5828e592801.jpg" data-big-photo-height="2000" data-big-photo-width="2000"><img class="post_media_photo image" src="https://64.media.tumblr.com/0ad36f3280f0034948f315407e6a071f/dad14ab620db679e-16/s1280x1920/5a7f06698a9dc8e31d64d18cc067b5828e592801.jpg" srcset="https://64.media.tumblr.com/0ad36f3280f0034948f315407e6a071f/dad14ab620db679e-16/s75x75_c1/1386a5d0d824933a6415150343e09b1dc13b0f21.jpg 75w, https://64.media.tumblr.com/0ad36f3280f0034948f315407e6a071f/dad14ab620db679e-16/s100x200/621efe518ca6dec6d91f3457f9b23effb54c29bc.jpg 100w, https://64.media.tumblr.com/0ad36f3280f0034948f315407e6a071f/dad14ab620db679e-16/s250x400/8adf1c0a9ee26372eb10a156e904f8cc59b74563.jpg 250w, https://64.media.tumblr.com/0ad36f3280f0034948f315407e6a071f/dad14ab620db679e-16/s400x600/4fe152b7499e661eb7f4f4fb6ef2b5bd6ed3bd33.jpg 400w, https://64.media.tumblr.com/0ad36f3280f0034948f315407e6a071f/dad14ab620db679e-16/s500x750/d72f42681baa80d141336bc354d830b025d00e62.jpg 500w, https://64.media.tumblr.com/0ad36f3280f0034948f315407e6a071f/dad14ab620db679e-16/s540x810/957138b05e4d1f0e0246e1262ffbf81a688b17bd.jpg 540w, https://64.media.tumblr.com/0ad36f3280f0034948f315407e6a071f/dad14ab620db679e-16/s640x960/e7c7458e86c3da357a110143dbd3a5163c0ee4fe.jpg 640w, https://64.media.tumblr.com/0ad36f3280f0034948f315407e6a071f/dad14ab620db679e-16/s1280x1920/5a7f06698a9dc8e31d64d18cc067b5828e592801.jpg 1280w, https://64.media.tumblr.com/0ad36f3280f0034948f315407e6a071f/dad14ab620db679e-16/s2048x3072/91a3cd18eca4ba0fb302b8d83df8f8d097c6f56c.jpg 2000w" sizes="(max-width: 1280px) 100vw, 1280px" alt="image"></a></figure>
+                                </div>
+                             </div>
+                             <p>Objects representing 1990s nostalgia in Vietnam. Credit to Tired City. </p>
+                          </div>
+                       </section>
+                       <div class="posts__bottom">
+                          <div class="posts__bottom__tags ">
+                             <a href="#" class="posts__bottom__tags-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <line x1="4" y1="9" x2="20" y2="9"></line>
+                                   <line x1="4" y1="15" x2="20" y2="15"></line>
+                                   <line x1="10" y1="3" x2="8" y2="21"></line>
+                                   <line x1="16" y1="3" x2="14" y2="21"></line>
+                                </svg>
+                             </a>
+                             <ul>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/nice%20art">#nice art</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/here%27s%20tag%20for%20you">#here's tag for you</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/love%20the%20colours%20yo">#love the colours yo</a></li>
+                             </ul>
+                          </div>
+                          <div class="posts__bottom__action">
+                             <ul>
+                                <li>
+                                   <a href="https://www.tumblr.com/reblog/fukuo-commission/719088314149437440/4JellhgM">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M17 2.1l4 4-4 4"></path>
+                                         <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"></path>
+                                         <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                                <li>
+                                   <a class="like">
+                                      <div class="like_button liked" data-post-id="719088314149437440" data-blog-name="fukuo-commission" id="like_button_719088314149437440"><iframe id="like_iframe_719088314149437440" src="https://assets.tumblr.com/assets/html/like_iframe.html?_v=66c22ab5319d742bca5762b8d18f9d06#name=fukuo-commission&amp;post_id=719088314149437440&amp;color=black&amp;rk=4JellhgM&amp;root_id=687548851947798528" scrolling="no" class="like_toggle" allowtransparency="true" name="like_iframe_719088314149437440" width="20" height="20" frameborder="0"></iframe></div>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                             </ul>
+                          </div>
+                       </div>
+                    </article>
+           
+                    <article class="posts posts-text  here_is_the_tags example_text amazing spectacular  reblog" id="718973513489367040">
+                       <div class="posts__dated">
+                          <div class="posts__dated__perma"> 
+                             <a href="https://fukuo-commission.tumblr.com/post/718973513489367040/that-looks-amazing-ngl-fr">June 06, 2023</a>
+                          </div>
+                          <div class="posts__dated__action">
+                             <a href="https://fukuo-commission.tumblr.com/post/718973513489367040/that-looks-amazing-ngl-fr" class="flex flex--align-center">
+                                <span class="is-notes">1 note</span> 
+                                <svg class="margin--left-10" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <g fill="none" fill-rule="evenodd">
+                                      <path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"></path>
+                                   </g>
+                                </svg>
+                             </a>
+                          </div>
+                       </div>
+                       <section class="posts__media"></section>
+                       <section class="posts__body ">
+                          <div class="reblog-list">
+                             <div class="reblog-post-avatar"><img src="https://64.media.tumblr.com/527d1a492a81977021d8bda2b117916b/f1d7de5af73f7d9b-87/s64x64u_c1/5748b602759cf92f09dc7fc0de88cf94c385b307.pnj"><span><a href="https://apatis-theme.tumblr.com/post/705030907879424000" class="user-blog">apatis-theme</a></span> 
+                             </div>
+                             <p></p>
+                             <h1>Title of a sample post</h1>
+                             <h1>The biggest possible text!</h1>
+                             <h2>Some bigger text.</h2>
+                             <p>Here’s what regular text looks like.</p>
+                             <p class="npf_quote">This is a quote.</p>
+                             <blockquote class="npf_indented">
+                                <p>A paragraph of indented text.</p>
+                             </blockquote>
+                             <p class="npf_chat"><b>Speaker:</b> This—</p>
+                             <p class="npf_chat">—is what a chat section—</p>
+                             <p class="npf_chat">—would look like!</p>
+                             <ul>
+                                <li>Some bullet points.</li>
+                                <li>These ones are in an unordered list.</li>
+                             </ul>
+                             <p><span style="color: #ff4930">Here </span><span class="npf_color_monica">is a</span><span class="npf_color_ross"> range </span><span class="npf_color_rachel">of </span><span style="color: #e8d738">very </span><span class="npf_color_niles">colorful </span><span class="npf_color_chandler">text.</span></p>
+                             <ol>
+                                <li>This is another list.</li>
+                                <li>This one’s numbered!</li>
+                             </ol>
+                             <p>How about the link block below?</p>
+                             <div class="npf-link-block has-poster">
+                                <a target="_blank" href="https://href.li/?https://www.figma.com/">
+                                   <div class="poster" style="background-image:url(https://64.media.tumblr.com/0f30da5a93413548d6d0cc29ca6d81a6/a07da69cca970b45-96/s1280x1920/86d1bb5fa7eda9103464e49c851b00f48d868fcb.png)">
+                                      <div class="title">Figma: the collaborative interface design tool.</div>
+                                   </div>
+                                   <div class="bottom">
+                                      <div class="description">
+                                         Build better products as a team. Design, prototype, and gather feedback all in one place with Figma.                
+                                      </div>
+                                      <div class="site-name">
+                                         Figma            
+                                      </div>
+                                   </div>
+                                </a>
+                             </div>
+                             <p>And this, below, is what a Read More would look like.</p>
+                             <p><a class="tmblr-truncated-link read_more" href="https://apatis-theme.tumblr.com/post/705030907879424000/title-of-a-sample-post">Keep reading</a></p>
+                          </div>
+                          <div class="reblog-list">
+                             <div class="reblog-post-avatar"><img src="https://64.media.tumblr.com/53f151bb03680b9156fcdf2cb04bbd44/a4d699fd2b42160b-07/s64x64u_c1/51dd89ebfcb5f03aebea8666b0d446c84cfd7efa.pnj"><span><a href="https://fukuo-commission.tumblr.com/post/718973513489367040/that-looks-amazing-ngl-fr" class="user-blog">fukuo-commission</a></span> 
+                             </div>
+                             <p>That looks amazing, ngl, fr!</p>
+                          </div>
+                       </section>
+                       <div class="posts__bottom">
+                          <div class="posts__bottom__tags ">
+                             <a href="#" class="posts__bottom__tags-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <line x1="4" y1="9" x2="20" y2="9"></line>
+                                   <line x1="4" y1="15" x2="20" y2="15"></line>
+                                   <line x1="10" y1="3" x2="8" y2="21"></line>
+                                   <line x1="16" y1="3" x2="14" y2="21"></line>
+                                </svg>
+                             </a>
+                             <ul>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/here%20is%20the%20tags">#here is the tags</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/example%20text">#example text</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/amazing">#amazing</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/spectacular">#spectacular</a></li>
+                             </ul>
+                          </div>
+                          <div class="posts__bottom__action">
+                             <ul>
+                                <li>
+                                   <a href="https://www.tumblr.com/reblog/fukuo-commission/718973513489367040/2ZZ1Sm9P">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M17 2.1l4 4-4 4"></path>
+                                         <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"></path>
+                                         <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                                <li>
+                                   <a class="like">
+                                      <div class="like_button" data-post-id="718973513489367040" data-blog-name="fukuo-commission" id="like_button_718973513489367040"><iframe id="like_iframe_718973513489367040" src="https://assets.tumblr.com/assets/html/like_iframe.html?_v=66c22ab5319d742bca5762b8d18f9d06#name=fukuo-commission&amp;post_id=718973513489367040&amp;color=black&amp;rk=2ZZ1Sm9P&amp;root_id=705030907879424000" scrolling="no" class="like_toggle" allowtransparency="true" name="like_iframe_718973513489367040" width="20" height="20" frameborder="0"></iframe></div>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                             </ul>
+                          </div>
+                       </div>
+                    </article>
+                    
+                    <article class="posts posts-text thats_bigggggg i_was_wondering_if_big_is_bigger_is_big does_that_make_sense_to_you umm_no_or_umm_yes gigigigity_gigiwakwaw reblog posts-photo-text" id="718929910118465536">
+                       <div class="posts__dated">
+                          <div class="posts__dated__perma"> 
+                             <a href="https://fukuo-commission.tumblr.com/post/718929910118465536">June 06, 2023</a>
+                          </div>
+                          <div class="posts__dated__action">
+                             <a href="https://fukuo-commission.tumblr.com/post/718929910118465536" class="flex flex--align-center">
+                                <span class="is-notes">31 notes</span> 
+                                <svg class="margin--left-10" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <g fill="none" fill-rule="evenodd">
+                                      <path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"></path>
+                                   </g>
+                                </svg>
+                             </a>
+                          </div>
+                       </div>
+                       <section class="posts__media"></section>
+                       <section class="posts__body ">
+                          <div class="reblog-list">
+                             <div class="reblog-post-avatar"><img src="https://assets.tumblr.com/images/default_avatar_64.png"><span><a href="https://demo.tumblr.com/post/718860738001862656" class="user-blog">demo</a></span> 
+                             </div>
+                             <p></p>
+                             <div class="npf_row">
+                                <div class="npf_col">
+                                   <figure class="tmblr-full"><a class="post_media_photo_anchor" data-big-photo="https://64.media.tumblr.com/24b295b2f02fed5e606c3c48738619ed/210e8d0045603c9b-1f/s1280x1920/8d41d60fe63d5bcd56a78cc682f678916b102dd4.png" data-big-photo-height="1000" data-big-photo-width="2000"><img class="post_media_photo image" src="https://64.media.tumblr.com/24b295b2f02fed5e606c3c48738619ed/210e8d0045603c9b-1f/s1280x1920/8d41d60fe63d5bcd56a78cc682f678916b102dd4.png" srcset="https://64.media.tumblr.com/24b295b2f02fed5e606c3c48738619ed/210e8d0045603c9b-1f/s75x75_c1/b076dddabb964a4b0f03a075260e4d8b9b61731c.png 75w, https://64.media.tumblr.com/24b295b2f02fed5e606c3c48738619ed/210e8d0045603c9b-1f/s100x200/273e9647b16dc7ec8577ba745e3710fa6b034e3d.png 100w, https://64.media.tumblr.com/24b295b2f02fed5e606c3c48738619ed/210e8d0045603c9b-1f/s250x400/e9ee50a0d997f2a6ea17c0d0843aa1520d9cd4e9.png 250w, https://64.media.tumblr.com/24b295b2f02fed5e606c3c48738619ed/210e8d0045603c9b-1f/s400x600/ad14743c44fdcd334311a49576115687a9e213f9.png 400w, https://64.media.tumblr.com/24b295b2f02fed5e606c3c48738619ed/210e8d0045603c9b-1f/s500x750/8b605efee2eff04855d0becf8c061ed873fbabfd.png 500w, https://64.media.tumblr.com/24b295b2f02fed5e606c3c48738619ed/210e8d0045603c9b-1f/s540x810/0de32ae74a4954b861a4341efef05538d4182c95.png 540w, https://64.media.tumblr.com/24b295b2f02fed5e606c3c48738619ed/210e8d0045603c9b-1f/s640x960/2ad1e5043a78637a90b545bc9badb6b9ce8d96aa.png 640w, https://64.media.tumblr.com/24b295b2f02fed5e606c3c48738619ed/210e8d0045603c9b-1f/s1280x1920/8d41d60fe63d5bcd56a78cc682f678916b102dd4.png 1280w, https://64.media.tumblr.com/24b295b2f02fed5e606c3c48738619ed/210e8d0045603c9b-1f/s2048x3072/dbf6753c1617b57f271800e36bdae5a183157558.png 2000w" sizes="(max-width: 1280px) 100vw, 1280px" alt="a placeholder image with its dimensions, 2000x1000, written in the center."></a><span class="tmblr-alt-text-helper">ALT</span></figure>
+                                </div>
+                             </div>
+                             <p><b>one big image</b><br>we love a good placeholder image</p>
+                          </div>
+                       </section>
+                       <div class="posts__bottom">
+                          <div class="posts__bottom__tags ">
+                             <a href="#" class="posts__bottom__tags-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <line x1="4" y1="9" x2="20" y2="9"></line>
+                                   <line x1="4" y1="15" x2="20" y2="15"></line>
+                                   <line x1="10" y1="3" x2="8" y2="21"></line>
+                                   <line x1="16" y1="3" x2="14" y2="21"></line>
+                                </svg>
+                             </a>
+                             <ul>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/thats%20bigggggg%21%21%21">#thats bigggggg!!!</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/i%20was%20wondering%20if%20big%20is%20bigger%20is%20big">#i was wondering if big is bigger is big</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/does%20that%20make%20sense%20to%20you">#does that make sense to you</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/umm%20no%20or%20umm%20yes">#umm no or umm yes</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/gigigigity%20gigiwakwaw">#gigigigity gigiwakwaw</a></li>
+                             </ul>
+                          </div>
+                          <div class="posts__bottom__action">
+                             <ul>
+                                <li>
+                                   <a href="https://www.tumblr.com/reblog/fukuo-commission/718929910118465536/7SG4wRx6">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M17 2.1l4 4-4 4"></path>
+                                         <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"></path>
+                                         <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                                <li>
+                                   <a class="like">
+                                      <div class="like_button" data-post-id="718929910118465536" data-blog-name="fukuo-commission" id="like_button_718929910118465536"><iframe id="like_iframe_718929910118465536" src="https://assets.tumblr.com/assets/html/like_iframe.html?_v=66c22ab5319d742bca5762b8d18f9d06#name=fukuo-commission&amp;post_id=718929910118465536&amp;color=black&amp;rk=7SG4wRx6&amp;root_id=718860738001862656" scrolling="no" class="like_toggle" allowtransparency="true" name="like_iframe_718929910118465536" width="20" height="20" frameborder="0"></iframe></div>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                             </ul>
+                          </div>
+                       </div>
+                    </article>
+                    
+                    <article class="posts posts-text is_it_a_frog_or_bear npf_post how_about_both reblog posts-photo-text" id="718929711154282496">
+                       <div class="posts__dated">
+                          <div class="posts__dated__perma"> 
+                             <a href="https://fukuo-commission.tumblr.com/post/718929711154282496">June 06, 2023</a>
+                          </div>
+                          <div class="posts__dated__action">
+                             <a href="https://fukuo-commission.tumblr.com/post/718929711154282496" class="flex flex--align-center">
+                                <span class="is-notes">5 notes</span> 
+                                <svg class="margin--left-10" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <g fill="none" fill-rule="evenodd">
+                                      <path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"></path>
+                                   </g>
+                                </svg>
+                             </a>
+                          </div>
+                       </div>
+                       <section class="posts__media">
+                          <figure class="tmblr-full" data-orig-height="1242" data-orig-width="2688" data-npf="{&quot;type&quot;:&quot;video&quot;,&quot;provider&quot;:&quot;tumblr&quot;,&quot;url&quot;:&quot;https://va.media.tumblr.com/tumblr_rvjd73x4bz1qz4rgh_720.mp4&quot;,&quot;media&quot;:{&quot;url&quot;:&quot;https://va.media.tumblr.com/tumblr_rvjd73x4bz1qz4rgh_720.mp4&quot;,&quot;type&quot;:&quot;video/mp4&quot;,&quot;width&quot;:2688,&quot;height&quot;:1242},&quot;poster&quot;:[{&quot;media_key&quot;:&quot;08cdb33cdf9f439df7f64caea510c678:f45a842b1f627bf2-94&quot;,&quot;type&quot;:&quot;image/jpeg&quot;,&quot;width&quot;:540,&quot;height&quot;:248,&quot;url&quot;:&quot;https://64.media.tumblr.com/08cdb33cdf9f439df7f64caea510c678/f45a842b1f627bf2-94/s540x810/fb1c0bca4fa84a9335b0a5bf2a1d67e2e343486f.jpg&quot;}]}">
+                             <video controls="controls" autoplay="none" muted="muted" poster="https://64.media.tumblr.com/08cdb33cdf9f439df7f64caea510c678/f45a842b1f627bf2-94/s540x810/fb1c0bca4fa84a9335b0a5bf2a1d67e2e343486f.jpg">
+                                <source src="https://va.media.tumblr.com/tumblr_rvjd73x4bz1qz4rgh_720.mp4" type="video/mp4">
+                             </video>
+                          </figure>
+                       </section>
+                       <section class="posts__body"></section>
+                       <div class="posts__bottom">
+                          <div class="posts__bottom__tags ">
+                             <a href="#" class="posts__bottom__tags-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <line x1="4" y1="9" x2="20" y2="9"></line>
+                                   <line x1="4" y1="15" x2="20" y2="15"></line>
+                                   <line x1="10" y1="3" x2="8" y2="21"></line>
+                                   <line x1="16" y1="3" x2="14" y2="21"></line>
+                                </svg>
+                             </a>
+                             <ul>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/is%20it%20a%20frog%20or%20bear%3F">#is it a frog or bear?</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/npf%20post">#npf post</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/how%20about%20BOTH">#how about BOTH</a></li>
+                             </ul>
+                          </div>
+                          <div class="posts__bottom__action">
+                             <ul>
+                                <li>
+                                   <a href="https://www.tumblr.com/reblog/fukuo-commission/718929711154282496/GBhEN2cI">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M17 2.1l4 4-4 4"></path>
+                                         <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"></path>
+                                         <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                                <li>
+                                   <a class="like">
+                                      <div class="like_button" data-post-id="718929711154282496" data-blog-name="fukuo-commission" id="like_button_718929711154282496"><iframe id="like_iframe_718929711154282496" src="https://assets.tumblr.com/assets/html/like_iframe.html?_v=66c22ab5319d742bca5762b8d18f9d06#name=fukuo-commission&amp;post_id=718929711154282496&amp;color=black&amp;rk=GBhEN2cI&amp;root_id=718860249315098624" scrolling="no" class="like_toggle" allowtransparency="true" name="like_iframe_718929711154282496" width="20" height="20" frameborder="0"></iframe></div>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                             </ul>
+                          </div>
+                       </div>
+                    </article>
+           
+                    <article class="posts posts-text interesthicnggg maybe_if_i_put_an_effort_on_my_exams tags_here_and_there reblog posts-photo-text" id="718929690464845824">
+                       <div class="posts__dated">
+                          <div class="posts__dated__perma"> 
+                             <a href="https://fukuo-commission.tumblr.com/post/718929690464845824">June 06, 2023</a>
+                          </div>
+                          <div class="posts__dated__action">
+                             <a href="https://fukuo-commission.tumblr.com/post/718929690464845824" class="flex flex--align-center">
+                                <span class="is-notes">11 notes</span> 
+                                <svg class="margin--left-10" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <g fill="none" fill-rule="evenodd">
+                                      <path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"></path>
+                                   </g>
+                                </svg>
+                             </a>
+                          </div>
+                       </div>
+                       <section class="posts__media"></section>
+                       <section class="posts__body ">
+                          <div class="reblog-list">
+                             <div class="reblog-post-avatar"><img src="https://assets.tumblr.com/images/default_avatar_64.png"><span><a href="https://demo.tumblr.com/post/718863891534413824" class="user-blog">demo</a></span> 
+                             </div>
+                             <p></p>
+                             <h1>12 surprising clickbait titles that work</h1>
+                             <div class="npf_row">
+                                <div class="npf_col">
+                                   <figure class="tmblr-full" data-tumblr-attribution="animatedtext:HtQpGKsvVrwVEAUEJEk6Vg:ZPjWlubA9Jba8W00" data-orig-height="460" data-orig-width="637">
+                                      <img src="https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s640x960/7e62a2120aca3f3eda2dd3126f054b8e68ffbc66.gifv" data-orig-height="460" data-orig-width="637" alt="gif of several floating question marks, zooming in and out slightly" srcset="https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s75x75_c1/65e0da6d22df6caa3e7a8ba3ca9c8bb7b2545b59.gifv 75w, https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s100x200/a1b4aa469abeb172dcafa894cf97c3de7b21a01e.gifv 100w, https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s250x400/76f3ebc47bf32715507928b4a88dce42bfc07928.gifv 250w, https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s400x600/df405cee9628d15c179c2a13c9effe9c4e15c962.gifv 400w, https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s500x750/bb9ef0e15bc687ee57100c0b57a7d27983eba5dc.gifv 500w, https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s540x810/e6b25a0b27e23c9fbe00303b62bebd1c9fd84f24.gifv 540w, https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s640x960/7e62a2120aca3f3eda2dd3126f054b8e68ffbc66.gifv 637w" sizes="(max-width: 637px) 100vw, 637px" width="637" height="460"><span class="tmblr-alt-text-helper">ALT</span>
+                                      <p class="tmblr-attribution"><a href="https://tmblr.co/ZPjWlubA9Jba8W00" target="_blank" data-peepr="{&quot;tumblelog&quot;:&quot;animatedtext&quot;,&quot;postId&quot;:&quot;669388423041253376&quot;}">Originally posted by animatedtext</a></p>
+                                   </figure>
+                                </div>
+                             </div>
+                             <p>Gotcha! While you’re here, check out some of this text formatting.</p>
+                             <h2>Bigger text ✨</h2>
+                             <p><b>This is bold</b>, and<i> this is italics</i>. <strike>This is strikethrough.</strike> <small>(I'm whispering this in small text.)</small> <a href="https://href.li/?https://www.youtube.com/watch?v=dQw4w9WgXcQ">This is not a suspicious link at all.</a> <span style="color: #ff4930">Th</span><span class="npf_color_monica">is</span> <span class="npf_color_ross">te</span><span class="npf_color_rachel">xt</span> <span style="color: #e8d738">is</span> <span class="npf_color_niles">co</span><span class="npf_color_chandler">lo</span><span style="color: #ff4930">ur</span><span class="npf_color_monica">fu</span><span class="npf_color_ross">l!</span></p>
+                             <ul>
+                                <li>This is a bulleted list.</li>
+                                <li>I <b>can</b> <i>add</i> <strike>text</strike> <small>formatting</small> <a href="https://www.tumblr.com/staff/653731604461682688/potatoes-are-neat-right-heres-one-cooking-in-a?source=share">here</a> too.</li>
+                             </ul>
+                             <p class="npf_quirky">We take a break here to enjoy <span class="npf_color_niles">Lucille</span>.</p>
+                             <ol>
+                                <li>This is a <i>numbered list</i>.</li>
+                                <li>It’s where you list items.</li>
+                                <li>And numbers appear next to them.</li>
+                                <li><span class="npf_color_ross"><b><i>Groundbreaking.</i></b></span></li>
+                             </ol>
+                             <p>As one person once said:</p>
+                             <blockquote class="npf_indented">
+                                <p>Look at me, I'm an <b>indented block</b>!</p>
+                             </blockquote>
+                             <p class="npf_quote">I'm a <b>quote block</b>! Someone definitely said this at some point.</p>
+                             <p class="npf_chat"><b>Juliet:</b> What is this?<br><b>Romeo:</b> I think we've been summoned for an example chat post again.<br><b>Juliet:</b> Not again...</p>
+                             <p>We have reached the end. Or have we? </p>
+                             <p><i>Remember to stay hydrated, and follow </i><i><a class="tumblelog" href="https://tmblr.co/MYXvAUPIj9KzlTb7SqaHO0A">@changes</a></i><i> for Tumblr updates! 💖</i></p>
+                             <p><a class="tmblr-truncated-link read_more" href="https://demo.tumblr.com/post/718863891534413824/12-surprising-clickbait-titles-that-work">Keep reading</a></p>
+                          </div>
+                       </section>
+                       <div class="posts__bottom">
+                          <div class="posts__bottom__tags ">
+                             <a href="#" class="posts__bottom__tags-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <line x1="4" y1="9" x2="20" y2="9"></line>
+                                   <line x1="4" y1="15" x2="20" y2="15"></line>
+                                   <line x1="10" y1="3" x2="8" y2="21"></line>
+                                   <line x1="16" y1="3" x2="14" y2="21"></line>
+                                </svg>
+                             </a>
+                             <ul>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/interesthicnggg">#interesthicnggg</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/maybe%20if%20i%20put%20an%20effort%20on%20my%20exams">#maybe if i put an effort on my exams</a></li>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/tags%20here%20and%20there%3F">#tags here and there?</a></li>
+                             </ul>
+                          </div>
+                          <div class="posts__bottom__action">
+                             <ul>
+                                <li>
+                                   <a href="https://www.tumblr.com/reblog/fukuo-commission/718929690464845824/viUswR05">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M17 2.1l4 4-4 4"></path>
+                                         <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"></path>
+                                         <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                                <li>
+                                   <a class="like">
+                                      <div class="like_button" data-post-id="718929690464845824" data-blog-name="fukuo-commission" id="like_button_718929690464845824"><iframe id="like_iframe_718929690464845824" src="https://assets.tumblr.com/assets/html/like_iframe.html?_v=66c22ab5319d742bca5762b8d18f9d06#name=fukuo-commission&amp;post_id=718929690464845824&amp;color=black&amp;rk=viUswR05&amp;root_id=718863891534413824" scrolling="no" class="like_toggle" allowtransparency="true" name="like_iframe_718929690464845824" width="20" height="20" frameborder="0"></iframe></div>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                             </ul>
+                          </div>
+                       </div>
+                    </article>
+                    
+                    <article class="posts posts-text  it_s_giving_a_headache_moment_but_im_trying_my_best_yoooo  reblog"  id="718929665681686528">
+                       <div class="posts__dated">
+                          <div class="posts__dated__perma"> 
+                             <a href="https://fukuo-commission.tumblr.com/post/718929665681686528">June 06, 2023</a>
+                          </div>
+                          <div class="posts__dated__action">
+                             <a href="https://fukuo-commission.tumblr.com/post/718929665681686528" class="flex flex--align-center">
+                                <span class="is-notes">2 notes</span> 
+                                <svg class="margin--left-10" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <g fill="none" fill-rule="evenodd">
+                                      <path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"></path>
+                                   </g>
+                                </svg>
+                             </a>
+                          </div>
+                       </div>
+                       <section class="posts__media"></section>
+                       <section class="posts__body ">
+                          <div class="reblog-list">
+                             <div class="reblog-post-avatar"><img src="https://assets.tumblr.com/images/default_avatar_64.png"><span><a href="https://demo.tumblr.com/post/718864228746969088" class="user-blog">demo</a></span> 
+                             </div>
+                             <div class="npf-link-block has-poster">
+                                <a target="_blank" href="https://href.li/?https://github.com/tumblr/docs/blob/master/npf-spec.md">
+                                   <div class="poster" style="background-image:url(https://64.media.tumblr.com/4ac351cb9b6285e05b30d310859ab9d3/84a77bf1080b2e6e-0f/s1280x1920/74e2ba144b58575f49b0f4d6ee2d970bb1432c11.png)">
+                                      <div class="title">docs/npf-spec.md at master · tumblr/docs</div>
+                                   </div>
+                                   <div class="bottom">
+                                      <div class="description">
+                                         Tumblr's public platform documentation. Contribute to tumblr/docs development by creating an account on GitHub.                
+                                      </div>
+                                      <div class="site-name">
+                                         GitHub            
+                                      </div>
+                                   </div>
+                                </a>
+                             </div>
+                          </div>
+                       </section>
+                       <div class="posts__bottom">
+                          <div class="posts__bottom__tags ">
+                             <a href="#" class="posts__bottom__tags-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                   <line x1="4" y1="9" x2="20" y2="9"></line>
+                                   <line x1="4" y1="15" x2="20" y2="15"></line>
+                                   <line x1="10" y1="3" x2="8" y2="21"></line>
+                                   <line x1="16" y1="3" x2="14" y2="21"></line>
+                                </svg>
+                             </a>
+                             <ul>
+                                <li><a href="https://fukuo-commission.tumblr.com/tagged/it%27s%20giving%20a%20headache%20moment%20but%20im%20trying%20my%20best%20yoooo">#it's giving a headache moment but im trying my best yoooo</a></li>
+                             </ul>
+                          </div>
+                          <div class="posts__bottom__action">
+                             <ul>
+                                <li>
+                                   <a href="https://www.tumblr.com/reblog/fukuo-commission/718929665681686528/p3GXEA23">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M17 2.1l4 4-4 4"></path>
+                                         <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"></path>
+                                         <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                                <li>
+                                   <a class="like">
+                                      <div class="like_button" data-post-id="718929665681686528" data-blog-name="fukuo-commission" id="like_button_718929665681686528"><iframe id="like_iframe_718929665681686528" src="https://assets.tumblr.com/assets/html/like_iframe.html?_v=66c22ab5319d742bca5762b8d18f9d06#name=fukuo-commission&amp;post_id=718929665681686528&amp;color=black&amp;rk=p3GXEA23&amp;root_id=718864228746969088" scrolling="no" class="like_toggle" allowtransparency="true" name="like_iframe_718929665681686528" width="20" height="20" frameborder="0"></iframe></div>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                      </svg>
+                                   </a>
+                                </li>
+                             </ul>
+                          </div>
+                       </div>
+                    </article>
+                </div>
+               <nav class="pagination">
+                  <div class="pagination__info">
+                     Page 1 of 5
+                  </div>
+                  <div class="pagination__inner"><a><i class="las la-angle-left"></i> Previous page</a><a class="is-current">1</a><a
+                        class="is-jump" href="/page/2">2</a><a class="is-jump" href="/page/3">3</a><a class="is-jump"
+                        href="/page/4">4</a><a href="/page/2" class="is-link is-next">Next page <i class="las la-angle-right"></i></a>
+                  </div>
+               </nav>
+            </section>
+        </div>
+    </main>
+    
+    <!-- tooltip -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
+    <!-- slider  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+
+    <!-- photosets -->
+    <script src="https://static.tumblr.com/0podkko/jfMplm3f8/modified_photosets.js"></script>
+
+    <!-- toggle -->
+    <script src="https://cdn.jsdelivr.net/gh/ericbutler555/plain-js-slidetoggle@master/slideToggle.min.js"></script>
+
+    <!-- main scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/featured.js"></script>
+
+    <script type="text/javascript" src="https://nyiur-theme.tumblr.com/api/read/json?callback=featured"></script>
+
+    <script src="https://assets.tumblr.com/client/prod/standalone/tumblelog/index.build.js?_v=175a368ef34a4680f860974b6282ff66"></script>
+
+    <script>
+      tippy("[title]", {
+        // change these to your liking
+        arrow: true,
+        placement: "top", // top, right, bottom, left
+        delay: 5, //ms
+        distance: 15, //px or string
+        maxWidth: 300, //px or string
+
+        // leave these as they are
+        followCursor: false,
+        allowHTML: true,
+        ignoreAttributes: true,
+        content(reference) {
+          const title = reference.getAttribute("title");
+          reference.removeAttribute("title");
+          return title;
+        },
+      });
+    </script>
+</body>
+</html>

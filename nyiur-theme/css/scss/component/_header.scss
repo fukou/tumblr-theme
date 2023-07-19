@@ -1,0 +1,120 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/screenwidth' as *;
+
+
+.nav {
+    width: 100%;
+    padding:2rem 0;
+    background-color: rgba(var(--header-navigation-bg), 1);
+    color:rgba(var(--header-navigation-text), 1);
+
+    @media (max-width:60rem) {
+        padding:1.25rem 1.5rem;
+    }
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media (max-width:60rem) {
+            padding:0.75rem 0;
+        }
+    }
+
+    &__logo {
+        display: inline-flex;
+        align-items: center;
+        gap:0.65rem;
+
+        &__circle {
+            width:18px;
+            height: 18px;
+            border-radius: 50%;
+
+            &-one {
+                background-color:rgba(var(--header-navigation-circle-one), 1);
+            }
+            &-two {
+                background-color:rgba(var( --header-navigation-circle-two), 1);
+            }
+        }
+    }
+
+    &__menu {
+        margin:0;
+        padding:0;
+        list-style: none;
+
+        display: flex;
+        align-items: center;
+        gap:1.5rem;
+
+        @media (max-width:$max-md) {
+            display: none;
+        }
+
+        &__item {
+            a {
+                display: inline-flex;
+                align-items: center;
+                text-decoration: none;
+                padding:4px 0;
+                color:rgba(var(--header-navigation-text), 1);
+                border-bottom: 3px solid transparent;
+
+                font-size: var(--text-lg);
+                transition: 0.5s;
+                &:hover {
+                    border-bottom: 3px solid currentColor;
+                }
+            }
+            &-active {
+                a {
+                    border-bottom: 3px solid currentColor;
+                }
+            }
+        }
+    }
+
+    &__button {
+        margin-inline-start: 2rem;
+        display: inline-flex;
+        align-items: center;
+        gap:0.65rem;
+
+        button {
+            cursor: pointer;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            width:40px;
+            height: 40px;
+            border:0;
+
+            border-radius: 50%;
+
+            &.btn-nav {
+                border:2px solid rgba(var(--header-navigation-text), 1);
+                background:transparent;
+
+                color:var(--header-navigation-link);
+
+                transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000);
+
+                &.is-actived {
+                    transform: rotate(90deg);
+                    background-color: rgba(#111, 0.1);
+                }
+            }
+
+            &.btn-dark {
+                background-color:rgba(var(--header-navigation-text), 1);
+                color:rgba(var(--header-navigation-bg), 1);
+           }
+        }
+    }
+}

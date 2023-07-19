@@ -1,0 +1,23 @@
+
+.container {
+
+    $container-max-widths: (
+        full:100%,
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1200px,
+        xxl: 1320px,
+        xxxl: 1400px
+    );
+
+    @mixin container($name,$prop,$arr) {
+        @each $mod, $dir in $arr {
+            &--#{$name}-#{$mod} {
+                #{$prop}: #{$dir};
+            }
+        }
+    }
+  
+    @include container('width','max-width', $container-max-widths);
+}

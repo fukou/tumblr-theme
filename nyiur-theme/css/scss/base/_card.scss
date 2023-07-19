@@ -1,0 +1,21 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/screenwidth' as *;
+
+.card {
+    background-color: $color-light-grey;
+    padding:1.5rem 2.5rem;
+
+    :is(h1,h2,h3,h4,h5,h6,p) {
+        margin:0.35rem 0;
+    }
+
+    h1 {
+        font-size: 1.85rem;
+    }
+
+    h2 {
+        font-size: 1.35rem;
+        color:lighten($color-black, 45%)!important;
+    }
+}
