@@ -1,5 +1,7 @@
 var app = {
   init: function () {
+    app.headerToggleMenu();
+    app.headerToggleDarkMode();
     // app.infiniteScroll();
     app.postPhotosets();
     // app.postSoundCloud();
@@ -13,6 +15,42 @@ var app = {
     app.shortenPost();
     //   app.postTags();
     app.postNPFAudio();
+    app.TOC();
+  },
+  headerToggleMenu: () => {
+    const btn = document.querySelector(".btn-nav");
+    const hiddenLink = document.querySelector(".nav__additional");
+    btn.addEventListener("click", () => {
+      btn.classList.toggle("is-actived");
+      hiddenLink.classList.toggle("is-shown");
+    });
+  },
+  headerToggleDarkMode: () => {
+    const btn_mode = document.querySelector(".btn-dark");
+    const htmlElement = document.documentElement;
+
+    const toggleColorMode = () => {
+      // Check if the current mode is dark or not
+      const isDarkMode =
+        htmlElement.getAttribute("data-force-color-mode") === "dark";
+
+      // Toggle the mode and update localStorage
+      if (isDarkMode) {
+        htmlElement.setAttribute("data-force-color-mode", "light");
+        localStorage.setItem("color-mode", "light");
+        
+        btn_mode.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path></svg>`;
+      } else {
+        htmlElement.setAttribute("data-force-color-mode", "dark");
+        localStorage.setItem("color-mode", "dark");
+        btn_mode.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+      }
+    };
+
+    btn_mode.addEventListener("click", toggleColorMode);
+    btn_mode.innerHTML = colorModeOverride === "dark" ? 
+    `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>` : 
+    `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path></svg>`;
   },
   infiniteScroll: () => {
     const isPaginationExist = document.querySelector(".pagination");
@@ -513,6 +551,34 @@ var app = {
         }
       }
     });
+  },
+  TOC: () => {
+    const allPosts = document.querySelectorAll(".posts");
+    for (let l = 0; l < allPosts.length; l++) {
+      if (allPosts[l].classList.contains("toc")) {
+        const isText = document?.querySelector(".toc");
+        const bodyText = isText?.querySelector(".posts__body");
+        const headingText = bodyText?.querySelectorAll("h2");
+        const headingTemplate = `<div class="posts__heading"><h1><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg> Table of contents</h1><ul></ul></div>`;
+        bodyText.insertAdjacentHTML("afterbegin", headingTemplate);
+        const headingContent = document.querySelector(".posts__heading ul");
+
+        for (heading of headingText) {
+          heading.id = `${heading.innerText
+            .split(" ")
+            .join("-")
+            .toLowerCase()}`;
+
+          headingContent.insertAdjacentHTML(
+            "afterbegin",
+            `<li><a href="#${heading.innerText
+              .split(" ")
+              .join("-")
+              .toLowerCase()}">${heading.innerText}</a></li>`
+          );
+        }
+      }
+    }
   },
 };
 

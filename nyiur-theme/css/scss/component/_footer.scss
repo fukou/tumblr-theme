@@ -3,139 +3,29 @@
 @use '../abstracts/screenwidth' as *;
 
 .footer {
-    position: relative;
-    width: 100%;
-    background-color: rgba(var(--footer-bg-top), 1);
-    color: rgba(var(--footer-text-top), 1);
-    margin-top: 3rem;
-    border-top: 1px solid rgba(var(--body-link), 0.1);
-    
-    a:not(.btn) {
-        color:rgba(var(--body-link), 1);
-    }
-
-    &.is-wave {
-        margin-top: 140px;
-    }
-
-    &.is-normal {
-        .footer__wave {
-            display: none;
-        }
-    }
-
-    &__wave {
-        position: absolute;
-        right:0;
-        left:0;
-        top:-100px;
-        height: 100px;
-        path {
-            fill:rgba(var(--footer-bg-top), 1);
-        }
-    }
+    padding-bottom: 4.5rem;
+    margin-top: 4.5rem;
+    color: rgba(var(--body-text), 1);
 
     &__inner {
-        margin:0 auto;
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap:5rem;
-        padding:calc(var(--padding-md)*1.5) 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-        @media (max-width:$max-md) {
-            grid-template-columns: minmax(0, 1fr);
-            padding: calc(var(--padding-md)*1.5) 2rem 3.5rem 2rem;
-            gap:1rem;
-        }
-
-        &__item {
-            h3 {
-                font-family: var(--title-font);
-                font-weight: var(--title-font-weight);
-                font-size: calc(var(--text-xl)*0.85);
-                margin-bottom: 1.75rem;
-            }
-
-            ul {
-                list-style: none;
-                padding:0;
-                margin:0;
-            }
-
-            .btn {
-                border-radius: 6px;
-            }
-        }
-        
-
-        &__blog {
-            &-item {
-                margin-bottom: 1rem;
-                + * {
-                    border-top: 1px solid rgba(var(--accent), 1);
-                    padding-top: 1rem;
-                }
-                a {
-                    display: flex;
-                    align-items: center;
-                    gap:1rem;
-                    text-decoration: none;
-                    img {
-                        max-width: 64px;
-                        border-radius: 6px;
-                    }
-                }
-                &-detail {
-                    h4 {
-                        font-weight: bold;
-                        font-size: calc(var(--text-md)*1.25);
-                    }
-                }
-            }
-        }
-
-        &__links {
-            li {
-                a {
-                    display: block;
-                    margin-bottom: 8px;
-                    text-decoration: none;
-                    transition: 0.3s;
-                    color:rgba(var(--footer-text-link), 1);
-                    &:hover {
-                        color:rgba(var(--footer-text-link-hover), 1);
-                    }
-                }
-            }
+        @media (max-width:60rem) {
+            flex-direction: column;
+            justify-content: center;
         }
     }
 
-    &__copyright {
-        background-color: rgba(var(--footer-bg-bottom), 1);
-        color: rgba(var(--footer-text-bottom), 1);
-        padding:calc(var(--padding-md)*0.5) var(--padding-md);
-        border-top:1px solid rgba(var(--body-link), 0.1);
-
-        @media (max-width:$max-md) {
-            padding: calc(var(--padding-md)*1) var(--padding-md);
+    &__credit {
+        @media (max-width:60rem) {
+            margin-top: 0.85rem;
         }
 
         a {
-            color:rgba(var(--footer-text-bottom), 1)!important;
-            text-underline-offset: 0.35rem;
-        }
-        &__inner {
-            margin:0 auto;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap:1rem;
-            @media (max-width:$max-md) {
-                flex-direction: column;
-                justify-content: center;
-                gap:0.5rem;
-            }
+            color: rgba(var(--body-text), 1);
+            font-weight: bold;
         }
     }
 }

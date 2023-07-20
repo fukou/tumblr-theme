@@ -73,7 +73,8 @@ const featured = (data) => {
             const blockquotes = caption.querySelectorAll("blockquote");
 
             blockquotes.forEach((blockquote) => {
-              const tumblrBlogLink = blockquote.previousElementSibling.querySelector(".tumblr_blog");
+              const tumblrBlogLink =
+                blockquote.previousElementSibling.querySelector(".tumblr_blog");
 
               if (tumblrBlogLink !== null) {
                 blockquote.classList.add("trail-item");
@@ -84,29 +85,74 @@ const featured = (data) => {
             const tumblrParents = caption.querySelectorAll(".trail-item");
             tumblrParents.forEach((tumblrParent) => {
               // Records the link html of the blogger making the blockquote
-              const linkName = tumblrParent.parentElement.querySelector("a.tumblr_blog").innerHTML;
+              const linkName =
+                tumblrParent.parentElement.querySelector(
+                  "a.tumblr_blog"
+                ).innerHTML;
 
               // // Adds the link inside the html of the blockquote
-              tumblrParent.insertAdjacentHTML("afterbegin", `<span class="trail-item-username"><img src="http://api.tumblr.com/v2/blog/${linkName}/avatar/30" class="trail-item-avatar"/>${linkName}</span>`);
+              tumblrParent.insertAdjacentHTML(
+                "afterbegin",
+                `<span class="trail-item-username"><img src="http://api.tumblr.com/v2/blog/${linkName}/avatar/30" class="trail-item-avatar"/>${linkName}</span>`
+              );
 
               // Un-nests blockquotes
-              tumblrParent.closest(".slideshow__item__inner").insertBefore(tumblrParent, tumblrParent.closest(".slideshow__item__inner").firstChild);
+              tumblrParent
+                .closest(".slideshow__item__inner")
+                .insertBefore(
+                  tumblrParent,
+                  tumblrParent.closest(".slideshow__item__inner").firstChild
+                );
 
-              const tumblrBlogLink = tumblrParent?.querySelector(".trail-item-username")?.nextElementSibling?.querySelector('a.tumblr_blog')?.parentElement;
+              const tumblrBlogLink = tumblrParent
+                ?.querySelector(".trail-item-username")
+                ?.nextElementSibling?.querySelector(
+                  "a.tumblr_blog"
+                )?.parentElement;
               if (tumblrBlogLink) {
-                tumblrBlogLink.classList.add('d-none');
+                tumblrBlogLink.classList.add("d-none");
               }
             });
-            const captionInner = caption.querySelector(".slideshow__item__inner-content");
+            const captionInner = caption.querySelector(
+              ".slideshow__item__inner-content"
+            );
             if (captionInner) {
-              // captionInner.querySelector('a.tumblr_blog');
               caption.appendChild(captionInner);
             }
           });
 
           // truncate(card.querySelector(".slideshow__item__inner"), 40, "...");
+
+          const npfElement = card?.querySelector(".npf_link");
+          if (npfElement) {
+            const npfData = JSON.parse(npfElement.getAttribute("data-npf"));
+            console.log(npfData);
+            const { display_url, title, site_name, poster } = npfData;
+            const posterUrl =
+              poster && poster[0] && poster[0].media_key
+                ? `https://static.tumblr.com/${poster[0].media_key}`
+                : "";
+
+            const markup = `
+              <div class="npf-link-block ${
+                poster ? "has-poster" : "has-no-poster"
+              }">
+                <a target="_blank" href="${display_url}">
+                  <div class="bottom">
+                    <div class="description">
+                      ${title}
+                    </div>
+                    <div class="site-name">
+                      ${site_name}
+                    </div>
+                  </div>
+                </a>
+              </div>
+            `;
+            npfElement.innerHTML = markup;
+          }
+
           wrapInner(card, "a", "href", `${url}`);
-          
         } else if (type === "photo") {
           card.innerHTML = `<div class="slideshow__item">
                 <a href="${url}">
@@ -119,12 +165,13 @@ const featured = (data) => {
                     <img src="${root_avatar}" alt="${root_name}">
                     <span>${root_name}</span>
                   </div>
-                  <div class="slideshow__item__source-date">
-                    Posted on ${date}
-                  </div>
                 </div>
             </div>
             `;
+
+          // <div class="slideshow__item__source-date">
+          //   Posted on ${date}
+          // </div>
 
           wrapInner(card, "a", "href", `${url}`);
         } else if (type === "answer") {

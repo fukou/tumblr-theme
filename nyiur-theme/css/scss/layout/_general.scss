@@ -40,6 +40,10 @@ body {
     }
 }
 
+html {
+   scroll-behavior: smooth;
+}
+
 pre {
    max-width: 100%;
    overflow: hidden;
@@ -48,8 +52,8 @@ pre {
 }
 
 .wrapper {
+   position: relative;
    border-radius: 12px;
-   overflow: hidden;
 
    background-color: rgba(var(--bg-post-color), 1);
    margin-bottom: 5rem!important;
@@ -61,8 +65,9 @@ pre {
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      
+
       padding:3.5rem 1rem;
+      border-radius: 12px 12px 0 0;
   
       min-height: var(--hero-height);
   
@@ -130,6 +135,77 @@ pre {
            }
          }
       }
+
+      &__avatar {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        
+        max-width: 100px;
+        margin:1rem auto 1rem auto;
+
+        #avatar {
+           border-radius: 50%;
+           padding: 8px;
+           background-color: rgba(var(--bg-card), 1);
+           img {
+            border-radius: 50%;
+           }
+        }
+      }
+      
+      &__acc {
+         position: absolute;
+         left:100%;
+         bottom:0;
+         width: max-content;
+         margin: -20px 0 0 -30px;
+         padding: 6px;
+         background: #ec5a5a;
+         color:#fff;
+
+         border-radius: 30px;
+         border:1px solid rgba(0, 0, 0, 0.15);
+         box-shadow: rgba(0,0,0,.1) 0px 1px 3px 0px,rgba(0,0,0,.06) 0px 1px 2px 0px;
+
+         display: flex;
+         align-items: center;
+         justify-content: center;
+
+         width: 38px;
+         height: 38px;
+         overflow: hidden;
+         transition: 0.5s;
+
+         cursor:help;
+
+         &-icon {
+            font-size: 18px;
+         }
+         
+         &-text {
+            white-space: nowrap;
+
+            width: 0;
+            opacity: 0;
+
+            font-size: 12px;
+         }
+
+         &:hover {
+            width: auto;
+            max-width: 200px;
+            padding-left: 12px;
+            .wrapper__hero__acc-text {
+               width: auto;
+               opacity: 1;
+               margin-left: 4px;
+               margin-right: 6px;
+            }
+         }
+      }
       
       &__inner {
           position: relative;
@@ -138,19 +214,6 @@ pre {
           margin: 0 auto;
   
           z-index: 2;
-  
-          #avatar {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              margin-bottom: 1rem;
-              img {
-                  border-radius: 50%;
-                  padding: 6px;
-                  background-color: rgba(var(--bg-card), 1);
-                  max-width: 90px;
-              }
-          }
   
           h1,h2 {
               font-size: 2.85rem;
@@ -171,6 +234,10 @@ pre {
   
           .btn__wrapper {
               justify-content: center;
+              gap:0;
+              @media (max-width:$max-md) {
+               gap:1.25rem;
+              }
           }
       }
       &::after {
@@ -184,8 +251,10 @@ pre {
       }
    }
    &__inner {
+      position: relative;
       display: grid;
-      grid-template-columns: 1fr min(var(--blog-width), 100%) 1fr;
+      grid-template-columns: 1fr min(60rem, 100%) 1fr;
+      align-items: start;
 
       padding-bottom: calc(var(--padding-lg)*3);
       @media (max-width:$max-md) {
@@ -207,10 +276,12 @@ pre {
       }
 
       &__content {
+         color: rgba(var(--body-text), 1);
          :where(h1,h2) {
             font-size: var(--text-xl);
             font-family: var(--heading-font);
             margin-bottom: 1rem;
+            color: rgba(var(--heading-text), 1);
          }
       }
 
@@ -228,15 +299,15 @@ pre {
          z-index: 2;
          li {
             &[aria-disabled="true"] {
+              button {
                cursor: not-allowed;
                opacity: 0.25;
+              }
             }
          }
          button {
             cursor: pointer;
             border:0;
-            background-color: rgba(var(--slider-button-bg), 1);
-            color:rgba(var(--slider-button-text), 1);
 
             font-size: 2rem;
             padding:0;
@@ -248,13 +319,20 @@ pre {
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            background-color: rgba(var(--btn-primary), 1);
+            color:rgba(var(--btn-text-primary), 1);
 
             transition: 0.25s;
 
+            &:hover {
+                  background-color: rgba(var(--btn-primary-hover), 1);
+                  color:rgba(var(--btn-text-primary-hover), 1);
+            }
+
             
             @media (max-width:$max-md) {
-               width: 25px;
-               height: 25px;
+               width: 35px;
+               height: 35px;
                font-size: 1rem;
             }
 
@@ -279,7 +357,7 @@ pre {
          position: relative;
          .tns-inner {
             @media (min-width:$min-lg) {
-               margin-right: 300px!important;
+               margin-right: 250px!important;
             }
          }
          .slideshow {
@@ -313,6 +391,14 @@ pre {
 
                figure.tmblr-full {
                   padding:0;
+               }
+
+               .npf-link-block {
+                  height: 100px;
+                  .title {
+                     font-size: 15px;
+                     line-height: 1;
+                  }
                }
 
                .npf_row {
@@ -358,8 +444,8 @@ pre {
                      align-items: center;
                      gap:8px;
                      img {
-                        width: 36px;
-                        height: 36px;
+                        width: 30px;
+                        height: 30px;
 
                         border-radius: 6px;
                      }
@@ -387,7 +473,7 @@ pre {
                      position: absolute;
                      left:0;
                      bottom:0;
-                     background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #fff 100%);
+                     background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(var(--bg-card), 1) 100%);
                   }
                   
                   h1 {
@@ -434,6 +520,18 @@ pre {
                         border-radius: 6px;
                      }
                      &:first-child:has(.npf_row) {
+                        .trail-item-username {
+                           position: absolute;
+                           z-index: 2;
+                           bottom: 0;
+                           left: 0;
+                           margin:0;
+
+                           width: 100%;
+                           color: white;
+                           padding: 2ch;
+                           background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #000 100%);
+                        }
                         .npf_row {
                            position: absolute;
                            left:0;
@@ -466,6 +564,7 @@ pre {
                   justify-content: space-between;
 
                   font-size: 18px;
+                  font-family: var(--heading-font);
 
                   &-icon {
                      font-size: 40px;
@@ -490,7 +589,40 @@ pre {
       }
    }
    &__content {
+      position: relative;
       grid-column: 2;
+      @media (min-width:$min-lg) {
+         width: var(--blog-width);
+      }
+   }
+   &__back-to-top {
+      position: sticky;
+      top:calc(100vh - 80px);
+
+      display: flex;
+      justify-content: center;
+      padding:1.5ch 2ex;
+
+      @media (max-width:$max-md) {
+         display: none;
+      }
+
+      &__btn {
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+
+         width: 45px;
+         height: 45px;
+
+         border-radius: 50%;
+
+         text-decoration: none;
+         z-index: 2;
+
+         background-color: rgba(var(--btn-primary), 1);
+         color:rgba(var(--btn-text-primary), 1);
+      }
    }
 }
 
@@ -620,11 +752,32 @@ pre {
   width: 100%!important;
 }
 
-.like {color:currentColor;}
-.like .liked+svg{opacity:1}
-.like .liked+svg path{fill:#ec5a5a}
-.like .like_button{position:relative}
-.like .like_button iframe{position:absolute;top:-10px;left:-2px;bottom:0;right:0;z-index:2;opacity:0}
+.like {
+   color: currentColor;
+}
+
+.like .liked+svg {
+   opacity: 1
+}
+
+.like .liked+svg path {
+   fill: #ec5a5a;
+   stroke: #ec5a5a;
+}
+
+.like .like_button {
+   position: relative
+}
+
+.like .like_button iframe {
+   position: absolute;
+   top: -10px;
+   left: -2px;
+   bottom: 0;
+   right: 0;
+   z-index: 2;
+   opacity: 0
+}
 
 .tumblr_audio_player {
    height: 90px;

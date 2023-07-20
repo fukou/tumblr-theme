@@ -1,6 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-force-color-mode="light">
 <head>
+   <script>
+      const colorModeOverride = window.localStorage.getItem('color-mode');
+      const hasColorModeOverride = typeof colorModeOverride === 'string';
+      if (hasColorModeOverride) {
+         document.documentElement.setAttribute('data-force-color-mode', colorModeOverride);
+      }
+   </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,26 +42,8 @@
             --code-font: 'Consolas', monospace;
 
             --accent:243, 162, 187;
-            --bg-color: 255,255,255;
-            --bg-post-color:238,238,238;
 
             --bg-img: url('https://assets.tumblr.com/images/x.gif?v=1');
-
-            --bg-card: 255,255,255;
-            --body-text: 68,68,68;
-            --body-link: 17,17,17;
-            --heading-text: 17,17,17;
-
-            --bg-card-pinned:var(--bg-card);
-            --bg-card-pinned-border:210, 153, 159;
-
-            --pinned-label-bg:210, 153, 159;
-            --pinned-label-text:255,255,255;
-
-            --post-bubble-bg:238,238,238;
-            --post-bubble-text:17,17,17;
-
-            --border-color:221, 221, 221;
 
             --btn-primary:17,17,17;
             --btn-text-primary:255,255,255;
@@ -62,16 +51,12 @@
             --btn-primary-hover:243, 162, 187;
             --btn-text-primary-hover:17, 17, 17;
 
+            --bg-card-pinned-border:210, 153, 159;
+
+            --pinned-label-bg:210, 153, 159;
+            --pinned-label-text:255,255,255;
+
             --hero-bg-img:url('https://64.media.tumblr.com/e49f461a531846bcec600d692238c8de/f18b046763e6605c-8b/s2048x3072/ec1a5a467d5948e18580a61ee23452519b10fa7b.jpg');
-            --hero-bg::238,238,238;
-            --hero-color: 17, 17, 17;
-
-            --header-navigation-bg:  255,255,255;
-            --header-navigation-text: 17, 17, 17;
-            --header-navigation-text-hover:210, 153, 159;
-
-            --header-navigation-circle-one:243, 162, 187;
-            --header-navigation-circle-two:17, 17, 17;
 
             --footer-bg-top:248, 232, 233;
             --footer-text-top:17, 17, 17;
@@ -82,25 +67,14 @@
             --footer-text-link:17, 17, 17;
             --footer-text-link-hover:210, 153, 159;
 
-            --tags-button-bg:255,255,255;
-            --tags-button-text:140, 140, 140;
-            --tags-button-border:196, 196, 196;
-            --tags-button-bg-hover:248, 232, 233;
-            --tags-button-text-hover:17, 17, 17;
-
-            --action-button-bg:255,255,255;
-            --action-button-text:17, 17, 17;
-            --action-button-border:196, 196, 196;
-            --action-button-bg-hover:248, 232, 233;
-            --action-button-text-hover:17, 17, 17;
-
-            --slider-button-bg:17, 17, 17;
-            --slider-button-text:255,255,255;
-
             --social-media-btn:17, 17, 17;
             --social-media-btn-text:255,255,255;
             --social-media-btn-hover:243, 162, 187;
             --social-media-btn-text-hover:17, 17, 17;
+
+            --header-navigation-circle-one:243, 162, 187;
+
+            --hero-bg:238,238,238;
 
             --hero-overlay:17, 17, 17;
             --hero-overlay-level:0;
@@ -116,17 +90,83 @@
             --padding-md: clamp(1.45rem, 2.5vw, 2rem);
             --padding-sm: clamp(1rem, 2.5vw, 1.5rem);
 
-            --blog-width:900px;
+            --blog-width:100%;
 
             --font-size:14px;
              font-size:var(--font-size);
+        }
+
+        :root[data-force-color-mode="light"] {
+            --bg-color: 255,255,255;
+            --bg-post-color:238,238,238;
+
+            --bg-card: 255,255,255;
+            --body-text: 68,68,68;
+            --body-link: 17,17,17;
+            --heading-text: 17,17,17;
+
+            --bg-card-pinned:var(--bg-card);
+
+            --post-bubble-bg:238,238,238;
+            --post-bubble-text:17,17,17;
+
+            --hero-color: 17, 17, 17;
+
+            --border-color:221, 221, 221;
+
+            --header-navigation-bg:  255,255,255;
+            --header-navigation-text: 17, 17, 17;
+            --header-navigation-text-hover:210, 153, 159;
+
+            --header-navigation-circle-two:17, 17, 17;
+
+            --tags-button-text:140, 140, 140;
+            --tags-button-text-hover:17, 17, 17;
+
+            --action-button-text:17, 17, 17;
+            --action-button-border:196, 196, 196;
+            --action-button-bg-hover:248, 232, 233;
+            --action-button-text-hover:17, 17, 17;
+        }
+
+        :root[data-force-color-mode="dark"] {
+            --bg-color:27, 33, 40;
+            --bg-post-color:33, 41, 49;
+
+            --bg-card: 45, 56, 67;
+            --body-text:199, 204, 209;
+            --body-link: 255,255,255;
+            --heading-text: 255,255,255;
+
+            --bg-card-pinned:var(--bg-card);
+
+            --post-bubble-bg:238,238,238;
+            --post-bubble-text:255,255,255;
+
+            --hero-color: 255,255,255;
+
+            --border-color:65, 72, 78;
+            
+            --header-navigation-circle-two:199, 204, 209;
+
+            --header-navigation-bg:27, 33, 40;
+            --header-navigation-text:255,255,255;
+            --header-navigation-text-hover:255,255,255;
+   
+            --tags-button-text:199, 204, 209;
+            --tags-button-text-hover:255,255,255;
+
+            --action-button-text:199, 204, 209;
+            --action-button-border:199, 204, 209;
+            --action-button-bg-hover:248, 232, 233;
+            --action-button-text-hover:255,255,255;
         }
     </style>
     <style id="custom">
         {CustomCSS}
     </style>
 </head>
-<body data-type-page="index" data-blog-style="masonry" class="is-featured is-scrollbar is-sidebar is-three-column">
+<body data-type-page="index" data-blog-style="normal" class="is-featured is-scrollbar">
     
     <nav class="nav">
         <div class="nav__inner | container--width-xl margin--x-auto">
@@ -149,13 +189,32 @@
                             <circle cx="19" cy="12" r="1"></circle>
                             <circle cx="5" cy="12" r="1"></circle>
                         </svg></button>
-                    <button class="btn-dark" aria-label=""><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg></button>
+                    <!-- <button class="btn-tag" aria-label="Featured tags">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line></svg>
+                    </button> -->
+                    <button class="btn-dark" aria-label="Switch mode"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg></button>
                 </div>
             </div>
+        </div>
+        <div class="nav__additional | container--width-xl margin--x-auto">
+            <ul class="nav__additional__links">
+               <li>
+                  <a href="/about" class=" ">About</a>
+               </li>
+               <li>
+                  <a href="/contact" class=" ">Support</a>
+               </li>
+               <li>
+                  <a href="/example" class=" ">Custom page</a>
+               </li>
+               <li>
+                  <a href="https://fukuo.design/" class=" external-page">Portfolio Website</a>
+               </li>
+               <li><a href="#">A long custom link for you to test</a></li>
+               <li>
+                  <a href="http://instagram.com/loonatheworld" class=" external-page">Instagram</a>
+               </li>
+            </ul>
         </div>
     </nav>
   
@@ -163,12 +222,23 @@
         <header class="wrapper__hero" style="background-image: var(--hero-bg-img);">
             <div class="wrapper__hero__overlay"></div>
             <div class="wrapper__hero__inner">
-                <a href="/" id="avatar"><img src="https://64.media.tumblr.com/6071fec0cd95ba8e0b2cbfd72ac8a2e5/f18b046763e6605c-43/s128x128u_c1/483fdc27ba68092b43bf50c8991d086d5bec4d50.pnj" alt=""/></a>
+                <div class="wrapper__hero__avatar">
+                  
+                  <a id="avatar" href="/"><img src="https://64.media.tumblr.com/6071fec0cd95ba8e0b2cbfd72ac8a2e5/f18b046763e6605c-43/s128x128u_c1/483fdc27ba68092b43bf50c8991d086d5bec4d50.pnj" alt=""/></a>
+
+                  <div class="wrapper__hero__acc">
+                     <span class="wrapper__hero__acc-icon"><i class="las la-snowboarding"></i></span>
+                     <span class="wrapper__hero__acc-text">Tired all day, y'know?</span>
+                  </div>
+                </div>
                 <h1>Nyiur</h1>
                 <p>Nyiur tanpa akar yang kuat, mercusuar yang sirna cahyanya dan akhirnya beralaskan semua yang disiratkan Ibumu. Sumpah serapah terucap, isyaratkan keraguan. Hilanglah semua kepercayaan itu bertaut semua yang hitam. Kuingin bergegas pergi merantau di negeri berempati hidup tanpa Ilahi yang membunuh angan-angan kecil. </p>
                 <div class="btn__wrapper | margin--top-30" data-wrapper-type="row">
                     <a href="#" class="btn btn__primary">Button link here</a>
                     <ul class="wrapper__hero__socmed">
+                        <li><a href="#" title="Facebook">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 0a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h16zm-4 7.28V4.5h-2.29c-2.1 0-3.42 1.6-3.42 3.89v1.67H8v2.77h2.29v6.67h2.85v-6.67h2.29l.57-2.77h-2.86V8.94c0-1.1.58-1.66 1.72-1.66H16z"/></svg>
+                        </a></li>
                         <li><a href="#" title="Twitter">
                               <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                  <title>Twitter icon</title>
@@ -199,6 +269,9 @@
                                  <path
                                     d="M16.98 0a6.9 6.9 0 0 1 5.08 1.98A6.94 6.94 0 0 1 24 7.02v9.96c0 2.08-.68 3.87-1.98 5.13A7.14 7.14 0 0 1 16.94 24H7.06a7.06 7.06 0 0 1-5.03-1.89A6.96 6.96 0 0 1 0 16.94V7.02C0 2.8 2.8 0 7.02 0h9.96zm.05 2.23H7.06c-1.45 0-2.7.43-3.53 1.25a4.82 4.82 0 0 0-1.3 3.54v9.92c0 1.5.43 2.7 1.3 3.58a5 5 0 0 0 3.53 1.25h9.88a5 5 0 0 0 3.53-1.25 4.73 4.73 0 0 0 1.4-3.54V7.02a5 5 0 0 0-1.3-3.49 4.82 4.82 0 0 0-3.54-1.3zM12 5.76c3.39 0 6.2 2.8 6.2 6.2a6.2 6.2 0 0 1-12.4 0 6.2 6.2 0 0 1 6.2-6.2zm0 2.22a3.99 3.99 0 0 0-3.97 3.97A3.99 3.99 0 0 0 12 15.92a3.99 3.99 0 0 0 3.97-3.97A3.99 3.99 0 0 0 12 7.98zm6.44-3.77a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8z" />
                               </svg>
+                           </a></li>
+                           <li><a href="#" title="Tiktok">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 9.84202C20.4357 9.84696 18.4221 9.20321 16.7435 8.00171V16.3813C16.7429 17.9333 16.2685 19.4482 15.3838 20.7233C14.499 21.9984 13.246 22.973 11.7923 23.5168C10.3387 24.0606 8.75362 24.1477 7.24914 23.7664C5.74466 23.3851 4.39245 22.5536 3.37333 21.383C2.3542 20.2125 1.71674 18.7587 1.54617 17.2161C1.3756 15.6735 1.68007 14.1156 2.41884 12.7507C3.15762 11.3858 4.2955 10.279 5.68034 9.57823C7.06517 8.87746 8.63095 8.61616 10.1683 8.82927V13.0439C9.4648 12.8227 8.70938 12.8293 8.0099 13.063C7.31041 13.2966 6.70265 13.7453 6.2734 14.345C5.84415 14.9446 5.61536 15.6646 5.6197 16.402C5.62404 17.1395 5.8613 17.8567 6.29759 18.4512C6.73387 19.0458 7.34688 19.4873 8.04906 19.7127C8.75125 19.9381 9.5067 19.9359 10.2075 19.7063C10.9084 19.4768 11.5188 19.0316 11.9515 18.4345C12.3843 17.8374 12.6173 17.1188 12.6173 16.3813V0H16.7435C16.7406 0.348435 16.7698 0.696395 16.8307 1.03948V1.03948C16.9741 1.80537 17.2722 2.53396 17.7068 3.18068C18.1415 3.8274 18.7035 4.37867 19.3585 4.80075C20.2903 5.41688 21.3829 5.74528 22.5 5.74505V9.84202Z"/></svg>
                            </a></li>
                     </ul>
                 </div>
@@ -243,8 +316,8 @@
                 </div>
             </section>
             <section class="wrapper__content">
-                <div class="wrapper__blog" id="blog">
-                  <article
+               <div class="wrapper__blog" id="blog">
+                    <article
                      class="posts posts-photo  pinned here_s_how_tag_will_look_like amazing_isn_t_it please_tell_me_if_it_looks_good_on_your_end wohoooo  reblog">
                      <div class="posts__dated posts__dated__pinned"><span class="posts__pinned__label flex flex--align-center"> <svg
                               class="margin--right-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
@@ -332,7 +405,185 @@
                            </ul>
                         </div>
                      </div>
-                  </article>
+                    </article>
+
+                    <article
+                     class="posts posts-text toc">
+                     <div class="posts__dated">
+                        <div class="posts__dated__perma">
+                           <a
+                              href="https://fukuo-commission.tumblr.com/post/671619677771939840/aukives-dont-talk-to-me-or-my-gf-ever-again">December
+                              12, 2021</a>
+                        </div>
+                        <div class="posts__dated__action"><a
+                              href="https://fukuo-commission.tumblr.com/post/671619677771939840/aukives-dont-talk-to-me-or-my-gf-ever-again"
+                              class="flex flex--align-center"><span class="is-notes">5,714 notes</span> <svg class="margin--left-10"
+                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                 <g fill="none" fill-rule="evenodd">
+                                    <path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"></path>
+                                 </g>
+                              </svg></a></div>
+                     </div>
+                     <section class="posts__media"></section>
+                     <section class="posts__body">
+                        <h1>Here’s an example title</h1>
+                        <h2
+                           id="lorem-ipsum-dolor-sit-amet,-consectetur-adipiscing-elit,-sed-do-eiusmod-tempor-incididunt-ut-labore-et-dolore-magna-aliqua.">
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                           magna aliqua.</h2>
+                        <p> Commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend. Euismod quis viverra nibh cras
+                           pulvinar. Fames ac turpis egestas sed tempus urna. Ut morbi tincidunt augue interdum velit euismod. Aenean vel
+                           elit scelerisque mauris pellentesque pulvinar. Lobortis feugiat vivamus at augue eget arcu dictum varius duis.
+                           Cursus mattis molestie a iaculis at erat pellentesque adipiscing. Porttitor lacus luctus accumsan tortor. </p>
+                        <div class="npf_photoset">
+                           <div class="npf_row" data-row-size="848">
+                              <figure class="tmblr-full" style="height: 565.333px;"><img class="post_media_photo image npf_image"
+                                    src="https://64.media.tumblr.com/f69662ffaf7c332a1e4e6e66290a0d36/061a9dd7c1f22cf3-3f/s1280x1920/ca954061fa6542577d6956f2b95bb7f2a3da9492.jpg"
+                                    srcset="https://64.media.tumblr.com/f69662ffaf7c332a1e4e6e66290a0d36/061a9dd7c1f22cf3-3f/s75x75_c1/9978324d3921b1f656aa18111d06fe30ebf6c49f.jpg 75w, https://64.media.tumblr.com/f69662ffaf7c332a1e4e6e66290a0d36/061a9dd7c1f22cf3-3f/s100x200/7adf2b84a9af633cb316ec0cb0e5d69e44a13ce4.jpg 100w, https://64.media.tumblr.com/f69662ffaf7c332a1e4e6e66290a0d36/061a9dd7c1f22cf3-3f/s250x400/6201ceca15ae147d21b161dcd43d845a08c6292c.jpg 250w, https://64.media.tumblr.com/f69662ffaf7c332a1e4e6e66290a0d36/061a9dd7c1f22cf3-3f/s400x600/82d637a39cafdbc1c90bf626de5501179afeba45.jpg 400w, https://64.media.tumblr.com/f69662ffaf7c332a1e4e6e66290a0d36/061a9dd7c1f22cf3-3f/s500x750/51bdc4cf248385f8f1d1478e0a9a2341a70e15f2.jpg 500w, https://64.media.tumblr.com/f69662ffaf7c332a1e4e6e66290a0d36/061a9dd7c1f22cf3-3f/s540x810/28829c5be255d13677268ac2ec4df373edb7ad41.jpg 540w, https://64.media.tumblr.com/f69662ffaf7c332a1e4e6e66290a0d36/061a9dd7c1f22cf3-3f/s640x960/96bfdbdc709d9a1e8e37c0e30bfbb5cd8578bb55.jpg 640w, https://64.media.tumblr.com/f69662ffaf7c332a1e4e6e66290a0d36/061a9dd7c1f22cf3-3f/s1280x1920/ca954061fa6542577d6956f2b95bb7f2a3da9492.jpg 1280w, https://64.media.tumblr.com/f69662ffaf7c332a1e4e6e66290a0d36/061a9dd7c1f22cf3-3f/s2048x3072/0f47d4aa490223818788b9b2b63324630496f729.jpg 1920w"
+                                    sizes="(max-width: 1280px) 100vw, 1280px" alt="image"
+                                    data-highres="https://64.media.tumblr.com/f69662ffaf7c332a1e4e6e66290a0d36/061a9dd7c1f22cf3-3f/s1280x1920/ca954061fa6542577d6956f2b95bb7f2a3da9492.jpg"
+                                    data-orig-width="1920" data-orig-height="1280" data-image-size="565.3333333333333" tabindex="0"
+                                    data-count="1" style="margin-top: 0px;">
+                                 <div class="npf_gallery_indicator"><i class="las la-expand"></i></div>
+                              </figure>
+                           </div>
+                        </div>
+                        <p class="npf_quote">Suspendisse in est ante in nibh mauris. Sit amet consectetur adipiscing elit pellentesque
+                           habitant morbi tristique. Id velit ut tortor pretium viverra suspendisse potenti nullam ac. Accumsan sit amet
+                           nulla facilisi morbi tempus iaculis. Eu non diam phasellus vestibulum. Integer eget aliquet nibh praesent
+                           tristique magna sit amet. Purus sit amet luctus venenatis. Tempor orci eu lobortis elementum nibh tellus molestie
+                           nunc non.</p>
+                        <p>Malesuada fames ac turpis egestas maecenas. Condimentum id venenatis a condimentum vitae sapien pellentesque
+                           habitant morbi. Semper viverra nam libero justo laoreet sit amet cursus sit. Quis lectus nulla at volutpat diam ut
+                           venenatis. Morbi tristique senectus et netus et malesuada fames. Lectus urna duis convallis convallis tellus id
+                           interdum velit. Amet facilisis magna etiam tempor orci eu lobortis elementum nibh. Enim neque volutpat ac
+                           tincidunt vitae. Ac felis donec et odio pellentesque diam volutpat. Consequat mauris nunc congue nisi vitae
+                           suscipit tellus. Enim facilisis gravida neque convallis a cras semper auctor neque. </p>
+                        <h2 id="sit-amet-commodo-nulla-facilisi-nullam-vehicula.">Sit amet commodo nulla facilisi nullam vehicula.</h2>
+                        <p>In metus vulputate eu scelerisque felis imperdiet proin. Blandit volutpat maecenas volutpat blandit. Egestas
+                           fringilla phasellus faucibus scelerisque eleifend. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada
+                           proin.Ultrices neque ornare aenean euismod elementum nisi. </p>
+                        <ul>
+                           <li>Porttitor massa id neque aliquam vestibulum. Varius sit amet mattis vulputate enim nulla aliquet porttitor.
+                           </li>
+                           <li>Eu ultrices vitae auctor eu augue ut lectus arcu bibendum. Risus viverra adipiscing at in tellus integer
+                              feugiat. </li>
+                           <li>Risus ultricies tristique nulla aliquet enim. </li>
+                        </ul>
+                        <p>Mauris in aliquam sem fringilla ut morbi. Condimentum lacinia quis vel eros donec ac. Pellentesque pulvinar
+                           pellentesque habitant morbi tristique senectus et netus et. </p>
+                        <div class="npf_photoset">
+                           <div class="npf_row" data-row-size="409">
+                              <figure class="tmblr-full" style="margin-right: 30px; height: 230.062px;"><img
+                                    class="post_media_photo image npf_image"
+                                    src="https://64.media.tumblr.com/510257ee186907684314ef4056cde626/061a9dd7c1f22cf3-19/s1280x1920/70f5ff20fac5aa3df2ff5899360e97640143ac27.jpg"
+                                    srcset="https://64.media.tumblr.com/510257ee186907684314ef4056cde626/061a9dd7c1f22cf3-19/s75x75_c1/789d6b5e87f49bf28e55b24b16fdabbc0abe30e8.jpg 75w, https://64.media.tumblr.com/510257ee186907684314ef4056cde626/061a9dd7c1f22cf3-19/s100x200/877973e09a4d73ef6ac4f19bde30fa6ddd6f63f0.jpg 100w, https://64.media.tumblr.com/510257ee186907684314ef4056cde626/061a9dd7c1f22cf3-19/s250x400/0e35a4338315aa286c802b0724f4ea160fce2934.jpg 250w, https://64.media.tumblr.com/510257ee186907684314ef4056cde626/061a9dd7c1f22cf3-19/s400x600/2b4137b0c94f84e2db7b791051b7526c8cab8c5f.jpg 400w, https://64.media.tumblr.com/510257ee186907684314ef4056cde626/061a9dd7c1f22cf3-19/s500x750/9327f3aaa7cfd53d8e15e51888466053137faf77.jpg 500w, https://64.media.tumblr.com/510257ee186907684314ef4056cde626/061a9dd7c1f22cf3-19/s540x810/6f93dbbb52d7bc4544b09e930e9a58f443fe23c1.jpg 540w, https://64.media.tumblr.com/510257ee186907684314ef4056cde626/061a9dd7c1f22cf3-19/s640x960/44ac5f46cec35fee916c372a4f124281b29600c1.jpg 640w, https://64.media.tumblr.com/510257ee186907684314ef4056cde626/061a9dd7c1f22cf3-19/s1280x1920/70f5ff20fac5aa3df2ff5899360e97640143ac27.jpg 1280w, https://64.media.tumblr.com/510257ee186907684314ef4056cde626/061a9dd7c1f22cf3-19/s2048x3072/964b93cabb0ad518cf2ac8f18efe9a5efdc25251.jpg 2048w"
+                                    sizes="(max-width: 1280px) 100vw, 1280px" alt="image"
+                                    data-highres="https://64.media.tumblr.com/510257ee186907684314ef4056cde626/061a9dd7c1f22cf3-19/s1280x1920/70f5ff20fac5aa3df2ff5899360e97640143ac27.jpg"
+                                    data-orig-width="3840" data-orig-height="2160" data-image-size="230.0625" tabindex="0" data-count="1"
+                                    style="margin-top: 0px;">
+                                 <div class="npf_gallery_indicator"><i class="las la-expand"></i></div>
+                              </figure>
+                              <figure class="tmblr-full" style="height: 230.062px;"><img class="post_media_photo image npf_image"
+                                    src="https://64.media.tumblr.com/ba3d148f48d0e80eca3979ac4985c3d0/061a9dd7c1f22cf3-f8/s1280x1920/0bdcb61f7c588dcd884767a45643210efc9d37ff.jpg"
+                                    srcset="https://64.media.tumblr.com/ba3d148f48d0e80eca3979ac4985c3d0/061a9dd7c1f22cf3-f8/s75x75_c1/d0dc758173e35eed45c3edca7c8c601d53508c13.jpg 75w, https://64.media.tumblr.com/ba3d148f48d0e80eca3979ac4985c3d0/061a9dd7c1f22cf3-f8/s100x200/2bd4326c614dea24defdbb3fcb9ed1c9f4cc58dc.jpg 100w, https://64.media.tumblr.com/ba3d148f48d0e80eca3979ac4985c3d0/061a9dd7c1f22cf3-f8/s250x400/5afe5d02d50ba64be08a7dd020ac3de36b8ff44e.jpg 250w, https://64.media.tumblr.com/ba3d148f48d0e80eca3979ac4985c3d0/061a9dd7c1f22cf3-f8/s400x600/9505b4117b238e0f97245316e46040df633f0b03.jpg 400w, https://64.media.tumblr.com/ba3d148f48d0e80eca3979ac4985c3d0/061a9dd7c1f22cf3-f8/s500x750/c26cd37352e5c3053f9c82b346d81c8142aa505e.jpg 500w, https://64.media.tumblr.com/ba3d148f48d0e80eca3979ac4985c3d0/061a9dd7c1f22cf3-f8/s540x810/a9765ca3629e8039446da97f4fd720e73b0d79d3.jpg 540w, https://64.media.tumblr.com/ba3d148f48d0e80eca3979ac4985c3d0/061a9dd7c1f22cf3-f8/s640x960/ccfdce3ea0e14be78d72fbebfc755f4bf63373f0.jpg 640w, https://64.media.tumblr.com/ba3d148f48d0e80eca3979ac4985c3d0/061a9dd7c1f22cf3-f8/s1280x1920/0bdcb61f7c588dcd884767a45643210efc9d37ff.jpg 1280w, https://64.media.tumblr.com/ba3d148f48d0e80eca3979ac4985c3d0/061a9dd7c1f22cf3-f8/s2048x3072/bf86a62663b9758ec58359a95ae68e17dcebea8d.jpg 2048w"
+                                    sizes="(max-width: 1280px) 100vw, 1280px" alt="image"
+                                    data-highres="https://64.media.tumblr.com/ba3d148f48d0e80eca3979ac4985c3d0/061a9dd7c1f22cf3-f8/s1280x1920/0bdcb61f7c588dcd884767a45643210efc9d37ff.jpg"
+                                    data-orig-width="3840" data-orig-height="2160" data-image-size="230.0625" tabindex="0" data-count="2"
+                                    style="margin-top: 0px;">
+                                 <div class="npf_gallery_indicator"><i class="las la-expand"></i></div>
+                              </figure>
+                           </div>
+                        </div>
+                        <p>Quam vulputate dignissim suspendisse in est ante in nibh mauris. Leo duis ut diam quam. Auctor augue mauris augue
+                           neque gravida in fermentum et. Augue neque gravida in fermentum et. Quam adipiscing vitae proin sagittis
+                           nisl.Mauris augue neque gravida in fermentum et sollicitudin ac orci. </p>
+                        <h2 id="consectetur-purus-ut-faucibus-pulvinar-elementum-integer-enim-neque.">Consectetur purus ut faucibus pulvinar
+                           elementum integer enim neque. </h2>
+                        <p>Dictum sit amet justo donec enim diam vulputate ut pharetra. Odio facilisis mauris sit amet. Hac habitasse platea
+                           dictumst quisque sagittis purus sit amet. In est ante in nibh mauris cursus mattis molestie a. Morbi blandit
+                           cursus risus at ultrices mi tempus imperdiet nulla. Ut consequat semper viverra nam libero. Nisl pretium fusce id
+                           velit. At varius vel pharetra vel turpis nunc eget. Porttitor eget dolor morbi non arcu risus quis. Turpis in eu
+                           mi bibendum neque.Netus et malesuada fames ac turpis. Nibh tortor id aliquet lectus proin. Sit amet est placerat
+                           in egestas erat imperdiet sed. Pellentesque elit ullamcorper dignissim cras tincidunt. Eget mauris pharetra et
+                           ultrices neque ornare aenean euismod elementum. Eros donec ac odio tempor orci. Accumsan sit amet nulla facilisi.
+                           Lacus viverra vitae congue eu. Erat velit scelerisque in dictum non consectetur. Id leo in vitae turpis massa sed
+                           elementum tempus egestas. </p>
+                        <p class="npf_quirky">Ipsum faucibus vitae aliquet nec ullamcorper sit amet. Vitae tempus quam pellentesque nec.
+                           Ultricies integer quis auctor elit sed vulputate mi sit amet. Tempus egestas sed sed risus pretium quam vulputate
+                           dignissim. Eu feugiat pretium nibh ipsum consequat nisl. Viverra mauris in aliquam sem fringilla. Pharetra magna
+                           ac placerat vestibulum lectus mauris ultrices eros in. Pellentesque eu tincidunt tortor aliquam nulla facilisi
+                           cras fermentum odio. Et ligula ullamcorper malesuada proin libero nunc. </p>
+                        <p>Condimentum lacinia quis vel eros donec ac odio tempor orci.Senectus et netus et malesuada fames ac turpis egestas
+                           maecenas. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in. A diam maecenas sed enim ut
+                           sem. </p>
+                        <h2
+                           id="diam-quam-nulla-porttitor-massa.-sit-amet-consectetur-adipiscing-elit-pellentesque.-porttitor-massa-id-neque-aliquam-vestibulum-morbi-blandit-cursus.">
+                           Diam quam nulla porttitor massa. Sit amet consectetur adipiscing elit pellentesque. Porttitor massa id neque
+                           aliquam vestibulum morbi blandit cursus. </h2>
+                        <p>Consequat semper viverra nam libero. Est placerat in egestas erat imperdiet sed euismod. Orci dapibus ultrices in
+                           iaculis nunc sed augue lacus. Volutpat est velit egestas dui id.Fermentum leo vel orci porta non. Faucibus purus
+                           in massa tempor nec feugiat. At in tellus integer feugiat scelerisque varius morbi enim. </p>
+                        <p>Lectus arcu bibendum at varius vel pharetra vel turpis. Odio aenean sed adipiscing diam donec adipiscing
+                           tristique. Magna eget est lorem ipsum dolor sit amet consectetur. Nisl suscipit adipiscing bibendum est. Sed
+                           lectus vestibulum mattis ullamcorper velit sed ullamcorper. </p>
+                        <p>Ac felis donec et odio pellentesque diam volutpat commodo sed. Ac feugiat sed lectus vestibulum mattis ullamcorper
+                           velit sed ullamcorper. Amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. </p>
+                        <h2 id="a-diam-maecenas-sed-enim-ut-sem-viverra.-urna-cursus-eget-nunc-scelerisque-viverra-mauris.">A diam maecenas
+                           sed enim ut sem viverra. Urna cursus eget nunc scelerisque viverra mauris. </h2>
+                        <p>Nibh sed pulvinar proin gravida hendrerit lectus a. Semper feugiat nibh sed pulvinar proin. Semper feugiat nibh
+                           sed pulvinar proin gravida hendrerit. Euismod nisi porta lorem mollis aliquam ut. Ut eu sem integer vitae. </p>
+                        <p>In pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. Risus sed vulputate odio ut.Lorem dolor
+                           sed viverra ipsum. Integer vitae justo eget magna fermentum iaculis eu non. Congue quisque egestas diam in arcu
+                           cursus euismod. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare. Integer eget aliquet nibh
+                           praesent tristique magna sit amet. Lacus suspendisse faucibus interdum posuere. Risus at ultrices mi tempus
+                           imperdiet. Ultrices dui sapien eget mi proin sed libero. Ipsum dolor sit amet consectetur adipiscing elit
+                           pellentesque habitant. Ac turpis egestas integer eget aliquet nibh praesent. </p>
+                     
+                     
+                     
+                     </section>
+                     <div class="posts__bottom">
+                        <div class="posts__bottom__tags"><a href="#" class="posts__bottom__tags-btn"><svg
+                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                 <line x1="4" y1="9" x2="20" y2="9"></line>
+                                 <line x1="4" y1="15" x2="20" y2="15"></line>
+                                 <line x1="10" y1="3" x2="8" y2="21"></line>
+                                 <line x1="16" y1="3" x2="14" y2="21"></line>
+                              </svg></a>
+                           <ul>
+                              <li><a href="https://fukuo-commission.tumblr.com/tagged/toc">#toc</a></li>
+                           </ul>
+                        </div>
+                        <div class="posts__bottom__action">
+                           <ul>
+                              <li><a href="https://www.tumblr.com/reblog/fukuo-commission/671619677771939840/xXBVbHr7"><svg
+                                       xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                       <path d="M17 2.1l4 4-4 4"></path>
+                                       <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"></path>
+                                       <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"></path>
+                                    </svg></a></li>
+                              <li><a class="like">
+                                    <div class="like_button liked" data-post-id="671619677771939840" data-blog-name="fukuo-commission"
+                                       id="like_button_671619677771939840"><iframe id="like_iframe_671619677771939840"
+                                          src="https://assets.tumblr.com/assets/html/like_iframe.html?_v=66c22ab5319d742bca5762b8d18f9d06#name=fukuo-commission&amp;post_id=671619677771939840&amp;color=black&amp;rk=xXBVbHr7&amp;root_id=663477499559329792"
+                                          scrolling="no" class="like_toggle" allowtransparency="true"
+                                          name="like_iframe_671619677771939840" width="20" height="20" frameborder="0"></iframe></div><svg
+                                       xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                       <path
+                                          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                       </path>
+                                    </svg>
+                                 </a></li>
+                           </ul>
+                        </div>
+                     </div>
+                    </article>
+
                     <article class="posts posts-text reblog posts-photo-text">
                         <div class="posts__dated">
                             <div class="posts__dated__perma"> 
@@ -1255,7 +1506,7 @@
                           </div>
                        </div>
                     </article>
-                </div>
+               </div>
                <nav class="pagination">
                   <div class="pagination__info">
                      Page 1 of 5
@@ -1266,9 +1517,24 @@
                   </div>
                </nav>
             </section>
+            
+            <div class="wrapper__back-to-top">
+               <a href="#" class="wrapper__back-to-top__btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6M5 12l7-7 7 7"/></svg></a>
+            </div>
         </div>
     </main>
     
+    <footer class="footer">
+      <div class="footer__inner | container--width-xl margin--x-auto">
+          <div class="footer__copyright">
+              Copyright © nyiur-theme 2012–2023. All rights reserved.
+          </div>
+          <div class="footer__credit">
+              <a href="https://www.tumblr.com/theme/41159">Nyiur Theme</a> by <a href="https://fukuo.tumblr.com">Fukuo</a>. Powered by <a href="https://tumblr.com/" data-font="tumblr" aria-label="Tumblr"><svg class="svg-logo logo-tumblr" width="55px" viewBox="0 0 245 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g class="logotype" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd"><path d="M28.087 49.57h-8.286c-7.461 0-13.021-3.835-13.021-13.01V21.863H0v-7.957C7.461 11.97 10.582 5.556 10.94 0h7.749v12.616h9.04v9.248h-9.04v12.795c0 3.836 1.937 5.162 5.022 5.162h4.376v9.749zm143.951.43c-3.766 0-7.246-1.254-10.151-3.692v3.262h-11.372V7.993h-4.95V0h17.075v15.305c2.224-1.72 5.919-3.119 9.613-3.119 10.51 0 15.676 7.312 15.676 18.46 0 11.612-5.56 19.354-15.89 19.354zm18.115-.43v-7.921h4.197V7.993h-4.95V0h16.93v41.649h4.377v7.92h-20.554zm-112.456 0v-7.921h4.197V20.68h-4.95v-8.065H92.26V17.6c2.582-3.549 7.39-5.413 11.765-5.413 5.525 0 9.22 2.223 11.658 5.914 1.938-3.261 6.529-5.914 12.125-5.914 11.335 0 14.205 8.961 14.205 16.56v12.903h4.125v7.92h-20.16v-7.92h4.054V27.348c0-3.047-1.04-5.628-5.309-5.628-5.273 0-6.816 4.122-6.816 6.13v13.799h4.233v7.92h-20.267v-7.92H106V27.348c0-3.047-.86-5.628-5.093-5.628-5.238 0-6.96 4.122-6.96 6.13v13.799h4.162v7.92H77.697zm137.494 0v-7.921h4.09V20.68h-4.449v-8.065h15.39v5.341c1.9-3.548 6.133-5.77 10.725-5.77H245V22.76h-5.022c-3.766 0-8.717 1.541-8.717 8.566V41.65h4.126v7.92H215.19zM47.53 50c-11.765 0-14.348-8.853-14.348-14.552V12.616h12.411v22.33c0 3.083.754 5.52 4.807 5.52 6.313 0 7.246-4.695 7.246-5.807V20.681h-4.807v-8.065h16.86V41.65h3.55v7.92H59.296V44.91C56.641 48.172 51.762 50 47.529 50zm121.926-8.996c1.902-.215 6.278-.538 6.278-10.287 0-6.774-2.978-9.498-6.35-9.498-2.905 0-7.102 1.54-7.102 10.25 0 7.24 3.551 9.535 7.174 9.535z" fill-rule="evenodd"></path></g></svg></a>
+          </div>
+      </div>
+   </footer>
+
     <!-- tooltip -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
