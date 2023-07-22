@@ -1,9 +1,23 @@
+/**
+ * Function that displays featured posts in a slideshow format.
+ * @param {Object} data - The data containing featured posts.
+ * @property {number} data["posts-start"] - The starting index of featured posts.
+ * @property {number} data["posts-total"] - The total number of featured posts.
+ * @property {Object[]} data.posts - An array of featured posts.
+*/
+
 const featured = (data) => {
   const container = document.querySelector(
     ".wrapper__featured__slideshow .slideshow-all"
   );
 
   // truncate script
+  /**
+   * Truncates the inner content of an HTML element and adds ellipsis if needed.
+   * @param {Element} element - The HTML element to truncate.
+   * @param {number} limit - The maximum number of words to display.
+   * @param {string} [after] - The text to add after truncation (e.g., ellipsis).
+  */
   let truncate = (element, limit, after) => {
     if (!element || !limit) return;
 
@@ -116,8 +130,6 @@ const featured = (data) => {
             }
           });
 
-          // truncate(card.querySelector(".slideshow__item__inner"), 40, "...");
-
           const npfElementLink = card?.querySelector(".npf_link");
           const npfElementVideo = card?.querySelector('.tmblr-full > video');
           const npfImage = card?.querySelector('.slideshow__item__inner > blockquote:first-of-type .npf_row');
@@ -141,16 +153,32 @@ const featured = (data) => {
           }
 
           if (npfElementLink) {
+            
+            // For some reason, Tumblr doesn't provide the URL image of the poster????
+            // Tried to generate it manually but failed 
+            function generatePosterURL(mediaKey, width, height, type) {
+              const hash = mediaKey.split(":")[0];
+              const fileExtension = type.split("/")[1];
+              const posterURL = `https://64.media.tumblr.com/${hash}/${width}x${height}/${mediaKey}.${fileExtension}`;
+              return posterURL;
+            }
+
+            /*
+            Correct: https://64.media.tumblr.com/4ac351cb9b6285e05b30d310859ab9d3/84a77bf1080b2e6e-0f/s1280x1920/74e2ba144b58575f49b0f4d6ee2d970bb1432c11.png
+
+            Incorrect: https://64.media.tumblr.com/4ac351cb9b6285e05b30d310859ab9d3/1200x600/4ac351cb9b6285e05b30d310859ab9d3:84a77bf1080b2e6e-0f.png
+            */
+            
             const npfData = JSON.parse(npfElementLink.getAttribute("data-npf"));
             const { display_url, title, site_name, poster } = npfData;
-            const posterUrl = poster && poster[0] && poster[0].media_key ? `https://static.tumblr.com/${poster[0].media_key}` : "";
-
+            const posterUrl = poster && poster[0] && poster[0].media_key ? generatePosterURL(poster[0].media_key, poster[0].width, poster[0].height, poster[0].type) : "";
+            
             const markup = `
               <div class="npf-link-block ${
                 poster ? "has-poster" : "has-no-poster"
               }">
                 <a target="_blank" href="${display_url}">
-                 <div class="poster" style="background-image:url(${posterUrl})">
+                  <div class="poster" style="background-image:url(${posterUrl})">
                     <div class="title">${title}</div>
                   </div>
                   <div class="bottom">
@@ -164,9 +192,10 @@ const featured = (data) => {
                 </a>
               </div>
             `;
+            
             npfElementLink.innerHTML = markup;
           }
-
+          
           wrapInner(card, "a", "href", `${url}`);
         } else if (type === "photo") {
           card.innerHTML = `<div class="slideshow__item">
@@ -183,10 +212,6 @@ const featured = (data) => {
                 </div>
             </div>
             `;
-
-          // <div class="slideshow__item__source-date">
-          //   Posted on ${date}
-          // </div>
 
           wrapInner(card, "a", "href", `${url}`);
         } else if (type === "answer") {
@@ -211,6 +236,7 @@ const featured = (data) => {
                 </div>
             `;
         } else if(type === "video") {
+          // Idk if the legacy post for the video still exists so just returns a console instead for now
           console.log("Video...");
         } else {
           return;
