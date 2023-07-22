@@ -58,6 +58,7 @@
 
             --hero-bg-img:url('https://64.media.tumblr.com/e49f461a531846bcec600d692238c8de/f18b046763e6605c-8b/s2048x3072/ec1a5a467d5948e18580a61ee23452519b10fa7b.jpg');
 
+            --footer-bg-img:url('https://64.media.tumblr.com/34cce9d905b3712e4096b241b54bbaa0/a3d570b51e64a937-22/s1280x1920/36952cf5b8cd45f6910082802f7c0b8034ea729d.png');
             --footer-bg-top:248, 232, 233;
             --footer-text-top:17, 17, 17;
 
@@ -66,6 +67,8 @@
 
             --footer-text-link:17, 17, 17;
             --footer-text-link-hover:210, 153, 159;
+
+            --footer-height:450px;
 
             --social-media-btn:17, 17, 17;
             --social-media-btn-text:255,255,255;
@@ -140,8 +143,8 @@
 
             --bg-card-pinned:var(--bg-card);
 
-            --post-bubble-bg:238,238,238;
-            --post-bubble-text:255,255,255;
+            --post-bubble-bg:33, 41, 49;
+            --post-bubble-text:199, 204, 209;
 
             --hero-color: 255,255,255;
 
@@ -163,11 +166,12 @@
         }
     </style>
     <style id="custom">
-        {CustomCSS}
+        /* {CustomCSS} */
     </style>
 </head>
-<body data-type-page="index" data-blog-style="normal" class="is-featured is-scrollbar">
+<body data-type-page="index" data-blog-style="normal" class="is-featured is-scrollbar is-shorten-long-post">
     
+
     <nav class="nav">
         <div class="nav__inner | container--width-xl margin--x-auto">
             <div class="nav__logo">
@@ -181,6 +185,26 @@
                     <li class="nav__menu__item"><a href="/ask">Inbox</a></li>
                     <li class="nav__menu__item"><a href="/random">Random</a></li>
                 </ul>
+                <div class="nav__search">
+                  <form action="" method="get" class="nav__search__form" autocomplete="off">
+                     <input type="text" id="search" placeholder="Search this blog...">
+                     <button type="submit">
+                     <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                     </span>
+                     </button>
+                  </form>
+                  <div class="nav__search__suggestion">
+                     <h2>Suggestions for you ✨</h2>
+                     <ul>
+                        <li><a href="#">Featured</a></li>
+                        <li><a href="#">Personal Rambling</a></li>
+                        <li><a href="#">Favorite</a></li>
+                        <li><a href="#">NewJeans</a></li>
+                        <li><a href="#">Audio</a></li>
+                     </ul>
+                  </div>
+                </div>
                 <div class="nav__button">
                     <button class="btn-nav" aria-label="Navigation"><svg xmlns="http://www.w3.org/2000/svg"
                             width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -199,13 +223,13 @@
         <div class="nav__additional | container--width-xl margin--x-auto">
             <ul class="nav__additional__links">
                <li>
-                  <a href="/about" class=" ">About</a>
+                  <a href="/about" class="">About</a>
                </li>
                <li>
-                  <a href="/contact" class=" ">Support</a>
+                  <a href="/contact" class="">Support</a>
                </li>
                <li>
-                  <a href="/example" class=" ">Custom page</a>
+                  <a href="/example" class="">Custom page</a>
                </li>
                <li>
                   <a href="https://fukuo.design/" class=" external-page">Portfolio Website</a>
@@ -312,7 +336,8 @@
                     data-speed="500"
                     data-dots="false"
                     data-controls-container="#customize-controls"
-                    data-autoplaytime="1000"></div>
+                    data-autoplaytime="1000">
+                  </div>
                 </div>
             </section>
             <section class="wrapper__content">
@@ -408,7 +433,7 @@
                     </article>
 
                     <article
-                     class="posts posts-text toc">
+                     class="posts posts-text toc long_post">
                      <div class="posts__dated">
                         <div class="posts__dated__perma">
                            <a
@@ -908,7 +933,7 @@
                        </div>
                     </article>
            
-                    <article class="posts posts-text  i_see_isee about_that how_about_you you_waht  reblog" id="719088332771147776">
+                    <article class="posts posts-text long_post i_see_isee about_that how_about_you you_waht  reblog" id="719088332771147776">
                        <div class="posts__dated">
                           <div class="posts__dated__perma"> 
                              <a href="https://fukuo-commission.tumblr.com/post/719088332771147776">June 06, 2023</a>
@@ -1522,6 +1547,28 @@
                <a href="#" class="wrapper__back-to-top__btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6M5 12l7-7 7 7"/></svg></a>
             </div>
         </div>
+        <div class="wrapper__footer" style="background-image: var(--footer-bg-img);">
+            <div class="wrapper__footer__additional | container--width-xl margin--x-auto">
+               <ul class="wrapper__footer__additional__links">
+                  <li>
+                     <a href="/about" class="">About</a>
+                  </li>
+                  <li>
+                     <a href="/contact" class="">Support</a>
+                  </li>
+                  <li>
+                     <a href="/example" class="">Custom page</a>
+                  </li>
+                  <li>
+                     <a href="https://fukuo.design/" class=" external-page">Portfolio Website</a>
+                  </li>
+                  <li><a href="#">A long custom link for you to test</a></li>
+                  <li>
+                     <a href="http://instagram.com/loonatheworld" class=" external-page">Instagram</a>
+                  </li>
+               </ul>
+         </div>
+        </div>
     </main>
     
     <footer class="footer">
@@ -1529,7 +1576,7 @@
           <div class="footer__copyright">
               Copyright © nyiur-theme 2012–2023. All rights reserved.
           </div>
-          <div class="footer__credit">
+          <div class="footer__credit sparkling">
               <a href="https://www.tumblr.com/theme/41159">Nyiur Theme</a> by <a href="https://fukuo.tumblr.com">Fukuo</a>. Powered by <a href="https://tumblr.com/" data-font="tumblr" aria-label="Tumblr"><svg class="svg-logo logo-tumblr" width="55px" viewBox="0 0 245 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g class="logotype" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd"><path d="M28.087 49.57h-8.286c-7.461 0-13.021-3.835-13.021-13.01V21.863H0v-7.957C7.461 11.97 10.582 5.556 10.94 0h7.749v12.616h9.04v9.248h-9.04v12.795c0 3.836 1.937 5.162 5.022 5.162h4.376v9.749zm143.951.43c-3.766 0-7.246-1.254-10.151-3.692v3.262h-11.372V7.993h-4.95V0h17.075v15.305c2.224-1.72 5.919-3.119 9.613-3.119 10.51 0 15.676 7.312 15.676 18.46 0 11.612-5.56 19.354-15.89 19.354zm18.115-.43v-7.921h4.197V7.993h-4.95V0h16.93v41.649h4.377v7.92h-20.554zm-112.456 0v-7.921h4.197V20.68h-4.95v-8.065H92.26V17.6c2.582-3.549 7.39-5.413 11.765-5.413 5.525 0 9.22 2.223 11.658 5.914 1.938-3.261 6.529-5.914 12.125-5.914 11.335 0 14.205 8.961 14.205 16.56v12.903h4.125v7.92h-20.16v-7.92h4.054V27.348c0-3.047-1.04-5.628-5.309-5.628-5.273 0-6.816 4.122-6.816 6.13v13.799h4.233v7.92h-20.267v-7.92H106V27.348c0-3.047-.86-5.628-5.093-5.628-5.238 0-6.96 4.122-6.96 6.13v13.799h4.162v7.92H77.697zm137.494 0v-7.921h4.09V20.68h-4.449v-8.065h15.39v5.341c1.9-3.548 6.133-5.77 10.725-5.77H245V22.76h-5.022c-3.766 0-8.717 1.541-8.717 8.566V41.65h4.126v7.92H215.19zM47.53 50c-11.765 0-14.348-8.853-14.348-14.552V12.616h12.411v22.33c0 3.083.754 5.52 4.807 5.52 6.313 0 7.246-4.695 7.246-5.807V20.681h-4.807v-8.065h16.86V41.65h3.55v7.92H59.296V44.91C56.641 48.172 51.762 50 47.529 50zm121.926-8.996c1.902-.215 6.278-.538 6.278-10.287 0-6.774-2.978-9.498-6.35-9.498-2.905 0-7.102 1.54-7.102 10.25 0 7.24 3.551 9.535 7.174 9.535z" fill-rule="evenodd"></path></g></svg></a>
           </div>
       </div>
@@ -1552,7 +1599,7 @@
     <script src="js/app.js"></script>
     <script src="js/featured.js"></script>
 
-    <script type="text/javascript" src="https://nyiur-theme.tumblr.com/api/read/json?callback=featured"></script>
+    <script type="text/javascript" src="https://nyiurtheme.tumblr.com/api/read/json?callback=featured&tagged=featured"></script>
 
     <script src="https://assets.tumblr.com/client/prod/standalone/tumblelog/index.build.js?_v=175a368ef34a4680f860974b6282ff66"></script>
 

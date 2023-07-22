@@ -104,18 +104,13 @@ const featured = (data) => {
                   tumblrParent.closest(".slideshow__item__inner").firstChild
                 );
 
-              const tumblrBlogLink = tumblrParent
-                ?.querySelector(".trail-item-username")
-                ?.nextElementSibling?.querySelector(
-                  "a.tumblr_blog"
-                )?.parentElement;
+              const tumblrBlogLink = tumblrParent?.querySelector(".trail-item-username")?.nextElementSibling?.querySelector( "a.tumblr_blog")?.parentElement;
+
               if (tumblrBlogLink) {
                 tumblrBlogLink.classList.add("d-none");
               }
             });
-            const captionInner = caption.querySelector(
-              ".slideshow__item__inner-content"
-            );
+            const captionInner = caption.querySelector(".slideshow__item__inner-content");
             if (captionInner) {
               caption.appendChild(captionInner);
             }
@@ -123,21 +118,41 @@ const featured = (data) => {
 
           // truncate(card.querySelector(".slideshow__item__inner"), 40, "...");
 
-          const npfElement = card?.querySelector(".npf_link");
-          if (npfElement) {
-            const npfData = JSON.parse(npfElement.getAttribute("data-npf"));
-            console.log(npfData);
+          const npfElementLink = card?.querySelector(".npf_link");
+          const npfElementVideo = card?.querySelector('.tmblr-full > video');
+          const npfImage = card?.querySelector('.slideshow__item__inner > blockquote:first-of-type .npf_row');
+          if(npfImage) {
+            npfImage.parentElement.parentElement.classList.add("npf-image");
+          }
+
+          if(npfElementVideo) {
+            npfElementVideo.parentElement.classList.add("npf_video");
+            npfElementVideo.parentElement.classList.remove("tmblr-full");
+
+            const npfData = JSON.parse(npfElementVideo.parentElement.getAttribute("data-npf"));
+            const { poster } = npfData;
+            const markup = `
+              <div class="npf-video-block" style="background-image:url('${poster[0].url}')">
+                <i class="las la-play"></i>
+              </div>
+            `;
+            npfElementVideo.parentElement.innerHTML = markup;
+            npfElementVideo.remove();
+          }
+
+          if (npfElementLink) {
+            const npfData = JSON.parse(npfElementLink.getAttribute("data-npf"));
             const { display_url, title, site_name, poster } = npfData;
-            const posterUrl =
-              poster && poster[0] && poster[0].media_key
-                ? `https://static.tumblr.com/${poster[0].media_key}`
-                : "";
+            const posterUrl = poster && poster[0] && poster[0].media_key ? `https://static.tumblr.com/${poster[0].media_key}` : "";
 
             const markup = `
               <div class="npf-link-block ${
                 poster ? "has-poster" : "has-no-poster"
               }">
                 <a target="_blank" href="${display_url}">
+                 <div class="poster" style="background-image:url(${posterUrl})">
+                    <div class="title">${title}</div>
+                  </div>
                   <div class="bottom">
                     <div class="description">
                       ${title}
@@ -149,7 +164,7 @@ const featured = (data) => {
                 </a>
               </div>
             `;
-            npfElement.innerHTML = markup;
+            npfElementLink.innerHTML = markup;
           }
 
           wrapInner(card, "a", "href", `${url}`);
@@ -190,15 +205,17 @@ const featured = (data) => {
                         <a href="${url}">
                             <span class="slideshow__item__quote-icon" aria-hidden="true"><i class="las la-quote-left"></i></span>
                             ${quote.substring(0, 100)}...
-                            <div class="slideshow__item-quote-source">${quote_source}</div>
+                            <div class="slideshow__item__quote-source">${quote_source}</div>
                         </a>
                     </div>
                 </div>
             `;
+        } else if(type === "video") {
+          console.log("Video...");
         } else {
           return;
         }
-
+        
         container.appendChild(card);
       }
     }

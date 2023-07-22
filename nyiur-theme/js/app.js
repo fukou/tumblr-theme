@@ -2,11 +2,12 @@ var app = {
   init: function () {
     app.headerToggleMenu();
     app.headerToggleDarkMode();
+    app.headerSuggestion();
     // app.infiniteScroll();
     app.postPhotosets();
-    // app.postSoundCloud();
-    // app.postSpotify();
-    // app.postBandCamp();
+    app.postSoundCloud();
+    app.postSpotify();
+    app.postBandCamp();
     app.checkPhotoNPF();
     // app.npfToLegacy();
     app.tinySlider();
@@ -16,6 +17,7 @@ var app = {
     //   app.postTags();
     app.postNPFAudio();
     app.TOC();
+    app.sparkingEffect();
   },
   headerToggleMenu: () => {
     const btn = document.querySelector(".btn-nav");
@@ -23,6 +25,7 @@ var app = {
     btn.addEventListener("click", () => {
       btn.classList.toggle("is-actived");
       hiddenLink.classList.toggle("is-shown");
+      document.querySelector('body').classList.toggle("is-pushed");
     });
   },
   headerToggleDarkMode: () => {
@@ -51,6 +54,25 @@ var app = {
     btn_mode.innerHTML = colorModeOverride === "dark" ? 
     `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>` : 
     `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path></svg>`;
+  },
+  headerSuggestion: () => {
+    const elementSearch = document.querySelector('.nav__search');
+    const inputSearch = document.getElementById("search");
+    const suggestionBox = document.querySelector(".nav__search__suggestion");
+
+    elementSearch.addEventListener("mousedown", () => {
+      inputSearch.focus();
+    });
+    
+    elementSearch.addEventListener("mouseup", () => {
+      suggestionBox.style.display = "block";
+    });
+    
+    document.addEventListener("mouseup", (event) => {
+      if (!elementSearch.contains(event.target)) {
+        suggestionBox.style.display = "none";
+      }
+    });
   },
   infiniteScroll: () => {
     const isPaginationExist = document.querySelector(".pagination");
@@ -318,37 +340,30 @@ var app = {
     }
   },
   shortenPost: () => {
-    if (document.querySelector('body[data-blog-style="grid"]')) {
+    if (document.querySelector("body.is-shorten-long-post")) {
       document
-        .querySelectorAll("article.posts:not(.posts-photo)")
+        .querySelectorAll("article[class*='long_post']")
         .forEach(function (post) {
-          const elementsToCheck = [
-            {
-              element: post.querySelector(".posts__body"),
-              className: "is-truncated",
-            },
-            {
-              element: post.querySelector(".posts__media"),
-              className: "is-truncated",
-            },
-          ];
+          let postBody = post.querySelector(".posts__body");
 
-          elementsToCheck.forEach(({ element, className }) => {
-            if (element && element.clientHeight >= 300) {
-              element.classList.add(className);
+          if (postBody != null && postBody.clientHeight >= 700) {
+            postBody.classList.add("is-truncated");
 
-              const toggleBtn = document.createElement("a");
-              const toggleLink = post
-                .querySelector(".posts__dated__perma a")
-                .getAttribute("href");
+            const toggleBtn = document.createElement("a");
+            toggleBtn.className = "is-toggle btn btn__primary";
+            toggleBtn.textContent = "Expand";
+            toggleBtn.href = "#";
 
-              toggleBtn.className = "is-toggle btn btn__primary";
-              toggleBtn.textContent = "View full post";
-              toggleBtn.href = toggleLink;
+            postBody.append(toggleBtn);
 
-              element.append(toggleBtn);
-            }
-          });
+            toggleBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              postBody.classList.remove('is-truncated');
+              postBody.classList.add('is-truncated--full');
+
+              this.remove();
+            });
+          }
         });
     }
   },
@@ -579,6 +594,61 @@ var app = {
         }
       }
     }
+  },
+  sparkingEffect: () => {
+    // https://renerehme.dev/blog/animated-sparkles-in-jquery
+    const color = "#FFC700";
+    const svgPath =
+      "M26.5 25.5C19.0043 33.3697 0 34 0 34C0 34 19.1013 35.3684 26.5 43.5C33.234 50.901 34 68 34 68C34 68 36.9884 50.7065 44.5 43.5C51.6431 36.647 68 34 68 34C68 34 51.6947 32.0939 44.5 25.5C36.5605 18.2235 34 0 34 0C34 0 33.6591 17.9837 26.5 25.5Z";
+
+    // sparkling effect
+    let sparkling = function () {
+      document.querySelectorAll(".sparkling").forEach(function (item) {
+        let sparklingElement = item;
+        let stars = sparklingElement.querySelectorAll(".star");
+
+        // remove the first star when more than 6 stars existing
+        if (stars.length > 5) {
+          stars.forEach(function (star, index) {
+            if (index === 0) {
+              star.remove();
+            }
+          });
+        }
+        // add a new star
+        sparklingElement.insertAdjacentHTML("beforeend", addStar());
+      });
+      let rand = Math.round(Math.random() * 700) + 100;
+      setTimeout(sparkling, rand);
+    };
+
+    // star
+    let addStar = function () {
+      let size = Math.floor(Math.random() * 20) + 10;
+      let top = Math.floor(Math.random() * 100) - 50;
+      let left = Math.floor(Math.random() * 100);
+
+      return (
+        '<span class="star" style="top:' +
+        top +
+        "%; left:" +
+        left +
+        '%;">' +
+        '<svg width="' +
+        size +
+        '" height="' +
+        size +
+        '" viewBox="0 0 68 68" fill="none">' +
+        '<path d="' +
+        svgPath +
+        '" fill="' +
+        color +
+        '" /></svg></span>'
+      );
+    };
+
+    // execute
+    sparkling();
   },
 };
 
