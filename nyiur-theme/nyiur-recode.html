@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{Title} &mdash; Document</title>
 
-    <link rel="stylesheet" media="screen" href="https://assets.tumblr.com/client/prod/standalone/blog-network-npf/index.build.css?_v=c451b85cf126275a22cf7ca62ddacdc0">
+    <link rel="stylesheet" media="screen" href="https://assets.tumblr.com/client/prod/standalone/blog-network-npf/index.build.css?_v=f085dde138e244526309d4673db67b4c">
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -169,7 +169,7 @@
         /* {CustomCSS} */
     </style>
 </head>
-<body data-type-page="index" data-blog-style="normal" class="is-featured is-scrollbar is-shorten-long-post">
+<body data-type-page="index" data-blog-style="masonry" class="is-featured is-three-column is-scrollbar is-shorten-long-post">
     
 
     <nav class="nav">
@@ -342,6 +342,7 @@
             </section>
             <section class="wrapper__content">
                <div class="wrapper__blog" id="blog">
+                    <div class="grid-sizer"></div>
                     <article
                      class="posts posts-photo  pinned here_s_how_tag_will_look_like amazing_isn_t_it please_tell_me_if_it_looks_good_on_your_end wohoooo  reblog">
                      <div class="posts__dated posts__dated__pinned"><span class="posts__pinned__label flex flex--align-center"> <svg
@@ -1581,6 +1582,10 @@
           </div>
       </div>
    </footer>
+
+    <!-- masonry -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 
     <!-- tooltip -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>

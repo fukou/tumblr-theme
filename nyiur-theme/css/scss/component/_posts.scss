@@ -142,8 +142,8 @@
         }
 
         :is(h1, h2) {
-            font-family: var(--title-font);
-            font-weight: var(--title-font-weight);
+            font-family: var(--heading-font);
+            font-weight: 600;
             color: rgba(var(--heading-text), 1);
         }
 
@@ -375,8 +375,8 @@
     &__media {
         > h1 {
             font-size: 1.75rem;
-            font-family: var(--title-font);
-            font-weight: var(--title-font-weight);
+            font-family: var(--heading-font);
+            font-weight: 600;
             padding: 1rem 0rem;
             margin:0 1rem;
             border-bottom: 1px solid rgba(var(--heading-text), 0.1);
@@ -566,9 +566,8 @@
                     align-items: center;
                     padding:6px 6px;
                     border-radius: 6px;
-                    border:1px solid rgba(var(--tags-button-border), 1);
-                    background-color: rgba(var(--tags-button-bg), 0);
-                    color: rgba(var(--tags-button-text), 1);
+                    border:1px solid rgba(var(--border-color), 1);
+                    color: rgba(var(--body-link), 1);
                     text-decoration: none;
 
                     font-size: 0.95rem;
@@ -580,8 +579,7 @@
                     }
 
                     &.is-active, &:hover {
-                        background-color: rgba(var(--tags-button-bg-hover), 1);
-                        color: rgba(var(--tags-button-text-hover), 1);
+                        background-color: rgba(var(--accent), 0.15);
                     } 
                 }
                 ul {
@@ -799,6 +797,7 @@
         &__title, &__artist, &__album {
             position: relative;
             z-index: 2;
+            text-align: left;
         }
 
         &__cover {

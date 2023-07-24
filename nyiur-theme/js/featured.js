@@ -30,6 +30,13 @@ const featured = (data) => {
   };
 
   // https://codepen.io/kenjiroart/pen/qBmONJ
+  /**
+   * Wraps the inner content of an HTML element with a new wrapper element.
+   * @param {Element} parent - The parent element containing the content to wrap.
+   * @param {string|Element} wrapper - The HTML element or tag name to use as the new wrapper.
+   * @param {string} attribute - The attribute to set on the new wrapper element.
+   * @param {string} attributevalue - The value of the attribute to set on the new wrapper element.
+   */
   function wrapInner(parent, wrapper, attribute, attributevalue) {
     if (typeof wrapper === "string") {
       wrapper = document.createElement(wrapper);
@@ -66,11 +73,13 @@ const featured = (data) => {
         const root_name = post["reblogged-root-name"];
         const root_avatar = post["reblogged_root_avatar_url_96"];
 
+        const original_name =  post["tumblelog"]["name"];
+        const original_avatar = post["tumblelog"]["avatar_url_96"];
+
         const date = post["date"].substring(0, 16);
 
         const card = document.createElement("div");
         card.className = "slideshow-item";
-
         if (type === "regular") {
           card.innerHTML = `
             <div class="slideshow__item">
@@ -133,8 +142,38 @@ const featured = (data) => {
           const npfElementLink = card?.querySelector(".npf_link");
           const npfElementVideo = card?.querySelector('.tmblr-full > video');
           const npfImage = card?.querySelector('.slideshow__item__inner > blockquote:first-of-type .npf_row');
+          const npfRow = card?.querySelector('.npf_row');
+          const npfPhotoset = card?.querySelector('.npf_photoset');
+          const npfAudio = card?.querySelector('.slideshow__item__inner > blockquote:first-of-type .tmblr-full > .audio-caption');
+
+          if(npfRow) {
+            npfRow.classList.add("npf_row-modified");
+            npfRow.classList.remove("npf_row");
+          }
+
+          if(npfPhotoset) {
+            npfPhotoset.classList.add("npf_photoset-modified");
+            npfPhotoset.classList.remove("npf_photoset");
+          }
+
           if(npfImage) {
             npfImage.parentElement.parentElement.classList.add("npf-image");
+          }
+
+          if(npfAudio) {
+            npfAudio.parentElement.parentElement.parentElement.classList.add("npf-audio");
+            npfAudio.parentElement.classList.add('npf-audio-inner');
+            npfAudio.parentElement.classList.remove('tmblr-full');
+            npfAudio.parentElement.querySelector('audio').remove();
+
+            const title = npfAudio?.querySelector(".title")?.textContent.trim();
+            const artist = npfAudio?.querySelector(".artist")?.textContent.trim();
+            const album = npfAudio?.querySelector(".album")?.textContent.trim();
+            const albumCover = npfAudio
+              ?.querySelector(".album-cover")
+              ?.getAttribute("src");
+
+            console.log({ title, artist, album, albumCover });
           }
 
           if(npfElementVideo) {
@@ -156,10 +195,18 @@ const featured = (data) => {
             
             // For some reason, Tumblr doesn't provide the URL image of the poster????
             // Tried to generate it manually but failed 
+            /**
+             * Generates the URL for the poster image based on media_key, width, height, and type.
+             * @param {string} mediaKey - The media_key for the poster image.
+             * @param {number} width - The width of the poster image.
+             * @param {number} height - The height of the poster image.
+             * @param {string} type - The type of the poster image (e.g., "image/png").
+             * @returns {string} The URL of the poster image.
+             */
             function generatePosterURL(mediaKey, width, height, type) {
               const hash = mediaKey.split(":")[0];
               const fileExtension = type.split("/")[1];
-              const posterURL = `https://64.media.tumblr.com/${hash}/${width}x${height}/${mediaKey}.${fileExtension}`;
+              const posterURL = `https://64.media.tumblr.com/${hash}/${mediaKey}/s${width}x${height}.${fileExtension}`;
               return posterURL;
             }
 
@@ -206,8 +253,8 @@ const featured = (data) => {
                 </a>
                 <div class="slideshow__item__source">
                   <div class="slideshow__item__source-username">
-                    <img src="${root_avatar}" alt="${root_name}">
-                    <span>${root_name}</span>
+                    <img src="${root_avatar ? root_avatar : original_avatar}" alt="${root_name ? root_name : original_name}">
+                    <span>${root_name ? root_name : original_name}</span>
                   </div>
                 </div>
             </div>

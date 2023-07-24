@@ -1,20 +1,30 @@
+/**
+ * Main application object.
+ * @namespace
+*/
 var app = {
+  /** @type {Masonry} */
+  msnry: null,
+  /**
+   * Initialize the application.
+   * @function
+   */
   init: function () {
     app.headerToggleMenu();
     app.headerToggleDarkMode();
     app.headerSuggestion();
-    // app.infiniteScroll();
-    app.postPhotosets();
+    // app.postPhotosets();
     app.postSoundCloud();
     app.postSpotify();
     app.postBandCamp();
     app.checkPhotoNPF();
     // app.npfToLegacy();
+    app.masonry();
     app.tinySlider();
     app.loadTabs();
     // app.postNPF();
     app.shortenPost();
-    //   app.postTags();
+    app.postTags();
     app.postNPFAudio();
     app.TOC();
     app.sparkingEffect();
@@ -74,55 +84,16 @@ var app = {
       }
     });
   },
-  infiniteScroll: () => {
-    const isPaginationExist = document.querySelector(".pagination");
-
-    if (typeof isPaginationExist != "undefined" && isPaginationExist != null) {
-      const elem = document.querySelector(
-        ".wrapper__blog__inner.is-infinite-scroll"
-      );
-      const infScroll = new InfiniteScroll(elem, {
-        // options
-        hideNav: ".pagination",
-        path: ".pagination__inner a.is-next",
-        append: ".wrapper__blog__article",
-        status: ".page-load-status",
-        button: ".view-more-button",
-        // load pages on button click
-        scrollThreshold: false,
-        history: false,
-      });
-
-      infScroll.on("append", function (response, path, items) {
-        console.log(items.length + " items appended");
-        console.log(path);
-
-        let itemsID = Array.from(items).map((event) => {
-          return event.getAttribute("id");
-        });
-
-        Tumblr.LikeButton.get_status_by_post_ids(itemsID);
-        app.masonry();
-        app.postPhotosets();
-        app.postSoundCloud();
-        app.postSpotify();
-        app.postBandCamp();
-        app.checkPhotoNPF();
-        app.npfToLegacy();
-        app.shortenPost();
-        app.postTags();
-      });
-    }
-  },
   postNPF: () => {
     const npfOptions = {
-      includeCommonPhotosets: false,
-      photosetMargins: "0",
+      includeCommonPhotosets: true,
+      useTumblrLightbox:true,
+      photosetMargins: "7",
     };
     npfPhotosets(".posts", npfOptions);
   },
   postPhotosets: () => {
-    initPhotosets();
+    // initPhotosets();
   },
   postSoundCloud: () => {
     const soundcloudColor = "#de8100";
@@ -200,6 +171,26 @@ var app = {
           npfPhoto.parentElement.remove();
         }
       });
+  },
+  masonry: () => {
+    // masonry
+    const elem = document.querySelector(
+      "body[data-blog-style='masonry'] .wrapper__blog"
+    );
+    if (typeof elem != "undefined" && elem != null) {
+      app.msnry = new Masonry(elem, {
+        // options
+        itemSelector: "article.posts",
+        columnWidth: ".grid-sizer",
+        horizontalOrder: true,
+        gutter: 30,
+        percentPosition: true,
+      });
+      imagesLoaded(elem).on("progress", function () {
+        // layout Masonry after each image loads
+        app.msnry.layout(); // Use app.msnry here
+      });
+    }
   },
   tinySlider: () => {
     var container = ".slideshow";
