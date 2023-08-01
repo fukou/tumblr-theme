@@ -1248,9 +1248,9 @@ pre {
 
 
 .poll-post {
-   margin: 2rem 0;
+   margin: 1rem 0;
    background: #fff;
-   padding: 1rem;
+   padding: 0.65rem 1rem 1rem 1rem;
    border-radius: 8px;
    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
    border: 1px dotted #ddd;
@@ -1269,6 +1269,15 @@ pre {
  .poll-post a.poll-row:hover {
      background:rgba(var(--btn-primary), 1);
      color:rgba(var(--btn-text-primary), 1);
+ }
+
+ .poll-post-date {
+   margin-top:1.5rem;
+   text-align: center;
+
+   > span {
+      display: block;
+   }
  }
 
  .popover.tutorial {

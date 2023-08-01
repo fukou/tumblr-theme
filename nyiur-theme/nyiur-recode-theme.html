@@ -22,7 +22,7 @@
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
-    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/40Arypptk/style.min.css">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/PBtrypxlg/style.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;600&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400;1,600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
@@ -309,6 +309,10 @@
             color:{color:Selection Text Color};
         }
         {/block:IfSelectionColor}
+        
+        .community-label-cover__wrapper {
+            display:none;
+        }
     </style>
     <style id="custom">
          {CustomCSS} 
@@ -849,6 +853,42 @@
             existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
         }
         
+        function formatDate(dateString) {
+          const options = {
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            // timeZoneName: 'short'
+          };
+        
+          // Manually parse the date string
+          const [datePart, timePart] = dateString.split(' ');
+          const [year, month, day] = datePart.split('-').map(Number);
+          const [hour, minute, second] = timePart.split(':').map(Number);
+        
+          // Create a new Date object
+          const dateObject = new Date(year, month - 1, day, hour, minute, second);
+        
+          // Check if the dateObject is valid
+          if (isNaN(dateObject.getTime())) {
+            console.error('Invalid Date:', dateString);
+            return '';
+          }
+        
+          const formattedDate = dateObject.toLocaleString('en-US', options);
+          return formattedDate;
+        }
+        
+        function convertEpochToRegularDate(epochTimestamp, includeTimezone = false) {
+          const date = new Date(epochTimestamp * 1000);
+          const dateString = date.toISOString().slice(0, 19).replace("T", " ");
+          return includeTimezone ? dateString + " GMT" : dateString;
+        }
+        
         // Loop through all elements with class "posts" and decode their content
         document.querySelectorAll('.posts').forEach(post => {
           // Get the JSON string from the element's text content
@@ -879,25 +919,33 @@
                 let badges = blog.tumblrmart_accessories?.badges;
                 
                 const { description: blogDesc, title: blogTitle, name: blogName } = blog;
-                const { link_color: blogLinkColor, title_font: blogTitleFont, title_color: blogTitleColor, background_color: blogBgColor, header_image_scaled: headerImage} = blogTheme;
+                const { link_color: blogLinkColor, title_font: blogTitleFont, title_color: blogTitleColor, background_color: blogBgColor, header_image_scaled: headerImage, avatar_shape: avatarShape} = blogTheme;
                 let blogInfo;
                 
-                if(blog) {
-                    blogInfo = document.createElement("div");
-                    blogInfo.className = "reblog-post-description";
+                /*
+                If blog has a profile info, including: avatar, header image, font and colors
+                */
+                // if(blog) {
+                //     blogInfo = document.createElement("div");
+                //     blogInfo.className = "reblog-post-description";
                         
-                    blogInfo.innerHTML = `<div class="reblog-post-description__header" style="background-image:url(${ headerImage }); background-size:cover; background-position:center; min-height:135px;"></div>
-                                          <h3 style="font-family:${ blogTitleFont };">${ blogTitle } (@${ blogName })</h3> 
-                                          <p>${ blogDesc }</p>
-                                         `;
+                //     blogInfo.innerHTML = `<div class="reblog-post-description__header" style="background-image:url(${ headerImage }); background-size:cover; background-position:center; min-height:135px;"></div>
+                //                           <img src="https://api.tumblr.com/v2/blog/${ blogName }/avatar/64" alt="${ blogName }" class="reblog-post-description__avatar ${ avatarShape }">
+                //                           <h3 style="font-family:${ blogTitleFont };">${ blogTitle } (@${ blogName })</h3> 
+                //                           <p>${ blogDesc }</p>
+                //                          `;
                                                  
-                    blogInfo.style.setProperty('--link-color', blogLinkColor);
-                    blogInfo.style.setProperty('--background-color', blogBgColor);
-                    blogInfo.style.setProperty('--title-color', blogTitleColor);
+                //     blogInfo.style.setProperty('--link-color', blogLinkColor);
+                //     blogInfo.style.setProperty('--background-color', blogBgColor);
+                //     blogInfo.style.setProperty('--title-color', blogTitleColor);
                         
-                    insertAfter(blogInfo, postsTrail.querySelector('.reblog-post-avatar'));
-                }
-        
+                //     insertAfter(blogInfo, postsTrail.querySelector('.reblog-post-avatar'));
+                // }
+                
+                /*
+                If the blog contains a custom badges
+                */
+                
                 if (blog.can_show_badges && badges) {
                 //   console.log('%cPost Trail:', 'background: #00aaaa; color: white', postsTrail);
         
@@ -924,6 +972,45 @@
                     }
                   });
                 }
+                
+                if(trail.content) {
+                    // console.log(trail.content);
+                    for (let i = 0; i < trail.content.length; i ++) {
+                        const trailContent = trail.content[i];
+                        switch (trailContent.type) {
+                            case "poll":
+                                // console.log(trailContent.created_at);
+                                const formattedDate = formatDate(trailContent.created_at);
+                                const timestampDate = convertEpochToRegularDate(trailContent.timestamp);
+                                const expiredAfterDate = convertEpochToRegularDate(
+                                  trailContent.timestamp + trailContent.settings.expire_after
+                                );
+                                
+                                const formattedExpired =  formatDate(expiredAfterDate);
+                                 
+                                let pollInfo;
+                                    pollInfo = document.createElement("div");
+                                    pollInfo.className = "poll-post-date";
+                                    pollInfo.innerHTML = `<span class="poll-post-date__started"><b>Poll started on</b> ${ formattedDate }</span>
+                                                          <span class="poll-post-date__ended"><b>Poll ended on</b> ${ formattedExpired } </span>`;
+                                postsTrail.querySelector('.poll-post').append(pollInfo);
+                                break;
+                            case "paywall":
+                                let paywallContent;
+                                    paywallContent = document.createElement("div");
+                                    paywallContent.className = "reblog-list-paywall";
+                                    paywallContent.innerHTML = `<h2>${ trailContent.title }</h2>
+                                                                <p>${ trailContent.text }</p>
+                                                                <p><a href="${ trailContent.url }">Show your support!</a>
+                                                               `;
+                                postsTrail.append(paywallContent);
+                                break;
+                            default: "";
+                            
+                        }
+                    }
+                }
+                
               });
             }
           } catch (error) {

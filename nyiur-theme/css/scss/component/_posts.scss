@@ -243,6 +243,11 @@
                     text-decoration: none;
                     color: rgba(var(--body-link), 1);
                 }
+
+                // &:hover + .reblog-post-description {
+                //     opacity: 1;
+                //     visibility: visible;
+                // }
             }
 
             .reblog-post-description {
@@ -251,7 +256,7 @@
                 --background-color: #f9f9f9;
 
                 margin-top: 1rem;
-                padding:1rem;
+                padding:1rem 1rem 1.25rem 1rem;
                 border-radius: 4px;
                 background-color: var(--background-color);
                 color: var(--title-color);
@@ -260,6 +265,15 @@
 
                 text-align: center;
                 overflow: hidden;
+
+                // position: absolute;
+                // width: 350px;
+                // left: -45px;
+
+                // opacity: 0;
+                // visibility: hidden;
+
+                transition: 0.45s;
 
                 h3 {
                     margin:0;
@@ -272,8 +286,25 @@
                     color:var(--link-color);
                 }
 
+                p,a {
+                    > img {
+                        margin: 1rem auto;
+                    }
+                }
+
                 &__header {
                     margin:-1rem -1rem 1rem -1rem;
+                }
+                &__avatar {
+                    margin: -5ch auto 0.5rem auto;
+                    padding: 1ex;
+                    background-color: var(--background-color);
+                    &.circle {
+                        border-radius: 50%;
+                    }
+                    &.square {
+                        border-radius: 4px;
+                    }
                 }
             }
 
