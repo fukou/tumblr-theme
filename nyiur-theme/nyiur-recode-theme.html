@@ -925,22 +925,22 @@
                 /*
                 If blog has a profile info, including: avatar, header image, font and colors
                 */
-                // if(blog) {
-                //     blogInfo = document.createElement("div");
-                //     blogInfo.className = "reblog-post-description";
+                if(blog) {
+                    blogInfo = document.createElement("div");
+                    blogInfo.className = "reblog-post-description";
                         
-                //     blogInfo.innerHTML = `<div class="reblog-post-description__header" style="background-image:url(${ headerImage }); background-size:cover; background-position:center; min-height:135px;"></div>
-                //                           <img src="https://api.tumblr.com/v2/blog/${ blogName }/avatar/64" alt="${ blogName }" class="reblog-post-description__avatar ${ avatarShape }">
-                //                           <h3 style="font-family:${ blogTitleFont };">${ blogTitle } (@${ blogName })</h3> 
-                //                           <p>${ blogDesc }</p>
-                //                          `;
+                    blogInfo.innerHTML = `<div class="reblog-post-description__header" style="background-image:url(${ headerImage }); background-size:cover; background-position:center; min-height:135px;"></div>
+                                          <img src="https://api.tumblr.com/v2/blog/${ blogName }/avatar/64" alt="${ blogName }" class="reblog-post-description__avatar ${ avatarShape }">
+                                          <h3 style="font-family:${ blogTitleFont };">${ blogTitle } (@${ blogName })</h3> 
+                                          <p>${ blogDesc }</p>
+                                         `;
                                                  
-                //     blogInfo.style.setProperty('--link-color', blogLinkColor);
-                //     blogInfo.style.setProperty('--background-color', blogBgColor);
-                //     blogInfo.style.setProperty('--title-color', blogTitleColor);
+                    blogInfo.style.setProperty('--link-color', blogLinkColor);
+                    blogInfo.style.setProperty('--background-color', blogBgColor);
+                    blogInfo.style.setProperty('--title-color', blogTitleColor);
                         
-                //     insertAfter(blogInfo, postsTrail.querySelector('.reblog-post-avatar'));
-                // }
+                    insertAfter(blogInfo, postsTrail.querySelector('.reblog-post-avatar'));
+                }
                 
                 /*
                 If the blog contains a custom badges
