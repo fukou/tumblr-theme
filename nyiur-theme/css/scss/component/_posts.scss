@@ -7,8 +7,6 @@
 
     background-color: rgba(var(--bg-card), 1);
     color: rgba(var(--body-text), 1);
-
-    overflow: hidden;
     
     border:1px solid rgba(var(--border-color), 1);
     box-shadow: rgba(0,0,0,.1) 0px 1px 3px 0px,rgba(0,0,0,.06) 0px 1px 2px 0px;
@@ -57,7 +55,7 @@
             width: 100%;
         }
         img {
-            border-radius: 8px;
+            border-radius: 4px;
         }
     }
 
@@ -71,13 +69,11 @@
         text-decoration: none;
         padding: 0.85rem 1rem;
 
-        margin: 2rem 0;
-
         width: 100%;
         color: rgba(var(--heading-text), 1);
         border: 1px solid rgba(var(--heading-text), 0.25);
 
-        border-radius: 30px;
+        border-radius: 5px;
         background-color: transparent;
     }
 
@@ -148,16 +144,34 @@
         }
 
         :where(h1) {
-            font-size: 1.75rem;
+            font-size: calc(var(--text-xxl)*0.75);
         }
         
         :where(h2) {
-            font-size: 1.25rem;
+            font-size:  calc(var(--text-xl)*0.75);
         }
 
-        // @media (min-width:$min-md) {
-           
-        // }
+        :where(h3) {
+            font-size: var(--text-lg);
+        }
+
+        .tmblr-attribution {
+            position: relative;
+            z-index:2;
+            margin:-6px 0 0 0;
+            background-color: rgba(var(--bg-post-color), 1);
+            padding:8px 12px;
+            border-radius: 0 0 4px 4px;
+            width: 100%;
+
+            font-size: 12px;
+            a {
+                display: block;
+                width: 100%;
+                text-decoration: none;
+            }
+        }
+
         &.is-truncated {
             max-height: 565px;
             overflow: hidden;
@@ -198,6 +212,10 @@
             position: relative;
             padding:1rem 0;
 
+            &:not(:first-child) {
+                border-top: 1px solid rgba(var(--body-text), 0.1);
+            }
+
             &:only-child,
             &:last-of-type {
                 &::after {
@@ -209,15 +227,12 @@
                 display: flex;
                 align-items: center;
 
-                &+div {
-                    // padding: 1rem 0;
+                > span.reblog-post-avatar-name {
+                    margin-left: 1ch;
+                    margin-right: 1ch;
                 }
 
-                span {
-                    margin-left: 1rem;
-                }
-
-                img {
+                > img {
                     width: 30px;
                     height: 30px;
                     border-radius: 5px;
@@ -230,6 +245,69 @@
                 }
             }
 
+            .reblog-post-description {
+                --link-color: #0fa1db;
+                --title-color: #0fa1db;
+                --background-color: #f9f9f9;
+
+                margin-top: 1rem;
+                padding:1rem;
+                border-radius: 4px;
+                background-color: var(--background-color);
+                color: var(--title-color);
+                z-index: 999;
+                box-shadow: rgba(0,0,0,.1) 0px 1px 3px 0px,rgba(0,0,0,.06) 0px 1px 2px 0px;
+
+                text-align: center;
+                overflow: hidden;
+
+                h3 {
+                    margin:0;
+                    font-size: calc(var(--text-xl)*0.7);
+                }
+                p {
+                    margin: .5rem 0 0 0;
+                }
+                a {
+                    color:var(--link-color);
+                }
+
+                &__header {
+                    margin:-1rem -1rem 1rem -1rem;
+                }
+            }
+
+            .reblog-post-badges {
+                display: flex;
+                gap: 2px;
+
+                ~ .reblog-post-badges {
+                    margin-left: 2px;
+                }
+
+                &.reblog-post-badges-huge {
+                    gap:0;
+                    > * {
+                        margin:0 -1px;
+                    }
+                }
+                .reblog-post-badges-item {
+                    position: relative;
+                    display: inline-flex;
+                    align-items: center;
+                    width: 13px;
+                    height: 13px;
+                    img {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        left: 0;
+                        top: 0;
+                        filter: drop-shadow(0 0 0.1rem rgba(var(--body-link), 0.5));
+                    }
+                }
+            }
+
             &:not(:last-of-type) {
                 position: relative;
                 padding-bottom: 0rem;
@@ -238,7 +316,7 @@
 
         .tmblr-full {
             video {
-                border-radius: 6px;
+                border-radius: 4px;
                 overflow: hidden;
             }
         }
@@ -254,6 +332,18 @@
 
         &__pinned {
             padding:1rem 0;
+            margin:0 1rem;
+            display: flex;
+            align-items: center;
+            gap:6px;
+            border-bottom: 1px solid rgba(var(--body-text), 0.1);
+            color:rgba(var(--bg-card-pinned-border), 1);
+            font-weight: bold;
+            
+            svg {
+                width: 16px;
+                height: 16px;
+            }
         }
 
         &:empty {
@@ -385,6 +475,9 @@
                 text-decoration: none;
             }
         }
+        > .npf_photoset {
+            padding:15px;
+        }
         .npf-link-block {
             margin: 2rem;
         }
@@ -407,32 +500,43 @@
                 padding: 0 2rem;
             }
         }
-        
-        figure.tmblr-full {
+        > figure.tmblr-full {
             padding:15px;
             img, video {
-                border-radius: 8px;
+                border-radius: 4px;
                 overflow: hidden;
             }
         }
-        figure.photo {
+        > figure.photo {
             border:15px solid transparent;
             img {
                 width: 100%;
     
                 object-fit: cover;
-                border-radius: 8px;
+                border-radius: 4px;
             }
         }
     }
 
     &__question,
     &__answerer {
+        position: relative;
         display: flex;
         align-items: flex-start;
+        flex-direction: row-reverse;
         padding: 1rem 0;
-        gap: 1.25rem;
+        gap: 18px;
         margin:0 1rem;
+
+        &::after {
+            content:'';
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 8px solid rgba(var(--post-bubble-bg), 1);
+            position: absolute;
+            right: 46px;
+            top: 26px;
+        }
 
         >img {
             width: 36px;
@@ -452,6 +556,7 @@
         a {
             color: rgba(var(--body-link), 1);
             font-weight: bold;
+            text-decoration: none;
         }
 
         &--inner {
@@ -463,17 +568,15 @@
             word-break: break-word;
         }
 
-        figure.tmblr-full,
-        figure.tmblr-embed {
-            margin: 1.35rem -1.5rem;
-        }
-
         &--asker {
             display: flex;
             align-items: center;
             margin-bottom: 0.65rem;
-            font-weight: bold;
+            font-size: 0.99rem;
+
+            opacity: 0.65;
             a {
+                font-weight: bold;
                 color: currentColor;
                 margin-right: 0.25rem;
             }
@@ -701,21 +804,6 @@
                     }
                 }
             }
-        }
-    }
-
-    &__video {
-        display: block;
-        position: relative;
-        height: 0;
-
-        padding-bottom: 60%;
-        > :is(video, iframe) {
-            position: absolute;
-            left: 0;
-            top:0;
-            width: 100%;
-            height: 100%;
         }
     }
 

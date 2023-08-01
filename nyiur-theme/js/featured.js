@@ -146,6 +146,23 @@ const featured = (data) => {
           const npfPhotoset = card?.querySelector('.npf_photoset');
           const npfAudio = card?.querySelector('.slideshow__item__inner > blockquote:first-of-type .tmblr-full > .audio-caption');
 
+          // Get all elements with class "npf_row"
+          const npfRows = card.querySelectorAll('.npf_row');
+
+          // Find the index of the first ".npf_row" element
+          const firstNpfRowIndex = Array.from(npfRows).findIndex(row => row.classList.contains('npf_row'));
+
+          // Check if the first ".npf_row" element exists and is not the last element
+          if (firstNpfRowIndex !== -1 && firstNpfRowIndex < npfRows.length - 1) {
+            // Find and remove the next sibling of the first ".npf_row" element
+            const elementToRemove = npfRows[firstNpfRowIndex + 1];
+            if (elementToRemove) {
+              elementToRemove.remove();
+            }
+          } else {
+            console.log("There are no or only one '.npf_row' elements to remove.");
+          }
+
           if(npfRow) {
             npfRow.classList.add("npf_row-modified");
             npfRow.classList.remove("npf_row");
@@ -173,7 +190,10 @@ const featured = (data) => {
               ?.querySelector(".album-cover")
               ?.getAttribute("src");
 
-            console.log({ title, artist, album, albumCover });
+            // console.log({ title, artist, album, albumCover });
+
+            const playBtn = '<i class="las la-play"></i>';
+            npfAudio.insertAdjacentHTML("afterbegin", playBtn);
           }
 
           if(npfElementVideo) {

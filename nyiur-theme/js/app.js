@@ -1,6 +1,7 @@
 /**
- * Main application object.
- * @namespace
+  * @version 1.0.0
+  * @author Faiz IJ <github.com/fukou>
+  * @website https://fukuo.site
 */
 var app = {
   /** @type {Masonry} */
@@ -22,7 +23,7 @@ var app = {
     app.masonry();
     app.tinySlider();
     app.loadTabs();
-    // app.postNPF();
+    app.postNPF();
     app.shortenPost();
     app.postTags();
     app.postNPFAudio();
@@ -88,7 +89,7 @@ var app = {
     const npfOptions = {
       includeCommonPhotosets: true,
       useTumblrLightbox:true,
-      photosetMargins: "7",
+      photosetMargins: "7.5",
     };
     npfPhotosets(".posts", npfOptions);
   },

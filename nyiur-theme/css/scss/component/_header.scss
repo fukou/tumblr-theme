@@ -177,6 +177,8 @@
 
             &.btn-dark {
                 background-color:rgba(var(--header-navigation-text), 1);
+                box-shadow:rgba(255, 255, 255, 0.2) 0px 2px 0px 0px inset, rgba(0, 0, 0, 0.25) 0px -1px 0px 1px inset, rgba(0, 0, 0, 0.1) 0px 2px 6px 0px;
+                background: linear-gradient(180deg,rgba(var(--header-navigation-text), 1) 0%, rgba(var(--header-navigation-text), 0.75) 100%);
                 color:rgba(var(--header-navigation-bg), 1);
             }
         }
@@ -301,13 +303,16 @@
                 justify-content: center;
                 border:1px solid transparent;
                 border-radius: 50%;
+                box-shadow:rgba(255, 255, 255, 0.2) 0px 2px 0px 0px inset, rgba(0, 0, 0, 0.25) 0px -1px 0px 1px inset, rgba(0, 0, 0, 0.1) 0px 2px 6px 0px;
                 background-color: rgba(var(--btn-primary), 1);
+                background: linear-gradient(180deg,rgba(var(--btn-primary), 1) 0%, rgba(var(--btn-primary), 0.75) 100%);
                 color:rgba(var(--btn-text-primary), 1);
                 transition: 0.25s;
 
                 &:hover {
-                background-color: rgba(var(--btn-primary-hover), 1);
-                color:rgba(var(--btn-text-primary-hover), 1);
+                    background: linear-gradient(180deg,rgba(var(--btn-primary-hover), 1) 0%, rgba(var(--btn-primary-hover), 0.75) 100%);
+                    background-color: rgba(var(--btn-primary-hover), 1);
+                    color:rgba(var(--btn-text-primary-hover), 1);
                 }
 
                 span {
