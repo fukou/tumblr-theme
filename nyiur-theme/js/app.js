@@ -1,8 +1,8 @@
 /**
-  * @version 1.0.0
-  * @author Faiz IJ <github.com/fukou>
-  * @website https://fukuo.site
-*/
+ * @version 1.0.0
+ * @author fukuo <github.com/fukou>
+ * @website https://fukuo.site
+ */
 var app = {
   /** @type {Masonry} */
   msnry: null,
@@ -14,7 +14,6 @@ var app = {
     app.headerToggleMenu();
     app.headerToggleDarkMode();
     app.headerSuggestion();
-    // app.postPhotosets();
     app.postSoundCloud();
     app.postSpotify();
     app.postBandCamp();
@@ -27,6 +26,7 @@ var app = {
     app.shortenPost();
     app.postTags();
     app.postNPFAudio();
+    app.postNPFData();
     app.TOC();
     app.sparkingEffect();
   },
@@ -36,7 +36,7 @@ var app = {
     btn.addEventListener("click", () => {
       btn.classList.toggle("is-actived");
       hiddenLink.classList.toggle("is-shown");
-      document.querySelector('body').classList.toggle("is-pushed");
+      document.querySelector("body").classList.toggle("is-pushed");
     });
   },
   headerToggleDarkMode: () => {
@@ -52,7 +52,7 @@ var app = {
       if (isDarkMode) {
         htmlElement.setAttribute("data-force-color-mode", "light");
         localStorage.setItem("color-mode", "light");
-        
+
         btn_mode.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path></svg>`;
       } else {
         htmlElement.setAttribute("data-force-color-mode", "dark");
@@ -62,23 +62,24 @@ var app = {
     };
 
     btn_mode.addEventListener("click", toggleColorMode);
-    btn_mode.innerHTML = colorModeOverride === "dark" ? 
-    `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>` : 
-    `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path></svg>`;
+    btn_mode.innerHTML =
+      colorModeOverride === "dark"
+        ? `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`
+        : `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path></svg>`;
   },
   headerSuggestion: () => {
-    const elementSearch = document.querySelector('.nav__search');
+    const elementSearch = document.querySelector(".nav__search");
     const inputSearch = document.getElementById("search");
     const suggestionBox = document.querySelector(".nav__search__suggestion");
 
     elementSearch.addEventListener("mousedown", () => {
       inputSearch.focus();
     });
-    
+
     elementSearch.addEventListener("mouseup", () => {
       suggestionBox.style.display = "block";
     });
-    
+
     document.addEventListener("mouseup", (event) => {
       if (!elementSearch.contains(event.target)) {
         suggestionBox.style.display = "none";
@@ -88,13 +89,10 @@ var app = {
   postNPF: () => {
     const npfOptions = {
       includeCommonPhotosets: true,
-      useTumblrLightbox:true,
+      useTumblrLightbox: true,
       photosetMargins: "7.5",
     };
     npfPhotosets(".posts", npfOptions);
-  },
-  postPhotosets: () => {
-    // initPhotosets();
   },
   postSoundCloud: () => {
     const soundcloudColor = "#de8100";
@@ -179,6 +177,12 @@ var app = {
       "body[data-blog-style='masonry'] .wrapper__blog"
     );
     if (typeof elem != "undefined" && elem != null) {
+      // Show the loading message before initializing Masonry
+      const loadingMessage = document.createElement("div");
+      loadingMessage.classList.add("grid-loader");
+      loadingMessage.textContent = "Loading posts...";
+      document.querySelector('.wrapper__blog').prepend(loadingMessage);
+
       app.msnry = new Masonry(elem, {
         // options
         itemSelector: "article.posts",
@@ -190,6 +194,19 @@ var app = {
       imagesLoaded(elem).on("progress", function () {
         // layout Masonry after each image loads
         app.msnry.layout(); // Use app.msnry here
+      });
+      imagesLoaded(elem).on("done", function () {
+        const loadingMessageContainer = document.querySelector('.grid-loader');
+        if (loadingMessageContainer) {
+          loadingMessageContainer.remove();
+        }
+        // Apply the fade-in animation to the article.posts elements one by one with a slight delay
+        const posts = document.querySelectorAll("article.posts");
+        posts.forEach((post, index) => {
+          setTimeout(() => {
+            post.classList.add("load");
+          }, index * 250); // Adjust the delay time as needed (here it's 100ms per post)
+        });
       });
     }
   },
@@ -348,10 +365,10 @@ var app = {
 
             postBody.append(toggleBtn);
 
-            toggleBtn.addEventListener('click', function(e) {
+            toggleBtn.addEventListener("click", function (e) {
               e.preventDefault();
-              postBody.classList.remove('is-truncated');
-              postBody.classList.add('is-truncated--full');
+              postBody.classList.remove("is-truncated");
+              postBody.classList.add("is-truncated--full");
 
               this.remove();
             });
@@ -559,6 +576,177 @@ var app = {
       }
     });
   },
+  postNPFData: () => {
+    // Loop through all elements with class "posts" and decode their content
+    document.querySelectorAll(".posts").forEach((post) => {
+      // Get the JSON string from the element's text content
+      const postNPF = post.getAttribute("data-article-npf");
+      // const postID = post.getAttribute("data-article-id");
+
+      // Extract the JSON string from the attribute value
+      const jsonString = app.extractJSONString(postNPF);
+      // Replace escaped characters in the JSON string
+      const decodedJsonString = app.decodeAndReplace(jsonString);
+
+      try {
+        // Parse the JSON string as an object
+        const npfData = JSON.parse(decodedJsonString);
+        // console.log(npfData);
+        console.log("%cPost:", "background: #00aaaa; color: white", {
+          npfData,
+        });
+
+        if (npfData.trail) {
+          const postsTrailList = post.querySelectorAll(".reblog-list"); // Get all .reblog-list elements within the current .posts element
+
+          postsTrailList.forEach((postsTrail, index) => {
+            let trail = npfData.trail[index];
+            let trailAskLayout = trail?.layout.find(
+              (layout) => layout.type === "ask"
+            );
+            let blog = trail.blog;
+            let blogTheme = blog.theme;
+            let badgesAcc = blog.tumblrmart_accessories;
+            let badges = blog.tumblrmart_accessories?.badges;
+
+            let {
+              description: blogDesc,
+              title: blogTitle,
+              name: blogName,
+            } = blog;
+            let {
+              link_color: blogLinkColor,
+              title_font: blogTitleFont,
+              title_color: blogTitleColor,
+              background_color: blogBgColor,
+              header_image_scaled: headerImage,
+              avatar_shape: avatarShape,
+            } = blogTheme;
+            let blogInfo;
+
+            console.log("%cPost Badges:", "background: #555; color: yellow", {
+              badgesAcc,
+            });
+
+            /*
+            If blog has a profile info, including: avatar, header image, font and colors
+            */
+            if (blog) {
+              blogInfo = document.createElement("div");
+              blogInfo.className = "reblog-post-description d-none";
+
+              blogInfo.innerHTML = `<div class="reblog-post-description__header" style="background-image:url(${headerImage}); background-size:cover; background-position:center; min-height:135px;"></div>
+                                  <img src="https://api.tumblr.com/v2/blog/${blogName}/avatar/64" alt="${blogName}" class="reblog-post-description__avatar ${avatarShape}">
+                                  <h3 style="font-family:${blogTitleFont};">${blogTitle} (@${blogName})</h3> 
+                                  <p>${blogDesc}</p>
+                                 `;
+
+              blogInfo.style.setProperty("--link-color", blogLinkColor);
+              blogInfo.style.setProperty("--background-color", blogBgColor);
+              blogInfo.style.setProperty("--title-color", blogTitleColor);
+
+              app.insertAfter(
+                blogInfo,
+                postsTrail.querySelector(".reblog-post-avatar")
+              );
+            }
+
+            /*
+            If the blog contains a custom badges
+            */
+
+            if (blog.can_show_badges && badges) {
+              //   console.log('%cPost Trail:', 'background: #00aaaa; color: white', postsTrail);
+
+              // Check if .reblog-post-badges already exists for this .reblog-list
+              let postBadges = postsTrail.querySelector(".reblog-post-badges");
+              if (!postBadges) {
+                postBadges = document.createElement("span");
+                postBadges.className = "reblog-post-badges";
+                app.insertAfter(
+                  postBadges,
+                  postsTrail.querySelector(".reblog-post-avatar-name")
+                );
+              }
+
+              let badgeElement, badgeItem;
+              badges[0].urls.forEach((badge, idx) => {
+                badgeElement = document.createElement("img");
+                badgeElement.src = badge;
+                badgeItem = document.createElement("span");
+                badgeItem.className = "reblog-post-badges-item";
+
+                badgeItem.append(badgeElement);
+                postBadges.append(badgeItem);
+
+                if (idx > 6) {
+                  postBadges.classList.add("reblog-post-badges-huge");
+                }
+              });
+            }
+
+            if (trail.content) {
+              // console.log(trail.content);
+              for (let i = 0; i < trail.content.length; i++) {
+                const trailContent = trail.content[i];
+                switch (trailContent.type) {
+                  case "poll":
+                    // console.log(trailContent.created_at);
+                    const formattedDate = app.formatDate(trailContent.created_at);
+                    const timestampDate = app.convertEpochToRegularDate(
+                      trailContent.timestamp
+                    );
+                    const expiredAfterDate = app.convertEpochToRegularDate(trailContent.timestamp + trailContent.settings.expire_after);
+
+                    const formattedExpired = app.formatDate(expiredAfterDate);
+
+                    let pollInfo;
+                    pollInfo = document.createElement("div");
+                    pollInfo.className = "poll-post-date";
+                    pollInfo.innerHTML = `<span class="poll-post-date__started"><b>Poll started on</b> ${formattedDate}</span>
+                                                  <span class="poll-post-date__ended"><b>Poll ended on</b> ${formattedExpired} </span>
+                                                  `;
+                    postsTrail.querySelector(".poll-post").append(pollInfo);
+                    break;
+                  case "paywall":
+                    let paywallContent;
+                    const payWallUsername = trailContent.text.replace(
+                      "%s",
+                      `<strong>${blogName}</strong>`
+                    );
+                    paywallContent = document.createElement("div");
+                    paywallContent.className = "reblog-list-paywall";
+                    paywallContent.innerHTML = `<h2 style="font-family:${blogTitleFont};">${trailContent.title}</h2>
+                                                        <p>${payWallUsername}</p>
+                                                        <p><a class="btn btn__secondary" href="${trailContent.url}">Show your support!</a>
+                                                       `;
+                    paywallContent.style.setProperty(
+                      "--link-color",
+                      blogLinkColor
+                    );
+                    paywallContent.style.setProperty(
+                      "--background-color",
+                      blogBgColor
+                    );
+                    paywallContent.style.setProperty(
+                      "--title-color",
+                      blogTitleColor
+                    );
+                    postsTrail.append(paywallContent);
+                    paywallContent.previousElementSibling.remove();
+                    break;
+                  default:
+                    "";
+                }
+              }
+            }
+          });
+        }
+      } catch (error) {
+        console.error("Error parsing JSON:", error);
+      }
+    });
+  },
   TOC: () => {
     const allPosts = document.querySelectorAll(".posts");
     for (let l = 0; l < allPosts.length; l++) {
@@ -641,6 +829,59 @@ var app = {
 
     // execute
     sparkling();
+  },
+  decodeAndReplace(input){
+    return input
+      .replace(/\\x22/g, '"')
+      .replace(/\\x3c/g, "<")
+      .replace(/\\x3e/g, ">")
+      .replace(/\\x26amp;/g, "&")
+      .replace(/\\x26/g, "&")
+      .replace(/\\"/g, '"')
+      .replace(/\\'/g, "'")
+      .replace(/\\\\/g, "\\");
+  },
+  extractJSONString(input) {
+    const jsonStartIndex = input.indexOf("'") + 1;
+    const jsonEndIndex = input.lastIndexOf("'");
+    return input.substring(jsonStartIndex, jsonEndIndex);
+  },
+  insertAfter(newNode, existingNode){
+    existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+  },
+  formatDate(dateString) {
+    const options = {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      // timeZoneName: 'short'
+    };
+
+    // Manually parse the date string
+    const [datePart, timePart] = dateString.split(" ");
+    const [year, month, day] = datePart.split("-").map(Number);
+    const [hour, minute, second] = timePart.split(":").map(Number);
+
+    // Create a new Date object
+    const dateObject = new Date(year, month - 1, day, hour, minute, second);
+
+    // Check if the dateObject is valid
+    if (isNaN(dateObject.getTime())) {
+      console.error("Invalid Date:", dateString);
+      return "";
+    }
+
+    const formattedDate = dateObject.toLocaleString("en-US", options);
+    return formattedDate;
+  },
+  convertEpochToRegularDate(epochTimestamp, includeTimezone = false) {
+    const date = new Date(epochTimestamp * 1000);
+    const dateString = date.toISOString().slice(0, 19).replace("T", " ");
+    return includeTimezone ? dateString + " GMT" : dateString;
   },
 };
 
