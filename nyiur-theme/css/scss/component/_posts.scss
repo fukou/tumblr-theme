@@ -170,23 +170,6 @@
             font-size: var(--text-lg);
         }
 
-        .tmblr-attribution {
-            position: relative;
-            z-index:2;
-            margin:-6px 0 0 0;
-            background-color: rgba(var(--bg-post-color), 1);
-            padding:8px 12px;
-            border-radius: 0 0 4px 4px;
-            width: 100%;
-
-            font-size: 12px;
-            a {
-                display: block;
-                width: 100%;
-                text-decoration: none;
-            }
-        }
-
         &.is-truncated {
             max-height: 565px;
             overflow: hidden;
