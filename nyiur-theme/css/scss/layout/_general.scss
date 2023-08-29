@@ -17,6 +17,12 @@
     }
 }
 
+.is {
+   &-hidden {
+      display: none!important;
+   }
+}
+
 * {
    -webkit-tap-highlight-color: rgba(0,0,0,0);
    &:active {
@@ -148,11 +154,11 @@ body {
     }
 
     &.is-scrollbar {
-      &::-webkit-scrollbar, *::-webkit-scrollbar {
+      *::-webkit-scrollbar {
          width: 6px;
       }
       
-      &::-webkit-scrollbar-thumb, *::-webkit-scrollbar {
+      *::-webkit-scrollbar {
          background-color: rgba(var(--accent), 1);
          border-radius: 5px;
       }
@@ -324,7 +330,7 @@ pre {
            &.avatar-square {
             border-radius: 8px;
             img {
-               border-radius: 8px;
+               border-radius: 4px;
             }
            }
         }
@@ -543,10 +549,29 @@ pre {
          overflow: hidden;
          .tns-inner {
             @media (min-width:$min-lg) {
-               margin-right: 250px!important;
+               margin-right:calc(var(--blog-width) - 250px)!important;
             }
          }
          .slideshow {
+            &-all {
+               &:empty {
+                  &::after {
+                     content:'This user has not featured any posts yet.';
+                        padding: 1rem;
+                        background: lightyellow;
+                        border-radius: 8px;
+                        color: #8d7657;
+                        font-weight: bold;
+
+                        width: calc(100% - 9rem);
+                        @media (max-width:$max-md) {
+                           width: 100%;
+                           margin-top: 2rem;
+                        }
+                  }
+               }
+            }
+
             display: flex;
 
             &-item {
@@ -1434,4 +1459,15 @@ pre {
    &-100 {
       width: 100%;
    }
+}
+        
+.community-label-cover__wrapper {
+   display:none;
+}
+
+.grid-loader {
+ font-size: 24px;
+ text-align:center;
+ width:100%;
+ color: rgba(var(--body-text), 1);
 }

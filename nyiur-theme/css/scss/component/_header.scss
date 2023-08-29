@@ -83,7 +83,12 @@
         align-items: center;
         gap:0.65rem;
 
+        &.is-avatar {
+            display: block;
+        }
+
         &__circle {
+            display: none;
             width:18px;
             height: 18px;
             border-radius: 50%;
@@ -93,6 +98,36 @@
             }
             &-two {
                 background-color:rgba(var( --header-navigation-circle-two), 1);
+            }
+        }
+
+        #avatar {
+            display: none;
+            border-radius: 50%;
+            padding: 4px;
+            background-color: rgba(var(--bg-card), 1);
+            border:1px solid rgba(var(--border-color), 1);
+            max-width: 45px;
+            img {
+             border-radius: 50%;
+            }
+            &.avatar-square {
+             border-radius: 8px;
+             img {
+                border-radius: 4px;
+             }
+            }
+        }
+
+        &.is-avatar {
+            #avatar {
+                display: block;
+            }
+        }
+
+        &.is-circle {
+            .nav__logo__circle {
+                display: block;
             }
         }
     }

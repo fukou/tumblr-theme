@@ -308,7 +308,6 @@ const featured = (data) => {
         } else {
           return;
         }
-        
         container.appendChild(card);
       }
     }

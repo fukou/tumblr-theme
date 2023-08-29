@@ -14,15 +14,15 @@ var app = {
     app.headerToggleMenu();
     app.headerToggleDarkMode();
     app.headerSuggestion();
-    app.postSoundCloud();
-    app.postSpotify();
-    app.postBandCamp();
+    // app.postSoundCloud();
+    // app.postSpotify();
+    // app.postBandCamp();
     app.checkPhotoNPF();
     // app.npfToLegacy();
     app.masonry();
     app.tinySlider();
     app.loadTabs();
-    app.postNPF();
+    // app.postNPF();
     app.shortenPost();
     app.postTags();
     app.postNPFAudio();
@@ -132,7 +132,7 @@ var app = {
   checkPhotoNPF: () => {
     const isTextPost = document.querySelectorAll(".posts");
     isTextPost.forEach(function (item, idx) {
-      const containsPhotosets = item.querySelector(".photoset-grid");
+      const containsPhotosets = item.querySelector(".npf_photoset");
       const containsPhoto = item.querySelector(
         ".reblog-list figure.tmblr-full:first-of-type"
       );
@@ -592,9 +592,9 @@ var app = {
         // Parse the JSON string as an object
         const npfData = JSON.parse(decodedJsonString);
         // console.log(npfData);
-        console.log("%cPost:", "background: #00aaaa; color: white", {
-          npfData,
-        });
+        // console.log("%cPost:", "background: #00aaaa; color: white", {
+        //   npfData,
+        // });
 
         if (npfData.trail) {
           const postsTrailList = post.querySelectorAll(".reblog-list"); // Get all .reblog-list elements within the current .posts element
@@ -624,9 +624,9 @@ var app = {
             } = blogTheme;
             let blogInfo;
 
-            console.log("%cPost Badges:", "background: #555; color: yellow", {
-              badgesAcc,
-            });
+            // console.log("%cPost Badges:", "background: #555; color: yellow", {
+            //   badgesAcc,
+            // });
 
             /*
             If blog has a profile info, including: avatar, header image, font and colors
@@ -749,8 +749,8 @@ var app = {
   },
   TOC: () => {
     const allPosts = document.querySelectorAll(".posts");
-    for (let l = 0; l < allPosts.length; l++) {
-      if (allPosts[l].classList.contains("toc")) {
+    for (let i = 0; i < allPosts.length; i++) {
+      if (allPosts[i].classList.contains("toc")) {
         const isText = document?.querySelector(".toc");
         const bodyText = isText?.querySelector(".posts__body");
         const headingText = bodyText?.querySelectorAll("h2");
