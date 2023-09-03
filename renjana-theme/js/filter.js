@@ -47,12 +47,21 @@ function filterTags(options) {
             if(b === a) isFiltered = true} ));
 
         if(isFiltered) {
-            item.setAttribute("data-post-type", "filtered");
+            item.setAttribute("data-article-spoiler", "true")
             item.prepend(containerFilter);
 
             item.querySelector(".view-post").addEventListener("click", function() {
                 containerFilter.classList.add("is-hidden");
-                item.classList.add("is-shown");
+
+                setTimeout(function () {
+                    // Calculate the post content's height (assuming it's the direct child)
+                    const contentHeight = item.parentElement.clientHeight + "px"; // .posts
+              
+                    // Apply the calculated height to max-height for smooth transition
+                    item.style.maxHeight = contentHeight;
+                    containerFilter.classList.add("is-hidden");
+                    item.classList.add("is-shown");
+                  }, 100);
             });
         }
     });

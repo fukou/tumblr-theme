@@ -1,0 +1,32 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/screenwidth' as *;
+
+.hero {
+    position: relative;
+    width: 100%;
+
+    background-color: var(--hero-bg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    min-height: var(--hero-height);
+
+    margin-bottom: calc(-1 * var(--hero-height) + var(--hero-height)/3);
+
+    &.is-gradient {
+        mask-image: linear-gradient(to top, transparent 5%, black 35%);
+        mask-size: auto 100%;
+        mask-repeat: no-repeat;
+        // &::before {
+        //     content: "";
+        //     position: absolute;
+        //     left: 0;
+        //     bottom: 0px;
+        //     top: auto;
+        //     width: 100%;
+        //     height: 100%;
+        //     background: linear-gradient(0deg, rgba(var(--bg-color), 1) 0%, rgba(var(--bg-color), 0) 35%);
+        // }
+    }
+}

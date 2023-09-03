@@ -1,0 +1,40 @@
+/* toc styling */
+.toc-wrapper {
+  background-color: var(--toc-bg-color);
+  padding: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.toc-wrapper h1 {
+  display: flex;
+  align-items: center;
+  margin: 0 0 1rem 0;
+
+  font-size: var(--heading-size);
+
+  color: var(--toc-heading-color);
+}
+
+.toc-wrapper h2 {
+  scroll-margin-top: 1.25rem;
+}
+
+.toc-wrapper svg {
+  margin-right: 0.5rem;
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+.toc-wrapper ul {
+  padding: 0;
+  margin: 0 1rem;
+
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.toc-wrapper ul li a {
+  color: var(--toc-link-color);
+  text-decoration: underline;
+  text-decoration-thickness: 0.15em;
+}

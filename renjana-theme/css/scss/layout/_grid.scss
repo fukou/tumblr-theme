@@ -1,0 +1,127 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/screenwidth' as *;
+
+.flex {
+    display: flex;
+  
+    $justify-positions: (
+        start: flex-start,
+        end: flex-end,
+        center: center,
+        around: space-around,
+        between: space-between,
+        evenly: space-evenly
+    );
+    $align-positions: (
+        start: flex-start,
+        end: flex-end,
+        center: center,
+        stretch: stretch,
+        baseline: baseline
+    );
+  
+    @mixin just-align($name,$prop,$arr) {
+        @each $mod, $dir in $arr {
+            &--#{$name}-#{$mod} {
+                #{$prop}: #{$dir};
+            }
+        }
+    }
+  
+    @include just-align('align','align-items', $align-positions);
+    @include just-align('justify','justify-content', $justify-positions);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($gridWidth, 1fr));
+  grid-gap: $gridGap;
+
+  & + .grid {
+    margin-top: $gridGap;
+  }
+
+  &.grid-one {
+    grid-template-columns: 1fr;
+  }
+
+  &.grid-two {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &.grid-three {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  &.grid-four {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  &.grid-90-10 {
+    grid-template-columns: 90% 10%;
+  }
+
+  &.grid-80-20 {
+    grid-template-columns: 80% 20%;
+  }
+
+  &.grid-70-30 {
+    grid-template-columns: 70% 30%;
+  }
+
+  &.grid-60-40 {
+    grid-template-columns: 60% 40%;
+  }
+
+  &.grid-40-60 {
+    grid-template-columns: 40% 60%;
+  }
+
+  &.grid-30-70 {
+    grid-template-columns: 30% 70%;
+  }
+ 
+  &.grid-20-80 {
+    grid-template-columns: 20% 80%;
+  }
+
+  &.grid-10-90 {
+    grid-template-columns: 10 90%;
+  }
+
+  @media (max-width:$max-md) {
+      &[class*="grid-"] {
+          grid-template-columns: 1fr;
+      }
+      grid-template-columns: 1fr;
+  }
+
+  &-item {
+      position: relative;
+      &__image {
+          img {
+              width: 100%;
+          }
+      }
+      &__title {
+          border-top: 2px solid rgba(var(--accent-color-two), 1);
+          margin-bottom: 2rem;
+
+          h1 {
+              font-size: 1rem!important;
+              text-transform: uppercase;
+          }
+      }
+      p {
+          margin:1rem 0;
+      }
+      a:not([class]) {
+          color:$color-primary;
+      }
+  }
+}
+
+.grid-wrap {
+  padding: $gridGap;
+}
