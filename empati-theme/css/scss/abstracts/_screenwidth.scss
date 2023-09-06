@@ -1,0 +1,13 @@
+$max-xs : 575.98px; // Extra small devices (portrait phones, less than 576px)
+$min-sm : 576px; // Small devices (landscape phones, 576px and up)
+$max-sm : 767.98px; // Small devices (landscape phones, less than 768px)
+$min-md : 768px; // Medium devices (tablets, 768px and up)
+$max-md : 991.98px; // Medium devices (tablets, less than 992px)
+$min-lg : 992px; // Large devices (desktops, 992px and up)
+$max-lg : 1199.98px; // Large devices (desktops, less than 1200px)
+$ipad-max : 1024px;
+$ipad-portrait : only screen and (max-width: $min-md) and (orientation:portrait);
+$ipad-landscape : only screen and (max-width: $ipad-max) and (orientation:landscape);
+$after-ipad: 1025px;
+$min-xl : 1200px; // Extra large devices (large desktops, 1200px and up)
+$min-jumbo : 1921px;
