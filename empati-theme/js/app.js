@@ -9,7 +9,11 @@ var app = {
    * @function
    */
   init: function () {
-    app.buttonSuggestions();
+    app.headerScroll();
+    app.headerActions();
+    app.buttonToggleLayout();
+    app.checkBlogLayout();
+    app.postPopup();
     app.postToggleButton();
     app.sparkingEffect();
     // app.postNPF();
@@ -21,22 +25,134 @@ var app = {
     app.postNPFAudio();
     app.postNPFData();
   },
-  buttonSuggestions: () => {
-    let btnTags = document.querySelector("button#tags");
-    document.addEventListener("click", function (event) {
-      var isClickInside = btnTags.contains(event.target);
+  headerScroll: () => {
+    let scrollpos = window.scrollY;
+    const header = document.querySelector("nav");
+    const header_height = header.offsetHeight;
 
-      if (isClickInside) {
-        if (btnTags) {
-          btnTags.classList.toggle("is-actived");
-          document.body.classList.toggle("is-suggestions-clicked");
-          document.querySelector('.wrapper__sidebar__search__suggestions').classList.toggle("is-shown");
-        }
+    const add_class_on_scroll = () => header.classList.add("fade-in");
+    const remove_class_on_scroll = () => header.classList.remove("fade-in");
+
+    window.addEventListener("scroll", function () {
+      scrollpos = window.scrollY;
+
+      if (scrollpos >= header_height) {
+        add_class_on_scroll();
       } else {
-        btnTags.classList.remove("is-actived");
-        document.body.classList.remove("is-suggestions-clicked");
-        document.querySelector('.wrapper__sidebar__search__suggestions').classList.remove("is-shown");
+        remove_class_on_scroll();
       }
+    });
+  },
+  headerActions: () => {
+    // Usage for the hamburger menu
+    app.toggleMenu('button[data-button-type="hamburger"]', '.nav__navigations', 'hamburger');
+
+    // Usage for the search menu
+    app.toggleMenu('button[data-button-type="search"]', '.nav__search', 'search');
+  },
+  toggleMenu: (buttonSelector, menuSelector, menuType) => {
+    const btn = document.querySelector(buttonSelector);
+    const menu = document.querySelector(menuSelector);
+  
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("is-shown");
+      btn.classList.toggle("is-activated");
+      document.body.classList.toggle("is-menu-clicked");
+  
+      if (menuType === "hamburger") {
+        btn.nextElementSibling.classList.toggle("is-disabled");
+      } else if (menuType === "search") {
+        btn.previousElementSibling.classList.toggle("is-disabled");
+      }
+  
+      const isAriaHidden = menu.getAttribute("aria-hidden");
+      menu.setAttribute("aria-hidden", isAriaHidden === "true" ? "false" : "true");
+  
+      btn.innerHTML = !menu.classList.contains("is-shown")
+      ? (menuType === "hamburger")
+        ? `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`
+        : (menuType === "search")
+        ? `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`
+        : ""
+      : (menuType === "hamburger")
+        ? `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
+        : (menuType === "search")
+        ? `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
+        : "";
+      });
+  },
+  buttonToggleLayout: () => {
+    // Select the buttons and body element
+    const gridButton = document.querySelector(".grid");
+    const listButton = document.querySelector(".list");
+    const body = document.body;
+
+    // Function to handle button click
+    const handleButtonClick = (style) => {
+      body.setAttribute("data-blog-style", style);
+      gridButton.classList.toggle("activated", style === "grid");
+      listButton.classList.toggle("activated", style === "list");
+    };
+
+    // Check the initial state of data-blog-style and set the button accordingly
+    const initialStyle = body.getAttribute("data-blog-style");
+    handleButtonClick(initialStyle);
+
+    // Add click event listeners to the buttons
+    gridButton.addEventListener("click", () => handleButtonClick("grid"));
+    listButton.addEventListener("click", () => handleButtonClick("list"));
+  },
+  checkBlogLayout: () => {
+    const checkLayout = document.body;
+    const cards = document.querySelectorAll(".posts");
+
+    // Check if the current layout is "grid"
+    if (checkLayout.getAttribute("data-blog-style") === "grid") {
+      cards.forEach(function (card) {
+        const npfElementVideo = card?.querySelector(".tmblr-full > video");
+        if (npfElementVideo) {
+          npfElementVideo.parentElement.classList.add("npf_video");
+          npfElementVideo.parentElement.classList.remove("tmblr-full");
+
+          const npfData = JSON.parse(
+            npfElementVideo.parentElement.getAttribute("data-npf")
+          );
+          const { poster } = npfData;
+          const markup = `
+            <div class="npf-video-block" style="background-image:url('${poster[0].url}')">
+              <i class="las la-play"></i>
+            </div>
+          `;
+          npfElementVideo.insertAdjacentHTML("afterend", markup);
+        }
+      });
+    } 
+  },
+  postPopup: () => {
+    const posts = document.querySelectorAll('.posts');
+    const popup = document.getElementById('popup');
+    const popupContent = popup.querySelector('.popup__inner');
+    const closePopupButton = document.getElementById('closePopup');
+
+    posts.forEach((post) => {
+        const postTrigger = document.createElement("div");
+              postTrigger.className = "posts__view";
+              postTrigger.innerHTML = `<span class="posts__view__trigger">View post <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></span>`;
+
+        post.append(postTrigger);
+        postTrigger.addEventListener('click', () => {
+            const clonedContent = post.cloneNode(true);
+            popupContent.innerHTML = '';
+            popupContent.appendChild(clonedContent);
+            popup.showModal(); // Show the dialog as a modal
+
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    closePopupButton.addEventListener('click', () => {
+        popup.close(); // Close the dialog when the close button is clicked
+        document.body.style.overflow = "auto";
     });
   },
   postToggleButton: () => {
@@ -432,7 +548,7 @@ var app = {
                 }
               });
             }
-            
+
             if (trail.content) {
               for (let i = 0; i < trail.content.length; i++) {
                 const trailContent = trail.content[i];
