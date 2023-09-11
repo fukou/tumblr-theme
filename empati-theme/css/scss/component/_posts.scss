@@ -243,6 +243,7 @@
                 >span.reblog-post-avatar-name {
                     margin-left: 1ch;
                     margin-right: 1ch;
+                    min-width: 6rem;
                 }
 
                 >img {
@@ -337,6 +338,7 @@
 
                 &.reblog-post-badges-huge {
                     gap: 0;
+                    flex-wrap: wrap;
 
                     >* {
                         margin: 0 -2px;
@@ -464,6 +466,7 @@
 
         &__toggle {
             margin-inline-start: 0.65rem;
+            display: none;
         }
 
         &__pinned {
@@ -699,9 +702,6 @@
         &__info {
             font-size: 0.875rem;
             opacity: 0.65;
-            .d-display__is-date-one {
-                display: block!important;
-            }
         }
 
         &__perma {

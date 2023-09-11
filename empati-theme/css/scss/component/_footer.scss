@@ -3,12 +3,18 @@
 @use '../abstracts/screenwidth' as *;
 
 .footer {
-    padding:calc(var(--padding-lg)*1.5) 1rem;
+    padding: calc(var(--padding-lg)*1.5) 1rem;
     margin-top: 4.5rem;
     background-color: rgba(var(--bg-card), 1);
     color: rgba(var(--body-text), 1);
-    
-    border:1px solid rgba(var(--border-color), 1);
+
+    &.is-wave {
+        --mask:radial-gradient(17.61px at 50% 24.50px, #000 99%, #0000 101%) calc(50% - 20px) 0/40px 100%,
+            radial-gradient(17.61px at 50% -14.5px, #0000 99%, #000 101%) 50% 10px/40px 100% repeat-x;
+        -webkit-mask: var(--mask);
+        mask: var(--mask);
+        padding-top:  calc(var(--padding-lg)*2.25);
+    }
 
     &__inner {
         display: flex;

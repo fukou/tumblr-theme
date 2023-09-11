@@ -4,6 +4,8 @@
  * @website https://fukuo.site
  */
 var app = {
+  /** @type {Masonry} */
+  msnry: null,
   /**
    * Initialize the application.
    * @function
@@ -15,15 +17,16 @@ var app = {
     app.checkBlogLayout();
     app.postPopup();
     app.postToggleButton();
-    app.sparkingEffect();
     // app.postNPF();
-    // app.postSoundCloud();
-    // app.postSpotify();
-    // app.postBandCamp();
-    app.checkPhotoNPF();
-    app.shortenPost();
+    app.postSoundCloud();
+    app.postSpotify();
+    app.postBandCamp();
     app.postNPFAudio();
     app.postNPFData();
+    app.checkPhotoNPF();
+    app.shortenPost();
+    app.sparkingEffect();
+    app.masonry();
   },
   headerScroll: () => {
     let scrollpos = window.scrollY;
@@ -45,41 +48,72 @@ var app = {
   },
   headerActions: () => {
     // Usage for the hamburger menu
-    app.toggleMenu('button[data-button-type="hamburger"]', '.nav__navigations', 'hamburger');
+    app.toggleMenu(
+      'button[data-button-type="hamburger"]',
+      ".nav__navigations",
+      "hamburger"
+    );
 
     // Usage for the search menu
-    app.toggleMenu('button[data-button-type="search"]', '.nav__search', 'search');
+    app.toggleMenu(
+      'button[data-button-type="search"]',
+      ".nav__search",
+      "search"
+    );
+
+    // Usage for the additional menu
+    app.toggleMenu(
+      'button[data-button-type="info"]',
+      ".nav__additional",
+      "additional"
+    );
   },
   toggleMenu: (buttonSelector, menuSelector, menuType) => {
     const btn = document.querySelector(buttonSelector);
     const menu = document.querySelector(menuSelector);
-  
+
     btn.addEventListener("click", () => {
       menu.classList.toggle("is-shown");
       btn.classList.toggle("is-activated");
       document.body.classList.toggle("is-menu-clicked");
-  
+
       if (menuType === "hamburger") {
         btn.nextElementSibling.classList.toggle("is-disabled");
+        btn.nextElementSibling.nextElementSibling.classList.toggle(
+          "is-disabled"
+        );
       } else if (menuType === "search") {
         btn.previousElementSibling.classList.toggle("is-disabled");
+        btn.nextElementSibling.classList.toggle("is-disabled");
+      } else if (menuType === "additional") {
+        btn.previousElementSibling.classList.toggle("is-disabled");
+        btn.previousElementSibling.previousElementSibling.classList.toggle(
+          "is-disabled"
+        );
       }
-  
+
       const isAriaHidden = menu.getAttribute("aria-hidden");
-      menu.setAttribute("aria-hidden", isAriaHidden === "true" ? "false" : "true");
-  
+      menu.setAttribute(
+        "aria-hidden",
+        isAriaHidden === "true" ? "false" : "true"
+      );
+
       btn.innerHTML = !menu.classList.contains("is-shown")
-      ? (menuType === "hamburger")
-        ? `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`
-        : (menuType === "search")
-        ? `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`
-        : ""
-      : (menuType === "hamburger")
+        ? menuType === "hamburger"
+          ? `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`
+          : menuType === "search"
+          ? `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`
+          : menuType === "additional"
+          ? ` <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg>`
+          : ""
+        : menuType === "hamburger"
         ? `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
-        : (menuType === "search")
+        : menuType === "search"
+        ? `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
+        : menuType === "additional"
         ? `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
         : "";
-      });
+    });
   },
   buttonToggleLayout: () => {
     // Select the buttons and body element
@@ -126,33 +160,116 @@ var app = {
           npfElementVideo.insertAdjacentHTML("afterend", markup);
         }
       });
-    } 
+    } else {
+      return;
+    }
   },
   postPopup: () => {
-    const posts = document.querySelectorAll('.posts');
-    const popup = document.getElementById('popup');
-    const popupContent = popup.querySelector('.popup__inner');
-    const closePopupButton = document.getElementById('closePopup');
+    // Function to create a modal for a post
+    function createPostModal(postId, postContent) {
+      const modalId = `modal-post-${postId}`;
+      const modal = document.createElement("div");
+      modal.className = "modal micromodal-slide";
+      modal.id = modalId;
+      modal.innerHTML = `
+            <button class="modal__close" aria-label="Close modal" data-micromodal-close><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> <span>Close</span> </button>
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                <div class="modal__container" role="dialog" aria-modal="true">
+                    <main class="modal__content">
+                        ${postContent}
+                    </main>
+                </div>
+            </div>
+        `;
+      document.body.appendChild(modal);
+    }
 
-    posts.forEach((post) => {
+    // Function to load more notes via AJAX
+    async function loadNotesViaAjax(postContent, modalId) {
+      const nextNotesURL = postContent.getAttribute("data-article-notes");
+      const postNotes = document.createElement("div");
+      postNotes.className = "posts__ajax-notes";
+    
+      if (nextNotesURL) {
+        try {
+          const response = await fetch(nextNotesURL);
+          if (response.status >= 200 && response.status < 300) {
+            const notesHtml = await response.text();
+            postNotes.innerHTML = notesHtml;
+    
+            // Append the notes inside the modal's content element
+            const modalContent = document.querySelector(`#${modalId} .modal__content`);
+            if (modalContent) {
+              modalContent.appendChild(postNotes);
+            } else {
+              console.error("Modal content element not found");
+            }
+          } else {
+            console.error("Error loading more notes");
+          }
+        } catch (error) {
+          console.error("Fetch error:", error);
+        }
+      }
+    }
+
+    // Event delegation to handle post clicks
+    document.querySelectorAll(".posts").forEach((post) => {
+      const postTrigger = document.createElement("div");
+      postTrigger.className = "posts__view";
+      postTrigger.innerHTML = `<span class="posts__view__trigger">View post <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></span>`;
+    
+      post.append(postTrigger);
+      // Add this click event listener inside your forEach loop
+      document.querySelectorAll(".posts").forEach((post) => {
         const postTrigger = document.createElement("div");
-              postTrigger.className = "posts__view";
-              postTrigger.innerHTML = `<span class="posts__view__trigger">View post <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></span>`;
-
+        postTrigger.className = "posts__view";
+        postTrigger.innerHTML = `<span class="posts__view__trigger">View post <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></span>`;
+      
         post.append(postTrigger);
-        postTrigger.addEventListener('click', () => {
-            const clonedContent = post.cloneNode(true);
-            popupContent.innerHTML = '';
-            popupContent.appendChild(clonedContent);
-            popup.showModal(); // Show the dialog as a modal
-
-            document.body.style.overflow = "hidden";
+        // Add this click event listener inside your forEach loop
+        postTrigger.addEventListener("click", (e) => {
+          const postId = post.getAttribute("data-article-id");
+          const postElement = postTrigger.closest(".posts");
+          const postPermalink = post.getAttribute("data-article-permalink");
+      
+          if (postId && postElement && postPermalink) {
+            // Store the original URL
+            const originalURL = window.location.href;
+      
+            // Construct the new URL by appending the relative URL
+            const baseURL = window.location.origin;
+            const newURL = `${baseURL}/post/${postId}`;
+      
+            // Use window.history.replaceState() to change the URL
+            window.history.replaceState("", "", newURL);
+      
+            const postContent = post.outerHTML; // Clone the entire post content
+      
+            // Create the modal and set its content
+            createPostModal(postId, postContent);
+      
+            // Open the modal by specifying the target modal ID
+            MicroModal.show(`modal-post-${postId}`, {
+              awaitCloseAnimation: true,
+              awaitOpenAnimation: true,
+              disableScroll: true,
+              debugMode: true,
+              onClose: (modal) => {
+                // Sets a timer for 1000 milliseconds before the modal is removed from DOM
+                setTimeout(() => {
+                  modal.remove();
+                  // Restore the original URL after closing the modal
+                  window.history.replaceState("", "", originalURL);
+                }, 1000);
+              },
+            });
+      
+            // Load notes via AJAX after the modal is created
+            loadNotesViaAjax(postElement, `modal-post-${postId}`);
+          }
         });
-    });
-
-    closePopupButton.addEventListener('click', () => {
-        popup.close(); // Close the dialog when the close button is clicked
-        document.body.style.overflow = "auto";
+      });      
     });
   },
   postToggleButton: () => {
@@ -172,61 +289,6 @@ var app = {
         }
       });
     });
-  },
-  sparkingEffect: () => {
-    // https://renerehme.dev/blog/animated-sparkles-in-jquery
-    const color = "#FFC700";
-    const svgPath =
-      "M26.5 25.5C19.0043 33.3697 0 34 0 34C0 34 19.1013 35.3684 26.5 43.5C33.234 50.901 34 68 34 68C34 68 36.9884 50.7065 44.5 43.5C51.6431 36.647 68 34 68 34C68 34 51.6947 32.0939 44.5 25.5C36.5605 18.2235 34 0 34 0C34 0 33.6591 17.9837 26.5 25.5Z";
-
-    // sparkling effect
-    let sparkling = function () {
-      document.querySelectorAll(".sparkling").forEach(function (item) {
-        let sparklingElement = item;
-        let stars = sparklingElement.querySelectorAll(".star");
-
-        // remove the first star when more than 6 stars existing
-        if (stars.length > 5) {
-          stars.forEach(function (star, index) {
-            if (index === 0) {
-              star.remove();
-            }
-          });
-        }
-        // add a new star
-        sparklingElement.insertAdjacentHTML("beforeend", addStar());
-      });
-      let rand = Math.round(Math.random() * 700) + 100;
-      setTimeout(sparkling, rand);
-    };
-
-    // star
-    let addStar = function () {
-      let size = Math.floor(Math.random() * 20) + 10;
-      let top = Math.floor(Math.random() * 100) - 50;
-      let left = Math.floor(Math.random() * 100);
-
-      return (
-        '<span class="star" style="top:' +
-        top +
-        "%; left:" +
-        left +
-        '%;">' +
-        '<svg width="' +
-        size +
-        '" height="' +
-        size +
-        '" viewBox="0 0 68 68" fill="none">' +
-        '<path d="' +
-        svgPath +
-        '" fill="' +
-        color +
-        '" /></svg></span>'
-      );
-    };
-
-    // execute
-    sparkling();
   },
   postNPF: () => {
     const npfOptions = {
@@ -269,49 +331,6 @@ var app = {
       for (b of bandCamp) {
         b.parentElement.classList.add("is-bandcamp");
       }
-    }
-  },
-  checkPhotoNPF: () => {
-    const isTextPost = document.querySelectorAll(".posts");
-    isTextPost.forEach(function (item, idx) {
-      const containsPhotosets = item.querySelector(".npf_photoset");
-      const containsPhoto = item.querySelector(
-        ".reblog-list figure.tmblr-full:first-of-type"
-      );
-
-      if (containsPhotosets) {
-        item.classList.add("posts-photoset-text");
-      } else if (containsPhoto) {
-        item.classList.add("posts-photo-text");
-      }
-    });
-  },
-  shortenPost: () => {
-    if (document.querySelector("body.is-shorten-long-post")) {
-      document
-        .querySelectorAll("article[class*='long_post']")
-        .forEach(function (post) {
-          let postBody = post.querySelector(".posts__body");
-
-          if (postBody != null && postBody.clientHeight >= 700) {
-            postBody.classList.add("is-truncated");
-
-            const toggleBtn = document.createElement("a");
-            toggleBtn.className = "is-toggle btn btn__primary";
-            toggleBtn.textContent = "Expand";
-            toggleBtn.href = "#";
-
-            postBody.append(toggleBtn);
-
-            toggleBtn.addEventListener("click", function (e) {
-              e.preventDefault();
-              postBody.classList.remove("is-truncated");
-              postBody.classList.add("is-truncated--full");
-
-              this.remove();
-            });
-          }
-        });
     }
   },
   postNPFAudio: () => {
@@ -614,6 +633,143 @@ var app = {
         console.error("Error parsing JSON:", error);
       }
     });
+  },
+  checkPhotoNPF: () => {
+    const isTextPost = document.querySelectorAll(".posts");
+    isTextPost.forEach(function (item, idx) {
+      const containsPhotosets = item.querySelector(".npf_photoset");
+      const containsPhoto = item.querySelector(
+        ".reblog-list figure.tmblr-full:first-of-type"
+      );
+
+      if (containsPhotosets) {
+        item.classList.add("posts-photoset-text");
+      } else if (containsPhoto) {
+        item.classList.add("posts-photo-text");
+      }
+    });
+  },
+  shortenPost: () => {
+    if (document.querySelector("body.is-shorten-long-post")) {
+      document
+        .querySelectorAll("article[class*='long_post']")
+        .forEach(function (post) {
+          let postBody = post.querySelector(".posts__body");
+
+          if (postBody != null && postBody.clientHeight >= 700) {
+            postBody.classList.add("is-truncated");
+
+            const toggleBtn = document.createElement("a");
+            toggleBtn.className = "is-toggle btn btn__primary";
+            toggleBtn.textContent = "Expand";
+            toggleBtn.href = "#";
+
+            postBody.append(toggleBtn);
+
+            toggleBtn.addEventListener("click", function (e) {
+              e.preventDefault();
+              postBody.classList.remove("is-truncated");
+              postBody.classList.add("is-truncated--full");
+
+              this.remove();
+            });
+          }
+        });
+    }
+  },
+  sparkingEffect: () => {
+    // https://renerehme.dev/blog/animated-sparkles-in-jquery
+    const color = "#e37738";
+    const svgPath =
+      "M26.5 25.5C19.0043 33.3697 0 34 0 34C0 34 19.1013 35.3684 26.5 43.5C33.234 50.901 34 68 34 68C34 68 36.9884 50.7065 44.5 43.5C51.6431 36.647 68 34 68 34C68 34 51.6947 32.0939 44.5 25.5C36.5605 18.2235 34 0 34 0C34 0 33.6591 17.9837 26.5 25.5Z";
+
+    // sparkling effect
+    let sparkling = function () {
+      document.querySelectorAll(".sparkling").forEach(function (item) {
+        let sparklingElement = item;
+        let stars = sparklingElement.querySelectorAll(".star");
+
+        // remove the first star when more than 6 stars existing
+        if (stars.length > 5) {
+          stars.forEach(function (star, index) {
+            if (index === 0) {
+              star.remove();
+            }
+          });
+        }
+        // add a new star
+        sparklingElement.insertAdjacentHTML("beforeend", addStar());
+      });
+      let rand = Math.round(Math.random() * 700) + 100;
+      setTimeout(sparkling, rand);
+    };
+
+    // star
+    let addStar = function () {
+      let size = Math.floor(Math.random() * 20) + 10;
+      let top = Math.floor(Math.random() * 100) - 50;
+      let left = Math.floor(Math.random() * 100);
+
+      return (
+        '<span class="star" style="top:' +
+        top +
+        "%; left:" +
+        left +
+        '%;">' +
+        '<svg width="' +
+        size +
+        '" height="' +
+        size +
+        '" viewBox="0 0 68 68" fill="none">' +
+        '<path d="' +
+        svgPath +
+        '" fill="' +
+        color +
+        '" /></svg></span>'
+      );
+    };
+
+    // execute
+    sparkling();
+  },
+  masonry: () => {
+    // masonry
+    const elem = document.querySelector(
+      "body[data-blog-style='masonry'] .wrapper__blog"
+    );
+    if (typeof elem != "undefined" && elem != null) {
+      // Show the loading message before initializing Masonry
+      const loadingMessage = document.createElement("div");
+      loadingMessage.classList.add("grid-loader");
+      loadingMessage.textContent = "Loading posts...";
+      document.querySelector(".wrapper__blog").prepend(loadingMessage);
+
+      app.msnry = new Masonry(elem, {
+        // options
+        itemSelector: "article.posts",
+        columnWidth: ".grid-sizer",
+        horizontalOrder: true,
+        gutter: 30,
+        percentPosition: true,
+      });
+      imagesLoaded(elem).on("progress", function () {
+        // layout Masonry after each image loads
+        app.msnry.layout(); // Use app.msnry here
+      });
+      imagesLoaded(elem).on("done", function () {
+        const loadingMessageContainer = document.querySelector(".grid-loader");
+        if (loadingMessageContainer) {
+          loadingMessageContainer.remove();
+        }
+        // Apply the fade-in animation to the article.posts elements one by one with a slight delay
+        const posts = document.querySelectorAll("article.posts");
+        posts.forEach((post, index) => {
+          setTimeout(() => {
+            post.classList.add("load");
+          }, index * 250); // Adjust the delay time as needed (here it's 100ms per post)
+        });
+      });
+    }
   },
   decodeAndReplace(input) {
     return input

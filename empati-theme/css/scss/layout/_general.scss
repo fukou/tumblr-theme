@@ -70,18 +70,6 @@ body {
       background-repeat: repeat;
    }
 
-   &.is-scrollbar {
-
-      *::-webkit-scrollbar {
-         width: 6px;
-      }
-
-      *::-webkit-scrollbar {
-         background-color: rgba(var(--accent), 1);
-         border-radius: 5px;
-      }
-   }
-
    &.is-menu-clicked {
       overflow: hidden;
 
@@ -92,18 +80,32 @@ body {
          top: 0;
          width: 100%;
          height: 100%;
-         background: rgba(0, 0, 0, .65);
-         -webkit-backdrop-filter: blur(12px);
+         background: rgba(0, 0, 0, .5);
          backdrop-filter: blur(12px);
          z-index: 99;
+         transition: 0.25s;
+      }
+
+      .nav {
+         background: transparent;
+         border-color: transparent;
+         box-shadow: none;
+         backdrop-filter: blur(0px);
+
+         &__link {
+            opacity: 0;
+            visibility: hidden;
+         }
       }
    }
 
    &[data-blog-style="list"] {
+
       .nav,
-      .wrapper {
+      .wrapper,
+      .nav__search {
          &__inner {
-            max-width: 650px;
+            max-width: 680px;
             margin-left: auto;
             margin-right: auto;
          }
@@ -113,10 +115,12 @@ body {
    &[data-blog-style="grid"] {
       .wrapper {
          &__blog {
-            --grid-cols: 3;
+            --grid-cols: 4;
             --grid-gap: 2rem;
             display: grid;
             grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+            grid-auto-flow: row dense;
+            grid-auto-rows: auto;
             gap: var(--grid-gap);
 
             @media (max-width:$max-md) {
@@ -135,6 +139,13 @@ body {
 
                overflow: hidden;
                transition: 0.4s;
+
+               @media (min-width:$min-md) {
+                  &.expand {
+                     grid-column-end: span 2;
+                     grid-row-end: span 2;
+                  }
+               }
 
                &:hover {
                   transform: translateY(-6px);
@@ -213,12 +224,43 @@ body {
                   }
                }
 
+               &:where(.posts-text):not(.posts-photo-text):not(.posts-photoset-text) {
+                  &::before {
+                     font-family: "Line Awesome Free";
+                     font-weight: 900;
+                     font-size: 45px;
+                     content: "\f15c";
+
+                     position: absolute;
+                     left: 0;
+                     top: 0;
+
+                     display: flex;
+                     align-items: center;
+                     justify-content: center;
+                     flex-direction: column;
+
+                     width: 100%;
+                     height: 100%;
+
+                     background: rgba(var(--bg-card), 1);
+                     color: rgba(var(--body-text), 1);
+
+                     z-index: 2;
+                  }
+               }
+
                &-photo-text {
                   .posts__body {
                      padding: 0;
 
                      .reblog-list {
                         padding: 0;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
 
                         p:empty {
                            display: none;
@@ -228,7 +270,7 @@ body {
                            position: absolute;
                            left: 0;
                            top: 1rem;
-                           margin: 1ch;
+                           margin: 0 1ch;
                            z-index: 2;
 
                            img {
@@ -247,9 +289,17 @@ body {
                         }
 
                         .npf_row {
-                           position: relative;
+                           position: absolute;
+                           left: 0;
+                           top: 0;
                            z-index: 1;
                            margin: -1rem;
+
+                           background-color: rgba(var(--bg-card), 1);
+
+                           .npf_col ~ * {
+                              display: none;
+                           }
 
                            figure.tmblr-full {
                               img {
@@ -260,6 +310,10 @@ body {
                                  width: 100%;
                               }
                            }
+                        }
+
+                        :is(.npf_row) ~ * {
+                           display: none;
                         }
 
                         &:not(:first-child) {
@@ -283,6 +337,11 @@ body {
 
                      .reblog-list {
                         padding: 0;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
 
                         p:empty {
                            display: none;
@@ -296,7 +355,7 @@ body {
                            position: absolute;
                            left: 0;
                            top: 0;
-                           margin: 1ch;
+                           margin: 0 1ch;
                            z-index: 2;
 
                            img {
@@ -315,8 +374,13 @@ body {
                         }
 
                         .npf_photoset {
-                           position: relative;
+                           position: absolute;
+                           left: 0;
+                           top: 0;
                            z-index: 1;
+                           margin: -1rem;
+
+                           background-color: rgba(var(--bg-card), 1);
 
                            figure.tmblr-full {
                               height: 100% !important;
@@ -428,15 +492,15 @@ body {
                   height: 100%;
 
                   position: absolute;
-                  left:0;
-                  top:0;
+                  left: 0;
+                  top: 0;
                   z-index: 3;
 
                   opacity: 0;
                   visibility: hidden;
 
                   background-color: rgba(var(--bg-card), 0.75);
-                  color:rgba(var(--heading-text), 1);
+                  color: rgba(var(--heading-text), 1);
                   backdrop-filter: blur(10px);
 
                   transition: 0.25s;
@@ -447,8 +511,14 @@ body {
 
                      display: inline-flex;
                      align-items: center;
-                     gap:0.5rem;
+                     gap: 0.5rem;
                   }
+               }
+
+
+
+               .reblog-post-badges {
+                  display: none;
                }
 
                &:hover .posts__view {
@@ -459,10 +529,120 @@ body {
          }
       }
    }
+
+   &[data-blog-style="masonry"] {
+      &.is-three-column {
+         .grid-sizer {
+            width: calc(33.333% - 20px);
+
+            @media (max-width:1400px) {
+               width: calc(50% - 20px);
+            }
+
+            @media (max-width:768px) {
+               width: 100%;
+            }
+         }
+
+         .posts {
+            float: left;
+            width: calc(33.333% - 20px);
+            margin-bottom: 30px !important;
+
+            @media (max-width:1400px) {
+               width: calc(50% - 20px);
+            }
+
+            @media (max-width:768px) {
+               width: 100%;
+            }
+         }
+
+         .wrapper {
+            padding-top: calc(var(--padding-lg)*1.5);
+
+            &__toggle {
+               display: none;
+            }
+         }
+      }
+
+      &.is-two-column {
+         .wrapper {
+            padding-top: calc(var(--padding-lg)*1.5);
+
+            &__toggle {
+               display: none;
+            }
+
+            &__blog {
+               .grid-sizer {
+                  width: calc(50% - 20px);
+
+                  @media (max-width:1400px) {
+                     width: calc(50% - 20px);
+                  }
+
+                  @media (max-width:768px) {
+                     width: 100%;
+                  }
+               }
+
+               .posts {
+                  float: left;
+                  width: calc(50% - 20px);
+                  margin-bottom: 30px !important;
+
+                  @media (max-width:1400px) {
+                     width: calc(50% - 20px);
+                  }
+
+                  @media (max-width:768px) {
+                     width: 100%;
+                  }
+               }
+            }
+         }
+      }
+
+      .wrapper {
+         &__blog {
+            article.posts {
+               opacity: 0;
+               transition: opacity 1s ease-in;
+
+               &.load {
+                  opacity: 1;
+               }
+            }
+         }
+      }
+   }
+}
+
+.tippy-tooltip.custom-theme {
+   background-color: rgba(var(--accent), 1);
+
+   .tippy-svg-arrow {
+      fill: rgba(var(--accent), 1);
+   }
 }
 
 html {
    scroll-behavior: smooth;
+
+
+   &.is-scrollbar {
+
+      ::-webkit-scrollbar {
+         width: 6px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background-color: rgba(var(--accent), 1);
+         border-radius: 5px;
+      }
+   }
 }
 
 pre {
@@ -966,7 +1146,7 @@ pre {
 .popup {
    margin: unset;
    inset-inline-start: unset;
-   
+
    width: 100vw;
    height: 100vh;
    max-width: 100%;
@@ -997,16 +1177,19 @@ pre {
       z-index: 9;
 
       background-color: rgba(var(--btn-primary), 1);
-      color:rgba(var(--btn-text-primary), 1);
+      color: rgba(var(--btn-text-primary), 1);
+
       span {
          display: none;
       }
+
       @media (max-width:$max-md) {
          position: sticky;
-         bottom:1ch;
+         bottom: 1ch;
          width: 100%;
          height: 3rem;
          border-radius: 6px;
+
          span {
             display: block;
          }
@@ -1026,7 +1209,7 @@ pre {
       min-width: 680px;
       margin: auto;
 
-      padding-top:calc(var(--padding-lg)*1);
+      padding-top: calc(var(--padding-lg)*1);
       padding-bottom: calc(var(--padding-lg)*1.75);
       padding-left: calc(var(--padding-lg)*1);
       padding-right: calc(var(--padding-lg)*1);
@@ -1034,7 +1217,7 @@ pre {
       @media (max-width:$max-md) {
          max-width: 100%;
          min-width: 100%;
-         padding:0.5rem;
+         padding: 0.5rem;
       }
 
       .posts {
