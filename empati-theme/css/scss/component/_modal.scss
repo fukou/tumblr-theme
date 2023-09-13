@@ -46,8 +46,8 @@
 
         width: 50px;
         height: 50px;
-        background-color: rgba(var(--btn-primary), 1);
-        color:rgba(var(--btn-text-primary), 1);
+        background-color: transparent;
+        color:rgba(var(--bg-card), 1);
         border-color: transparent;
 
         border-radius: 50%;
@@ -84,11 +84,11 @@
             span {
                 display: none;
             }
-        }
-            
-        &:hover {
-            background-color: rgba(var(--btn-primary-hover), 1);
-            color:rgba(var(--btn-text-primary-hover), 1);
+
+            svg {
+                width: 32px;
+                height: 32px;
+            }
         }
     }
     &__content {

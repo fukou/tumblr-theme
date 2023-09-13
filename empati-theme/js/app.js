@@ -18,15 +18,16 @@ var app = {
     app.postPopup();
     app.postToggleButton();
     // app.postNPF();
-    app.postSoundCloud();
-    app.postSpotify();
-    app.postBandCamp();
+    // app.postSoundCloud();
+    // app.postSpotify();
+    // app.postBandCamp();
     app.postNPFAudio();
-    app.postNPFData();
+    // app.postNPFData();
     app.checkPhotoNPF();
     app.shortenPost();
     app.sparkingEffect();
     app.masonry();
+    app.tinySlider();
   },
   headerScroll: () => {
     let scrollpos = window.scrollY;
@@ -51,24 +52,27 @@ var app = {
     app.toggleMenu(
       'button[data-button-type="hamburger"]',
       ".nav__navigations",
-      "hamburger"
+      "hamburger",
+      `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`
     );
 
     // Usage for the search menu
     app.toggleMenu(
       'button[data-button-type="search"]',
       ".nav__search",
-      "search"
+      "search",
+      `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`
     );
 
     // Usage for the additional menu
     app.toggleMenu(
       'button[data-button-type="info"]',
       ".nav__additional",
-      "additional"
+      "additional",
+      `<svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="19" height="19"><path d="M4.9 8.7l-.3-.4-.8.6.3.4.8-.6zm6 .6l.3-.4-.8-.6-.3.4.8.6zM7.5 14A6.5 6.5 0 011 7.5H0A7.5 7.5 0 007.5 15v-1zM14 7.5A6.5 6.5 0 017.5 14v1A7.5 7.5 0 0015 7.5h-1zM7.5 1A6.5 6.5 0 0114 7.5h1A7.5 7.5 0 007.5 0v1zm0-1A7.5 7.5 0 000 7.5h1A6.5 6.5 0 017.5 1V0zM4 6h1V5H4v1zm6 0h1V5h-1v1zm.1 2.7a3.25 3.25 0 01-5.2 0l-.8.6c1.7 2.267 5.1 2.267 6.8 0l-.8-.6z" fill="currentColor"></path></svg>`
     );
   },
-  toggleMenu: (buttonSelector, menuSelector, menuType) => {
+  toggleMenu: (buttonSelector, menuSelector, menuType, iconDefault) => {
     const btn = document.querySelector(buttonSelector);
     const menu = document.querySelector(menuSelector);
 
@@ -100,11 +104,11 @@ var app = {
 
       btn.innerHTML = !menu.classList.contains("is-shown")
         ? menuType === "hamburger"
-          ? `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`
+          ? `${iconDefault}`
           : menuType === "search"
-          ? `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`
+          ? `${iconDefault}`
           : menuType === "additional"
-          ? ` <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg>`
+          ? ` ${iconDefault}`
           : ""
         : menuType === "hamburger"
         ? `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
@@ -157,7 +161,7 @@ var app = {
               <i class="las la-play"></i>
             </div>
           `;
-          npfElementVideo.insertAdjacentHTML("afterend", markup);
+          card.insertAdjacentHTML("afterbegin", markup);
         }
       });
     } else {
@@ -215,62 +219,51 @@ var app = {
 
     // Event delegation to handle post clicks
     document.querySelectorAll(".posts").forEach((post) => {
-      const postTrigger = document.createElement("div");
-      postTrigger.className = "posts__view";
-      postTrigger.innerHTML = `<span class="posts__view__trigger">View post <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></span>`;
-    
-      post.append(postTrigger);
+      const postTrigger = post.querySelector('.posts__view');
+      
       // Add this click event listener inside your forEach loop
-      document.querySelectorAll(".posts").forEach((post) => {
-        const postTrigger = document.createElement("div");
-        postTrigger.className = "posts__view";
-        postTrigger.innerHTML = `<span class="posts__view__trigger">View post <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></span>`;
-      
-        post.append(postTrigger);
-        // Add this click event listener inside your forEach loop
-        postTrigger.addEventListener("click", (e) => {
-          const postId = post.getAttribute("data-article-id");
-          const postElement = postTrigger.closest(".posts");
-          const postPermalink = post.getAttribute("data-article-permalink");
-      
-          if (postId && postElement && postPermalink) {
-            // Store the original URL
-            const originalURL = window.location.href;
-      
-            // Construct the new URL by appending the relative URL
-            const baseURL = window.location.origin;
-            const newURL = `${baseURL}/post/${postId}`;
-      
-            // Use window.history.replaceState() to change the URL
-            window.history.replaceState("", "", newURL);
-      
-            const postContent = post.outerHTML; // Clone the entire post content
-      
-            // Create the modal and set its content
-            createPostModal(postId, postContent);
-      
-            // Open the modal by specifying the target modal ID
-            MicroModal.show(`modal-post-${postId}`, {
-              awaitCloseAnimation: true,
-              awaitOpenAnimation: true,
-              disableScroll: true,
-              debugMode: true,
-              onClose: (modal) => {
-                // Sets a timer for 1000 milliseconds before the modal is removed from DOM
-                setTimeout(() => {
-                  modal.remove();
-                  // Restore the original URL after closing the modal
-                  window.history.replaceState("", "", originalURL);
-                }, 1000);
-              },
-            });
-      
-            // Load notes via AJAX after the modal is created
-            loadNotesViaAjax(postElement, `modal-post-${postId}`);
-          }
-        });
-      });      
-    });
+      postTrigger.addEventListener("click", (e) => {
+        const postId = post.getAttribute("data-article-id");
+        const postElement = postTrigger.closest(".posts");
+        const postPermalink = post.getAttribute("data-article-permalink");
+    
+        if (postId && postElement && postPermalink) {
+          // Store the original URL
+          const originalURL = window.location.href;
+    
+          // Construct the new URL by appending the relative URL
+          const baseURL = window.location.origin;
+          const newURL = `${baseURL}/post/${postId}`;
+    
+          // Use window.history.replaceState() to change the URL
+          window.history.replaceState("", "", newURL);
+    
+          const postContent = post.outerHTML; // Clone the entire post content
+    
+          // Create the modal and set its content
+          createPostModal(postId, postContent);
+    
+          // Open the modal by specifying the target modal ID
+          MicroModal.show(`modal-post-${postId}`, {
+            awaitCloseAnimation: true,
+            awaitOpenAnimation: true,
+            disableScroll: true,
+            debugMode: true,
+            onClose: (modal) => {
+              // Restore the original URL after closing the modal
+              window.history.replaceState("", "", originalURL);
+              // Sets a timer for 1000 milliseconds before the modal is removed from DOM
+              setTimeout(() => {
+                modal.remove();
+              }, 1000);
+            },
+          });
+    
+          // Load notes via AJAX after the modal is created
+          loadNotesViaAjax(postElement, `modal-post-${postId}`);
+        }
+      });
+    }); 
   },
   postToggleButton: () => {
     const buttonLink = document.querySelectorAll(
@@ -340,6 +333,8 @@ var app = {
       const postAudio = post?.querySelector("figcaption.audio-caption");
       postAudio?.parentElement.classList.add("tmblr-npf-audio");
       postAudio?.parentElement.classList.remove("tmblr-full");
+
+      postAudio?.closest(".posts").classList.add("posts-audio");
 
       const audioDetails = postAudio?.querySelector(".tmblr-audio-meta");
 
@@ -767,6 +762,138 @@ var app = {
           setTimeout(() => {
             post.classList.add("load");
           }, index * 250); // Adjust the delay time as needed (here it's 100ms per post)
+        });
+      });
+    }
+  },
+  tinySlider: () => {
+    var container = ".slideshow";
+    if (typeof container != "undefined" && container != null) {
+      document.querySelectorAll(container).forEach((slider) => {
+        var slider1 = slider;
+        var sliderMode = slider1.getAttribute("data-mode")
+          ? slider1.getAttribute("data-mode")
+          : "carousel";
+        var sliderAxis = slider1.getAttribute("data-axis")
+          ? slider1.getAttribute("data-axis")
+          : "horizontal";
+        var sliderSpace = slider1.getAttribute("data-gutter")
+          ? slider1.getAttribute("data-gutter")
+          : 30;
+        var sliderEdge = slider1.getAttribute("data-edge")
+          ? slider1.getAttribute("data-edge")
+          : 0;
+
+        var sliderItems = slider1.getAttribute("data-items")
+          ? slider1.getAttribute("data-items")
+          : 4; //option: number (items in all device)
+        var sliderItemsXl = slider1.getAttribute("data-items-xl")
+          ? slider1.getAttribute("data-items-xl")
+          : Number(sliderItems); //option: number (items in 1200 to end )
+        var sliderItemsLg = slider1.getAttribute("data-items-lg")
+          ? slider1.getAttribute("data-items-lg")
+          : Number(sliderItemsXl); //option: number (items in 992 to 1199 )
+        var sliderItemsMd = slider1.getAttribute("data-items-md")
+          ? slider1.getAttribute("data-items-md")
+          : Number(sliderItemsLg); //option: number (items in 768 to 991 )
+        var sliderItemsSm = slider1.getAttribute("data-items-sm")
+          ? slider1.getAttribute("data-items-sm")
+          : Number(sliderItemsMd); //option: number (items in 576 to 767 )
+        var sliderItemsXs = slider1.getAttribute("data-items-xs")
+          ? slider1.getAttribute("data-items-xs")
+          : Number(sliderItemsSm); //option: number (items in start to 575 )
+
+        var sliderSpeed = slider1.getAttribute("data-speed")
+          ? slider1.getAttribute("data-speed")
+          : 500;
+        var sliderautoWidth = slider1.getAttribute("data-autowidth") === "true"; //option: true or false
+        var sliderArrow = slider1.getAttribute("data-arrow") !== "false"; //option: true or false
+        var sliderDots = slider1.getAttribute("data-dots") !== "false"; //option: true or false
+
+        var sliderAutoPlay = slider1.getAttribute("data-autoplay") !== "false"; //option: true or false
+        var sliderAutoPlayTime = slider1.getAttribute("data-autoplaytime")
+          ? slider1.getAttribute("data-autoplaytime")
+          : 4000;
+        var sliderHoverPause =
+          slider1.getAttribute("data-hoverpause") === "true"; //option: true or false
+        var sliderLoop = slider1.getAttribute("data-loop") !== "false"; //option: true or false
+        var sliderRewind = slider1.getAttribute("data-rewind") === "true"; //option: true or false
+        var sliderAutoHeight =
+          slider1.getAttribute("data-autoheight") === "true"; //option: true or false
+        var sliderfixedWidth =
+          slider1.getAttribute("data-fixedwidth") === "true"; //option: true or false
+        var sliderTouch = slider1.getAttribute("data-touch") !== "false"; //option: true or false
+        var sliderDrag = slider1.getAttribute("data-drag") !== "false"; //option: true or false
+        var sliderBy = slider1.getAttribute("data-slide-by")
+          ? slider1.getAttribute("data-slide-by")
+          : "page";
+        var silderControlsContainer = slider1.getAttribute(
+          "data-controls-container"
+        )
+          ? slider1.getAttribute("data-controls-container")
+          : "";
+
+        // Check if document DIR is RTL
+        var ifRtl = document
+          .getElementsByTagName("html")[0]
+          .getAttribute("dir");
+        var sliderDirection;
+        if (ifRtl === "rtl") {
+          sliderDirection = "rtl";
+        }
+        var tnsSlider = tns({
+          container: slider,
+          mode: sliderMode,
+          axis: sliderAxis,
+          gutter: sliderSpace,
+          edgePadding: sliderEdge,
+          speed: sliderSpeed,
+          autoWidth: sliderautoWidth,
+          controls: sliderArrow,
+          nav: sliderDots,
+          autoplay: sliderAutoPlay,
+          autoplayTimeout: sliderAutoPlayTime,
+          autoplayHoverPause: sliderHoverPause,
+          autoplayButton: false,
+          autoplayButtonOutput: false,
+          controlsPosition: top,
+          navPosition: top,
+          autoplayPosition: top,
+          controlsContainer: silderControlsContainer,
+          controlsText: [
+            '<i class="las la-angle-left"></i>',
+            '<i class="las la-angle-right"></i>',
+          ],
+          loop: sliderLoop,
+          rewind: sliderRewind,
+          autoHeight: sliderAutoHeight,
+          fixedWidth: sliderfixedWidth,
+          touch: sliderTouch,
+          mouseDrag: sliderDrag,
+          arrowKeys: true,
+          items: sliderItems,
+          textDirection: sliderDirection,
+          responsive: {
+            0: {
+              items: Number(sliderItemsXs),
+            },
+            576: {
+              items: Number(sliderItemsSm),
+              slideBy: "page",
+            },
+            768: {
+              items: Number(sliderItemsMd),
+              slideBy: "page",
+            },
+            992: {
+              items: Number(sliderItemsLg),
+              slideBy: "page",
+            },
+            1200: {
+              items: Number(sliderItemsXl),
+              slideBy: sliderBy,
+            },
+          },
         });
       });
     }
