@@ -363,6 +363,14 @@
         }
 
         .tmblr-full {
+            iframe {
+                width: 100%!important;
+            }
+            &.tmblr-embed {
+                > iframe {
+                    width: 100%!important;
+                }
+            }
             video {
                 border-radius: 4px;
                 overflow: hidden;
