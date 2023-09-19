@@ -14,15 +14,15 @@ var app = {
     app.headerToggleMenu();
     app.headerToggleDarkMode();
     app.headerSuggestion();
-    // app.postSoundCloud();
-    // app.postSpotify();
-    // app.postBandCamp();
+    app.postSoundCloud();
+    app.postSpotify();
+    app.postBandCamp();
     app.checkPhotoNPF();
     // app.npfToLegacy();
     app.masonry();
     app.tinySlider();
     app.loadTabs();
-    // app.postNPF();
+    app.postNPF();
     app.shortenPost();
     app.postTags();
     app.postNPFAudio();
@@ -33,11 +33,13 @@ var app = {
   headerToggleMenu: () => {
     const btn = document.querySelector(".btn-nav");
     const hiddenLink = document.querySelector(".nav__additional");
-    btn.addEventListener("click", () => {
-      btn.classList.toggle("is-actived");
-      hiddenLink.classList.toggle("is-shown");
-      document.querySelector("body").classList.toggle("is-pushed");
-    });
+    if (typeof btn != "undefined" && btn != null) {
+      btn.addEventListener("click", () => {
+        btn.classList.toggle("is-actived");
+        hiddenLink.classList.toggle("is-shown");
+        document.querySelector("body").classList.toggle("is-pushed");
+      });
+    }
   },
   headerToggleDarkMode: () => {
     const btn_mode = document.querySelector(".btn-dark");
@@ -61,30 +63,34 @@ var app = {
       }
     };
 
-    btn_mode.addEventListener("click", toggleColorMode);
-    btn_mode.innerHTML =
-      colorModeOverride === "dark"
-        ? `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`
-        : `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path></svg>`;
+    if (typeof btn_mode != "undefined" && btn_mode != null) {
+      btn_mode.addEventListener("click", toggleColorMode);
+      btn_mode.innerHTML =
+        colorModeOverride === "dark"
+          ? `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`
+          : `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path></svg>`;
+    }
   },
   headerSuggestion: () => {
     const elementSearch = document.querySelector(".nav__search");
     const inputSearch = document.getElementById("search");
     const suggestionBox = document.querySelector(".nav__search__suggestion");
 
-    elementSearch.addEventListener("mousedown", () => {
-      inputSearch.focus();
-    });
-
-    elementSearch.addEventListener("mouseup", () => {
-      suggestionBox.style.display = "block";
-    });
-
-    document.addEventListener("mouseup", (event) => {
-      if (!elementSearch.contains(event.target)) {
-        suggestionBox.style.display = "none";
-      }
-    });
+    if (typeof elementSearch != "undefined" && elementSearch != null) {
+      elementSearch.addEventListener("mousedown", () => {
+        inputSearch.focus();
+      });
+  
+      elementSearch.addEventListener("mouseup", () => {
+        suggestionBox.style.display = "block";
+      });
+  
+      document.addEventListener("mouseup", (event) => {
+        if (!elementSearch.contains(event.target)) {
+          suggestionBox.style.display = "none";
+        }
+      });
+    }
   },
   postNPF: () => {
     const npfOptions = {
@@ -421,159 +427,162 @@ var app = {
     const posts = document.querySelectorAll(".posts");
 
     posts.forEach((post, index) => {
-      const postAudio = post?.querySelector("figcaption.audio-caption");
-      postAudio?.parentElement.classList.add("tmblr-npf-audio");
-      postAudio?.parentElement.classList.remove("tmblr-full");
+      const postAudios = post.querySelectorAll("figcaption.audio-caption");
 
-      const audioDetails = postAudio?.querySelector(".tmblr-audio-meta");
+      postAudios.forEach((postAudio) => {
+        postAudio.parentElement.classList.add("tmblr-npf-audio");
+        postAudio.parentElement.classList.remove("tmblr-full");
 
-      const title = audioDetails?.querySelector(".title")?.textContent.trim();
-      const artist = audioDetails?.querySelector(".artist")?.textContent.trim();
-      const album = audioDetails?.querySelector(".album")?.textContent.trim();
-      const albumCover = postAudio
-        ?.querySelector(".album-cover")
-        ?.getAttribute("src");
+        const audioDetails = postAudio.querySelector(".tmblr-audio-meta");
 
-      postAudio?.classList.add("d-none");
+        const title = audioDetails?.querySelector(".title")?.textContent.trim();
+        const artist = audioDetails?.querySelector(".artist")?.textContent.trim();
+        const album = audioDetails?.querySelector(".album")?.textContent.trim();
+        const albumCover = postAudio
+          ?.querySelector(".album-cover")
+          ?.getAttribute("src");
 
-      if (title || artist || album || albumCover) {
-        const postAudioElement = document.createElement("section");
-        postAudioElement.className = "posts__audio-npf";
+        postAudio.classList.add("d-none");
 
-        const elements = [
-          {
-            selector: ".title",
-            className: "posts__audio-npf__title",
-            textContent: title,
-          },
-          {
-            selector: ".artist",
-            className: "posts__audio-npf__artist",
-            textContent: artist,
-          },
-          {
-            selector: ".album",
-            className: "posts__audio-npf__album",
-            textContent: album,
-          },
-        ];
+        if (title || artist || album || albumCover) {
+          const postAudioElement = document.createElement("section");
+          postAudioElement.className = "posts__audio-npf";
 
-        const coverElement = document.createElement("div");
-        coverElement.className = "posts__audio-npf__cover";
+          const elements = [
+            {
+              selector: ".title",
+              className: "posts__audio-npf__title",
+              textContent: title,
+            },
+            {
+              selector: ".artist",
+              className: "posts__audio-npf__artist",
+              textContent: artist,
+            },
+            {
+              selector: ".album",
+              className: "posts__audio-npf__album",
+              textContent: album,
+            },
+          ];
 
-        if (albumCover) {
-          const imgElement = document.createElement("img");
-          imgElement.src = albumCover;
-          imgElement.alt = "";
-          coverElement.appendChild(imgElement);
-        } else {
-          const placeholderElement = document.createElement("div");
-          placeholderElement.className = "album-placeholder";
-          placeholderElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="15.5" r="2.5"/><path d="M8 17V5l12-2v12"/></svg>`;
-          coverElement.appendChild(placeholderElement);
-        }
+          const coverElement = document.createElement("div");
+          coverElement.className = "posts__audio-npf__cover";
 
-        const audioMoreDetails = document.createElement("div");
-        audioMoreDetails.className = "posts__audio-npf__details";
-
-        elements.forEach(({ selector, className, textContent }) => {
-          if (textContent) {
-            const element = document.createElement(
-              selector.startsWith(".") ? "div" : selector
-            );
-            element.className = className;
-            element.textContent = textContent;
-            audioMoreDetails.appendChild(element);
+          if (albumCover) {
+            const imgElement = document.createElement("img");
+            imgElement.src = albumCover;
+            imgElement.alt = "";
+            coverElement.appendChild(imgElement);
+          } else {
+            const placeholderElement = document.createElement("div");
+            placeholderElement.className = "album-placeholder";
+            placeholderElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="15.5" r="2.5"/><path d="M8 17V5l12-2v12"/></svg>`;
+            coverElement.appendChild(placeholderElement);
           }
-        });
 
-        const playButton = document.createElement("button");
-        playButton.className = "posts__audio-npf__button";
-        playButton.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-      </svg>
-    `;
+          const audioMoreDetails = document.createElement("div");
+          audioMoreDetails.className = "posts__audio-npf__details";
 
-        const audioElement = postAudio?.parentElement.querySelector("audio");
-        if (audioElement) {
-          audioElement.style.display = "none";
-
-          // Play audio when the play button is clicked
-          playButton.addEventListener("click", () => {
-            if (audioElement.paused || audioElement.ended) {
-              audioElement.play();
-              playButton.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="6" y="4" width="4" height="16"></rect>
-            <rect x="14" y="4" width="4" height="16"></rect>
-          </svg>
-        `;
-            } else {
-              audioElement.pause();
-              playButton.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-        `;
+          elements.forEach(({ selector, className, textContent }) => {
+            if (textContent) {
+              const element = document.createElement(
+                selector.startsWith(".") ? "div" : selector
+              );
+              element.className = className;
+              element.textContent = textContent;
+              audioMoreDetails.appendChild(element);
             }
           });
 
-          // Update play button state based on audio events
-          audioElement.addEventListener("play", () => {
-            playButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="6" y="4" width="4" height="16"></rect>
-          <rect x="14" y="4" width="4" height="16"></rect>
-        </svg>
-      `;
-          });
+          const playButton = document.createElement("button");
+          playButton.className = "posts__audio-npf__button";
+          playButton.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          `;
 
-          audioElement.addEventListener("pause", () => {
-            playButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="5 3 19 12 5 21 5 3"></polygon>
-        </svg>
-      `;
-          });
+          const audioElement = postAudio.parentElement.querySelector("audio");
+          if (audioElement) {
+            audioElement.style.display = "none";
 
-          audioElement.addEventListener("ended", () => {
-            playButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="5 3 19 12 5 21 5 3"></polygon>
-        </svg>
-      `;
-          });
+            // Play audio when the play button is clicked
+            playButton.addEventListener("click", () => {
+              if (audioElement.paused || audioElement.ended) {
+                audioElement.play();
+                playButton.innerHTML = `
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="6" y="4" width="4" height="16"></rect>
+                    <rect x="14" y="4" width="4" height="16"></rect>
+                  </svg>
+                `;
+              } else {
+                audioElement.pause();
+                playButton.innerHTML = `
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                `;
+              }
+            });
+
+            // Update play button state based on audio events
+            audioElement.addEventListener("play", () => {
+              playButton.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="6" y="4" width="4" height="16"></rect>
+                  <rect x="14" y="4" width="4" height="16"></rect>
+                </svg>
+              `;
+            });
+
+            audioElement.addEventListener("pause", () => {
+              playButton.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              `;
+            });
+
+            audioElement.addEventListener("ended", () => {
+              playButton.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              `;
+            });
+          }
+
+          audioMoreDetails.prepend(playButton);
+          postAudioElement.append(...[audioMoreDetails, coverElement]);
+          postAudio.parentElement.appendChild(postAudioElement);
+          if (audioElement) {
+            // Add progress bar for audio playback
+            const progressBar = document.createElement("div");
+            progressBar.className = "posts__audio-npf__progress-bar";
+            const progressFill = document.createElement("div");
+            progressFill.className = "posts__audio-npf__progress-fill";
+            progressBar.appendChild(progressFill);
+
+            progressBar.addEventListener("click", (event) => {
+              const progressBarRect = progressBar.getBoundingClientRect();
+              const clickX = event.clientX - progressBarRect.left;
+              const progressBarWidth = progressBarRect.width;
+              const progressPercentage = clickX / progressBarWidth;
+              audioElement.currentTime =
+                audioElement.duration * progressPercentage;
+            });
+
+            audioElement.addEventListener("timeupdate", () => {
+              const progress =
+                (audioElement.currentTime / audioElement.duration) * 100;
+              progressFill.style.width = `${progress}%`;
+            });
+            audioMoreDetails.appendChild(progressBar);
+          }
         }
-
-        audioMoreDetails.prepend(playButton);
-        postAudioElement.append(...[audioMoreDetails, coverElement]);
-        postAudio.parentElement.appendChild(postAudioElement);
-        if (audioElement) {
-          // Add progress bar for audio playback
-          const progressBar = document.createElement("div");
-          progressBar.className = "posts__audio-npf__progress-bar";
-          const progressFill = document.createElement("div");
-          progressFill.className = "posts__audio-npf__progress-fill";
-          progressBar.appendChild(progressFill);
-
-          progressBar.addEventListener("click", (event) => {
-            const progressBarRect = progressBar.getBoundingClientRect();
-            const clickX = event.clientX - progressBarRect.left;
-            const progressBarWidth = progressBarRect.width;
-            const progressPercentage = clickX / progressBarWidth;
-            audioElement.currentTime =
-              audioElement.duration * progressPercentage;
-          });
-
-          audioElement.addEventListener("timeupdate", () => {
-            const progress =
-              (audioElement.currentTime / audioElement.duration) * 100;
-            progressFill.style.width = `${progress}%`;
-          });
-          audioMoreDetails.appendChild(progressBar);
-        }
-      }
+      });
     });
   },
   postNPFData: () => {
