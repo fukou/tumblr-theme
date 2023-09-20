@@ -3,6 +3,8 @@
 # Tumblr Themes
 > A collection or repository for all Tumblr-related releases especially for custom Tumblr themes and pages.
 
+[![GitHub Super-Linter](https://github.com/fukou/tumblr-theme/actions/workflows/super-linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter) 
+
 ## License
 The source code to the website is available under the MIT License
 
