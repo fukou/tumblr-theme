@@ -18,11 +18,11 @@ var app = {
     app.postPopup();
     app.postToggleButton();
     // app.postNPF();
-    // app.postSoundCloud();
-    // app.postSpotify();
-    // app.postBandCamp();
+    app.postSoundCloud();
+    app.postSpotify();
+    app.postBandCamp();
     app.postNPFAudio();
-    // app.postNPFData();
+    app.postNPFData();
     app.checkPhotoNPF();
     app.shortenPost();
     app.sparkingEffect();
@@ -75,49 +75,115 @@ var app = {
   toggleMenu: (buttonSelector, menuSelector, menuType, iconDefault) => {
     const btn = document.querySelector(buttonSelector);
     const menu = document.querySelector(menuSelector);
-
+    const overlay = document.createElement("div");
+    overlay.className = "nav__overlay";
+  
     btn.addEventListener("click", () => {
-      menu.classList.toggle("is-shown");
-      btn.classList.toggle("is-activated");
-      document.body.classList.toggle("is-menu-clicked");
+      if (menu.classList.contains("is-shown")) {
+        // Close the menu
+        closeMenu();
+      } else {
+        // Open the menu
+        openMenu();
+      }
+    });
+  
+    function openMenu() {
+      menu.classList.add("is-shown");
+      btn.classList.add("is-activated");
+      document.body.classList.add("is-menu-clicked");
+      document.body.appendChild(overlay);
+  
+      // Trap focus within the menu
+      const focusableElements = menu.querySelectorAll(
+        'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+      );
+  
+      const firstFocusableElement = focusableElements[0];
+      const lastFocusableElement = focusableElements[focusableElements.length - 1];
+  
+      menu.addEventListener('keydown', function (e) {
+        if (e.key === 'Tab' || e.keyCode === 9) {
+          // Handle Tab key press
+          if (e.shiftKey) {
+            // Shift + Tab, move focus to the last element
+            if (document.activeElement === firstFocusableElement) {
+              e.preventDefault();
+              lastFocusableElement.focus();
+            }
+          } else {
+            // Tab, move focus to the first element
+            if (document.activeElement === lastFocusableElement) {
+              e.preventDefault();
+              firstFocusableElement.focus();
+            }
+          }
+        }
+      });
 
       if (menuType === "hamburger") {
-        btn.nextElementSibling.classList.toggle("is-disabled");
-        btn.nextElementSibling.nextElementSibling.classList.toggle(
-          "is-disabled"
-        );
+        toggleDisabledClass(btn, [
+          btn.nextElementSibling,
+          btn.nextElementSibling.nextElementSibling
+        ]);
       } else if (menuType === "search") {
-        btn.previousElementSibling.classList.toggle("is-disabled");
-        btn.nextElementSibling.classList.toggle("is-disabled");
+        toggleDisabledClass(btn, [
+          btn.previousElementSibling,
+          btn.nextElementSibling
+        ]);
       } else if (menuType === "additional") {
-        btn.previousElementSibling.classList.toggle("is-disabled");
-        btn.previousElementSibling.previousElementSibling.classList.toggle(
-          "is-disabled"
-        );
+        toggleDisabledClass(btn, [
+          btn.previousElementSibling,
+          btn.previousElementSibling.previousElementSibling
+        ]);
       }
+      
+      // Focus the first element within the menu
+      firstFocusableElement.focus();
 
-      const isAriaHidden = menu.getAttribute("aria-hidden");
-      menu.setAttribute(
-        "aria-hidden",
-        isAriaHidden === "true" ? "false" : "true"
-      );
+      btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+      menu.setAttribute("aria-hidden", "false");
+  
+      // Handle click on the overlay to close the menu
+      overlay.addEventListener("click", closeMenu);
+    }
+  
+    function closeMenu() {
+      menu.classList.remove("is-shown");
+      btn.classList.remove("is-activated");
+      document.body.classList.remove("is-menu-clicked");
+      document.body.removeChild(overlay);
 
-      btn.innerHTML = !menu.classList.contains("is-shown")
-        ? menuType === "hamburger"
-          ? `${iconDefault}`
-          : menuType === "search"
-          ? `${iconDefault}`
-          : menuType === "additional"
-          ? ` ${iconDefault}`
-          : ""
-        : menuType === "hamburger"
-        ? `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
-        : menuType === "search"
-        ? `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
-        : menuType === "additional"
-        ? `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
-        : "";
-    });
+      btn.innerHTML = `${iconDefault}`;
+      menu.setAttribute("aria-hidden", "true");
+
+      // Use the function to toggle disabled classes
+      if (menuType === "hamburger") {
+        toggleDisabledClass(btn, [
+          btn.nextElementSibling,
+          btn.nextElementSibling.nextElementSibling
+        ]);
+      } else if (menuType === "search") {
+        toggleDisabledClass(btn, [
+          btn.previousElementSibling,
+          btn.nextElementSibling
+        ]);
+      } else if (menuType === "additional") {
+        toggleDisabledClass(btn, [
+          btn.previousElementSibling,
+          btn.previousElementSibling.previousElementSibling
+        ]);
+      }
+  
+      // Restore focus to the button
+      btn.focus();
+    }
+
+    function toggleDisabledClass(btn, elementsToToggle) {
+      elementsToToggle.forEach(element => {
+        element.classList.toggle("is-disabled");
+      });
+    }
   },
   buttonToggleLayout: () => {
     // Select the buttons and body element
@@ -128,8 +194,8 @@ var app = {
     // Function to handle button click
     const handleButtonClick = (style) => {
       body.setAttribute("data-blog-style", style);
-      gridButton.classList.toggle("activated", style === "grid");
-      listButton.classList.toggle("activated", style === "list");
+      gridButton?.classList.toggle("activated", style === "grid");
+      listButton?.classList.toggle("activated", style === "list");
     };
 
     // Check the initial state of data-blog-style and set the button accordingly
@@ -137,8 +203,8 @@ var app = {
     handleButtonClick(initialStyle);
 
     // Add click event listeners to the buttons
-    gridButton.addEventListener("click", () => handleButtonClick("grid"));
-    listButton.addEventListener("click", () => handleButtonClick("list"));
+    gridButton?.addEventListener("click", () => handleButtonClick("grid"));
+    listButton?.addEventListener("click", () => handleButtonClick("list"));
   },
   checkBlogLayout: () => {
     const checkLayout = document.body;
@@ -222,7 +288,7 @@ var app = {
       const postTrigger = post.querySelector('.posts__view');
       
       // Add this click event listener inside your forEach loop
-      postTrigger.addEventListener("click", (e) => {
+      postTrigger?.addEventListener("click", (e) => {
         const postId = post.getAttribute("data-article-id");
         const postElement = postTrigger.closest(".posts");
         const postPermalink = post.getAttribute("data-article-permalink");
@@ -502,6 +568,8 @@ var app = {
       try {
         // Parse the JSON string as an object
         const npfData = JSON.parse(decodedJsonString);
+        console.log('%cPost Trail:', 'background: #00aaaa; color: white', postsTrail);
+
         if (npfData.trail) {
           const postsTrailList = post.querySelectorAll(".reblog-list"); // Get all .reblog-list elements within the current .posts element
 
@@ -510,10 +578,10 @@ var app = {
             let trailAskLayout = trail?.layout.find(
               (layout) => layout.type === "ask"
             );
-            let blog = trail.blog;
-            let blogTheme = blog.theme;
-            let badgesAcc = blog.tumblrmart_accessories;
-            let badges = blog.tumblrmart_accessories?.badges;
+            let blog = trail?.blog;
+            let blogTheme = blog?.theme;
+            let badgesAcc = blog?.tumblrmart_accessories;
+            let badges = blog?.tumblrmart_accessories?.badges;
 
             let {
               description: blogDesc,
@@ -630,17 +698,22 @@ var app = {
     });
   },
   checkPhotoNPF: () => {
-    const isTextPost = document.querySelectorAll(".posts");
-    isTextPost.forEach(function (item, idx) {
-      const containsPhotosets = item.querySelector(".npf_photoset");
-      const containsPhoto = item.querySelector(
-        ".reblog-list figure.tmblr-full:first-of-type"
-      );
-
+    const posts = document.querySelectorAll(".posts");
+  
+    posts.forEach((post) => {
+      const originalContent = post.querySelector(".original");
+      const reblogContent = post.querySelector(".reblog-list:first-child");
+      const headingContent = post.querySelector(".posts__media > h1");
+  
+      const containsPhotosets = (originalContent && originalContent.querySelector(".npf_row:first-child")) || (reblogContent && reblogContent.querySelector(".npf_row:first-child"));
+      const containsPhoto = (originalContent && originalContent.querySelector("figure.tmblr-full:first-of-type")) || (reblogContent && reblogContent.querySelector("figure.tmblr-full:first-of-type"));
+  
       if (containsPhotosets) {
-        item.classList.add("posts-photoset-text");
+        post.classList.add("posts-photoset-text");
+        headingContent ? headingContent.parentElement.classList.add("is-not-displayed") : "";
       } else if (containsPhoto) {
-        item.classList.add("posts-photo-text");
+        post.classList.add("posts-photo-text");
+        headingContent ? headingContent.parentElement.classList.add("is-not-displayed") : "";
       }
     });
   },
@@ -827,12 +900,6 @@ var app = {
         var sliderBy = slider1.getAttribute("data-slide-by")
           ? slider1.getAttribute("data-slide-by")
           : "page";
-        var silderControlsContainer = slider1.getAttribute(
-          "data-controls-container"
-        )
-          ? slider1.getAttribute("data-controls-container")
-          : "";
-
         // Check if document DIR is RTL
         var ifRtl = document
           .getElementsByTagName("html")[0]
@@ -859,7 +926,6 @@ var app = {
           controlsPosition: top,
           navPosition: top,
           autoplayPosition: top,
-          controlsContainer: silderControlsContainer,
           controlsText: [
             '<i class="las la-angle-left"></i>',
             '<i class="las la-angle-right"></i>',

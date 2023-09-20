@@ -7,9 +7,7 @@
 */
 
 const featured = (data) => {
-    const container = document.querySelector(
-      ".nav__additional__featured .slideshow-all"
-    );
+    const container = document.querySelector(".slideshow-all");
   
     // truncate script
     /**
@@ -191,9 +189,6 @@ const featured = (data) => {
                 ?.getAttribute("src");
   
               // console.log({ title, artist, album, albumCover });
-  
-              const playBtn = '<i class="las la-play"></i>';
-              npfAudio.insertAdjacentHTML("afterbegin", playBtn);
             }
   
             if(npfElementVideo) {
@@ -296,7 +291,7 @@ const featured = (data) => {
                       <div class="slideshow__item__quote">
                           <a href="${url}">
                               <span class="slideshow__item__quote-icon" aria-hidden="true"><i class="las la-quote-left"></i></span>
-                              ${quote.substring(0, 100)}...
+                              ${quote.substring(0, 70)}...
                               <div class="slideshow__item__quote-source">${quote_source}</div>
                           </a>
                       </div>
