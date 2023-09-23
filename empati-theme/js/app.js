@@ -28,6 +28,7 @@ var app = {
     app.sparkingEffect();
     app.masonry();
     app.tinySlider();
+    app.initCredit();
   },
   headerScroll: () => {
     let scrollpos = window.scrollY;
@@ -569,12 +570,13 @@ var app = {
       try {
         // Parse the JSON string as an object
         const npfData = JSON.parse(decodedJsonString);
-        console.log('%cPost Trail:', 'background: #00aaaa; color: white', postsTrail);
 
         if (npfData.trail) {
           const postsTrailList = post.querySelectorAll(".reblog-list"); // Get all .reblog-list elements within the current .posts element
 
           postsTrailList.forEach((postsTrail, index) => {
+            console.log('%cPost Trail:', 'background: #00aaaa; color: white', postsTrail);
+
             let trail = npfData.trail[index];
             let trailAskLayout = trail?.layout.find(
               (layout) => layout.type === "ask"
@@ -972,6 +974,32 @@ var app = {
       });
     }
   },
+  initCredit: () => {
+		const footerCredit = document.querySelector(".footer__credit");
+		const addClassToBody = (className) => {
+			document.body.classList.add(className);
+		};
+		const checkCreditRemoved = () => {
+			if (!footerCredit) {
+				addClassToBody("is-removed-credit");
+			}
+		};
+		const injectCreditsMarkup = () => {
+			const creditsMarkup = `
+    <div class="credits">
+      <div class="credits__inner">
+        <h2>{Name} has removed the credit link 🤯</h2>
+        <p>The theme was originally created by <a href="https://fukuo.tumblr.com/">fukuo</a> on Tumblr. You can browse other themes <a href="https://www.tumblr.com/themes/">here</a>.</p>
+      </div>
+    </div>
+  `;
+
+			const body = document.body;
+			body.insertAdjacentHTML("beforeend", creditsMarkup);
+		};
+		injectCreditsMarkup();
+    checkCreditRemoved();
+	},
   decodeAndReplace(input) {
     return input
       .replace(/\\x22/g, '"')

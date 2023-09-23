@@ -86,6 +86,56 @@ body {
       }
    }
 
+   &.is-removed-credit {
+      overflow: hidden;
+      .credits {
+         width: 100%;
+         height: 100%;
+
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+
+         position: fixed;
+         left:0;
+         top:0;
+
+         background-color: rgba(0, 0, 0, .65);
+         backdrop-filter: blur(12px);
+
+         z-index: 999999999999;
+
+         &__inner {
+            max-width: 60ch;
+            margin:auto;
+
+            position: relative;
+            width: 100%;
+
+            background-color: rgba(var(--bg-card), 1);
+            color: rgba(var(--body-text), 1);
+
+            border: 1px solid rgba(var(--border-color), 1);
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+            border-radius: 6px;
+
+            padding:0 1rem;
+            h2,p {
+               margin:1rem 0;
+            }
+            h2 {
+               border-bottom: 1px solid rgba(var(--border-color), 1);
+               padding-bottom: 1rem;
+            }
+            a {
+               color:rgba(var(--accent), 1);
+               font-weight: bold;
+            }
+         }
+      }
+   }
+
    &[data-blog-style="list"] {
 
       .nav,
