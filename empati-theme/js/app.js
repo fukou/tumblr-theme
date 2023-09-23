@@ -705,18 +705,25 @@ var app = {
       const reblogContent = post.querySelector(".reblog-list:first-child");
       const headingContent = post.querySelector(".posts__media > h1");
   
+      const precedingParagraph = (originalContent && originalContent.querySelector("p")) || (reblogContent && reblogContent.querySelector("p"));
+  
       const containsPhotosets = (originalContent && originalContent.querySelector(".npf_row:first-child")) || (reblogContent && reblogContent.querySelector(".npf_row:first-child"));
       const containsPhoto = (originalContent && originalContent.querySelector("figure.tmblr-full:first-of-type")) || (reblogContent && reblogContent.querySelector("figure.tmblr-full:first-of-type"));
   
-      if (containsPhotosets) {
-        post.classList.add("posts-photoset-text");
-        headingContent ? headingContent.parentElement.classList.add("is-not-displayed") : "";
-      } else if (containsPhoto) {
-        post.classList.add("posts-photo-text");
-        headingContent ? headingContent.parentElement.classList.add("is-not-displayed") : "";
+      // Check if precedingParagraph contains text or is empty
+      const isPrecedingParagraphEmpty = precedingParagraph && !precedingParagraph.textContent.trim();
+  
+      if (isPrecedingParagraphEmpty) {
+        if (containsPhotosets) {
+          post.classList.add("posts-photoset-text");
+          headingContent ? headingContent.parentElement.classList.add("is-not-displayed") : "";
+        } else if (containsPhoto) {
+          post.classList.add("posts-photo-text");
+          headingContent ? headingContent.parentElement.classList.add("is-not-displayed") : "";
+        }
       }
     });
-  },
+  },  
   shortenPost: () => {
     if (document.querySelector("body.is-shorten-long-post")) {
       document
