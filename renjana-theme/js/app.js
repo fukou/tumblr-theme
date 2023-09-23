@@ -18,6 +18,7 @@ var app = {
     app.postBandCamp();
     app.checkPhotoNPF();
     app.shortenPost();
+    app.initCredit();
     app.postNPFAudio();
     app.postNPFData();
   },
@@ -198,6 +199,32 @@ var app = {
         });
     }
   },
+  initCredit: () => {
+		const footerCredit = document.querySelector(".footer__credit");
+		const addClassToBody = (className) => {
+			document.body.classList.add(className);
+		};
+		const injectCreditsMarkup = () => {
+			const creditsMarkup = `
+      <div class="credits">
+        <div class="credits__inner">
+          <h2>This user has removed the credit link 🤯</h2>
+          <p>The theme was originally created by <a href="https://fukuo.tumblr.com/">fukuo</a> on Tumblr. You can browse other themes <a href="https://www.tumblr.com/themes/">here</a>.</p>
+        </div>
+      </div>
+      `;
+      
+      const checkCreditRemoved = () => {
+        if (!footerCredit) {
+          addClassToBody("is-removed-credit");
+          injectCreditsMarkup();
+        }
+      };
+			const body = document.body;
+			body.insertAdjacentHTML("beforeend", creditsMarkup);
+		};
+    checkCreditRemoved();
+	},
   postNPFAudio: () => {
     const posts = document.querySelectorAll(".posts");
 
