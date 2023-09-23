@@ -12,11 +12,11 @@ var app = {
     app.buttonSuggestions();
     app.postToggleButton();
     app.sparkingEffect();
-    // app.postNPF();
-    // app.postSoundCloud();
-    // app.postSpotify();
-    // app.postBandCamp();
-    // app.checkPhotoNPF();
+    app.postNPF();
+    app.postSoundCloud();
+    app.postSpotify();
+    app.postBandCamp();
+    app.checkPhotoNPF();
     app.shortenPost();
     app.postNPFAudio();
     app.postNPFData();
