@@ -213,17 +213,13 @@ var app = {
         </div>
       </div>
       `;
-      
-      const checkCreditRemoved = () => {
-        if (!footerCredit) {
-          addClassToBody("is-removed-credit");
-          injectCreditsMarkup();
-        }
-      };
 			const body = document.body;
 			body.insertAdjacentHTML("beforeend", creditsMarkup);
 		};
-    checkCreditRemoved();
+    if (!footerCredit) {
+      addClassToBody("is-removed-credit");
+      injectCreditsMarkup();
+    }
 	},
   postNPFAudio: () => {
     const posts = document.querySelectorAll(".posts");
