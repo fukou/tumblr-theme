@@ -13,7 +13,7 @@
         |  |     |  `--'  | |  .  \  |  `--'  | |  `--'  |
         |__|      \______/  |__|\__\  \______/   \______/  
                        
-      Renjana Theme v2.1.1 (https://www.tumblr.com/theme/41018)
+      Renjana Theme v2.1.2 (https://www.tumblr.com/theme/41018)
              
 -->
 <head>
@@ -28,7 +28,7 @@
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
-    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/rGQs0dyf5/style.min.css">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/Zn2s1ezab/style.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;600&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400;1,600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
@@ -506,7 +506,7 @@
                                       {/block:HasAvatar} 
                                     </div>
                                     {Body}
-                                 </div>{/block:Reblogs}{/block:RebloggedFrom}{block:NotReblog}<div class="original">{block:Text}{Body}{/block:Text}{block:Photo}{block:Caption}{Caption}{/block:Caption}{/block:Photo}{block:Panorama}{block:Caption}{Caption}{/block:Caption}{/block:Panorama}{block:Photoset}{block:Caption}{Caption}{/block:Caption}{/block:Photoset}{block:Link}{block:Description}{Description}{/block:Description}{/block:Link}{block:Audio}{block:Caption}{Caption}{/block:Caption}{/block:Audio}{block:Video}{block:Caption}{Caption}{/block:Caption}{/block:Video}{block:Answer}{Answer}{/block:Answer}
+                                 </div>{/block:Reblogs}{/block:RebloggedFrom}{block:NotReblog}<div class="original">{block:Text}{Body}{/block:Text}{block:Photo}{block:Caption}{Caption}{/block:Caption}{/block:Photo}{block:Panorama}{block:Caption}{Caption}{/block:Caption}{/block:Panorama}{block:Photoset}<div class="npf_photoset" data-layout="{PhotosetLayout}"{block:Photos}<figure class="tmblr-full"> <img class="npf_image" alt="{PhotoAlt}" src="{PhotoURL-500}" data-orig-width="{PhotoWidth-HighRes}" data-orig-height="{PhotoHeight-HighRes}" data-highres="{PhotoURL-HighRes}"></figure>{/block:Photos}</div>{block:Caption}{Caption}{/block:Caption}{/block:Photoset}{block:Link}{block:Description}{Description}{/block:Description}{/block:Link}{block:Audio}{block:Caption}{Caption}{/block:Caption}{/block:Audio}{block:Video}{block:Caption}{Caption}{/block:Caption}{/block:Video}{block:Answer}{Answer}{/block:Answer}
                                     </div>
                             {/block:NotReblog}
                             {block:Actions}
@@ -742,14 +742,9 @@
                          {/block:Reblogs}{/block:RebloggedFrom}
                             {block:NotReblog}
                                <div class="original">
-                               {block:Text}{Body}{/block:Text}{block:Photo}{block:Caption}{Caption}{/block:Caption}{/block:Photo}{block:Panorama}{block:Caption}{Caption}{/block:Caption}{/block:Panorama}{block:Photoset}{block:Caption}{Caption}{/block:Caption}{/block:Photoset}{block:Link}{block:Description}{Description}{/block:Description}{/block:Link}{block:Audio}{block:Caption}{Caption}{/block:Caption}{/block:Audio}{block:Video}{block:Caption}{Caption}{/block:Caption}{/block:Video}{block:Answer}{Answer}{/block:Answer}
+                               {block:Text}{Body}{/block:Text}{block:Photo}{block:Caption}{Caption}{/block:Caption}{/block:Photo}{block:Panorama}{block:Caption}{Caption}{/block:Caption}{/block:Panorama}{block:Photoset}<div class="npf_photoset" data-layout="{PhotosetLayout}"{block:Photos}<figure class="tmblr-full"> <img class="npf_image" alt="{PhotoAlt}" src="{PhotoURL-500}" data-orig-width="{PhotoWidth-HighRes}" data-orig-height="{PhotoHeight-HighRes}" data-highres="{PhotoURL-HighRes}"></figure>{/block:Photos}</div>{block:Caption}{Caption}{/block:Caption}{/block:Photoset}{block:Link}{block:Description}{Description}{/block:Description}{/block:Link}{block:Audio}{block:Caption}{Caption}{/block:Caption}{/block:Audio}{block:Video}{block:Caption}{Caption}{/block:Caption}{/block:Video}{block:Answer}{Answer}{/block:Answer}
                             </div>
                     {/block:NotReblog}
-                    {block:Actions}
-                     <div class="post-cta-action | margin--bottom-15">
-                       <a class="btn btn__full btn__primary" href="{url}" rel="nofollow noreferrer noopener" target="_blank">{text}</a>
-                     </div>
-                    {/block:Actions}
                   </section>
                   
                   {block:Submission}
@@ -762,9 +757,6 @@
                   {block:HasTags}
                   <section class="posts__bottom">
                     <div class="posts__bottom__tags {select:Posts Tags}">
-                                <a href="#" class="posts__bottom__tags-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line></svg>
-                                 </a>
                                 <ul>
                                     {block:Tags}
                                     <li><a href="{TagURL}">#{Tag}</a></li> 
@@ -859,7 +851,7 @@
     <script src="https://cdn.jsdelivr.net/gh/ericbutler555/plain-js-slidetoggle@master/slideToggle.min.js"></script>
 
     <!-- main scripts -->
-    <script src="https://static.tumblr.com/5ojoydj/HJ9s0cy3y/app.js"></script>
+    <script src="https://static.tumblr.com/5ojoydj/MyDs1ez8c/app.js"></script>
     <script src="https://static.tumblr.com/5ojoydj/m0Qs0cwn7/accounts.js"></script>
     <script src="https://static.tumblr.com/5ojoydj/EDvs0cwnf/filter.js"></script>
     
