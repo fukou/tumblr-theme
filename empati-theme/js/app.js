@@ -979,25 +979,25 @@ var app = {
 		const addClassToBody = (className) => {
 			document.body.classList.add(className);
 		};
-		const checkCreditRemoved = () => {
-			if (!footerCredit) {
-				addClassToBody("is-removed-credit");
-			}
-		};
 		const injectCreditsMarkup = () => {
 			const creditsMarkup = `
-    <div class="credits">
-      <div class="credits__inner">
-        <h2>{Name} has removed the credit link 🤯</h2>
-        <p>The theme was originally created by <a href="https://fukuo.tumblr.com/">fukuo</a> on Tumblr. You can browse other themes <a href="https://www.tumblr.com/themes/">here</a>.</p>
+      <div class="credits">
+        <div class="credits__inner">
+          <h2>This user has removed the credit link 🤯</h2>
+          <p>The theme was originally created by <a href="https://fukuo.tumblr.com/">fukuo</a> on Tumblr. You can browse other themes <a href="https://www.tumblr.com/themes/">here</a>.</p>
+        </div>
       </div>
-    </div>
-  `;
-
+      `;
+      
+      const checkCreditRemoved = () => {
+        if (!footerCredit) {
+          addClassToBody("is-removed-credit");
+          injectCreditsMarkup();
+        }
+      };
 			const body = document.body;
 			body.insertAdjacentHTML("beforeend", creditsMarkup);
 		};
-		injectCreditsMarkup();
     checkCreditRemoved();
 	},
   decodeAndReplace(input) {
