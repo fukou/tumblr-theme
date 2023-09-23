@@ -709,7 +709,7 @@ var app = {
       const precedingParagraph = (originalContent && originalContent.querySelector("p")) || (reblogContent && reblogContent.querySelector("p"));
   
       const containsPhotosets = (originalContent && originalContent.querySelector(".npf_row:first-child")) || (reblogContent && reblogContent.querySelector(".npf_row:first-child"));
-      const containsPhoto = (originalContent && originalContent.querySelector("figure.tmblr-full:first-of-type")) || (reblogContent && reblogContent.querySelector("figure.tmblr-full:first-of-type"));
+      const containsPhoto = (originalContent && originalContent.querySelector("figure.tmblr-full:first-of-type:not(.tmblr-embed)")) || (reblogContent && reblogContent.querySelector("figure.tmblr-full:first-of-type:not(.tmblr-embed)"));
   
       // Check if precedingParagraph contains text or is empty
       const isPrecedingParagraphEmpty = precedingParagraph && !precedingParagraph.textContent.trim();
