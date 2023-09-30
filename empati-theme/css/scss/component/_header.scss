@@ -294,7 +294,7 @@
         top: calc(100% + 1rem);
 
         max-width: 30rem;
-        padding: 0 1.25rem 1.25rem 1.25rem;
+        padding: 1.25rem 1.25rem;
 
         background-color: rgba(var(--header-navigation-bg), 1);
         color: rgba(var(--header-navigation-text), 1);
@@ -362,17 +362,18 @@
 
         h2 {
             border-bottom: 1px solid rgba(var(--heading-text), 0.1);
-            padding: 0 1rem 1rem 1rem;
+            padding: 1rem 1rem 1rem 1rem;
             font-family: var(--heading-font);
             font-size: calc(var(--text-xl)*0.85);
             color: rgba(var(--heading-text), 1);
-            margin: 0rem -1.25rem 1.25rem -1.25rem;
+            margin: -1.25rem -1.25rem 1.25rem -1.25rem;
 
             @media (max-width:$max-md) {
-                margin: 0rem -1rem 1rem -1rem;
+                margin: -1rem -1rem 1rem -1rem;
             }
-
-            margin-top: 1rem;
+            ~ h2 {
+                margin-top: 1rem;
+            }
         }
 
         p {
@@ -381,6 +382,10 @@
             a {
                 color: rgba(var(--body-text), 1);
                 font-weight: bold;
+            }
+
+            + h2 {
+                margin-top: 1rem;
             }
         }
 
@@ -1130,13 +1135,18 @@
             margin-bottom: 1rem;
 
             img {
-                border-radius: 50%;
                 padding: 6px;
                 background-color: rgba(var(--bg-card), 1);
                 max-width: 100px;
+                border-radius: 6px;
 
                 @media (max-width:$max-md) {
                     max-width: 80px;
+                }
+            }
+            &.circle {
+                img {
+                    border-radius: 50%;
                 }
             }
         }

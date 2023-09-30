@@ -78,16 +78,18 @@ var app = {
     const menu = document.querySelector(menuSelector);
     const overlay = document.createElement("div");
     overlay.className = "nav__overlay";
-  
-    btn.addEventListener("click", () => {
-      if (menu.classList.contains("is-shown")) {
-        // Close the menu
-        closeMenu();
-      } else {
-        // Open the menu
-        openMenu();
-      }
-    });
+
+    if (typeof btn != "undefined" && btn != null) {
+      btn.addEventListener("click", () => {
+        if (menu.classList.contains("is-shown")) {
+          // Close the menu
+          closeMenu();
+        } else {
+          // Open the menu
+          openMenu();
+        }
+      });
+    }
   
     function openMenu() {
       menu.classList.add("is-shown");

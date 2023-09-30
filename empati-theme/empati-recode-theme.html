@@ -28,23 +28,22 @@
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
-    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/E8Ns145pm/style.min.css">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/w73s1t37t/style.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;600&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400;1,600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="https://assets.tumblr.com/fonts/favorit/stylesheet.css?v=1">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <!--<link href="https://cdn.jsdelivr.net/gh/boscoxvi/npfphotosets@master/npfphotosetstyle.css" rel="stylesheet">-->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
     <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script><![endif]-->
     
     {block:Hidden}
-    <meta name="image:Hero Image" content="https://64.media.tumblr.com/34cce9d905b3712e4096b241b54bbaa0/a3d570b51e64a937-22/s1280x1920/36952cf5b8cd45f6910082802f7c0b8034ea729d.png" />
+    <meta name="image:Hero Image" content="" />
     <meta name="image:Background Page Image" content=""/>
     
     <meta name="color:Accent Color" content="#40BF8C" />
-    <meta name="color:Background Page Color 1" content="#EEEEEE" />
+    <meta name="color:Background Page Color 1" content="#bbe4d0" />
     <meta name="color:Background Page Color 2" content="#EEEEEE" />
     
     <meta name="color:Border Color" content="#dddddd" />
@@ -58,7 +57,7 @@
     <meta name="color:Header Navigation Link Color" content="#111111" />
     <meta name="color:Header Navigation Link Color On Hover" content="#111111" />
     
-    <meta name="color:Button Background Color" content="#717AFF" />
+    <meta name="color:Button Background Color" content="#40BF8C" />
     <meta name="color:Button Background Color On Hover" content="#111111" />
     <meta name="color:Button Text Color" content="#ffffff" />
     <meta name="color:Button Text Color On Hover" content="#ffffff" />
@@ -68,8 +67,12 @@
     <meta name="color:Social Media Button Text Color" content="#ffffff" />
     <meta name="color:Social Media Button Text Color On Hover" content="#ffffff" />
     
+    <meta name="color:Hero Background Color" content="#EEEEEE" />
+    <meta name="color:Hero Top Text Color" content="#111111" />
+    <meta name="color:Hero Top Overlay Color" content="#000000" />
+    
     <meta name="color:Selection Text Color" content="#111111" />
-    <meta name="color:Selection Text Background Color" content="#FFFFE0" />
+    <meta name="color:Selection Text Background Color" content="#FCC558" />
     
     <meta name="select:Background Page Style" content="is-gradient" title="Gradient">
     <meta name="select:Background Page Style" content="is-bg" title="Image">
@@ -96,16 +99,39 @@
     <meta name="select:Font Size" content="14" title="14px">
     <meta name="select:Font Size" content="16" title="16px">
     
+    <meta name="select:Blog Layout" content="list" title="Normal">
     <meta name="select:Blog Layout" content="grid" title="Grid">
-    <meta name="select:Blog Layout" content="normal" title="Normal">
     <meta name="select:Blog Layout" content="masonry" title="Masonry">
     
     <meta name="select:Blog Post Masonry Columns" content="is-two-column" title="2 Columns">
     <meta name="select:Blog Post Masonry Columns" content="is-three-column" title="3 Columns">
     
-    <meta name="select:Blog Hero Style" content="is-wave" title="Wavy">
+    <meta name="select:Blog Post Grid Columns" content="3" title="3 Columns">
+    <meta name="select:Blog Post Grid Columns" content="2" title="2 Columns">
+    <meta name="select:Blog Post Grid Columns" content="4" title="4 Columns">
+    <meta name="select:Blog Post Grid Columns" content="5" title="5 Columns">
+    
+    <meta name="select:Blog Post Grid Gaps" content="2" title="Default">
+    <meta name="select:Blog Post Grid Gaps" content="1" title="Small">
+    <meta name="select:Blog Post Grid Gaps" content="3" title="Medium">
+    <meta name="select:Blog Post Grid Gaps" content="4" title="Large">
+    
     <meta name="select:Blog Hero Style" content="is-gradient" title="Faded Gradient Cut-off">
+    <meta name="select:Blog Hero Style" content="is-wave" title="Wavy">
     <meta name="select:Blog Hero Style" content="is-normal" title="Normal">
+    
+    <meta name="select:Blog Footer Style" content="is-normal" title="Normal">
+    <meta name="select:Blog Footer Style" content="is-gradient" title="Faded Gradient Cut-off">
+    <meta name="select:Blog Footer Style" content="is-wave" title="Wavy">
+    
+    <meta name="select:Header Search Button" content="is-displayed" title="Show">
+    <meta name="select:Header Search Button" content="is-hidden" title="Hide">
+    
+    <meta name="select:Header Additional Info Button" content="is-hidden" title="Hide">
+    <meta name="select:Header Additional Info Button" content="is-displayed" title="Show">
+    
+    <meta name="select:Posts Button Toggle Layout" content="is-hidden" title="No">
+    <meta name="select:Posts Button Toggle Layout" content="is-shown" title="Yes">
     
     <meta name="select:Posts Shorten" content="is-shorten-long-post" title="Yes">
     <meta name="select:Posts Shorten" content="is-not-shorten-long-post" title="No">
@@ -116,7 +142,22 @@
     <meta name="select:Posts Date Format" content="is-date-four" title="Posted at 10.00 PM">
     <meta name="select:Posts Date Format" content="is-date-five" title="Posted on Tuesday the 1st of January 1970 at 10:00 PM ">
     
-    <meta name="text:Hero Image Height" content='650px' />
+    <meta name="select:Hero Overlay Level" content="0.0" title="None (0%)">
+    <meta name="select:Hero Overlay Level" content="0.1" title="10%">
+    <meta name="select:Hero Overlay Level" content="0.2" title="20%">
+    <meta name="select:Hero Overlay Level" content="0.3" title="30%">
+    <meta name="select:Hero Overlay Level" content="0.4" title="40%">
+    <meta name="select:Hero Overlay Level" content="0.5" title="50%">
+    <meta name="select:Hero Overlay Level" content="0.6" title="60%">
+    <meta name="select:Hero Overlay Level" content="0.7" title="70%">
+    <meta name="select:Hero Overlay Level" content="0.8" title="80%">
+    <meta name="select:Hero Overlay Level" content="0.9" title="90%">
+    
+    <meta name="text:Hero Image Height" content='580px' />
+    
+    <meta name="text:Header Additional Info Heading" content='Heading here' />
+    <meta name="text:Header Additional Info Description" content="Put everything you want here. You can delete this text to hide the section if you don't want it." />
+    <meta name="text:Header Additional Info Contact" content='Please contact me at &lt;a href="#"&gt;email@gmail.com&lt;/a&gt;' />
     
     <meta name="text:Facebook URL" content=""/>
     <meta name="text:Twitter URL" content=""/>
@@ -128,7 +169,10 @@
     <meta name="text:Kofi URL" content=""/>
     <meta name="text:Tiktok URL" content=""/>
     <meta name="text:Mastodon URL" content=""/>
+    <meta name="text:Letterboxd URL" content=""/>
+    <meta name="text:Additional URL" content=""/>
     
+    <meta name="if:Featured Slideshow" content="0"/>
     <meta name="if:Selection Color" content="1"/>
     <meta name="if:Custom Scrollbar" content="1"/>
     {/block:Hidden}
@@ -175,11 +219,11 @@
             --social-media-btn-text-hover:{RGBcolor:Social Media Button Text Color On Hover};
 
             --hero-bg-img:url('{image:Hero Image}');
-            --hero-bg:238,238,238;
+            --hero-bg:{color:Hero Background Color};
             --hero-height:{text:Hero Image Height};
-            --hero-color:255,255,255;
-            --hero-overlay:17,17,17;
-            --hero-overlay-level:0.45;
+            --hero-color:{RGBcolor:Hero Top Text Color};
+            --hero-overlay:{RGBcolor:Hero Top Overlay Color};
+            --hero-overlay-level:{select:Hero Overlay Level};
             
             --header-navigation-bg:{RGBcolor:Header Navigation Background Color};
             --header-navigation-text:{RGBcolor:Header Navigation Link Color};
@@ -248,7 +292,7 @@
         {CustomCSS}
     </style>
 </head>
-<body data-page-type="{block:IndexPage}index{/block:IndexPage}{block:PermalinkPage}permalink{/block:PermalinkPage}{block:TagPage}tag{/block:TagPage}{block:DayPage}day{/block:DayPage}{block:SearchPage}search{/block:SearchPage}" data-blog-style="{block:IndexPage}{select:Blog Layout}{/block:IndexPage}{block:PermalinkPage}list{/block:PermalinkPage}" data-blog-style="list" class="{select:Sidebar Position} {select:Posts Shorten} {select:Blog Post Masonry Columns} {select:Background Page Repeat} {select:Background Page Size} {select:Background Page Style}">
+<body data-page-type="{block:IndexPage}index{/block:IndexPage}{block:PermalinkPage}permalink{/block:PermalinkPage}{block:TagPage}tag{/block:TagPage}{block:DayPage}day{/block:DayPage}{block:SearchPage}search{/block:SearchPage}" data-blog-style="{block:IndexPage}{select:Blog Layout}{/block:IndexPage}{block:PermalinkPage}list{/block:PermalinkPage}" data-blog-style="list" class="{select:Posts Shorten} {select:Blog Post Masonry Columns} {select:Background Page Repeat} {select:Background Page Size} {select:Background Page Style}">
     
    <nav class="nav is-transparent is-border">
       <div class="nav__inner | container--width-xl margin--x-auto">
@@ -291,10 +335,10 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
           </button>
           {/block:HasPages} 
-          <button data-button-type="search" aria-label="Search button">
+          <button class="{select:Header Search Button}" data-button-type="search" aria-label="Search button">
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           </button>
-          <button class="sparkling" data-button-type="info" aria-label="Additional information button">
+          <button class="sparkling {select:Header Additional Info Button}" data-button-type="info" aria-label="Additional information button">
             <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="19" height="19"><path d="M4.9 8.7l-.3-.4-.8.6.3.4.8-.6zm6 .6l.3-.4-.8-.6-.3.4.8.6zM7.5 14A6.5 6.5 0 011 7.5H0A7.5 7.5 0 007.5 15v-1zM14 7.5A6.5 6.5 0 017.5 14v1A7.5 7.5 0 0015 7.5h-1zM7.5 1A6.5 6.5 0 0114 7.5h1A7.5 7.5 0 007.5 0v1zm0-1A7.5 7.5 0 000 7.5h1A6.5 6.5 0 017.5 1V0zM4 6h1V5H4v1zm6 0h1V5h-1v1zm.1 2.7a3.25 3.25 0 01-5.2 0l-.8.6c1.7 2.267 5.1 2.267 6.8 0l-.8-.6z" fill="currentColor"></path></svg>
           </button>
         </div>
@@ -308,9 +352,11 @@
         </div>
         {/block:HasPages} 
         <div class="nav__additional" aria-hidden="true">
-         <h2>Commission Information</h2>
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut veritatis repudiandae dolor quia placeat exercitationem quidem quasi.</p>
-         <h2>My works</h2>
+         {block:IfHeaderAdditionalInfoDescription}
+             <h2>{text:Header Additional Info Heading}</h2>
+             <p>{text:Header Additional Info Description}</p>
+         {/block:IfHeaderAdditionalInfoDescription}
+         <h2>Featured posts</h2>
           <div class="nav__additional__featured">
             <div class="slideshow slideshow-all" 
                 data-items="2"
@@ -325,7 +371,7 @@
                 data-autoplaytime="5000"></div>
          </div>
          <h2>Contact</h2>
-         <p>Please contact me at <a href="#">email@gmail.com</a></p>
+         <p>{text:Header Additional Info Contact}</p>
         </div>
 
       </div>
@@ -425,8 +471,11 @@
 </svg>
                            </a></li>
                          {/block:IfMastodonURL}  
-                         <li><a href="#" title="Letterboxd"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M17.55 20a7.59 7.59 0 1 0 0 8 7.59 7.59 0 0 1 0-8Z" class="cls-1"/> <path d="M30.45 20a7.59 7.59 0 0 0-12.9 0 7.64 7.64 0 0 1 0 8 7.59 7.59 0 0 0 12.9 0 7.64 7.64 0 0 1 0-8Zm6.46-3.59A7.6 7.6 0 0 0 30.45 20a7.59 7.59 0 0 1 0 8 7.59 7.59 0 1 0 6.46-11.59Z" class="cls-1"/></svg></a></li>
-                         <li><a href="#" title="Others"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></li>
+                         {block:IfLetterboxdURL}  
+                         <li><a href="{text:Letterboxd URL}" title="Letterboxd"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M17.55 20a7.59 7.59 0 1 0 0 8 7.59 7.59 0 0 1 0-8Z" class="cls-1"/> <path d="M30.45 20a7.59 7.59 0 0 0-12.9 0 7.64 7.64 0 0 1 0 8 7.59 7.59 0 0 0 12.9 0 7.64 7.64 0 0 1 0-8Zm6.46-3.59A7.6 7.6 0 0 0 30.45 20a7.59 7.59 0 0 1 0 8 7.59 7.59 0 1 0 6.46-11.59Z" class="cls-1"/></svg></a></li>
+                         {/block:IfLetterboxdURL}  
+                         {block:IfAdditionalURL}
+                         <li><a href="{text:Additional URL}" title="Others"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></li>{/block:IfAdditionalURL}
          </ul>
       </div>
    </header>
@@ -434,7 +483,7 @@
    <main class="wrapper | container--width-xl margin--x-auto">
       <div class="wrapper__inner">
          {block:IndexPage}
-         <div class="wrapper__toggle">
+         <div class="wrapper__toggle {select:Posts Button Toggle Layout}">
             <div class="wrapper__toggle__inner">
                <button class="grid activated">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
@@ -454,7 +503,7 @@
             </div>
          </div>
          {/block:IndexPage}
-         <div class="wrapper__blog {block:PermalinkPage}| margin--top-70{/block:PermalinkPage}" id="blog">
+         <div class="wrapper__blog {block:PermalinkPage}| margin--top-70{/block:PermalinkPage}" id="blog" style="--grid-cols: {select:Blog Post Grid Columns}; --grid-gap: {select:Blog Post Grid Gaps}rem;">
             <div class="grid-sizer"></div>
             {block:NoPosts}
                <article class="posts posts-empty posts-text">
@@ -506,8 +555,6 @@
                    <div class="posts__dated">
                         <div class="posts__dated__perma">
                            <div class="posts__dated__reblog">
-                              <a class="username-text" href="{Permalink}">{Name}</a>
-                              
                               {block:RebloggedFrom} 
                               <span class="reblog-icon">
                                  <svg fill="currentColor" viewBox="0 0 17 18.1"><path d="M12.8.2c-.4-.4-.8-.2-.8.4v2H2c-2 0-2 2-2 2v5s0 1 1 1 1-1 1-1v-4c0-1 .5-1 1-1h9v2c0 .6.3.7.8.4L17 3.6 12.8.2zM4.2 17.9c.5.4.8.2.8-.3v-2h10c2 0 2-2 2-2v-5s0-1-1-1-1 1-1 1v4c0 1-.5 1-1 1H5v-2c0-.6-.3-.7-.8-.4L0 14.6l4.2 3.3z"></path></svg>
@@ -525,13 +572,15 @@
                                 </a>
                            </div>
                         </div>
-                        <div class="posts__dated__action | flex flex--align-center">
-                           {block:Actions}
-                             <div class="post-cta-action">
-                               <a class="btn btn__full btn__primary" href="{url}" rel="nofollow noreferrer noopener" target="_blank">{text}</a>
-                             </div>
-                           {/block:Actions}
-                        </div>
+                        <ul class="posts__dated__buttons">
+                              <li><a href="{ReblogURL}">
+                                    <svg fill="currentColor" viewBox="0 0 17 18.1">
+                                        <path d="M12.8.2c-.4-.4-.8-.2-.8.4v2H2c-2 0-2 2-2 2v5s0 1 1 1 1-1 1-1v-4c0-1 .5-1 1-1h9v2c0 .6.3.7.8.4L17 3.6 12.8.2zM4.2 17.9c.5.4.8.2.8-.3v-2h10c2 0 2-2 2-2v-5s0-1-1-1-1 1-1 1v4c0 1-.5 1-1 1H5v-2c0-.6-.3-.7-.8-.4L0 14.6l4.2 3.3z"></path>
+                                      </svg>
+                                    </a></li>
+                                <li><a class="like">{LikeButton}
+                                <svg fill="currentColor" viewBox="0 0 20 18"><path d="M14.658 0c-1.625 0-3.21.767-4.463 2.156-.06.064-.127.138-.197.225-.074-.085-.137-.159-.196-.225C8.547.766 6.966 0 5.35 0 4.215 0 3.114.387 2.162 1.117c-2.773 2.13-2.611 5.89-1.017 8.5 2.158 3.535 6.556 7.18 7.416 7.875A2.3 2.3 0 0 0 9.998 18c.519 0 1.028-.18 1.436-.508.859-.695 5.257-4.34 7.416-7.875 1.595-2.616 1.765-6.376-1-8.5C16.895.387 15.792 0 14.657 0h.001zm0 2.124c.645 0 1.298.208 1.916.683 1.903 1.461 1.457 4.099.484 5.695-1.973 3.23-6.16 6.7-6.94 7.331a.191.191 0 0 1-.241 0c-.779-.631-4.966-4.101-6.94-7.332-.972-1.595-1.4-4.233.5-5.694.619-.475 1.27-.683 1.911-.683 1.064 0 2.095.574 2.898 1.461.495.549 1.658 2.082 1.753 2.203.095-.12 1.259-1.654 1.752-2.203.8-.887 1.842-1.461 2.908-1.461h-.001z"></path></svg></a></li>
+                       </ul>
                      </div>
                    {/block:Date}
                 
@@ -595,7 +644,7 @@
                                 </div>
                         </div>
                     {/block:Answerer}
-                    {/block:Answer}                                            
+                    {/block:Answer}    
                     </section>
                     
                     <section class="posts__body">
@@ -635,6 +684,12 @@
                                {block:Text}{Body}{/block:Text}{block:Photo}{block:Caption}{Caption}{/block:Caption}{/block:Photo}{block:Panorama}{block:Caption}{Caption}{/block:Caption}{/block:Panorama}{block:Photoset}{block:Caption}{Caption}{/block:Caption}{/block:Photoset}{block:Link}{block:Description}{Description}{/block:Description}{/block:Link}{block:Audio}{block:Caption}{Caption}{/block:Caption}{/block:Audio}{block:Video}{block:Caption}{Caption}{/block:Caption}{/block:Video}{block:Answer}{Answer}{/block:Answer}
                             </div>
                     {/block:NotReblog}
+                    
+                    {block:Actions}
+                       <div class="post-cta-action | margin--bottom-15">
+                         <a class="btn btn__full btn__primary" href="{url}" rel="nofollow noreferrer noopener" target="_blank">{text}</a>
+                       </div>
+                    {/block:Actions}
                   </section>
                   
                   {block:Submission}
@@ -724,7 +779,7 @@
       </div>
    </main>
    
-   <footer class="footer is-wave">
+   <footer class="footer {select:Blog Footer Style}">
       <div class="footer__inner | container--width-xl margin--x-auto">
          <div class="footer__copyright">
             Copyright © {Name} {CopyRightYears}. All rights reserved.
@@ -756,9 +811,6 @@
     <!-- slider  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
 
-    <!-- photosets -->
-    <!--<script src="https://cdn.jsdelivr.net/gh/boscoxvi/npfphotosets@master/npfphotosets.js"></script>-->
-
     <!-- toggle -->
     <script src="https://cdn.jsdelivr.net/gh/ericbutler555/plain-js-slidetoggle@master/slideToggle.min.js"></script>
 
@@ -767,11 +819,11 @@
     "></script>
 
     <!-- main scripts -->
-    <script src="https://static.tumblr.com/5ojoydj/t1Fs143v2/app.js"></script>
+    <script src="https://static.tumblr.com/5ojoydj/rsDs1t19m/app.js"></script>
     <script src="https://static.tumblr.com/5ojoydj/rHCs130jf/featured.js"></script>
     <script type="text/javascript" src="https://{Name}.tumblr.com/api/read/json?callback=featured&tagged=featured"></script>
 
-   <script>
+    <script>
       tippy("[title]", {
          theme:"custom",
             arrow: tippy.roundArrow,
