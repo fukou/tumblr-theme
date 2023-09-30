@@ -2,779 +2,854 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html lang="{block:English}en{/block:English}{block:German}de{/block:German}{block:French}fr{/block:French}{block:Italian}it{/block:Italian}{block:Japanese}ja{/block:Japanese}{block:Turkish}tr{/block:Turkish}{block:Spanish}es{/block:Spanish}{block:Russian}ru{/block:Russian}{block:Polish}pl{/block:Polish}{block:PortuguesePT}pt-PT{/block:PortuguesePT}{block:PortugueseBR}pt-BR{/block:PortugueseBR}{block:Dutch}nl{/block:Dutch}{block:Korean}ko{/block:Korean}{block:ChineseSimplified}zh-CN{/block:ChineseSimplified}{block:ChineseTraditional}zh-TW{/block:ChineseTraditional}{block:ChineseHK}zh-HK{/block:ChineseHK}{block:Indonesian}id{/block:Indonesian}{block:Hindi}hi{/block:Hindi}">
+<html lang="{block:English}en{/block:English}{block:German}de{/block:German}{block:French}fr{/block:French}{block:Italian}it{/block:Italian}{block:Japanese}ja{/block:Japanese}{block:Turkish}tr{/block:Turkish}{block:Spanish}es{/block:Spanish}{block:Russian}ru{/block:Russian}{block:Polish}pl{/block:Polish}{block:PortuguesePT}pt-PT{/block:PortuguesePT}{block:PortugueseBR}pt-BR{/block:PortugueseBR}{block:Dutch}nl{/block:Dutch}{block:Korean}ko{/block:Korean}{block:ChineseSimplified}zh-CN{/block:ChineseSimplified}{block:ChineseTraditional}zh-TW{/block:ChineseTraditional}{block:ChineseHK}zh-HK{/block:ChineseHK}{block:Indonesian}id{/block:Indonesian}{block:Hindi}hi{/block:Hindi}" class="{block:IfCustomScrollbar}is-scrollbar{/block:IfCustomScrollbar}">
 <!--
     
                          Tumblr Theme by
-        _______  __    __   __  ___  ___   __    _____  
+         _______  __    __   __  ___  ___   __    _____  
         |   ____||  |  |  | |  |/  / |  |  |  |  /  __  \  
         |  |__   |  |  |  | |  '  /  |  |  |  | |  |  |  |
         |   __|  |  |  |  | |    <   |  |  |  | |  |  |  |
         |  |     |  `--'  | |  .  \  |  `--'  | |  `--'  |
         |__|      \______/  |__|\__\  \______/   \______/  
                        
-                    Empati (Tamako) Theme v.1.0.5
+        Empati Theme v2.1.1 (https://www.tumblr.com/theme/40432)
              
 -->
+<head>
+     <title>{block:TagPage}{lang:Posts tagged Tag} | {/block:TagPage} {block:SearchPage} {lang:SearchResultCount results for SearchQuery} {block:NoSearchResults}{lang:No results found}{/block:NoSearchResults} | {/block:SearchPage}{block:PostSummary}{PostSummary} &mdash; {/block:PostSummary}{Title}</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {block:Description}
+        <meta name="description" content="{MetaDescription}">
+    {/block:Description}
+    {MobileAppHeaders}
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/w73s1t37t/style.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;600&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400;1,600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>{block:PermalinkPage}{block:PostSummary}{PostSummary} — {/block:PostSummary}{/block:PermalinkPage}{Title}{block:SearchPage} — {lang:Search results for SearchQuery}{/block:SearchPage}</title>{block:Description}
-            <meta name="description" content="{MetaDescription}">{/block:Description}
-            <meta name="theme-color" content="{BackgroundColor}">
-            {MobileAppHeaders}
-            <link rel="shortcut icon" href="{Favicon}">
-            <link rel="alternate" type="application/rss+xml" href="{RSS}">
-            <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/YXprbx46a/main.min.css">
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"/>
-            <link href="https://cdn.jsdelivr.net/gh/boscoxvi/npfphotosets/npfphotosetstyle.css" rel="stylesheet" type="text/css">
-            <link href="https://static.tumblr.com/0podkko/xIbplezmo/modified_photosets.css" rel="stylesheet">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
-            <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+    <link rel="stylesheet" type="text/css" href="https://assets.tumblr.com/fonts/favorit/stylesheet.css?v=1">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+    
+    {block:Hidden}
+    <meta name="image:Hero Image" content="" />
+    <meta name="image:Background Page Image" content=""/>
+    
+    <meta name="color:Accent Color" content="#40BF8C" />
+    <meta name="color:Background Page Color 1" content="#bbe4d0" />
+    <meta name="color:Background Page Color 2" content="#EEEEEE" />
+    
+    <meta name="color:Border Color" content="#dddddd" />
+    
+    <meta name="color:Posts Background Color" content="#ffffff" />
+    <meta name="color:Posts Body Link Color" content="#000000" />
+    <meta name="color:Posts Body Heading Color" content="#111111" />
+    <meta name="color:Posts Body Text Color" content="#555555" />
+    
+    <meta name="color:Header Navigation Background Color" content="#ffffff" />
+    <meta name="color:Header Navigation Link Color" content="#111111" />
+    <meta name="color:Header Navigation Link Color On Hover" content="#111111" />
+    
+    <meta name="color:Button Background Color" content="#40BF8C" />
+    <meta name="color:Button Background Color On Hover" content="#111111" />
+    <meta name="color:Button Text Color" content="#ffffff" />
+    <meta name="color:Button Text Color On Hover" content="#ffffff" />
+    
+    <meta name="color:Social Media Button Background Color" content="#111111" />
+    <meta name="color:Social Media Button Background Color On Hover" content="#cccccc" />
+    <meta name="color:Social Media Button Text Color" content="#ffffff" />
+    <meta name="color:Social Media Button Text Color On Hover" content="#ffffff" />
+    
+    <meta name="color:Hero Background Color" content="#EEEEEE" />
+    <meta name="color:Hero Top Text Color" content="#111111" />
+    <meta name="color:Hero Top Overlay Color" content="#000000" />
+    
+    <meta name="color:Selection Text Color" content="#111111" />
+    <meta name="color:Selection Text Background Color" content="#FCC558" />
+    
+    <meta name="select:Background Page Style" content="is-gradient" title="Gradient">
+    <meta name="select:Background Page Style" content="is-bg" title="Image">
+    <meta name="select:Background Page Size" content="is-covered" title="Cover">
+    <meta name="select:Background Page Size" content="is-normal" title="Auto">
+    <meta name="select:Background Page Repeat" content="is-normal" title="No Repeat">
+    <meta name="select:Background Page Repeat" content="is-repeat" title="Repeat">
+    
+    <meta name="select:Font Heading" content="Instrument Serif, serif" title="Instrument Serif">
+    <meta name="select:Font Heading" content="'Source Serif 4', serif;" title="Source Serif">
+    <meta name="select:Font Heading" content="Favorit, sans-serif" title="Favorit (Tumblr)">
+    <meta name="select:Font Heading" content="Be Vietnam Pro, sans-serif" title="Be Vietnam Pro">
+    <meta name="select:Font Heading" content="Inter, sans-serif" title="Inter">
+    <meta name="select:Font Heading" content="Roboto, sans-serif" title="Roboto">
+    
+    <meta name="select:Font Body" content="Favorit, sans-serif" title="Favorit (Tumblr)">
+    <meta name="select:Font Body" content="Be Vietnam Pro, sans-serif" title="Be Vietnam Pro">
+    <meta name="select:Font Body" content="Inter, sans-serif" title="Inter">
+    <meta name="select:Font Body" content="Roboto, sans-serif" title="Roboto">
+    <meta name="select:Font Body" content="'Source Sans 3', sans-serif" title="Source Sans Pro">
+    <meta name="select:Font Body" content="Instrument Sans, sans-serif" title="Instrument Sans">
+    
+    <meta name="select:Font Size" content="15" title="15px">
+    <meta name="select:Font Size" content="14" title="14px">
+    <meta name="select:Font Size" content="16" title="16px">
+    
+    <meta name="select:Blog Layout" content="list" title="Normal">
+    <meta name="select:Blog Layout" content="grid" title="Grid">
+    <meta name="select:Blog Layout" content="masonry" title="Masonry">
+    
+    <meta name="select:Blog Post Masonry Columns" content="is-two-column" title="2 Columns">
+    <meta name="select:Blog Post Masonry Columns" content="is-three-column" title="3 Columns">
+    
+    <meta name="select:Blog Post Grid Columns" content="3" title="3 Columns">
+    <meta name="select:Blog Post Grid Columns" content="2" title="2 Columns">
+    <meta name="select:Blog Post Grid Columns" content="4" title="4 Columns">
+    <meta name="select:Blog Post Grid Columns" content="5" title="5 Columns">
+    
+    <meta name="select:Blog Post Grid Gaps" content="2" title="Default">
+    <meta name="select:Blog Post Grid Gaps" content="1" title="Small">
+    <meta name="select:Blog Post Grid Gaps" content="3" title="Medium">
+    <meta name="select:Blog Post Grid Gaps" content="4" title="Large">
+    
+    <meta name="select:Blog Hero Style" content="is-gradient" title="Faded Gradient Cut-off">
+    <meta name="select:Blog Hero Style" content="is-wave" title="Wavy">
+    <meta name="select:Blog Hero Style" content="is-normal" title="Normal">
+    
+    <meta name="select:Blog Footer Style" content="is-normal" title="Normal">
+    <meta name="select:Blog Footer Style" content="is-gradient" title="Faded Gradient Cut-off">
+    <meta name="select:Blog Footer Style" content="is-wave" title="Wavy">
+    
+    <meta name="select:Header Search Button" content="is-displayed" title="Show">
+    <meta name="select:Header Search Button" content="is-hidden" title="Hide">
+    
+    <meta name="select:Header Additional Info Button" content="is-hidden" title="Hide">
+    <meta name="select:Header Additional Info Button" content="is-displayed" title="Show">
+    
+    <meta name="select:Posts Button Toggle Layout" content="is-hidden" title="No">
+    <meta name="select:Posts Button Toggle Layout" content="is-shown" title="Yes">
+    
+    <meta name="select:Posts Shorten" content="is-shorten-long-post" title="Yes">
+    <meta name="select:Posts Shorten" content="is-not-shorten-long-post" title="No">
+    
+    <meta name="select:Posts Date Format" content="is-date-one" title="Posted on 1 January, 1970">
+    <meta name="select:Posts Date Format" content="is-date-two" title="Posted on Thursday, 1 January 1970">
+    <meta name="select:Posts Date Format" content="is-date-three" title="Posted on Thursday January 1st">
+    <meta name="select:Posts Date Format" content="is-date-four" title="Posted at 10.00 PM">
+    <meta name="select:Posts Date Format" content="is-date-five" title="Posted on Tuesday the 1st of January 1970 at 10:00 PM ">
+    
+    <meta name="select:Hero Overlay Level" content="0.0" title="None (0%)">
+    <meta name="select:Hero Overlay Level" content="0.1" title="10%">
+    <meta name="select:Hero Overlay Level" content="0.2" title="20%">
+    <meta name="select:Hero Overlay Level" content="0.3" title="30%">
+    <meta name="select:Hero Overlay Level" content="0.4" title="40%">
+    <meta name="select:Hero Overlay Level" content="0.5" title="50%">
+    <meta name="select:Hero Overlay Level" content="0.6" title="60%">
+    <meta name="select:Hero Overlay Level" content="0.7" title="70%">
+    <meta name="select:Hero Overlay Level" content="0.8" title="80%">
+    <meta name="select:Hero Overlay Level" content="0.9" title="90%">
+    
+    <meta name="text:Hero Image Height" content='580px' />
+    
+    <meta name="text:Header Additional Info Heading" content='Heading here' />
+    <meta name="text:Header Additional Info Description" content="Put everything you want here. You can delete this text to hide the section if you don't want it." />
+    <meta name="text:Header Additional Info Contact" content='Please contact me at &lt;a href="#"&gt;email@gmail.com&lt;/a&gt;' />
+    
+    <meta name="text:Facebook URL" content=""/>
+    <meta name="text:Twitter URL" content=""/>
+    <meta name="text:Patreon URL" content=""/>
+    <meta name="text:Twitch URL" content=""/>
+    <meta name="text:Youtube URL" content=""/>
+    <meta name="text:Instagram URL" content=""/>
+    <meta name="text:Discord URL" content=""/>
+    <meta name="text:Kofi URL" content=""/>
+    <meta name="text:Tiktok URL" content=""/>
+    <meta name="text:Mastodon URL" content=""/>
+    <meta name="text:Letterboxd URL" content=""/>
+    <meta name="text:Additional URL" content=""/>
+    
+    <meta name="if:Featured Slideshow" content="0"/>
+    <meta name="if:Selection Color" content="1"/>
+    <meta name="if:Custom Scrollbar" content="1"/>
+    {/block:Hidden}
+    
+    <style id="main">
+        :root {
+            --title-font: {TitleFont};
+            --title-font-weight: {TitleFontWeight};
 
-            {block:Hidden}
-            <meta name="image:Background Image" content="">
-             
-            <meta name="if:Show Toggle Posts Type" content="1">
-            <meta name="if:Show Verified Badge" content="1">
-            
-            <meta name="select:Background Image Type" content="is-covered" title="Full Covered">
-            <meta name="select:Background Image Type" content="is-repeated" title="Repeated">
-            
-            <meta name="select:Hero Image Type" content="is-slanted" title="Slanted">
-            <meta name="select:Hero Image Type" content="is-circle" title="Circle">
-            <meta name="select:Hero Image Type" content="is-normal" title="Normal">
-            
-            <meta name="select:Font Size" content="14" title="14px">
-            <meta name="select:Font Size" content="15" title="15px">
-            <meta name="select:Font Size" content="16" title="16px">
-            
-            <meta name="select:Posts Type" content="is-grid" title="Show Grid Posts">
-            <meta name="select:Posts Type" content="is-list" title="Show List Posts">
-            <meta name="select:Posts Type" content="is-masonry" title="Show Masonry Posts">
-            <meta name="select:Posts Type" content="is-grid is-alternative" title="Show Alternative Posts">
-            
-            <meta name="color:Header Navigation Link Color" content="#EEEEEE" />
-            <meta name="color:Header Description Text Color" content="#777777" />
-            <meta name="color:Header Overlay Background Color" content="#222222" />
-            <meta name="color:Verified Background Color" content="#3487ec" />
-            <meta name="color:Verified Text Color" content="#eeeeee" />
+            --heading-font:{select:Font Heading};
+            --body-font:{select:Font Body};
+            --code-font: 'Consolas', monospace;
 
-            <meta name="color:Posts Background Color" content="#ffffff" />
-            <meta name="color:Posts Body Link Color" content="#111111" />
-            <meta name="color:Posts Body Heading Color" content="#111111" />
-            <meta name="color:Posts Body Text Color" content="#444444" />
+            --accent:{RGBcolor:Accent Color};
+            --bg-color-1: {RGBcolor:Background Page Color 1};
+            --bg-color-2: {RGBcolor:Background Page Color 2};
+
+            --bg-card:{RGBcolor:Posts Background Color};
+            --body-text: {RGBcolor:Posts Body Text Color};
+            --body-link: {RGBcolor:Posts Body Link Color};
+            --heading-text: {RGBcolor:Posts Body Heading Color};
+
+            --bg-card-pinned:var(--bg-card);
+
+            --post-bubble-bg:238,238,238;
+            --post-bubble-text:17,17,17;
+
+            --bg-img: url('{image:Background Page Image}');
+
+            --btn-primary:{RGBcolor:Button Background Color};
+            --btn-text-primary:{RGBcolor:Button Text Color};
+
+            --btn-primary-hover:{RGBcolor:Button Background Color On Hover};
+            --btn-text-primary-hover:{RGBcolor:Button Text Color On Hover};
+
+            --bg-card-pinned-border:var(--accent);
+
+            --pinned-label-bg:var(--accent);
+            --pinned-label-text:var(--bg-card);
+
+            --social-media-btn:{RGBcolor:Social Media Button Background Color};
+            --social-media-btn-text:{RGBcolor:Social Media Button Text Color};
+            --social-media-btn-hover:{RGBcolor:Social Media Button Background Color On Hover};
+            --social-media-btn-text-hover:{RGBcolor:Social Media Button Text Color On Hover};
+
+            --hero-bg-img:url('{image:Hero Image}');
+            --hero-bg:{color:Hero Background Color};
+            --hero-height:{text:Hero Image Height};
+            --hero-color:{RGBcolor:Hero Top Text Color};
+            --hero-overlay:{RGBcolor:Hero Top Overlay Color};
+            --hero-overlay-level:{select:Hero Overlay Level};
             
-            <meta name="text:Additional About Text" content=""/>
-            
-            <meta name="text:Twitter URL" content=""/>
-            <meta name="text:Patreon URL" content="/"/>
-            <meta name="text:Twitch URL" content=""/>
-            <meta name="text:Youtube URL" content=""/>
-            <meta name="text:Instagram URL" content="/"/>
-            <meta name="text:DeviantArt URL" content=""/>
-            <meta name="text:Reddit URL" content=""/>
-            <meta name="text:Discord URL" content=""/>
-            <meta name="text:Kofi URL" content=""/>
-            {/block:Hidden}
+            --header-navigation-bg:{RGBcolor:Header Navigation Background Color};
+            --header-navigation-text:{RGBcolor:Header Navigation Link Color};
+            --header-navigation-text-hover:{RGBcolor:Header Navigation Link Color On Hover};
 
-            {PostTypographyStyles}
-            <style id="global">
-                :root {
-                    --hero:url("{HeaderImage}");
-                    --bg: url("{image:Background Image}");
-                    
-                    --heading-font: 'Source Serif Pro', serif;
-                    --body-font: 'Be Vietnam Pro', sans-serif;
-                    --code-font:'Consolas', monospace;
-                    
-                    --accent:{RGBAccentColor}; /* {AccentColor} */
-                
-                    --bg-color:{RGBBackgroundColor}; /* {BackgroundColor}*/
-                    --bg-card:{RGBcolor:Posts Background Color};
-                    
-                    --body-text: {RGBcolor:Posts Body Text Color};
-                    --body-link: {RGBcolor:Posts Body Link Color};
-                    --heading-text: {RGBcolor:Posts Body Heading Color};
-                    
-                    --header-link-color:{RGBcolor:Header Navigation Link Color};
-                    --hero-title-font: {TitleFont};
-                    --hero-text:{RGBcolor:Header Description Text Color};
-                    --hero-overlay:{RGBcolor:Header Overlay Background Color};
-            
-                    --bg-verified:{RGBcolor:Verified Background Color};
-                    --text-verified:{RGBcolor:Verified Text Color};
-                }
+            --border-color:{RGBcolor:Border Color};
 
-                html {
-                    font-size:{select:Font Size}px;
-                }
-                
-                .wrapper__hero::before {
-                    {block:HideHeaderImage}display:none;{/block:HideHeaderImage} 
-                }
-            </style>
-            <style id="custom">{CustomCSS}</style>
-        </head>
-        <body class="{select:Background Image Type} {block:IndexPage}{select:Posts Type}{/block:IndexPage}" style="background-image:var(--bg);">
+            --tags-button-text:140, 140, 140;
+            --tags-button-text-hover:17, 17, 17;
 
-            <!-- modal container -->
-            <div class="modal" role="dialog" tabindex="-1">
-                <button class="modal__close" type="button" aria-label="Close">
-                    <svg width="24" height="24" viewBox="0 0 44 44" aria-hidden="true" focusable="false" fill="currentColor">
-                       <path d="M0.549989 4.44999L4.44999 0.549988L43.45 39.55L39.55 43.45L0.549989 4.44999Z"/>
-                       <path d="M39.55 0.549988L43.45 4.44999L4.44999 43.45L0.549988 39.55L39.55 0.549988Z"/>
-                    </svg>
-               </button>
-               <div class="modal__inner"></div>
-            </div>
-            
-            <!-- link  -->
-            <div class="link">
-             <div class="link__inner">
-                <button class="nav__hamburger nav__hamburger--close">
-                   <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                </button>
-                <div class="link__main">
-                   {block:IfAdditionalAboutText}
-                   <div class="link__main--inner">
-                      <h2><span class="circle"><i class="lar la-user"></i></span> {lang:About me}</h2>
-                      <p>{text:Additional About Text}</p>
-                   </div>
-                   {/block:IfAdditionalAboutText}
-                   
-                   {block:HasPages} 
-                   <div class="link__main--inner">
-                      <h2><span class="circle"><i class="las la-paperclip"></i></span> Quick links</h2>
-                      <ul class="quick">
-                         {block:Pages}  
-                            <li>
-                            <a href="{URL}" class="{CurrentState} {ExternalState}">{Label}</a>
-                            </li>
-                        {/block:Pages}	
-                      </ul>
-                   </div>
-                   {/block:HasPages} 
-                   
-                   {block:HasHighlightedPosts}
-                   <div class="link__main--inner">
-                     <h2><span class="circle"><i class="lar la-star"></i></span> {lang:Top Photos}</h2>
-                     <div class="link__highlighted">
-                        {block:HighlightedPosts}
-                            <a href="{Permalink}">
-                                <figure>
-                                    <img src="{PhotoURL-250}">
-                                </figure>
-                            </a>
-                        {/block:HighlightedPosts}
-                    </div>
-                   </div>
-                   {/block:HasHighlightedPosts}
-                    
-                </div>
-             </div>
-             <div class="link__overlay"></div>
-           </div>
-            
-            <!-- wrapper -->
-            <div class="wrapper__blur">
-                <!-- iframe tumblr controls -->
-                <div class="iframe-container" style="background:rgba(var(--bg-card), 1);"><iframe id="new-tumblr-controls" src="" frameborder="0" scrolling="no" name="unified-controls" class="tmblr-iframe tmblr-iframe--unified-controls tmblr-iframe--loaded iframe-controls--desktop"></iframe></div>
-                
-               <!-- navigation -->
-               <nav class="nav {block:ShowHeaderImage}with-hero{/block:ShowHeaderImage}">
-                  <div class="nav__inner">
-                     <ul>
-                        <li class="home {block:HomePage}actived{/block:HomePage}">
-                           <a href="/"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> {lang:Home}</a>
-                        </li>
-                        <li>
-                           <a href="/archive"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg> {lang:Archive}</a>
-                        </li>
-                        {block:AskEnabled}
-                        <li {block:AskPage}class="actived"{/block:AskPage}>
-                           <a href="/ask"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> {AskLabel}</a>
-                        </li>
-                        {/block:AskEnabled}
-                        {block:SubmissionsEnabled}
-                        <li {block:SubmitPage} class="actived"{/block:SubmitPage}>
-                           <a href="/submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg> {SubmitLabel}</a>
-                        </li>
-                        {/block:SubmissionsEnabled}
-                     </ul>
-                     <button class="nav__hamburger {block:HasPages}is-visible{/block:HasPages}" aria-label="Navigation">
-                        <svg
-                           xmlns="http://www.w3.org/2000/svg"
-                           width="24"
-                           height="24"
-                           viewBox="0 0 24 24"
-                           fill="none"
-                           stroke="currentColor"
-                           stroke-width="1.5"
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                        >
-                           <line x1="3" y1="12" x2="21" y2="12"></line>
-                           <line x1="3" y1="6" x2="21" y2="6"></line>
-                           <line x1="3" y1="18" x2="21" y2="18"></line>
-                        </svg>
-                     </button>
-                  </div>
-               </nav>
-               
-               <!-- header -->
-               <header class="wrapper__hero {select:Hero Image Type}" {block:ShowHeaderImage}style="background-image:var(--hero);{/block:ShowHeaderImage}">
-                <div class="wrapper__hero--inner">
-                  {block:ShowAvatar}
-                   <figure>
-                      <img
-                         src="{PortraitURL-96}"
-                         alt="{Name}"
-                         class="{AvatarShape}"
-                      />
-                      {block:IfShowVerifiedBadge}
-                      <div class="wrapper__hero--verified">
-                         <svg width="18" height="18" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.5213 2.62368C11.3147 1.75255 12.6853 1.75255 13.4787 2.62368L14.4989 3.74391C14.8998 4.18418 15.4761 4.42288 16.071 4.39508L17.5845 4.32435C18.7614 4.26934 19.7307 5.23857 19.6757 6.41554L19.6049 7.92905C19.5771 8.52388 19.8158 9.10016 20.2561 9.50111L21.3763 10.5213C22.2475 11.3147 22.2475 12.6853 21.3763 13.4787L20.2561 14.4989C19.8158 14.8998 19.5771 15.4761 19.6049 16.071L19.6757 17.5845C19.7307 18.7614 18.7614 19.7307 17.5845 19.6757L16.071 19.6049C15.4761 19.5771 14.8998 19.8158 14.4989 20.2561L13.4787 21.3763C12.6853 22.2475 11.3147 22.2475 10.5213 21.3763L9.50111 20.2561C9.10016 19.8158 8.52388 19.5771 7.92905 19.6049L6.41553 19.6757C5.23857 19.7307 4.26934 18.7614 4.32435 17.5845L4.39508 16.071C4.42288 15.4761 4.18418 14.8998 3.74391 14.4989L2.62368 13.4787C1.75255 12.6853 1.75255 11.3147 2.62368 10.5213L3.74391 9.50111C4.18418 9.10016 4.42288 8.52388 4.39508 7.92905L4.32435 6.41553C4.26934 5.23857 5.23857 4.26934 6.41554 4.32435L7.92905 4.39508C8.52388 4.42288 9.10016 4.18418 9.50111 3.74391L10.5213 2.62368Z" stroke="currentColor" stroke-width="1.5"/>
-                            <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            
-                      </div>
-                      {/block:IfShowVerifiedBadge}
-                   </figure>
-                   {/block:ShowAvatar}
-                   <div class="wrapper__hero--desc">
-                     {block:ShowTitle}<h2>{Title}</h2>{/block:ShowTitle}
-                     {block:ShowDescription}{Description}{/block:ShowDescription}
-                   </div>
-                </div>
-               </header>
-               
-               <!-- main contant -->
-               <main class="wrapper">
-                   {block:IfShowTogglePostsType}
-                   {block:IndexPage}
-                   <section class="wrapper__toggle" style="{block:NoPosts}display:none;{/block:NoPosts}">
-                       <div class="wrapper__toggle--inner">
-                          <button class="grid">
-                             <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                             >
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect></svg>
-                                Grid
-                          </button>
-                          <button class="list">
-                             <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                             >
-                                <line x1="8" y1="6" x2="21" y2="6"></line>
-                                <line x1="8" y1="12" x2="21" y2="12"></line>
-                                <line x1="8" y1="18" x2="21" y2="18"></line>
-                                <line x1="3" y1="6" x2="3.01" y2="6"></line>
-                                <line x1="3" y1="12" x2="3.01" y2="12"></line>
-                                <line x1="3" y1="18" x2="3.01" y2="18"></line>
-                             </svg>
-                             List
-                          </button>
-                       </div>
-                   </section>
-                   {/block:IndexPage}
-                   {/block:IfShowTogglePostsType}
-   
-                  <section class="wrapper__blog {block:IndexPage}{select:Posts Type}{/block:IndexPage}{block:PermalinkPage}is-list{/block:PermalinkPage}">
-            
-                   {block:IndexPage}
-                       {block:NoPosts}
-                          <article class="posts posts__empty">
-                              <h2>{lang:This Tumblr hasnt made any posts}</h2>
-                           </article>
-                       {/block:NoPosts}
-                   {/block:IndexPage}
-                   
-                   {block:SearchPage}
-                   <article class="posts posts__empty">
-                     <h3>{lang:Found SearchResultCount results for SearchQuery 2} {block:NoSearchResults}{lang:No search results for SearchQuery 2}{/block:NoSearchResults}</h3>
-                   </article>
-                   {/block:SearchPage}
-                   
-                   {block:TagPage}
-                   <article class="posts posts__empty">
-                     <h3>{lang:Showing TagResultCount posts tagged Tag 2}</h3>
-                   </article>
-                   {/block:TagPage}
-               
-                   {block:Posts inlineMediaWidth="700" inlineNestedMediaWidth="700"}
-                   <article id="{PostID}" class="posts posts-{PostType} {block:PinnedPostLabel}posts-pinned{/block:PinnedPostLabel}">
-                       <div class="posts__inner">
-                              {block:PinnedPostLabel}
-                               <div class="posts__pinned"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z"/></svg> <span>{PinnedPostLabel}</span></div>
-                              {/block:PinnedPostLabel}
-                              {block:Date}
-                              {block:IndexPage}
-                              <div class="posts__permalink">
-                                 <div class="posts__permalink--avatar">
-                                    <div class="is-source">
-                                    {block:RebloggedFrom}
-                                       <a href="{ReblogParentURL}" title="{lang:Reblogged TimeAgo from ReblogParentName}"><img src="{ReblogParentPortraitURL-64}" alt="{ReblogParentName}"></a>
-                                       <a href="{ReblogRootURL}" title="{lang:Originally from ReblogRootName}"><img src="{ReblogRootPortraitURL-64}" alt="{ReblogRootName}"></a>
-                                    {/block:RebloggedFrom}
-                                    {block:NotReblog}
-                                       <a href="{Permalink}"><img src="{PortraitURL-64}" alt="{Name}"></a>
-                                    {/block:NotReblog}
-                                    </div>
-                                    <div class="is-notes">{lang:This post has NoteCount notes}</div>
-                                 </div>
-                                 <div class="posts__permalink--action">
-                                    <ul>
-                                       <li><a href="{ReblogURL}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/></svg></a></li>
-                                       <li><a class="like">{LikeButton}<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a></li>
-                                    </ul>
-                                 </div>
-                           </div>
-                           {/block:IndexPage}
-                           {/block:Date}
-                           <div class="posts__type">
-                               {block:Answer}
-                               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                               {/block:Answer}
-                               {block:Link}
-                               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><path d="M14 3v5h5M16 13H8M16 17H8M10 9H8"/></svg>
-                               {/block:Link}
-                               {block:Video}
-                               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15.6 11.6L22 7v10l-6.4-4.5v-1zM4 5h9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7c0-1.1.9-2 2-2z"/></svg>
-                               {/block:Video}
-                               {block:Chat}
-                               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                               {/block:Chat}
-                           </div>
-                           <div class="posts__view">
-                            <a href="#" class="btn-post">See this post <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></a>
-                           </div>
-                           <div class="posts__user">
-                              {block:NotReblog}<img src="{PortraitURL-30}" alt="{Name}"/><span>{Name}</span>{/block:NotReblog}
-                              {block:RebloggedFrom}<img src="{ReblogRootPortraitURL-30}" alt="{ReblogRootName}"/><span>{ReblogRootName}</span>{/block:RebloggedFrom}
-                           </div>
-                           <section class="posts__media">{block:Text}{block:Title}
-                               <h1>{Title}</h1>{/block:Title}{/block:Text}{block:Photo}
-                               <figure class="posts__image">
-                                   {LinkOpenTag}
-                                       <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
-                                   {LinkCloseTag}
-                               </figure>
-                               {/block:Photo}
-                               {block:Photoset}
-                               <div class="photoset-count">{PhotoCount} <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div>
-                               <div class="photoset-grid" photoset-layout="{PhotosetLayout}">{block:Photos}<div data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" onclick="lightbox(this)"><img src="{PhotoURL-HighRes}" /></div>{/block:Photos}</div>{block:Photoset}
-                               
-                               {block:Quote}
-                               <blockquote class="posts__quote {Length}">
-                                  <div>{Quote}</div>
-                                  {block:Source}<cite>&mdash; {Source}</cite>{/block:Source}
-                               </p>
-                               {/block:Quote}
-                               {block:Link}
-                               <div class="npf-link-block {block:Thumbnail}has-poster not-{/block:Thumbnail}no-poster">
-                                   <a href="{URL}" {Target}>{block:Thumbnail}
-                                       <div class="poster" style="background-image: url({Thumbnail-HighRes});">{/block:Thumbnail}
-                                           <div class="title">{Name}</div>{block:Thumbnail}
-                                       </div>{/block:Thumbnail}
-                                       <div class="bottom">{block:Excerpt}
-                                           <div class="description">{Excerpt}</div>{/block:Excerpt}{block:Host}
-                                           <div class="site-name">{Host}</div>{/block:Host}
-                                       </div>
-                                   </a>
-                               </div>{/block:Link}{block:Chat}{block:Title}
-                               <h1>{Title}</h1>{/block:Title}{block:Lines}
-                               <p class="npf_chat">{block:Label}
-                                   <b>{Label}</b>{/block:Label}
-                                   {Line}
-                               </p>{/block:Lines}{/block:Chat}
-                               {block:Audio}
-                               <div class="posts__audio">
-                                 {block:AudioPlayer} 
-                                    {AudioPlayer} 
-                                 {/block:AudioPlayer}
-                                 <div class="posts__audio--player">
-                                  <button class="btn-play" data-action="play">
-                                     <span id="play">
-                                        <i class="las la-play"></i>
-                                    </span>
-            
-                                    <span id="pause" style="display: none">
-                                     <i class="las la-pause"></i>
-                                    </span>
-                                    
-                                  </button>
-                                 </div>
-                                 <div class="posts__audio--album">
-                                    {block:AlbumArt}
-                                    <img src="{AlbumArtURL}" alt=""/>
-                                    {/block:AlbumArt}
-                                 </div>
-                                 <div class="posts__audio--info">
-                                    <svg
-                                       xmlns="http://www.w3.org/2000/svg"
-                                       width="18"
-                                       height="18"
-                                       viewBox="0 0 24 24"
-                                       fill="none"
-                                       stroke="currentColor"
-                                       stroke-width="1.5"
-                                       stroke-linecap="round"
-                                       stroke-linejoin="round"
-                                    >
-                                       <circle cx="5.5" cy="17.5" r="2.5" />
-                                       <circle cx="17.5" cy="15.5" r="2.5" />
-                                       <path d="M8 17V5l12-2v12" />
-                                    </svg>
-                                    <div>{block:Artist}{Artist}{/block:Artist} ∙ {block:TrackName}{TrackName}{/block:TrackName}</div>
-                                 </div>
-                                 <div class="posts__audio--visual" id="waveform"></div>
-                               </div>
-                               {/block:Audio}
-                               {block:Video}<div class="video__p">{Video-700}</div>{/block:Video}
-                               {block:Answer}
-                               <div class="posts__question">
-                                 <img class="posts__answerer--img" src="{AskerPortraitURL-64}" alt="">
-                                 <div class="posts__answerer--inner">
-                                     <div class="posts__question--asker">
-                                        {lang:Asker asked 2}
-                                     </div>
-                                    {Question}
-                                 </div>
-                             </div>
-                             
-                             {block:Answerer}
-                              <div class="posts__answerer">
-                              <img class="posts__answerer--img" src="{AnswererPortraitURL-64}" alt="">
-                                 <div class="posts__answerer--inner">
-                                     <div class="posts__answerer--asker">
-                                        {Answerer} replied
-                                     </div>
-                                 {Answer}
-                                 </div>
-                             </div>
-                             {/block:Answerer}
-                             {/block:Answer}
-                           </section>
-                           <section class="posts__body">{block:RebloggedFrom}{block:Reblogs}
-                               <div class="reblog-list">
-                                   <div class="reblog-post-avatar">
-                                       {block:HasAvatar}
-                                           <img src="{PortraitURL-64}" />
-                                           <span>
-                                              {block:IsActive}{block:HasPermalink}<a href="{Permalink}" class="user-blog">{/block:HasPermalink}{Username}{block:HasPermalink}</a>{/block:HasPermalink}{/block:IsActive}
-                                               {block:IsDeactivated}
-                                               {block:HasPermalink}<a href="{Permalink}" class="user-blog is-deactivated">{/block:HasPermalink}{Username}{block:HasPermalink}</a>{/block:HasPermalink}
-                                               {/block:IsDeactivated}
-                                           </span>
-                                       {/block:HasAvatar}
-                                     </div>
-                                   {Body}
-                               </div>{/block:Reblogs}{/block:RebloggedFrom}
-                               {block:NotReblog}
-                               <div class="original">{block:Text}
-                                   {Body}{/block:Text}{block:Photo}{block:Caption}
-                                   {Caption}{/block:Caption}{/block:Photo}{block:Panorama}{block:Caption}
-                                   {Caption}{/block:Caption}{/block:Panorama}{block:Photoset}{block:Caption}
-                                   {Caption}{/block:Caption}{/block:Photoset}{block:Link}{block:Description}
-                                   {Description}{/block:Description}{/block:Link}{block:Audio}{block:Caption}
-                                   {Caption}{/block:Caption}{/block:Audio}{block:Video}{block:Caption}
-                                   {Caption}{/block:Caption}{/block:Video}{block:Answer}
-                                   {Answer}{/block:Answer}
-                               </div>{/block:NotReblog}
-                           </section>
-                           {block:Date}
-                           <section class="posts__perma">
-                               <div class="posts__note"><a href="{Permalink}">{lang:Posted on DayOfWeek DayOfMonth Month Year} ∙ {12Hour}:{Minutes}{AmPm}</a></div>
-                           </section>
-                           {/block:Date}
-                       </div>
-                       <footer class="posts__date" aria-hidden="true">
-                           <span class="count"></span>
-                           <span class="line"></span>
-                           <span>{24Hour}:{Minutes}</span>
-                       </footer>
-                       {block:HasTags}
-                       <div class="posts__tags {select:Tags Post}">
-                           <ul>
-                               {block:Tags}
-                               <li><a href="{TagURL}">{Tag}</a></li>
-                               {/block:Tags}
-                           </ul>
-                       </div>
-                       {/block:HasTags}
-                   </article>
-                   
-                   {block:PermalinkPagination}
-                        <nav class="pagination">
-                           <div class="pagination__inner" style="display: flex;justify-content: space-between;width: 100%;margin-bottom: 3.5rem;">
-                               <a {block:PreviousPost}href="{PreviousPost}" class="is-link"{/block:PreviousPost}><i class="las la-angle-left"></i> {lang:Previous post}</a>
-                               <a {block:NextPost}href="{NextPost}" class="is-link"{/block:NextPost}>{lang:Next post} <i class="las la-angle-right"></i></a>
-                           </div>
-                       </nav>
-                   {/block:PermalinkPagination}
-                   
-                   {block:PermalinkPage}
-                       {block:Date} 
-                       <article class="posts posts-perma">
-                           <div class="posts-perma--info">
-                               <h3>{lang:Posted on DayOfWeek DayOfMonth Month Year}</h3>
-                               <div class="posts-perma--data">
-                                   {block:RebloggedFrom}
-                                   <div class="posts-perma--data__blog">
-                                        <img src="{ReblogRootPortraitURL-128}" alt="{ReblogRootName}"><span>Original from
-                                       <br>
-                                       <a href="{ReblogRootURL}">{ReblogRootName}</a></span>
-                                      
-                                   </div>
-                                   {/block:RebloggedFrom}
-                                   
-                                   {block:RebloggedFrom} 
-                                   <div class="posts-perma--data__blog">
-                                       <img src="{ReblogParentPortraitURL-128}" alt="{ReblogParentName}">
-                                       <span>{lang:Reblogged from}
-                                       <br>
-                                       <a href="{ReblogParentURL}">{ReblogParentName}</a></span>
-                                        
-                                   </div>
-                                   {/block:RebloggedFrom}
-                                   
-                                   {block:NotReblog}
-                                   <div class="posts-perma--data__blog">
-                                       <img src="{PortraitURL-128}" alt="{Name}">
-                                       <span>Originally from
-                                       <br>
-                                       <a href="{Name}.tumblr.com/">{Name}</a></span>
-                                   </div>
-                                   {/block:NotReblog}
-                           </div>
-                        </div>
-                        
-                        {block:PostNotes}
-                           {PostNotes-64}
-                        {/block:PostNotes}
-                          
-                       </article>
-                       {/block:Date} 
-                   {/block:PermalinkPage}
-                   {/block:Posts}
-                  </section>
-                   {block:Pagination}
-                     <nav class="pagination">
-                        <div class="pagination__info">
-                           {lang:Page CurrentPage of TotalPages}
-                        </div>
-                        <div class="pagination__inner">
-                           <a {block:PreviousPage}href="{PreviousPage}" class="is-link"{/block:PreviousPage}><i class="las la-angle-left"></i> {lang:Previous page}</a>
-                           <a {block:NextPage}href="{NextPage}" class="is-link"{/block:NextPage}>{lang:Next page} <i class="las la-angle-right"></i></a>
-                        </div>
-                     </nav>
-                  {/block:Pagination}
-               </main>
-               
-               <!-- footer -->
-               <footer class="footer">
-                  <div class="footer__inner">
-                     <div class="footer__socmed">
-                           <ul>
-                              {block:IfTwitterURL}
-                                 <li><a href="{text:Twitter URL}"><i class="lab la-twitter"></i></a></li>
-                                 {/block:IfTwitterURL}
-                                 
-                                 {block:IfPatreonURL}
-                                 <li><a href="{text:Patreon URL}"><i class="lab la-patreon"></i></a></li>
-                                 {/block:IfPatreonURL}
-                                 
-                                 {block:IfTwitchURL}
-                                 <li><a href="{text:Twitch URL}"><i class="lab la-twitch"></i></a></li>
-                                 {/block:IfTwitchURL}
-                                 
-                                 {block:IfYoutubeURL}
-                                 <li><a href="{text:Youtube URL}"><i class="lab la-youtube"></i></a></li>
-                                 {/block:IfYoutubeURL}
-                                 
-                                 {block:IfInstagramURL}
-                                 <li><a href="{text:Instagram URL}"><i class="lab la-instagram"></i></a></li>
-                                 {/block:IfInstagramURL}
+            --text-xxl: clamp(2rem, (1rem + 2.5vw), 3rem);
+            --text-xl: clamp(1.25rem, (1rem + 2.5vw), 2rem);
+            --text-lg: clamp(1rem, (1rem + 2.5vw), 1.125rem);
+            --text-md: clamp(0.85rem, (1rem + 2.5vw) 1rem);
+            --text-sm: clamp(0.65rem, (1rem + 2.5vw), 0.85rem);
 
-                                 {block:IfDeviantArtURL}
-                                 <li><a href="{text:DeviantArt URL}"><i class="lab la-deviantart"></i></a></li>
-                                 {/block:IfDeviantArtURL}
+            --padding-lg: clamp(2rem, 2.5vw, 2.25rem);
+            --padding-md: clamp(1.45rem, 2.5vw, 2rem);
+            --padding-sm: clamp(1rem, 2.5vw, 1.5rem);
 
-                                 {block:IfRedditURL}
-                                 <li><a href="{text:Reddit URL}"><i class="lab la-reddit"></i></a></li>
-                                 {/block:IfRedditURL}
-
-                                 {block:IfDiscordURL}
-                                 <li><a href="{text:Discord URL}"><i class="lab la-discord"></i></a></li>
-                                 {/block:IfDiscordURL}
-
-                                 {block:IfKofiURL}
-                                 <li><a href="{text:Kofi URL}"><i class="las la-mug-hot"></i></a></li>
-                                 {/block:IfKofiURL}
-                           </ul>
-                     </div>
-                     <div class="footer__credit">
-                     <a href="https://www.tumblr.com/theme/40432">Empati Theme</a> by <a href="https://fukuo.tumblr.com">Fukuo</a>. Powered by <a
-                           href="https://tumblr.com/" data-font="tumblr" aria-label="Tumblr"><svg class="svg-logo logo-tumblr" width="55px" viewBox="0 0 245 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g class="logotype" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd"><path d="M28.087 49.57h-8.286c-7.461 0-13.021-3.835-13.021-13.01V21.863H0v-7.957C7.461 11.97 10.582 5.556 10.94 0h7.749v12.616h9.04v9.248h-9.04v12.795c0 3.836 1.937 5.162 5.022 5.162h4.376v9.749zm143.951.43c-3.766 0-7.246-1.254-10.151-3.692v3.262h-11.372V7.993h-4.95V0h17.075v15.305c2.224-1.72 5.919-3.119 9.613-3.119 10.51 0 15.676 7.312 15.676 18.46 0 11.612-5.56 19.354-15.89 19.354zm18.115-.43v-7.921h4.197V7.993h-4.95V0h16.93v41.649h4.377v7.92h-20.554zm-112.456 0v-7.921h4.197V20.68h-4.95v-8.065H92.26V17.6c2.582-3.549 7.39-5.413 11.765-5.413 5.525 0 9.22 2.223 11.658 5.914 1.938-3.261 6.529-5.914 12.125-5.914 11.335 0 14.205 8.961 14.205 16.56v12.903h4.125v7.92h-20.16v-7.92h4.054V27.348c0-3.047-1.04-5.628-5.309-5.628-5.273 0-6.816 4.122-6.816 6.13v13.799h4.233v7.92h-20.267v-7.92H106V27.348c0-3.047-.86-5.628-5.093-5.628-5.238 0-6.96 4.122-6.96 6.13v13.799h4.162v7.92H77.697zm137.494 0v-7.921h4.09V20.68h-4.449v-8.065h15.39v5.341c1.9-3.548 6.133-5.77 10.725-5.77H245V22.76h-5.022c-3.766 0-8.717 1.541-8.717 8.566V41.65h4.126v7.92H215.19zM47.53 50c-11.765 0-14.348-8.853-14.348-14.552V12.616h12.411v22.33c0 3.083.754 5.52 4.807 5.52 6.313 0 7.246-4.695 7.246-5.807V20.681h-4.807v-8.065h16.86V41.65h3.55v7.92H59.296V44.91C56.641 48.172 51.762 50 47.529 50zm121.926-8.996c1.902-.215 6.278-.538 6.278-10.287 0-6.774-2.978-9.498-6.35-9.498-2.905 0-7.102 1.54-7.102 10.25 0 7.24 3.551 9.535 7.174 9.535z" fill-rule="evenodd"></path></g></svg></a></span>
-                     </div>
-                  </div>
-               </footer>
-            </div>
-      
-         <!-- scripts -->
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
-         <script src="https://unpkg.com/wavesurfer.js"></script>
-         <script src="https://static.tumblr.com/5ojoydj/ygJr0tds4/audio.js"></script>
-         <script src="https://static.tumblr.com/5ojoydj/Pdzr3cy31/modal.js"></script>
-         <script src="https://static.tumblr.com/5ojoydj/RDer12wol/modal_menu.js"></script>
-         <script src="https://static.tumblr.com/5ojoydj/hPCr0d76l/toggle_post.js"></script>
-         <script src="https://cdn.jsdelivr.net/gh/boscoxvi/npfphotosets/npfphotosets.js"></script>
-         <script src="https://static.tumblr.com/0podkko/jfMplm3f8/modified_photosets.js"></script>
-         <script src="https://static.tumblr.com/0podkko/qWqq8va08/photosets.js"></script>
-         <script src="https://unpkg.com/@popperjs/core@2"></script>
-         <script src="https://unpkg.com/tippy.js@6"></script>
-         <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-         <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-
-          <script>
-            tippy('[title]', {		
-    			// change these to your liking
-    			arrow: true,
-    			placement: 'top', // top, right, bottom, left
-    			delay: 5, //ms
-    			distance: 15, //px or string
-    			maxWidth: 300, //px or string
-    			
-    			// leave these as they are
-    			followCursor: false,
-    			allowHTML: true,
-    			ignoreAttributes: true,
-                content(reference) {
-                    const title = reference.getAttribute('title');
-                    reference.removeAttribute('title');
-                    return title;
-                },
-            });
+            --font-size:{select:Font Size}px;
+            font-size:var(--font-size);
+        }
         
-            const npfOptions = {
-                includeCommonPhotosets: false,
-                photosetMargins: "0",
-                //   insertGalleryIndicator:true,
-                galleryIndicatorClass: "npf_gallery_indicator",
-                galleryIndicatorContent: "<i class='las la-expand'></i>",
-             };
-            npfPhotosets(".posts", npfOptions);
-            {block:IndexPage}
-            undoPhotoset({
-              'posts': '.wrapper__blog.is-grid .posts-text .posts__inner', // change '.post.text' to the text post selector
-              'text class': '', // change 'text' to the text post unique class (can be '')
-              'photoset class': '' // change 'photoset' to the photoset post unique class (can be '')
-             }, false); // true = pxu, false = css photosets
-            {/block:IndexPage}
-            initPhotosets();
-             
-            function tumblrControls(e, r, t, o, s, l) {
-        	    var a = e.substr(e.indexOf("#") + 1),
-        		    m = r.substr(r.indexOf("#") + 1),
-        		    u = "https://"; "true" == l ? u = "https://www.tumblr.com/dashboard/iframe?tumblelogName=" + t + "&pid=" + o + "&src=https%3A%2F%2F" + t + ".tumblr.com%2Fpost%2F" + o + "%2F" + s.split("/").pop() + "#%7B%22searchQuery%22%3A%22%22%2C%22pushDown%22%3Afalse%2C%22useThemeColors%22%3Atrue%2C%22scrollHeader%22%3Afalse%2C%22themeHeaderImage%22%3A%22%22%2C%22themeBackgroundColor%22%3A%22%23" + a + "%22%2C%22themeTitleColor%22%3A%22%23" + m + "%22%2C%22themeAccentColor%22%3A%22%23" + m + "%22%2C%22isOpticaLike%22%3Atrue%2C%22shouldHideBlogSearchBar%22%3Afalse%7D" : u = "https://www.tumblr.com/dashboard/iframe?tumblelogName=" + t + "&src=https%3A%2F%2F" + t + ".tumblr.com%2F#%7B%22searchQuery%22%3A%22%22%2C%22pushDown%22%3Atrue%2C%22useThemeColors%22%3Atrue%2C%22scrollHeader%22%3Afalse%2C%22themeHeaderImage%22%3A%22%22%2C%22themeBackgroundColor%22%3A%22%23" + a + "%22%2C%22themeAccentColor%22%3A%22%23" + m + "%22%2C%22isOpticaLike%22%3Atrue%2C%22shouldHideBlogSearchBar%22%3Afalse%7D";
-    	        
-    	        document.querySelector("#new-tumblr-controls").setAttribute("src", u);
+        /* tumblr controls */
+        body > .tmblr-iframe.tmblr-iframe--unified-controls {
+          position: fixed !important;
+          right: 15px!important;
+          left: auto;
+          top: calc(68px + 10px);
+          transform: scale(0.85);
+          transform-origin: top right;
+          z-index:9!important;
+        }
+        
+        @media (max-width:991.98px) {
+            body > .tmblr-iframe.tmblr-iframe--unified-controls {
+                display:none!important;
             }
-            tumblrControls("{color:Posts Background Color}", "{color:Posts Body Text Color}", "{Name}"{block:Posts}{block:PermalinkPage}{block:Date}, "{PostID}", "{RelativePermalink}", "true"{/block:Date}{/block:PermalinkPage}{/block:Posts} );
+        }
+        
+        /* others */
+        {block:IfSelectionColor}
+        ::selection {
+            background:{color:Selection Text Background Color};
+            color:{color:Selection Text Color};
+        }
+             
+        ::-moz-selection {
+            background:{color:Selection Text Background Color};
+            color:{color:Selection Text Color};
+        }
+             
+        ::-webkit-selection {
+            background:{color:Selection Text Background Color};
+            color:{color:Selection Text Color};
+        }
+        {/block:IfSelectionColor}
+        
+        .posts__dated__perma a[data-article-date="enabled"] 
+        > span.d-display__{select:Posts Date Format} {
+            display:block!important;
+        }
+    </style>
+    <style id="custom">
+        {CustomCSS}
+    </style>
+</head>
+<body data-page-type="{block:IndexPage}index{/block:IndexPage}{block:PermalinkPage}permalink{/block:PermalinkPage}{block:TagPage}tag{/block:TagPage}{block:DayPage}day{/block:DayPage}{block:SearchPage}search{/block:SearchPage}" data-blog-style="{block:IndexPage}{select:Blog Layout}{/block:IndexPage}{block:PermalinkPage}list{/block:PermalinkPage}" data-blog-style="list" class="{select:Posts Shorten} {select:Blog Post Masonry Columns} {select:Background Page Repeat} {select:Background Page Size} {select:Background Page Style}">
+    
+   <nav class="nav is-transparent is-border">
+      <div class="nav__inner | container--width-xl margin--x-auto">
+        <ul class="nav__link">
+          <li {block:HomePage}class="active"{/block:HomePage}>
+            <a href="/">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+              {lang:Home}</a>
+          </li>
+          <li>
+            <a href="/archive"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg> {lang:Archive}</a>
+          </li>
+          {block:AskEnabled}
+          <li {block:AskPage}class="active"{/block:AskPage}>
+              <a href="/ask">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+               Mail
+              </a>
+          </li>
+          {/block:AskEnabled}
+          {block:SubmissionsEnabled}
+          <li {block:SubmitPage}class="active"{/block:SubmitPage}><a href="/submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="14 2 18 6 7 17 3 17 3 13 14 2"></polygon><line x1="3" y1="22" x2="21" y2="22"></line></svg> Submit</a></li>{/block:SubmissionsEnabled}
+        </ul>
 
-            const isTextPost = document.querySelectorAll(".wrapper__blog .posts");
-            isTextPost.forEach(function(item, idx) {
-               const containsPhotosets = item.querySelector(".posts__inner .photoset-grid");
-               const containsPhoto = item.querySelector(".posts__inner .reblog-list figure.tmblr-full:first-of-type");
+        <div class="nav__actions">
+           {block:HasPages} 
+          <button data-button-type="hamburger" aria-label="Menu button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          {/block:HasPages} 
+          <button class="{select:Header Search Button}" data-button-type="search" aria-label="Search button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+          <button class="sparkling {select:Header Additional Info Button}" data-button-type="info" aria-label="Additional information button">
+            <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="19" height="19"><path d="M4.9 8.7l-.3-.4-.8.6.3.4.8-.6zm6 .6l.3-.4-.8-.6-.3.4.8.6zM7.5 14A6.5 6.5 0 011 7.5H0A7.5 7.5 0 007.5 15v-1zM14 7.5A6.5 6.5 0 017.5 14v1A7.5 7.5 0 0015 7.5h-1zM7.5 1A6.5 6.5 0 0114 7.5h1A7.5 7.5 0 007.5 0v1zm0-1A7.5 7.5 0 000 7.5h1A6.5 6.5 0 017.5 1V0zM4 6h1V5H4v1zm6 0h1V5h-1v1zm.1 2.7a3.25 3.25 0 01-5.2 0l-.8.6c1.7 2.267 5.1 2.267 6.8 0l-.8-.6z" fill="currentColor"></path></svg>
+          </button>
+        </div>
+        
+        {block:HasPages} 
+        <div class="nav__navigations" aria-hidden="true">
+            <h2>{lang:Navigate}</h2>
+            <ul class="nav__navigations__links">
+               {block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
+            </ul>
+        </div>
+        {/block:HasPages} 
+        <div class="nav__additional" aria-hidden="true">
+         {block:IfHeaderAdditionalInfoDescription}
+             <h2>{text:Header Additional Info Heading}</h2>
+             <p>{text:Header Additional Info Description}</p>
+         {/block:IfHeaderAdditionalInfoDescription}
+         <h2>Featured posts</h2>
+          <div class="nav__additional__featured">
+            <div class="slideshow slideshow-all" 
+                data-items="2"
+                data-items-md="2"
+                data-items-sm="1"
+                data-loop="false"
+                data-arrow="true"
+                data-autoplay="false"
+                data-speed="1000"
+                data-dots="false"
+                data-gutter="15"
+                data-autoplaytime="5000"></div>
+         </div>
+         <h2>Contact</h2>
+         <p>{text:Header Additional Info Contact}</p>
+        </div>
+
+      </div>
+      <div class="nav__search" aria-hidden="true">
+         <div class="nav__search__inner | container--width-xl margin--x-auto">
+            <form action="/search" method="get" class="nav__search__form" autocomplete="off"><input type="text" id="search" name="q" value="{SearchQuery}" placeholder="{lang:Search keywords}...">
+               <button type="submit"><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span></button></form>
+         </div>
+      </div>
+   </nav>
+
+   <header class="hero {select:Blog Hero Style}" style="background-image: var(--hero-bg-img);">
+      <div class="hero__overlay"></div>
+      <div class="hero__inner | container--width-sm margin--x-auto">
+         {block:ShowAvatar}
+            <a id="avatar" class="hero__inner__icon hero__inner__icon-{AvatarShape}" href="/"><img src="{PortraitURL-128}" alt="{Name}"/></a>
+         {/block:ShowAvatar}
+         {block:ShowTitle}<h1>{Title}</h1>{/block:ShowTitle}
+         {block:ShowDescription}<p>{Description}</p>{/block:ShowDescription}
+         <ul class="hero__socmed">
+            {block:IfFacebookURL}
+                        <li><a href="{text:Facebook URL}" title="Facebook">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 0a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h16zm-4 7.28V4.5h-2.29c-2.1 0-3.42 1.6-3.42 3.89v1.67H8v2.77h2.29v6.67h2.85v-6.67h2.29l.57-2.77h-2.86V8.94c0-1.1.58-1.66 1.72-1.66H16z"/></svg>
+                        </a></li>
+                        {/block:IfFacebookURL}
+                        {block:IfTwitterURL}
+                        <li><a href="{text:Twitter URL}" title="Twitter">
+                              <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round">
+                                 <title>Twitter icon</title>
+                                 <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                              </svg></a></li>
+                        {/block:IfTwitterURL}
+                        {block:IfPatreonURL}
+                        <li><a href="{text:Patreon URL}" title="Patreon">
+                              <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round">
+                                 <title>Patreon icon</title>
+                                 <path
+                                    d="M0 .48v23.04h4.22V.48zm15.385 0c-4.764 0-8.641 3.88-8.641 8.65 0 4.755 3.877 8.623 8.641 8.623 4.75 0 8.615-3.868 8.615-8.623C24 4.36 20.136.48 15.385.48z" />
+                              </svg></a></li>
+                        {/block:IfPatreonURL}
+                        {block:IfTwitchURL}
+                        <li><a href="{text:Twitch URL}" title="Twitch">
+                              <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round">
+                                 <title>Twitch icon</title>
+                                 <path
+                                    d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z" />
+                              </svg>
+                           </a></li>
+                        {/block:IfTwitchURL}
+                        {block:IfKofiURL}
+                        <li>
+                            <a href="{text:Kofi URL}" title="Ko-fi">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 3.011.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.77s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z"/>
+</svg>
+                            </a>
+                        </li>
+                        {/block:IfKofiURL}
+                        {block:IfYoutubeURL}
+                        <li><a href="{text:YouTube URL}" title="YouTube">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                 <path
+                                    d="M12.04 3.5c.59 0 7.54.02 9.34.5a3.02 3.02 0 0 1 2.12 2.15C24 8.05 24 12 24 12v.04c0 .43-.03 4.03-.5 5.8A3.02 3.02 0 0 1 21.38 20c-1.76.48-8.45.5-9.3.51h-.17c-.85 0-7.54-.03-9.29-.5A3.02 3.02 0 0 1 .5 17.84c-.42-1.61-.49-4.7-.5-5.6v-.5c.01-.9.08-3.99.5-5.6a3.02 3.02 0 0 1 2.12-2.14c1.8-.49 8.75-.51 9.34-.51zM9.54 8.4v7.18L15.82 12 9.54 8.41z" />
+                              </svg>
+                           </a></li>
+                        {/block:IfYoutubeURL}
+                        
+                        {block:IfInstagramURL}
+                        <li><a href="{text:Instagram URL}" title="Instagram">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                 <path
+                                    d="M16.98 0a6.9 6.9 0 0 1 5.08 1.98A6.94 6.94 0 0 1 24 7.02v9.96c0 2.08-.68 3.87-1.98 5.13A7.14 7.14 0 0 1 16.94 24H7.06a7.06 7.06 0 0 1-5.03-1.89A6.96 6.96 0 0 1 0 16.94V7.02C0 2.8 2.8 0 7.02 0h9.96zm.05 2.23H7.06c-1.45 0-2.7.43-3.53 1.25a4.82 4.82 0 0 0-1.3 3.54v9.92c0 1.5.43 2.7 1.3 3.58a5 5 0 0 0 3.53 1.25h9.88a5 5 0 0 0 3.53-1.25 4.73 4.73 0 0 0 1.4-3.54V7.02a5 5 0 0 0-1.3-3.49 4.82 4.82 0 0 0-3.54-1.3zM12 5.76c3.39 0 6.2 2.8 6.2 6.2a6.2 6.2 0 0 1-12.4 0 6.2 6.2 0 0 1 6.2-6.2zm0 2.22a3.99 3.99 0 0 0-3.97 3.97A3.99 3.99 0 0 0 12 15.92a3.99 3.99 0 0 0 3.97-3.97A3.99 3.99 0 0 0 12 7.98zm6.44-3.77a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8z" />
+                              </svg>
+                           </a></li>
+                        {/block:IfInstagramURL}
+                         
+                        {block:IfDiscordURL}
+                        <li><a href="{text:Discord URL}" title="Discord">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" stroke="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M20.992 20.163a2.884 2.884 0 0 1-2.695-3.03v.007a2.867 2.867 0 0 1 2.687-3.023h.008a2.852 2.852 0 0 1 2.695 3.031v-.008a2.859 2.859 0 0 1-2.688 3.022h-.008zm-9.966 0a2.884 2.884 0 0 1-2.695-3.03v.007a2.867 2.867 0 0 1 2.687-3.023h.008a2.852 2.852 0 0 1 2.695 3.031v-.008a2.867 2.867 0 0 1-2.687 3.023h-.008zM26.393 6.465c-1.763-.832-3.811-1.49-5.955-1.871l-.149-.022a.093.093 0 0 0-.098.045c-.234.411-.488.924-.717 1.45l-.043.111a23.042 23.042 0 0 0-6.985.016l.129-.017c-.27-.63-.528-1.142-.813-1.638l.041.077a.095.095 0 0 0-.083-.047l-.016.001h.001a24.594 24.594 0 0 0-6.256 1.957l.151-.064a.084.084 0 0 0-.04.034C2.706 10.538.998 15.566.998 20.993c0 .907.048 1.802.141 2.684l-.009-.11a.103.103 0 0 0 .039.07 24.623 24.623 0 0 0 7.313 3.738l.176.048a.082.082 0 0 0 .028.004c.032 0 .06-.015.077-.038a17.453 17.453 0 0 0 1.485-2.392l.047-.1a.096.096 0 0 0-.052-.132h-.001a16.266 16.266 0 0 1-2.417-1.157l.077.042a.096.096 0 0 1-.048-.083c0-.031.015-.059.038-.076.157-.118.315-.24.465-.364a.094.094 0 0 1 .097-.013h-.001c2.208 1.061 4.8 1.681 7.536 1.681s5.329-.62 7.643-1.727l-.107.046a.094.094 0 0 1 .099.012c.15.124.307.248.466.365a.098.098 0 0 1 .038.077.097.097 0 0 1-.046.082c-.661.395-1.432.769-2.235 1.078l-.105.036a.097.097 0 0 0-.062.089c0 .016.004.031.011.044v-.001c.501.96 1.009 1.775 1.571 2.548l-.04-.057a.096.096 0 0 0 .106.036h-.001c2.865-.892 5.358-2.182 7.566-3.832l-.065.047a.097.097 0 0 0 .039-.069c.087-.784.136-1.694.136-2.615 0-5.415-1.712-10.43-4.623-14.534l.052.078a.078.078 0 0 0-.038-.036z"/>
+                            </svg>
+
+                           </a></li>
+                         {/block:IfDiscordURL}
+                         
+                         {block:IfTiktokURL}   
+                         <li><a href="{text:Tiktok URL}" title="Tiktok">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 9.84202C20.4357 9.84696 18.4221 9.20321 16.7435 8.00171V16.3813C16.7429 17.9333 16.2685 19.4482 15.3838 20.7233C14.499 21.9984 13.246 22.973 11.7923 23.5168C10.3387 24.0606 8.75362 24.1477 7.24914 23.7664C5.74466 23.3851 4.39245 22.5536 3.37333 21.383C2.3542 20.2125 1.71674 18.7587 1.54617 17.2161C1.3756 15.6735 1.68007 14.1156 2.41884 12.7507C3.15762 11.3858 4.2955 10.279 5.68034 9.57823C7.06517 8.87746 8.63095 8.61616 10.1683 8.82927V13.0439C9.4648 12.8227 8.70938 12.8293 8.0099 13.063C7.31041 13.2966 6.70265 13.7453 6.2734 14.345C5.84415 14.9446 5.61536 15.6646 5.6197 16.402C5.62404 17.1395 5.8613 17.8567 6.29759 18.4512C6.73387 19.0458 7.34688 19.4873 8.04906 19.7127C8.75125 19.9381 9.5067 19.9359 10.2075 19.7063C10.9084 19.4768 11.5188 19.0316 11.9515 18.4345C12.3843 17.8374 12.6173 17.1188 12.6173 16.3813V0H16.7435C16.7406 0.348435 16.7698 0.696395 16.8307 1.03948V1.03948C16.9741 1.80537 17.2722 2.53396 17.7068 3.18068C18.1415 3.8274 18.7035 4.37867 19.3585 4.80075C20.2903 5.41688 21.3829 5.74528 22.5 5.74505V9.84202Z"/></svg>
+                           </a></li>
+                         {/block:IfTiktokURL}   
+                         {block:IfMastodonURL}   
+                         <li><a href="{text:Mastodon URL}" title="Mastodon">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+  <path fill="currentColor" d="M8 7v5a1 1 0 1 1-2 0V7c.005-1.879 1.76-3 3.5-3 1.13 0 1.944.34 2.5.835.556-.494 1.37-.835 2.5-.835 1.739 0 3.494 1.12 3.5 2.999V12a1 1 0 1 1-2 0V6.999C15.94 6.24 15.16 6 14.5 6c-.649 0-1.433.247-1.5.999V10a1 1 0 1 1-2 0V7c-.06-.76-.847-1-1.5-1-.648 0-1.433.248-1.5 1Z"/>
+  <path fill="currentColor" fill-rule="evenodd" d="M16 1H8C4.073 1 1.086 4.024 1 7.99V13c0 5.115 3.558 10 9 10h5.48A2.52 2.52 0 0 0 18 20.48c0-1.367-1.134-2.446-2.5-2.48a29.92 29.92 0 0 0-.985 0c-2.079.022-5.247.055-6.232-1.704C12.808 17.126 23 18.5 23 11V8c-.093-3.965-3.066-7-7-7ZM3 13V7.99C3.116 5.113 5.139 3 8 3h8c2.867 0 4.878 2.126 5 5v3c0 6-10.656 3.805-13.757 3.03A1.01 1.01 0 0 0 6 15c0 1.084.275 2.011.86 2.755 1.675 2.136 5.036 2.169 7.658 2.194.34.003.668.007.977.014a.517.517 0 0 1 .505.517.52.52 0 0 1-.52.52H10c-4.346 0-7-3.984-7-8Z" clip-rule="evenodd"/>
+</svg>
+                           </a></li>
+                         {/block:IfMastodonURL}  
+                         {block:IfLetterboxdURL}  
+                         <li><a href="{text:Letterboxd URL}" title="Letterboxd"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M17.55 20a7.59 7.59 0 1 0 0 8 7.59 7.59 0 0 1 0-8Z" class="cls-1"/> <path d="M30.45 20a7.59 7.59 0 0 0-12.9 0 7.64 7.64 0 0 1 0 8 7.59 7.59 0 0 0 12.9 0 7.64 7.64 0 0 1 0-8Zm6.46-3.59A7.6 7.6 0 0 0 30.45 20a7.59 7.59 0 0 1 0 8 7.59 7.59 0 1 0 6.46-11.59Z" class="cls-1"/></svg></a></li>
+                         {/block:IfLetterboxdURL}  
+                         {block:IfAdditionalURL}
+                         <li><a href="{text:Additional URL}" title="Others"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></li>{/block:IfAdditionalURL}
+         </ul>
+      </div>
+   </header>
+    
+   <main class="wrapper | container--width-xl margin--x-auto">
+      <div class="wrapper__inner">
+         {block:IndexPage}
+         <div class="wrapper__toggle {select:Posts Button Toggle Layout}">
+            <div class="wrapper__toggle__inner">
+               <button class="grid activated">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                     Grid
+               </button>
+               <button class="list">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                     <line x1="8" y1="6" x2="21" y2="6"></line>
+                     <line x1="8" y1="12" x2="21" y2="12"></line>
+                     <line x1="8" y1="18" x2="21" y2="18"></line>
+                     <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                     <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                     <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                  </svg>
+                  List
+               </button>
+            </div>
+         </div>
+         {/block:IndexPage}
+         <div class="wrapper__blog {block:PermalinkPage}| margin--top-70{/block:PermalinkPage}" id="blog" style="--grid-cols: {select:Blog Post Grid Columns}; --grid-gap: {select:Blog Post Grid Gaps}rem;">
+            <div class="grid-sizer"></div>
+            {block:NoPosts}
+               <article class="posts posts-empty posts-text">
+                     <div class="posts__inner">
+                         <section class="posts__body">
+                            <h1>{lang:This Tumblr hasnt made any posts}</h1>
+                            <p>{lang:Meditate for a while on this empty Tumblr}</p>
+                          </section>
+                    </div>
+               </article>
+               {/block:NoPosts}
                
-               if(containsPhotosets) {
-                  item.classList.add("posts-photoset-text");
-               } else if(containsPhoto) {
-                  item.classList.add("posts-photo-text");
-               }
-            });
-             
-            const toggleButton = document.querySelectorAll(".wrapper__toggle button");
-            const wrapperBlog = document.querySelector(".wrapper__blog");
-            toggleButton.forEach(function(btn, idx) {
-                console.log(btn);
-                if(wrapperBlog.classList.contains("is-grid")) {
-                   btn.parentElement.querySelector("button:first-child").classList.add("actived");
-                } else if(wrapperBlog.classList.contains("is-list")) {
-                   btn.parentElement.querySelector("button:last-child").classList.add("actived");
-                }
-             });
-             
-            const spotifyPlayers = document.querySelectorAll(".spotify_audio_player");
-            if(spotifyPlayers) {
-                spotifyPlayers.forEach(function(sp, idx) {
-                    sp.parentElement.classList.add("is-spotify");
-                });
-            }
-            
-            // https://shythemes.tumblr.com/post/114792480648/minimal-soundcloud-player
-            const soundcloudColor = "{AccentColor}";
-            const soundcloudPlayers = document.querySelectorAll('.soundcloud_audio_player');
-            
-            if(soundcloudPlayers) {
-                soundcloudPlayers.forEach(function(s, idx) {
-                  const url = s.getAttribute("src").split('&')[0];
-                  const options = "&amp;liking=false&amp;sharing=false&amp;auto_play=false&amp;show_comments=false&amp;continuous_play=false&amp;buying=false&amp;show_playcount=false&amp;show_artwork=true&amp;origin=tumblr&amp;color=" + soundcloudColor.split('#')[1];
-                  s.setAttribute("src", url + options);
-                  s.setAttribute("height", 116);
+               {block:TagPage}
+                <article class="posts posts-others posts-text">
+                     <div class="posts__inner">
+                         <section class="posts__body">
+                            <h1>Tagged posts</h1>
+                            <p>{lang:Showing TagResultCount posts tagged Tag 2}</p>
+                          </section>
+                    </div>
+                </article>
+                {/block:TagPage}
+                {block:SearchPage}
+                <article class="posts posts-others posts-text">
+                     <div class="posts__inner">
+                         <section class="posts__body">
+                            <h1>Searched posts</h1>
+                            <p>{lang:Found SearchResultCount results for SearchQuery 2} {block:NoSearchResults}{lang:No search results for SearchQuery 2}{/block:NoSearchResults}</p>
+                            <p> </p>
+                          </section>
+                    </div>
+                </article>
+                {/block:SearchPage}
+                
+                {block:Posts inlineMediaWidth="1280" inlineNestedMediaWidth="1280"}            
+                <article class="posts posts-{PostType} {block:PinnedPostLabel}{block:IndexPage} pinned{/block:IndexPage}{/block:PinnedPostLabel} {TagsAsClasses}{block:PermalinkPage} is-permalink{/block:PermalinkPage}" data-article-permalink="{Permalink}" data-article-id="{PostID}" data-article-npf="{JSNPF}" data-article-notes="{postNotesURL}">
+                    {block:Date}
+                        {block:PinnedPostLabel}
+                        <div class="posts__dated__pinned">
+                            <svg fill="currentColor" viewBox="18 13 12 21">
+                                <path fill-rule="evenodd" d="M26.252 27.266l-2.078 7.592c-.052.19-.296.19-.348 0l-2.078-7.592h4.504zM29.512 14c.268 0 .488.241.488.536v1.746a.554.554 0 01-.255.47l-1.698 1.193v4.009l1.787 1.257-.034.006c.128.107.2.264.199.43v1.744c0 .296-.22.537-.488.537H18.488c-.268 0-.488-.241-.488-.537v-1.743a.555.555 0 01.255-.47l1.698-1.195v-4.008l-1.787-1.258.034-.006a.554.554 0 01-.199-.43v-1.745c0-.295.22-.536.488-.536h11.023z"></path>
+                            </svg>
+                           {PinnedPostLabel}
+                        </div>
+                        {/block:PinnedPostLabel}
+                   {/block:Date}
+                   
+                   {block:Date}
+                   <div class="posts__dated">
+                        <div class="posts__dated__perma">
+                           <div class="posts__dated__reblog">
+                              {block:RebloggedFrom} 
+                              <span class="reblog-icon">
+                                 <svg fill="currentColor" viewBox="0 0 17 18.1"><path d="M12.8.2c-.4-.4-.8-.2-.8.4v2H2c-2 0-2 2-2 2v5s0 1 1 1 1-1 1-1v-4c0-1 .5-1 1-1h9v2c0 .6.3.7.8.4L17 3.6 12.8.2zM4.2 17.9c.5.4.8.2.8-.3v-2h10c2 0 2-2 2-2v-5s0-1-1-1-1 1-1 1v4c0 1-.5 1-1 1H5v-2c0-.6-.3-.7-.8-.4L0 14.6l4.2 3.3z"></path></svg>
+                              </span>
+                              <a class="username-text" href="{ReblogParentURL}">{ReblogParentName}</a>
+                              {/block:RebloggedFrom}
+                           </div>
+                           <div class="posts__dated__info">
+                                <a href="{Permalink}" data-article-date="enabled">
+                                <span class="d-none d-display__is-date-one">{lang:Posted on DayOfMonth Month Year}</span>
+                                <span class="d-none d-display__is-date-two">{lang:Posted on DayOfWeek DayOfMonth Month Year}</span>
+                                <span class="d-none d-display__is-date-three">{lang:Posted on DayOfWeek Month DayOfMonthWithSuffix}</span>
+                                <span class="d-none d-display__is-date-four">{lang:Posted at FormattedTime 2}</span>
+                                <span class="d-none d-display__is-date-five">{lang:Posted on DayOfWeek the DayOfMonthWithSuffix of Month Year at FormattedTime}</span>  
+                                </a>
+                           </div>
+                        </div>
+                        <ul class="posts__dated__buttons">
+                              <li><a href="{ReblogURL}">
+                                    <svg fill="currentColor" viewBox="0 0 17 18.1">
+                                        <path d="M12.8.2c-.4-.4-.8-.2-.8.4v2H2c-2 0-2 2-2 2v5s0 1 1 1 1-1 1-1v-4c0-1 .5-1 1-1h9v2c0 .6.3.7.8.4L17 3.6 12.8.2zM4.2 17.9c.5.4.8.2.8-.3v-2h10c2 0 2-2 2-2v-5s0-1-1-1-1 1-1 1v4c0 1-.5 1-1 1H5v-2c0-.6-.3-.7-.8-.4L0 14.6l4.2 3.3z"></path>
+                                      </svg>
+                                    </a></li>
+                                <li><a class="like">{LikeButton}
+                                <svg fill="currentColor" viewBox="0 0 20 18"><path d="M14.658 0c-1.625 0-3.21.767-4.463 2.156-.06.064-.127.138-.197.225-.074-.085-.137-.159-.196-.225C8.547.766 6.966 0 5.35 0 4.215 0 3.114.387 2.162 1.117c-2.773 2.13-2.611 5.89-1.017 8.5 2.158 3.535 6.556 7.18 7.416 7.875A2.3 2.3 0 0 0 9.998 18c.519 0 1.028-.18 1.436-.508.859-.695 5.257-4.34 7.416-7.875 1.595-2.616 1.765-6.376-1-8.5C16.895.387 15.792 0 14.657 0h.001zm0 2.124c.645 0 1.298.208 1.916.683 1.903 1.461 1.457 4.099.484 5.695-1.973 3.23-6.16 6.7-6.94 7.331a.191.191 0 0 1-.241 0c-.779-.631-4.966-4.101-6.94-7.332-.972-1.595-1.4-4.233.5-5.694.619-.475 1.27-.683 1.911-.683 1.064 0 2.095.574 2.898 1.461.495.549 1.658 2.082 1.753 2.203.095-.12 1.259-1.654 1.752-2.203.8-.887 1.842-1.461 2.908-1.461h-.001z"></path></svg></a></li>
+                       </ul>
+                     </div>
+                   {/block:Date}
+                
+                 <section class="posts__media">
+                       {block:Text}{block:Title}<h1><a href="{Permalink}">{Title}</a></h1>{/block:Title}{/block:Text}
+                       {block:Photo}
+                          <figure class="photo">
+                            {LinkOpenTag}
+                                   <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
+                            {LinkCloseTag}
+                         </figure>
+                      {/block:Photo}
+                                                
+                      {block:Photoset}
+                        {Photoset}
+                      {/block:Photoset}
+                                                
+                      {block:Quote}
+                        <p class="npf_quote {Length}">{Quote}</p>
+                      {block:Source}<p class="source">&mdash; {Source}</p>{/block:Source}
+                      {/block:Quote}
+                      
+                      {block:Link}
+                         <div class="npf-link-block {block:Thumbnail}has-poster not-{/block:Thumbnail}no-poster">
+                            <a href="{URL}" {Target}>{block:Thumbnail}
+                                <div class="poster" style="background-image: url({Thumbnail-HighRes});">{/block:Thumbnail}
+                                <div class="title">{Name}</div>{block:Thumbnail}
+                                </div>{/block:Thumbnail}
+                        <div class="bottom">{block:Excerpt}<div class="description">{Excerpt}</div>{/block:Excerpt}{block:Host}<div class="site-name">{Host}</div>{/block:Host}</div></a></div>
+                     {/block:Link}
+                     
+                     {block:Chat}{block:Title}<h1>{Title}</h1>{/block:Title}{block:Lines} <p class="npf_chat">{block:Label} <b>{Label}</b>{/block:Label}{Line} </p>{/block:Lines}{/block:Chat}
+                     {block:Audio}
+                       <div class="posts__audio">
+                           {block:AudioEmbed}{AudioEmbed-640}{/block:AudioEmbed}
+                       </div>
+                     {/block:Audio}
+                     
+                     {block:Video}
+                        <div class="posts__video">{Video-700}</div>
+                     {/block:Video}
+                     
+                     {block:Answer}
+                        <div class="posts__question">
+                           <img class="posts__question__asker" src="{AskerPortraitURL-64}" alt="">
+                                 <div class="posts__question__inner">
+                                       <div class="posts__question__user">
+                                            {lang:Asker asked 2}
+                                        </div>
+                                        {Question}
+                                </div>
+                         </div>                 
+                     {block:Answerer}
+                         <div class="posts__answerer">
+                            <img class="posts__answerer__asker" src="{AnswererPortraitURL-64}" alt="">
+                                <div class="posts__answerer__inner">
+                                    <div class="posts__answerer__user">
+                                        {Answerer} replied
+                                    </div>
+                                    {Answer}
+                                </div>
+                        </div>
+                    {/block:Answerer}
+                    {/block:Answer}    
+                    </section>
+                    
+                    <section class="posts__body">
+                    {block:RebloggedFrom}{block:Reblogs}
+                        <div class="reblog-list">
+                           <div class="reblog-post-avatar">
+                              {block:HasAvatar}
+                                <img src="{PortraitURL-64}" />
+                                      <span class="reblog-post-avatar-name">
+                                         {block:IsActive}
+                                            {block:HasPermalink}
+                                            <a href="{Permalink}" class="user-blog">
+                                            {/block:HasPermalink}
+                                                {Username}
+                                            {block:HasPermalink}
+                                            </a>
+                                            {/block:HasPermalink}
+                                         {/block:IsActive}
+                                         {block:IsDeactivated}
+                                            {block:HasPermalink}
+                                            <a href="{Permalink}" class="user-blog is-deactivated">
+                                            {/block:HasPermalink}
+                                                {Username}
+                                            {block:HasPermalink}
+                                            </a>
+                                            {/block:HasPermalink}
+                                        {/block:IsDeactivated}
+                                     </span>
+                              {/block:HasAvatar} 
+                            </div>
+                            {Body}
+                         </div>
+                         
+                         {/block:Reblogs}{/block:RebloggedFrom}
+                            {block:NotReblog}
+                               <div class="original">
+                               {block:Text}{Body}{/block:Text}{block:Photo}{block:Caption}{Caption}{/block:Caption}{/block:Photo}{block:Panorama}{block:Caption}{Caption}{/block:Caption}{/block:Panorama}{block:Photoset}{block:Caption}{Caption}{/block:Caption}{/block:Photoset}{block:Link}{block:Description}{Description}{/block:Description}{/block:Link}{block:Audio}{block:Caption}{Caption}{/block:Caption}{/block:Audio}{block:Video}{block:Caption}{Caption}{/block:Caption}{/block:Video}{block:Answer}{Answer}{/block:Answer}
+                            </div>
+                    {/block:NotReblog}
+                    
+                    {block:Actions}
+                       <div class="post-cta-action | margin--bottom-15">
+                         <a class="btn btn__full btn__primary" href="{url}" rel="nofollow noreferrer noopener" target="_blank">{text}</a>
+                       </div>
+                    {/block:Actions}
+                  </section>
                   
-                  s.parentElement.classList.add("is-soundcloud");
-                });
-            }
-            
-            const bandCamp = document.querySelectorAll('.bandcamp_audio_player');
-            if(bandCamp) {
-                for(b of bandCamp) {
-                    b.parentElement.classList.add("is-bandcamp");
-                }
-            }
-             
-             // masonry
-            let elem = document.querySelector(".wrapper__blog.is-masonry");
-            if(elem) {
-               let msnry = new Masonry(elem, {
-               // options
-                  itemSelector: "article.posts",
-                  horizontalOrder: true,
-                  // percentPosition: true,
-                  gutter:65,
-               });
-              
-               imagesLoaded(elem).on( 'progress', function() {
-                  // layout Masonry after each image loads
-                  msnry.layout();
-               });
-            }
-          </script>
-    </body>
+                  {block:Submission}
+                    <section class="posts__submitter">
+                      <a href="{SubmitterURL}">{Submitter}</a> {block:English}submitted to{/block:English}{block:German}eingereicht bei{/block:German}{block:French}a proposé ce billet à{/block:French}{block:Italian}ha inviato a{/block:Italian}{block:Japanese}からのゲスト投稿{/block:Japanese}{block:Turkish}bu gönderimi{/block:Turkish}{block:Spanish}ha enviado una colaboración a{/block:Spanish}{block:Russian}отправил(а) пост в блог{/block:Russian}{block:Polish}przesłał(a) post do{/block:Polish}{block:PortuguesePT}enviou para{/block:PortuguesePT}{block:PortugueseBR}enviou para{/block:PortugueseBR}{block:Dutch}heeft bijgedragen aan{/block:Dutch}{block:Korean}님이{/block:Korean}{block:ChineseSimplified}已提交给{/block:ChineseSimplified}{block:ChineseTraditional}已送出到{/block:ChineseTraditional}{block:ChineseHK}已提交到{/block:ChineseHK}{block:Indonesian}mengirim ini ke{/block:Indonesian}{block:Hindi}ने{/block:Hindi} {Name} {block:Turkish}bloguna yolladı{/block:Turkish}{block:Korean}님에게 전송했습니다{/block:Korean}{block:Hindi}को सबमिट किया{/block:Hindi}
+                    </section>
+                  {/block:Submission}
+                  {block:Date} 
+                  
+                  {block:HasTags}
+                  <section class="posts__bottom">
+                    <div class="posts__bottom__tags {select:Posts Tags}">
+                       <ul>
+                           {block:Tags}
+                            <li><a href="{TagURL}">#{Tag}</a></li> 
+                           {/block:Tags}
+                        </ul>
+                     </div>
+                  </section>
+                  {/block:HasTags}
+                  {/block:Date} 
+                  
+                  <!-- post trigger for the pop up -->
+                  <div class="posts__view">
+                      <span class="posts__view__trigger">View post <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></span>
+                  </div>
+                  
+                 </article>
+                 
+                 {block:PermalinkPagination}
+                     <nav class="pagination | margin--bottom-50 padding--x-15">
+                        <div class="pagination__inner | flex flex--align-center flex--justify-between w-100">
+                            <a {block:PreviousPost}href="{PreviousPost}" class="is-link"{/block:PreviousPost}><i class="las la-angle-left"></i> {lang:Previous post}</a>
+                            <a {block:NextPost}href="{NextPost}" class="is-link"{/block:NextPost}>{lang:Next post} <i class="las la-angle-right"></i></a>
+                        </div>
+                    </nav>
+                 {/block:PermalinkPagination}
+                    
+                 {block:PermalinkPage}
+                    {block:Date} 
+                           <article class="posts posts__perma posts__perma__tumblr">
+                               <div class="posts__perma__info">
+                                   <h3>{lang:Posted on DayOfWeek DayOfMonth Month Year}</h3>
+                                   <div class="posts__perma__data">
+                                       {block:RebloggedFrom}
+                                       <div class="posts__perma__data-blog">
+                                            <img src="{ReblogRootPortraitURL-128}" alt="{ReblogRootName}"><span>{lang:Originally from ReblogRootName 2}</span>
+                                          
+                                       </div>
+                                       {/block:RebloggedFrom}
+                                       
+                                       {block:RebloggedFrom} 
+                                       <div class="posts__perma__data-blog">
+                                           <img src="{ReblogParentPortraitURL-128}" alt="{ReblogParentName}">
+                                           <span>{lang:Reblogged from ReblogParentName 2}</span>
+                                            
+                                       </div>
+                                       {/block:RebloggedFrom}
+                                       
+                                       {block:NotReblog}
+                                       <div class="posts__perma__data-blog">
+                                           <img src="{PortraitURL-128}" alt="{Name}">
+                                           <span>{lang:Posted by PostAuthorName 2}</span>
+                                       </div>
+                                       {/block:NotReblog}
+                                </div>
+                            </div>
+                            
+                            {PostNotes-64}
+
+                           </article>
+                           {/block:Date} 
+                    {/block:PermalinkPage}    
+                {/block:Posts}
+         </div>
+         {block:Pagination}
+                <nav class="pagination">
+                    <div class="pagination__info">
+                        {lang:Page CurrentPage of TotalPages}
+                    </div>
+                    <div class="pagination__inner">
+                        <a {block:PreviousPage}href="{PreviousPage}" class="is-link"{/block:PreviousPage}><i class="las la-angle-left"></i> {lang:Previous page}</a>
+                        <a {block:NextPage}href="{NextPage}" class="is-link is-next"{/block:NextPage}>{lang:Next page} <i class="las la-angle-right"></i></a>
+                    </div>
+                </nav>
+        {/block:Pagination}
+      </div>
+   </main>
+   
+   <footer class="footer {select:Blog Footer Style}">
+      <div class="footer__inner | container--width-xl margin--x-auto">
+         <div class="footer__copyright">
+            Copyright © {Name} {CopyRightYears}. All rights reserved.
+         </div>
+         <div class="footer__credit sparkling">
+            <a href="https://www.tumblr.com/theme/40432">Empati Theme</a> by <a href="https://fukuo.tumblr.com">Fukuo</a>.
+            Powered by <a href="https://tumblr.com/" data-font="tumblr" aria-label="Tumblr"><svg
+                  class="svg-logo logo-tumblr" width="55px" viewBox="0 0 245 50" version="1.1"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <g class="logotype" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
+                     <path
+                        d="M28.087 49.57h-8.286c-7.461 0-13.021-3.835-13.021-13.01V21.863H0v-7.957C7.461 11.97 10.582 5.556 10.94 0h7.749v12.616h9.04v9.248h-9.04v12.795c0 3.836 1.937 5.162 5.022 5.162h4.376v9.749zm143.951.43c-3.766 0-7.246-1.254-10.151-3.692v3.262h-11.372V7.993h-4.95V0h17.075v15.305c2.224-1.72 5.919-3.119 9.613-3.119 10.51 0 15.676 7.312 15.676 18.46 0 11.612-5.56 19.354-15.89 19.354zm18.115-.43v-7.921h4.197V7.993h-4.95V0h16.93v41.649h4.377v7.92h-20.554zm-112.456 0v-7.921h4.197V20.68h-4.95v-8.065H92.26V17.6c2.582-3.549 7.39-5.413 11.765-5.413 5.525 0 9.22 2.223 11.658 5.914 1.938-3.261 6.529-5.914 12.125-5.914 11.335 0 14.205 8.961 14.205 16.56v12.903h4.125v7.92h-20.16v-7.92h4.054V27.348c0-3.047-1.04-5.628-5.309-5.628-5.273 0-6.816 4.122-6.816 6.13v13.799h4.233v7.92h-20.267v-7.92H106V27.348c0-3.047-.86-5.628-5.093-5.628-5.238 0-6.96 4.122-6.96 6.13v13.799h4.162v7.92H77.697zm137.494 0v-7.921h4.09V20.68h-4.449v-8.065h15.39v5.341c1.9-3.548 6.133-5.77 10.725-5.77H245V22.76h-5.022c-3.766 0-8.717 1.541-8.717 8.566V41.65h4.126v7.92H215.19zM47.53 50c-11.765 0-14.348-8.853-14.348-14.552V12.616h12.411v22.33c0 3.083.754 5.52 4.807 5.52 6.313 0 7.246-4.695 7.246-5.807V20.681h-4.807v-8.065h16.86V41.65h3.55v7.92H59.296V44.91C56.641 48.172 51.762 50 47.529 50zm121.926-8.996c1.902-.215 6.278-.538 6.278-10.287 0-6.774-2.978-9.498-6.35-9.498-2.905 0-7.102 1.54-7.102 10.25 0 7.24 3.551 9.535 7.174 9.535z"
+                        fill-rule="evenodd"></path>
+                  </g>
+               </svg></a>
+         </div>
+      </div>
+   </footer>
+
+    <!-- masonry -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+    <!-- tooltip -->
+    <script src="https://unpkg.com/popper.js@1"></script>
+    <script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/svg-arrow.css" />
+
+    <!-- slider  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+
+    <!-- toggle -->
+    <script src="https://cdn.jsdelivr.net/gh/ericbutler555/plain-js-slidetoggle@master/slideToggle.min.js"></script>
+
+    <!-- modal -->
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js
+    "></script>
+
+    <!-- main scripts -->
+    <script src="https://static.tumblr.com/5ojoydj/rsDs1t19m/app.js"></script>
+    <script src="https://static.tumblr.com/5ojoydj/rHCs130jf/featured.js"></script>
+    <script type="text/javascript" src="https://{Name}.tumblr.com/api/read/json?callback=featured&tagged=featured"></script>
+
+    <script>
+      tippy("[title]", {
+         theme:"custom",
+            arrow: tippy.roundArrow,
+            placement: "top",
+            delay: 5, //ms
+            distance: 15, 
+            maxWidth: 300, 
+            followCursor: false,
+            allowHTML: true,
+            ignoreAttributes: true,
+            content(reference) {
+              const title = reference.getAttribute("title");
+              reference.removeAttribute("title");
+              return title;
+            },
+      });
+
+      const parallax = 4;
+      const container = document.querySelector(".hero");
+
+      window.addEventListener("scroll", () => {
+         container.style.setProperty(
+            "background-position-y",
+            `${(window.scrollY / parallax) * -1}px`
+         );
+      });
+   </script>
+</body>
 </html>
