@@ -244,6 +244,24 @@ body {
                      border:0;
                      margin:0;
                   }
+                  .photoset-grid {
+                     aspect-ratio: 1/1;
+                     &[photoset-layout] {
+                        padding:0;
+                     }
+                     > div {
+                        grid-column: 1/-1;
+                        img {
+                           width: 100%;
+                           height: 100%;
+                           object-fit: cover;
+                           object-position: top;
+                        }
+                        &:not(:first-child) {
+                           display: none;
+                        }
+                     }
+                  }
                   .posts__body {
                      position: absolute;
                      left: 0;
