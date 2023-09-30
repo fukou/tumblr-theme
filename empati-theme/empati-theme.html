@@ -357,19 +357,21 @@
              <p>{text:Header Additional Info Description}</p>
          {/block:IfHeaderAdditionalInfoDescription}
          <h2>Featured posts</h2>
-          <div class="nav__additional__featured">
-            <div class="slideshow slideshow-all" 
-                data-items="2"
-                data-items-md="2"
-                data-items-sm="1"
-                data-loop="false"
-                data-arrow="true"
-                data-autoplay="false"
-                data-speed="1000"
-                data-dots="false"
-                data-gutter="15"
-                data-autoplaytime="5000"></div>
-         </div>
+            {block:IfFeaturedSlideshow}
+            <div class="nav__additional__featured">
+               <div class="slideshow slideshow-all" 
+                  data-items="2"
+                  data-items-md="2"
+                  data-items-sm="1"
+                  data-loop="false"
+                  data-arrow="true"
+                  data-autoplay="false"
+                  data-speed="1000"
+                  data-dots="false"
+                  data-gutter="15"
+                  data-autoplaytime="5000"></div>
+            </div>
+            {/block:IfFeaturedSlideshow}
          <h2>Contact</h2>
          <p>{text:Header Additional Info Contact}</p>
         </div>
