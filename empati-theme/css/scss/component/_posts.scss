@@ -744,6 +744,17 @@
             }
         }
 
+        > [photoset-layout] {
+            gap:1rem;
+            padding:1rem 1rem 0 1rem;
+            div {
+                cursor: pointer;
+                img {
+                    border-radius: 6px;
+                }
+            }
+        }
+
         > iframe {
             width: 100%!important;
         }
