@@ -399,6 +399,19 @@ var app = {
     posts.forEach((post, index) => {
       const postAudios = post.querySelectorAll("figcaption.audio-caption");
 
+      if(postAudios.length) {
+        const originalContent = post.querySelector(".original");
+        const reblogContent = post.querySelector(".reblog-list:first-child");
+
+        if(originalContent) {
+          post.classList.add("posts-audio");
+        } else if(reblogContent) {
+          post.classList.add("posts-audio");
+        } else {
+          return;
+        }
+      }
+
       postAudios.forEach((postAudio) => {
         postAudio.parentElement.classList.add("tmblr-npf-audio");
         postAudio.parentElement.classList.remove("tmblr-full");
@@ -722,6 +735,11 @@ var app = {
           headingContent ? headingContent.parentElement.classList.add("is-not-displayed") : "";
         } else if (containsPhoto) {
           post.classList.add("posts-photo-text");
+          headingContent ? headingContent.parentElement.classList.add("is-not-displayed") : "";
+        }
+      } else {
+        if (containsPhotosets) {
+          post.classList.add("posts-photoset-text");
           headingContent ? headingContent.parentElement.classList.add("is-not-displayed") : "";
         }
       }

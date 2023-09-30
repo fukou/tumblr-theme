@@ -557,6 +557,10 @@ body {
                               }
                            }
                         }
+
+                        :is(.npf_row) ~ * {
+                           display: none;
+                        }
                      }
 
                      .reblog-list {
@@ -955,7 +959,7 @@ pre {
       flex-direction: column;
 
       margin-top: -30px;
-      margin-bottom: 5rem;
+      margin-bottom: 2rem;
       margin-left: auto;
       margin-right: auto;
 
@@ -1002,7 +1006,7 @@ pre {
    }
 
    &__blog {
-
+      margin-top: 4rem;
       position: relative;
       animation: fadein 2s;
    }
