@@ -357,21 +357,19 @@
              <p>{text:Header Additional Info Description}</p>
          {/block:IfHeaderAdditionalInfoDescription}
          <h2>Featured posts</h2>
-            {block:IfFeaturedSlideshow}
-            <div class="nav__additional__featured">
-               <div class="slideshow slideshow-all" 
-                  data-items="2"
-                  data-items-md="2"
-                  data-items-sm="1"
-                  data-loop="false"
-                  data-arrow="true"
-                  data-autoplay="false"
-                  data-speed="1000"
-                  data-dots="false"
-                  data-gutter="15"
-                  data-autoplaytime="5000"></div>
-            </div>
-            {/block:IfFeaturedSlideshow}
+          <div class="nav__additional__featured">
+            <div class="slideshow slideshow-all" 
+                data-items="2"
+                data-items-md="2"
+                data-items-sm="1"
+                data-loop="false"
+                data-arrow="true"
+                data-autoplay="false"
+                data-speed="1000"
+                data-dots="false"
+                data-gutter="15"
+                data-autoplaytime="5000"></div>
+         </div>
          <h2>Contact</h2>
          <p>{text:Header Additional Info Contact}</p>
         </div>
@@ -544,14 +542,12 @@
                 <article class="posts posts-{PostType} {block:PinnedPostLabel}{block:IndexPage} pinned{/block:IndexPage}{/block:PinnedPostLabel} {TagsAsClasses}{block:PermalinkPage} is-permalink{/block:PermalinkPage}" data-article-permalink="{Permalink}" data-article-id="{PostID}" data-article-npf="{JSNPF}" data-article-notes="{postNotesURL}">
                     {block:Date}
                         {block:PinnedPostLabel}
-                           {block:IndexPage}
-                           <div class="posts__dated__pinned">
-                              <svg fill="currentColor" viewBox="18 13 12 21">
-                                 <path fill-rule="evenodd" d="M26.252 27.266l-2.078 7.592c-.052.19-.296.19-.348 0l-2.078-7.592h4.504zM29.512 14c.268 0 .488.241.488.536v1.746a.554.554 0 01-.255.47l-1.698 1.193v4.009l1.787 1.257-.034.006c.128.107.2.264.199.43v1.744c0 .296-.22.537-.488.537H18.488c-.268 0-.488-.241-.488-.537v-1.743a.555.555 0 01.255-.47l1.698-1.195v-4.008l-1.787-1.258.034-.006a.554.554 0 01-.199-.43v-1.745c0-.295.22-.536.488-.536h11.023z"></path>
-                              </svg>
-                              {PinnedPostLabel}
-                           </div>
-                           {/block:IndexPage}
+                        <div class="posts__dated__pinned">
+                            <svg fill="currentColor" viewBox="18 13 12 21">
+                                <path fill-rule="evenodd" d="M26.252 27.266l-2.078 7.592c-.052.19-.296.19-.348 0l-2.078-7.592h4.504zM29.512 14c.268 0 .488.241.488.536v1.746a.554.554 0 01-.255.47l-1.698 1.193v4.009l1.787 1.257-.034.006c.128.107.2.264.199.43v1.744c0 .296-.22.537-.488.537H18.488c-.268 0-.488-.241-.488-.537v-1.743a.555.555 0 01.255-.47l1.698-1.195v-4.008l-1.787-1.258.034-.006a.554.554 0 01-.199-.43v-1.745c0-.295.22-.536.488-.536h11.023z"></path>
+                            </svg>
+                           {PinnedPostLabel}
+                        </div>
                         {/block:PinnedPostLabel}
                    {/block:Date}
                    

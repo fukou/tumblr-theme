@@ -73,19 +73,6 @@ body {
    &.is-menu-clicked {
       overflow: hidden;
 
-      &::before {
-         content: "";
-         position: fixed;
-         left: 0;
-         top: 0;
-         width: 100%;
-         height: 100%;
-         background: rgba(0, 0, 0, .5);
-         backdrop-filter: blur(12px);
-         z-index: 99;
-         transition: 0.25s;
-      }
-
       .nav {
          background: transparent;
          border-color: transparent;
@@ -95,6 +82,56 @@ body {
          &__link {
             opacity: 0;
             visibility: hidden;
+         }
+      }
+   }
+
+   &.is-removed-credit {
+      overflow: hidden;
+      .credits {
+         width: 100%;
+         height: 100%;
+
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+
+         position: fixed;
+         left:0;
+         top:0;
+
+         background-color: rgba(0, 0, 0, .65);
+         backdrop-filter: blur(12px);
+
+         z-index: 999999999999;
+
+         &__inner {
+            max-width: 60ch;
+            margin:auto;
+
+            position: relative;
+            width: 100%;
+
+            background-color: rgba(var(--bg-card), 1);
+            color: rgba(var(--body-text), 1);
+
+            border: 1px solid rgba(var(--border-color), 1);
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+            border-radius: 6px;
+
+            padding:0 1rem;
+            h2,p {
+               margin:1rem 0;
+            }
+            h2 {
+               border-bottom: 1px solid rgba(var(--border-color), 1);
+               padding-bottom: 1rem;
+            }
+            a {
+               color:rgba(var(--accent), 1);
+               font-weight: bold;
+            }
          }
       }
    }
@@ -151,6 +188,10 @@ body {
                   transform: translateY(-6px);
                }
 
+               .is-not-displayed {
+                  display: none;
+               }
+
                &-answer {
                   background-color: rgba(var(--accent), 1);
                   color: rgba(var(--bg-card), 1);
@@ -198,13 +239,19 @@ body {
                }
 
                &-photo {
+                  .html_photoset {
+                     padding:0;
+                     border:0;
+                     margin:0;
+                  }
                   .posts__body {
                      position: absolute;
                      left: 0;
                      top: 0;
                      z-index: 1;
 
-                     .reblog-list {
+                     .reblog-list, .original {
+                        &:not(:first-child),
                         >*:not(.reblog-post-avatar) {
                            display: none;
                         }
@@ -250,37 +297,23 @@ body {
                   }
                }
 
+               &-video {
+                  @include icon-style("\f03d", var(--bg-card), var(--body-text), 2);
+               }
+              
                &-audio {
-                  &::before {
-                     font-family: "Line Awesome Free";
-                     font-weight: 900;
-                     font-size: 45px;
-                     content: "\f001";
-
-                     position: absolute;
-                     left: 0;
-                     top: 0;
-
-                     display: flex;
-                     align-items: center;
-                     justify-content: center;
-                     flex-direction: column;
-
-                     width: 100%;
-                     height: 100%;
-
-                     background: rgba(var(--accent), 1);
-                     color: rgba(var(--bg-card), 1);
-
-                     z-index: 3;
-                  }
+                  @include icon-style("\f001", var(--accent), var(--bg-card), 3);
+               }
+              
+               &-link {
+                  @include icon-style("\f0c6", var(--accent), var(--bg-card), 3);
                }
 
                &-photo-text {
                   .posts__body {
                      padding: 0;
 
-                     .reblog-list {
+                     .original {
                         padding: 0;
                         position: absolute;
                         left: 0;
@@ -319,7 +352,7 @@ body {
                            left: 0;
                            top: 0;
                            z-index: 1;
-                           margin: -1rem;
+                           margin: 0;
 
                            background-color: rgba(var(--bg-card), 1);
 
@@ -338,8 +371,108 @@ body {
                            }
                         }
 
+                        > figure.tmblr-full {
+                           > img {
+                              aspect-ratio: 1/1;
+                              object-position: top;
+                              object-fit: cover;
+                              height: 100%;
+                              width: 100%;
+                           }
+                           a[class*="anchor"] {
+                              img {
+                                 aspect-ratio: 1/1;
+                                 object-position: top;
+                                 object-fit: cover;
+                                 height: 100%;
+                                 width: 100%;
+                              }
+                           }
+                        }
+
                         :is(.npf_row) ~ * {
                            display: none;
+                        }
+
+                        &:not(:first-child) {
+                           display: none;
+                        }
+                     }
+
+                     .reblog-list {
+                        &:first-child {
+                           padding: 0;
+                           position: absolute;
+                           left: 0;
+                           top: 0;
+                           width: 100%;
+                           height: 100%;
+
+                           p:empty {
+                              display: none;
+                           }
+
+                           .reblog-post-avatar {
+                              position: absolute;
+                              left: 0;
+                              top: 1rem;
+                              margin: 0 1ch;
+                              z-index: 2;
+
+                              img {
+                                 border-radius: 50%;
+                              }
+
+                              .user-blog {
+                                 background-color: rgba(var(--accent), 0.65);
+                                 color: rgba(var(--bg-card), 1);
+                                 backdrop-filter: blur(8px);
+                                 padding: 0.5rem 0.85rem;
+                                 border-radius: 30px;
+
+                                 font-size: 0.85rem;
+                              }
+                           }
+
+                           > figure.tmblr-full {
+                              a[class*="anchor"], & > {
+                                 img {
+                                    aspect-ratio: 1/1;
+                                    object-position: top;
+                                    object-fit: cover;
+                                    height: 100%;
+                                    width: 100%;
+                                 }
+                              }
+                           }
+
+                           .npf_row {
+                              position: absolute;
+                              left: 0;
+                              top: 0;
+                              z-index: 1;
+                              margin: 0;
+
+                              background-color: rgba(var(--bg-card), 1);
+
+                              .npf_col ~ * {
+                                 display: none;
+                              }
+
+                              figure.tmblr-full {
+                                 img {
+                                    aspect-ratio: 1/1;
+                                    object-position: top;
+                                    object-fit: cover;
+                                    height: 100%;
+                                    width: 100%;
+                                 }
+                              }
+                           }
+
+                           :is(.npf_row) ~ * {
+                              display: none;
+                           }
                         }
 
                         &:not(:first-child) {
@@ -361,7 +494,7 @@ body {
                         display: none;
                      }
 
-                     .reblog-list {
+                     .original {
                         padding: 0;
                         position: absolute;
                         left: 0;
@@ -370,10 +503,6 @@ body {
                         height: 100%;
 
                         p:empty {
-                           display: none;
-                        }
-
-                        > :where(h1, h2) {
                            display: none;
                         }
 
@@ -399,14 +528,22 @@ body {
                            }
                         }
 
-                        .npf_photoset {
+                        .npf_row {
                            position: absolute;
                            left: 0;
                            top: 0;
                            z-index: 1;
-                           margin: -1rem;
+                           margin: 0;
 
                            background-color: rgba(var(--bg-card), 1);
+
+                           ~ .npf_row {
+                              display: none;
+                           }
+
+                           > .npf_col:not(:first-child) {
+                              display: none;
+                           }
 
                            figure.tmblr-full {
                               height: 100% !important;
@@ -421,6 +558,73 @@ body {
                            }
                         }
 
+                        :is(.npf_row) ~ * {
+                           display: none;
+                        }
+                     }
+
+                     .reblog-list {
+                        &:first-child {
+
+                           padding: 0;
+                           position: absolute;
+                           left: 0;
+                           top: 0;
+                           width: 100%;
+                           height: 100%;
+   
+                           p:empty {
+                              display: none;
+                           }
+   
+                           > :where(h1, h2) {
+                              display: none;
+                           }
+   
+                           .reblog-post-avatar {
+                              position: absolute;
+                              left: 0;
+                              top: 0;
+                              margin: 0 1ch;
+                              z-index: 2;
+   
+                              img {
+                                 border-radius: 50%;
+                              }
+   
+                              .user-blog {
+                                 background-color: rgba(var(--accent), 0.65);
+                                 color: rgba(var(--bg-card), 1);
+                                 backdrop-filter: blur(8px);
+                                 padding: 0.5rem 0.85rem;
+                                 border-radius: 30px;
+   
+                                 font-size: 0.85rem;
+                              }
+                           }
+   
+                           .npf_photoset {
+                              position: absolute;
+                              left: 0;
+                              top: 0;
+                              z-index: 1;
+                              margin: 0;
+   
+                              background-color: rgba(var(--bg-card), 1);
+   
+                              figure.tmblr-full {
+                                 height: 100% !important;
+   
+                                 img {
+                                    aspect-ratio: 1/1;
+                                    object-position: top;
+                                    object-fit: cover;
+                                    height: 100%;
+                                    width: 100%;
+                                 }
+                              }
+                           }
+                        }
                         &:not(:first-child) {
                            display: none;
                         }
@@ -584,7 +788,7 @@ body {
          }
 
          .wrapper {
-            padding-top: calc(var(--padding-lg)*1.5);
+            // padding-top: calc(var(--padding-lg)*1.5);
 
             &__toggle {
                display: none;
@@ -594,7 +798,7 @@ body {
 
       &.is-two-column {
          .wrapper {
-            padding-top: calc(var(--padding-lg)*1.5);
+            // padding-top: calc(var(--padding-lg)*1.5);
 
             &__toggle {
                display: none;
@@ -755,7 +959,7 @@ pre {
       flex-direction: column;
 
       margin-top: -30px;
-      margin-bottom: 5rem;
+      margin-bottom: 2rem;
       margin-left: auto;
       margin-right: auto;
 
@@ -802,7 +1006,7 @@ pre {
    }
 
    &__blog {
-
+      margin-top: 4rem;
       position: relative;
       animation: fadein 2s;
    }

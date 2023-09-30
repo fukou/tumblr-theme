@@ -1,17 +1,43 @@
 @mixin font-size($sizeValue: 1.6) {
-    font-size: ($sizeValue * 10) + px;
-    font-size: $sizeValue + rem;
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
 }
 
-@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) { 
-    @font-face {
-      font-family: quote($font-name);
-      src: url($file-name + '.eot');
-      src: url($file-name + '.eot?#iefix')  format('embedded-opentype'),
-           url($file-name + '.woff') format('woff'),
-           url($file-name + '.ttf')  format('truetype'),
-           url($file-name + '.svg##{$font-name}')  format('svg');
-      font-weight: $weight;
-      font-style: $style;
-    }
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: quote($font-name);
+    src: url($file-name + '.eot');
+    src: url($file-name + '.eot?#iefix') format('embedded-opentype'),
+    url($file-name + '.woff') format('woff'),
+    url($file-name + '.ttf') format('truetype'),
+    url($file-name + '.svg##{$font-name}') format('svg');
+    font-weight: $weight;
+    font-style: $style;
   }
+}
+
+@mixin icon-style($icon-content, $bg-color, $text-color, $z-index) {
+  &::before {
+    font-family: "Line Awesome Free";
+    font-weight: 900;
+    font-size: 45px;
+    content: $icon-content;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba($bg-color, 1);
+    color: rgba($text-color, 1);
+
+    z-index: $z-index;
+  }
+}
