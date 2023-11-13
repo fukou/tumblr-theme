@@ -139,10 +139,16 @@ body {
    &[data-blog-style="list"] {
 
       .nav,
-      .wrapper,
-      .nav__search {
+      .wrapper {
          &__inner {
             max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+         }
+      }
+      .nav__search {
+         &__inner {
+            max-width: 720px;
             margin-left: auto;
             margin-right: auto;
          }
@@ -1031,6 +1037,8 @@ pre {
 }
 
 .pagination {
+   width: 100%;
+   
    display: flex;
    align-items: center;
    justify-content: space-between;

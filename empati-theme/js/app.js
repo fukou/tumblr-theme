@@ -1,5 +1,5 @@
 /**
- * @version 1.0.0
+ * @version 1.0.1
  * @author fukuo <github.com/fukou>
  * @website https://fukuo.site
  */
@@ -15,20 +15,20 @@ var app = {
     app.headerActions();
     app.buttonToggleLayout();
     app.checkBlogLayout();
+    app.masonry();
+    app.tinySlider();
+    app.initCredit();
     app.postPopup();
     app.postToggleButton();
     // app.postNPF();
+    app.checkPhotoNPF();
+    app.shortenPost();
+    app.sparkingEffect();
     app.postSoundCloud();
     app.postSpotify();
     app.postBandCamp();
     app.postNPFAudio();
     app.postNPFData();
-    app.checkPhotoNPF();
-    app.shortenPost();
-    app.sparkingEffect();
-    app.masonry();
-    app.tinySlider();
-    app.initCredit();
   },
   headerScroll: () => {
     let scrollpos = window.scrollY;
