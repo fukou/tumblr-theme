@@ -13,7 +13,7 @@
         |  |     |  `--'  | |  .  \  |  `--'  | |  `--'  |
         |__|      \______/  |__|\__\  \______/   \______/  
                        
-        Empati Theme v2.1.1 (https://www.tumblr.com/theme/40432)
+        Empati Theme v2.1.2 (https://www.tumblr.com/theme/40432)
              
 -->
 <head>
@@ -28,7 +28,7 @@
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
-    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/sGKs1t52a/style.min.css">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/bTBs42kha/style.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;600&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400;1,600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
@@ -127,6 +127,8 @@
     
     <meta name="select:Header Search Button" content="is-displayed" title="Show">
     <meta name="select:Header Search Button" content="is-hidden" title="Hide">
+    <meta name="select:Header Featured Tags" content="is-displayed" title="Show">
+    <meta name="select:Header Featured Tags" content="is-hidden" title="Hide">
     
     <meta name="select:Header Additional Info Button" content="is-hidden" title="Hide">
     <meta name="select:Header Additional Info Button" content="is-displayed" title="Show">
@@ -382,6 +384,18 @@
          <div class="nav__search__inner | container--width-xl margin--x-auto">
             <form action="/search" method="get" class="nav__search__form" autocomplete="off"><input type="text" id="search" name="q" value="{SearchQuery}" placeholder="{lang:Search keywords}...">
                <button type="submit"><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span></button></form>
+            {block:HasFeaturedTags}
+            <div class="nav__search__tags {select:Header Featured Tags}">
+                <h2>Featured tags</h2>
+                   <ul class="featured-tags">
+                   {block:FeaturedTags}
+                   <li>
+                     <a href="{TagURL}">{Tag}</a>
+                   </li>
+                   {/block:FeaturedTags}
+                 </ul>
+            </div>
+            {/block:HasFeaturedTags}
          </div>
       </div>
    </nav>
@@ -589,68 +603,7 @@
                      </div>
                    {/block:Date}
                 
-                 <section class="posts__media">
-                       {block:Text}{block:Title}<h1><a href="{Permalink}">{Title}</a></h1>{/block:Title}{/block:Text}
-                       {block:Photo}
-                          <figure class="photo">
-                            {LinkOpenTag}
-                                   <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
-                            {LinkCloseTag}
-                         </figure>
-                      {/block:Photo}
-                                                
-                      {block:Photoset}
-                       <div class="photoset-grid" photoset-layout="{PhotosetLayout}">{block:Photos}<div data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" onclick="lightbox(this)"><img src="{PhotoURL-HighRes}" /></div>{/block:Photos}</div>
-                      {/block:Photoset}
-                                                
-                      {block:Quote}
-                        <p class="npf_quote {Length}">{Quote}</p>
-                      {block:Source}<p class="source">&mdash; {Source}</p>{/block:Source}
-                      {/block:Quote}
-                      
-                      {block:Link}
-                         <div class="npf-link-block {block:Thumbnail}has-poster not-{/block:Thumbnail}no-poster">
-                            <a href="{URL}" {Target}>{block:Thumbnail}
-                                <div class="poster" style="background-image: url({Thumbnail-HighRes});">{/block:Thumbnail}
-                                <div class="title">{Name}</div>{block:Thumbnail}
-                                </div>{/block:Thumbnail}
-                        <div class="bottom">{block:Excerpt}<div class="description">{Excerpt}</div>{/block:Excerpt}{block:Host}<div class="site-name">{Host}</div>{/block:Host}</div></a></div>
-                     {/block:Link}
-                     
-                     {block:Chat}{block:Title}<h1>{Title}</h1>{/block:Title}{block:Lines} <p class="npf_chat">{block:Label} <b>{Label}</b>{/block:Label}{Line} </p>{/block:Lines}{/block:Chat}
-                     {block:Audio}
-                       <div class="posts__audio">
-                           {block:AudioEmbed}{AudioEmbed-640}{/block:AudioEmbed}
-                       </div>
-                     {/block:Audio}
-                     
-                     {block:Video}
-                        <div class="posts__video">{Video-700}</div>
-                     {/block:Video}
-                     
-                     {block:Answer}
-                        <div class="posts__question">
-                           <img class="posts__question__asker" src="{AskerPortraitURL-64}" alt="">
-                                 <div class="posts__question__inner">
-                                       <div class="posts__question__user">
-                                            {lang:Asker asked 2}
-                                        </div>
-                                        {Question}
-                                </div>
-                         </div>                 
-                     {block:Answerer}
-                         <div class="posts__answerer">
-                            <img class="posts__answerer__asker" src="{AnswererPortraitURL-64}" alt="">
-                                <div class="posts__answerer__inner">
-                                    <div class="posts__answerer__user">
-                                        {Answerer} replied
-                                    </div>
-                                    {Answer}
-                                </div>
-                        </div>
-                    {/block:Answerer}
-                    {/block:Answer}    
-                    </section>
+                 <section class="posts__media">{block:Text}{block:Title}<h1><a href="{Permalink}">{Title}</a></h1>{/block:Title}{/block:Text}{block:Photo}<figure class="photo">{LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">{LinkCloseTag}</figure>{/block:Photo}{block:Photoset} <div class="photoset-grid" photoset-layout="{PhotosetLayout}">{block:Photos}<div data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" onclick="lightbox(this)"><img src="{PhotoURL-HighRes}" /></div>{/block:Photos}</div>{/block:Photoset}{block:Quote}<p class="npf_quote {Length}">{Quote}</p>{block:Source}<p class="source">&mdash; {Source}</p>{/block:Source}{/block:Quote}{block:Link}<div class="npf-link-block {block:Thumbnail}has-poster not-{/block:Thumbnail}no-poster"><a href="{URL}" {Target}>{block:Thumbnail}<div class="poster" style="background-image: url({Thumbnail-HighRes});">{/block:Thumbnail}<div class="title">{Name}</div>{block:Thumbnail}</div>{/block:Thumbnail}<div class="bottom">{block:Excerpt}<div class="description">{Excerpt}</div>{/block:Excerpt}{block:Host}<div class="site-name">{Host}</div>{/block:Host}</div></a></div>{/block:Link}{block:Chat}{block:Title}<h1>{Title}</h1>{/block:Title}{block:Lines} <p class="npf_chat">{block:Label} <b>{Label}</b>{/block:Label}{Line} </p>{/block:Lines}{/block:Chat}{block:Audio}<div class="posts__audio">{block:AudioEmbed}{AudioEmbed-640}{/block:AudioEmbed}</div>{/block:Audio}{block:Video}<div class="posts__video">{Video-700}</div>{/block:Video}{block:Answer}<div class="posts__question"><img class="posts__question__asker" src="{AskerPortraitURL-64}" alt=""><div class="posts__question__inner"><div class="posts__question__user">{lang:Asker asked 2}</div>{Question}</div></div>{block:Answerer}<div class="posts__answerer"><img class="posts__answerer__asker" src="{AnswererPortraitURL-64}" alt=""><div class="posts__answerer__inner"><div class="posts__answerer__user">{Answerer} replied</div>{Answer}</div></div>{/block:Answerer}{/block:Answer}</section>
                     
                     <section class="posts__body">
                     {block:RebloggedFrom}{block:Reblogs}
@@ -824,9 +777,9 @@
     "></script>
 
     <!-- main scripts -->
-    <script src="https://static.tumblr.com/5ojoydj/rsDs1t19m/app.js"></script>
+    <script src="https://static.tumblr.com/5ojoydj/Atrs42khe/app.js"></script>
     <script src="https://static.tumblr.com/5ojoydj/rHCs130jf/featured.js"></script>
-     <script src="https://static.tumblr.com/5ojoydj/wcbs1t52d/lightbox.js"></script>
+    <script src="https://static.tumblr.com/5ojoydj/wcbs1t52d/lightbox.js"></script>
     <script type="text/javascript" src="https://{Name}.tumblr.com/api/read/json?callback=featured&tagged=featured"></script>
 
     <script>
