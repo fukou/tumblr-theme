@@ -13,7 +13,7 @@
         |  |     |  `--'  | |  .  \  |  `--'  | |  `--'  |
         |__|      \______/  |__|\__\  \______/   \______/  
                        
-      Renjana Theme v2.1.2 (https://www.tumblr.com/theme/41018)
+      Renjana Theme v2.1.3 (https://www.tumblr.com/theme/41018)
              
 -->
 <head>
@@ -28,7 +28,7 @@
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
-    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/dyos1g7ew/style.min.css">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/3r9s47yqi/style.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;600&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400;1,600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
@@ -51,6 +51,9 @@
     <meta name="color:Posts Body Link Color" content="#000000" />
     <meta name="color:Posts Body Heading Color" content="#111111" />
     <meta name="color:Posts Body Text Color" content="#555555" />
+    
+    <meta name="color:Posts Asks Background Color" content="#eeeeee" />
+    <meta name="color:Posts Asks Text Color" content="#111111" />
     
     <meta name="color:Button Background Color" content="#427ea3" />
     <meta name="color:Button Background Color On Hover" content="#111111" />
@@ -143,6 +146,7 @@
     <meta name="text:Tiktok URL" content=""/>
     <meta name="text:Mastodon URL" content=""/>
     
+    <meta name="if:Post Like And Reblog Shown By Default" content="1"/>
     <meta name="if:Selection Color" content="1"/>
     <meta name="if:Custom Scrollbar" content="1"/>
     {/block:Hidden}
@@ -167,8 +171,8 @@
 
             --bg-card-pinned:var(--bg-card);
 
-            --post-bubble-bg:238,238,238;
-            --post-bubble-text:17,17,17;
+            --post-bubble-bg: {RGBcolor:Posts Asks Background Color};
+            --post-bubble-text: {RGBcolor:Posts Asks Text Color};
 
             --bg-img: url('{image:Background Page Image}');
 
@@ -193,9 +197,6 @@
             --hero-height:{text:Hero Image Height};
 
             --border-color:{RGBcolor:Border Color};
-
-            --tags-button-text:140, 140, 140;
-            --tags-button-text-hover:17, 17, 17;
 
             --text-xxl: clamp(2rem, (1rem + 2.5vw), 3rem);
             --text-xl: clamp(1.25rem, (1rem + 2.5vw), 2rem);
@@ -629,15 +630,25 @@
                                <a class="btn btn__full btn__primary" href="{url}" rel="nofollow noreferrer noopener" target="_blank">{text}</a>
                              </div>
                            {/block:Actions}
-
+                           
+                           {block:IfNotPostLikeAndReblogShownByDefault}
                            <div class="posts__dated__toggle | flex flex--align-center">
                               <button><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
                            <ul class="posts__dated__popup">
-                            <li><a href="{ReblogURL}">Reblog</a></li>
-                            <li class="like-b">{LikeButton}</li>
-                            <li><a href="{Permalink}" {Target}>{NoteCountWithLabel}</a></li>
-                           </div>
-                        </div>
+                                <li><a href="{ReblogURL}">Reblog</a></li>
+                                <li class="like-b">{LikeButton}</li>
+                                <li><a href="{Permalink}" {Target}>{NoteCountWithLabel}</a></li>
+                           </ul>
+                          </div>
+                         {/block:IfNotPostLikeAndReblogShownByDefault}
+                         
+                         {block:IfPostLikeAndReblogShownByDefault}
+                         <ul class="posts__dated__buttons">
+                           <li><a href="{ReblogURL}"><svg fill="currentColor" viewBox="0 0 17 18.1"> <path d="M12.8.2c-.4-.4-.8-.2-.8.4v2H2c-2 0-2 2-2 2v5s0 1 1 1 1-1 1-1v-4c0-1 .5-1 1-1h9v2c0 .6.3.7.8.4L17 3.6 12.8.2zM4.2 17.9c.5.4.8.2.8-.3v-2h10c2 0 2-2 2-2v-5s0-1-1-1-1 1-1 1v4c0 1-.5 1-1 1H5v-2c0-.6-.3-.7-.8-.4L0 14.6l4.2 3.3z"></path></svg></a></li>
+                           <li><a class="like">{LikeButton}<svg fill="currentColor" viewBox="0 0 20 18"><path d="M14.658 0c-1.625 0-3.21.767-4.463 2.156-.06.064-.127.138-.197.225-.074-.085-.137-.159-.196-.225C8.547.766 6.966 0 5.35 0 4.215 0 3.114.387 2.162 1.117c-2.773 2.13-2.611 5.89-1.017 8.5 2.158 3.535 6.556 7.18 7.416 7.875A2.3 2.3 0 0 0 9.998 18c.519 0 1.028-.18 1.436-.508.859-.695 5.257-4.34 7.416-7.875 1.595-2.616 1.765-6.376-1-8.5C16.895.387 15.792 0 14.657 0h.001zm0 2.124c.645 0 1.298.208 1.916.683 1.903 1.461 1.457 4.099.484 5.695-1.973 3.23-6.16 6.7-6.94 7.331a.191.191 0 0 1-.241 0c-.779-.631-4.966-4.101-6.94-7.332-.972-1.595-1.4-4.233.5-5.694.619-.475 1.27-.683 1.911-.683 1.064 0 2.095.574 2.898 1.461.495.549 1.658 2.082 1.753 2.203.095-.12 1.259-1.654 1.752-2.203.8-.887 1.842-1.461 2.908-1.461h-.001z"></path></svg></a></li>
+                         </ul>
+                         {/block:IfPostLikeAndReblogShownByDefault}
+                         </div>
                      </div>
                    {/block:Date}
                 
