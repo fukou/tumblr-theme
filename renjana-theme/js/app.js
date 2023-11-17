@@ -12,12 +12,13 @@ var app = {
     app.buttonSuggestions();
     app.postToggleButton();
     app.sparkingEffect();
-    // app.postNPF();
-    // app.postSoundCloud();
-    // app.postSpotify();
-    // app.postBandCamp();
-    // app.checkPhotoNPF();
+    app.postNPF();
+    app.postSoundCloud();
+    app.postSpotify();
+    app.postBandCamp();
+    app.checkPhotoNPF();
     app.shortenPost();
+    app.initCredit();
     app.postNPFAudio();
     app.postNPFData();
   },
@@ -198,163 +199,188 @@ var app = {
         });
     }
   },
+  initCredit: () => {
+		const footerCredit = document.querySelector(".footer__credit");
+		const addClassToBody = (className) => {
+			document.body.classList.add(className);
+		};
+		const injectCreditsMarkup = () => {
+			const creditsMarkup = `
+      <div class="credits">
+        <div class="credits__inner">
+          <h2>This user has removed the credit link 🤯</h2>
+          <p>The theme was originally created by <a href="https://fukuo.tumblr.com/">fukuo</a> on Tumblr. You can browse other themes <a href="https://www.tumblr.com/themes/">here</a>.</p>
+        </div>
+      </div>
+      `;
+			const body = document.body;
+			body.insertAdjacentHTML("beforeend", creditsMarkup);
+		};
+    if (!footerCredit) {
+      addClassToBody("is-removed-credit");
+      injectCreditsMarkup();
+    }
+	},
   postNPFAudio: () => {
     const posts = document.querySelectorAll(".posts");
 
     posts.forEach((post, index) => {
-      const postAudio = post?.querySelector("figcaption.audio-caption");
-      postAudio?.parentElement.classList.add("tmblr-npf-audio");
-      postAudio?.parentElement.classList.remove("tmblr-full");
+      const postAudios = post.querySelectorAll("figcaption.audio-caption");
 
-      const audioDetails = postAudio?.querySelector(".tmblr-audio-meta");
+      postAudios.forEach((postAudio) => {
+        postAudio.parentElement.classList.add("tmblr-npf-audio");
+        postAudio.parentElement.classList.remove("tmblr-full");
 
-      const title = audioDetails?.querySelector(".title")?.textContent.trim();
-      const artist = audioDetails?.querySelector(".artist")?.textContent.trim();
-      const album = audioDetails?.querySelector(".album")?.textContent.trim();
-      const albumCover = postAudio
-        ?.querySelector(".album-cover")
-        ?.getAttribute("src");
+        const audioDetails = postAudio.querySelector(".tmblr-audio-meta");
 
-      postAudio?.classList.add("d-none");
+        const title = audioDetails?.querySelector(".title")?.textContent.trim();
+        const artist = audioDetails?.querySelector(".artist")?.textContent.trim();
+        const album = audioDetails?.querySelector(".album")?.textContent.trim();
+        const albumCover = postAudio
+          ?.querySelector(".album-cover")
+          ?.getAttribute("src");
 
-      if (title || artist || album || albumCover) {
-        const postAudioElement = document.createElement("section");
-        postAudioElement.className = "posts__audio-npf";
+        postAudio.classList.add("d-none");
 
-        const elements = [
-          {
-            selector: ".title",
-            className: "posts__audio-npf__title",
-            textContent: title,
-          },
-          {
-            selector: ".artist",
-            className: "posts__audio-npf__artist",
-            textContent: artist,
-          },
-          {
-            selector: ".album",
-            className: "posts__audio-npf__album",
-            textContent: album,
-          },
-        ];
+        if (title || artist || album || albumCover) {
+          const postAudioElement = document.createElement("section");
+          postAudioElement.className = "posts__audio-npf";
 
-        const coverElement = document.createElement("div");
-        coverElement.className = "posts__audio-npf__cover";
+          const elements = [
+            {
+              selector: ".title",
+              className: "posts__audio-npf__title",
+              textContent: title,
+            },
+            {
+              selector: ".artist",
+              className: "posts__audio-npf__artist",
+              textContent: artist,
+            },
+            {
+              selector: ".album",
+              className: "posts__audio-npf__album",
+              textContent: album,
+            },
+          ];
 
-        if (albumCover) {
-          const imgElement = document.createElement("img");
-          imgElement.src = albumCover;
-          imgElement.alt = "";
-          coverElement.appendChild(imgElement);
-        } else {
-          const placeholderElement = document.createElement("div");
-          placeholderElement.className = "album-placeholder";
-          placeholderElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="15.5" r="2.5"/><path d="M8 17V5l12-2v12"/></svg>`;
-          coverElement.appendChild(placeholderElement);
-        }
+          const coverElement = document.createElement("div");
+          coverElement.className = "posts__audio-npf__cover";
 
-        const audioMoreDetails = document.createElement("div");
-        audioMoreDetails.className = "posts__audio-npf__details";
-
-        elements.forEach(({ selector, className, textContent }) => {
-          if (textContent) {
-            const element = document.createElement(
-              selector.startsWith(".") ? "div" : selector
-            );
-            element.className = className;
-            element.textContent = textContent;
-            audioMoreDetails.appendChild(element);
+          if (albumCover) {
+            const imgElement = document.createElement("img");
+            imgElement.src = albumCover;
+            imgElement.alt = "";
+            coverElement.appendChild(imgElement);
+          } else {
+            const placeholderElement = document.createElement("div");
+            placeholderElement.className = "album-placeholder";
+            placeholderElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="15.5" r="2.5"/><path d="M8 17V5l12-2v12"/></svg>`;
+            coverElement.appendChild(placeholderElement);
           }
-        });
 
-        const playButton = document.createElement("button");
-        playButton.className = "posts__audio-npf__button";
-        playButton.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-      </svg>
-    `;
+          const audioMoreDetails = document.createElement("div");
+          audioMoreDetails.className = "posts__audio-npf__details";
 
-        const audioElement = postAudio?.parentElement.querySelector("audio");
-        if (audioElement) {
-          audioElement.style.display = "none";
-
-          // Play audio when the play button is clicked
-          playButton.addEventListener("click", () => {
-            if (audioElement.paused || audioElement.ended) {
-              audioElement.play();
-              playButton.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="6" y="4" width="4" height="16"></rect>
-            <rect x="14" y="4" width="4" height="16"></rect>
-          </svg>
-        `;
-            } else {
-              audioElement.pause();
-              playButton.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-        `;
+          elements.forEach(({ selector, className, textContent }) => {
+            if (textContent) {
+              const element = document.createElement(
+                selector.startsWith(".") ? "div" : selector
+              );
+              element.className = className;
+              element.textContent = textContent;
+              audioMoreDetails.appendChild(element);
             }
           });
 
-          // Update play button state based on audio events
-          audioElement.addEventListener("play", () => {
-            playButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="6" y="4" width="4" height="16"></rect>
-          <rect x="14" y="4" width="4" height="16"></rect>
-        </svg>
-      `;
-          });
+          const playButton = document.createElement("button");
+          playButton.className = "posts__audio-npf__button";
+          playButton.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          `;
 
-          audioElement.addEventListener("pause", () => {
-            playButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="5 3 19 12 5 21 5 3"></polygon>
-        </svg>
-      `;
-          });
+          const audioElement = postAudio.parentElement.querySelector("audio");
+          if (audioElement) {
+            audioElement.style.display = "none";
 
-          audioElement.addEventListener("ended", () => {
-            playButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="5 3 19 12 5 21 5 3"></polygon>
-        </svg>
-      `;
-          });
+            // Play audio when the play button is clicked
+            playButton.addEventListener("click", () => {
+              if (audioElement.paused || audioElement.ended) {
+                audioElement.play();
+                playButton.innerHTML = `
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="6" y="4" width="4" height="16"></rect>
+                    <rect x="14" y="4" width="4" height="16"></rect>
+                  </svg>
+                `;
+              } else {
+                audioElement.pause();
+                playButton.innerHTML = `
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                `;
+              }
+            });
+
+            // Update play button state based on audio events
+            audioElement.addEventListener("play", () => {
+              playButton.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="6" y="4" width="4" height="16"></rect>
+                  <rect x="14" y="4" width="4" height="16"></rect>
+                </svg>
+              `;
+            });
+
+            audioElement.addEventListener("pause", () => {
+              playButton.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              `;
+            });
+
+            audioElement.addEventListener("ended", () => {
+              playButton.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              `;
+            });
+          }
+
+          audioMoreDetails.prepend(playButton);
+          postAudioElement.append(...[audioMoreDetails, coverElement]);
+          postAudio.parentElement.appendChild(postAudioElement);
+          if (audioElement) {
+            // Add progress bar for audio playback
+            const progressBar = document.createElement("div");
+            progressBar.className = "posts__audio-npf__progress-bar";
+            const progressFill = document.createElement("div");
+            progressFill.className = "posts__audio-npf__progress-fill";
+            progressBar.appendChild(progressFill);
+
+            progressBar.addEventListener("click", (event) => {
+              const progressBarRect = progressBar.getBoundingClientRect();
+              const clickX = event.clientX - progressBarRect.left;
+              const progressBarWidth = progressBarRect.width;
+              const progressPercentage = clickX / progressBarWidth;
+              audioElement.currentTime =
+                audioElement.duration * progressPercentage;
+            });
+
+            audioElement.addEventListener("timeupdate", () => {
+              const progress =
+                (audioElement.currentTime / audioElement.duration) * 100;
+              progressFill.style.width = `${progress}%`;
+            });
+            audioMoreDetails.appendChild(progressBar);
+          }
         }
-
-        audioMoreDetails.prepend(playButton);
-        postAudioElement.append(...[audioMoreDetails, coverElement]);
-        postAudio.parentElement.appendChild(postAudioElement);
-        if (audioElement) {
-          // Add progress bar for audio playback
-          const progressBar = document.createElement("div");
-          progressBar.className = "posts__audio-npf__progress-bar";
-          const progressFill = document.createElement("div");
-          progressFill.className = "posts__audio-npf__progress-fill";
-          progressBar.appendChild(progressFill);
-
-          progressBar.addEventListener("click", (event) => {
-            const progressBarRect = progressBar.getBoundingClientRect();
-            const clickX = event.clientX - progressBarRect.left;
-            const progressBarWidth = progressBarRect.width;
-            const progressPercentage = clickX / progressBarWidth;
-            audioElement.currentTime =
-              audioElement.duration * progressPercentage;
-          });
-
-          audioElement.addEventListener("timeupdate", () => {
-            const progress =
-              (audioElement.currentTime / audioElement.duration) * 100;
-            progressFill.style.width = `${progress}%`;
-          });
-          audioMoreDetails.appendChild(progressBar);
-        }
-      }
+      });
     });
   },
   postNPFData: () => {

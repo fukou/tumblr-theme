@@ -314,9 +314,8 @@
         }
 
         .original {
-            .npf_photoset {
-                padding: 1rem 0;
-            }
+            position: relative;
+            padding:1rem 0;
         }
 
         .reblog-list {
@@ -490,6 +489,14 @@
         }
 
         .tmblr-full {
+            &.tmblr-embed {
+                iframe {
+                    width: 100%!important;
+                }
+            }
+            iframe {
+                width: 100%!important;
+            }
             video {
                 border-radius: 4px;
                 overflow: hidden;
@@ -725,8 +732,11 @@
                 a {
                     display: inline-flex;
                     align-items: center;
+                    width: auto;
+                    height: 3rem;
                     padding: 0.75rem 1.25rem;
                     border-radius: 5px;
+                    
                     font-weight: bold;
                     font-size: 0.95rem;
                     text-decoration: none;

@@ -13,7 +13,7 @@
         |  |     |  `--'  | |  .  \  |  `--'  | |  `--'  |
         |__|      \______/  |__|\__\  \______/   \______/  
                        
-      Renjana Theme v2.1.1 (https://www.tumblr.com/theme/41018)
+      Renjana Theme v2.1.2 (https://www.tumblr.com/theme/41018)
              
 -->
 <head>
@@ -28,7 +28,7 @@
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
-    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/rGQs0dyf5/style.min.css">
+    <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/dyos1g7ew/style.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;600&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400;1,600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
@@ -506,7 +506,7 @@
                                       {/block:HasAvatar} 
                                     </div>
                                     {Body}
-                                 </div>{/block:Reblogs}{/block:RebloggedFrom}{block:NotReblog}<div class="original">{block:Text}{Body}{/block:Text}{block:Photo}{block:Caption}{Caption}{/block:Caption}{/block:Photo}{block:Panorama}{block:Caption}{Caption}{/block:Caption}{/block:Panorama}{block:Photoset}{block:Caption}{Caption}{/block:Caption}{/block:Photoset}{block:Link}{block:Description}{Description}{/block:Description}{/block:Link}{block:Audio}{block:Caption}{Caption}{/block:Caption}{/block:Audio}{block:Video}{block:Caption}{Caption}{/block:Caption}{/block:Video}{block:Answer}{Answer}{/block:Answer}
+                                 </div>{/block:Reblogs}{/block:RebloggedFrom}{block:NotReblog}<div class="original">{block:Text}{Body}{/block:Text}{block:Photo}{block:Caption}{Caption}{/block:Caption}{/block:Photo}{block:Panorama}{block:Caption}{Caption}{/block:Caption}{/block:Panorama}{block:Photoset}<div class="npf_photoset" data-layout="{PhotosetLayout}"{block:Photos}<figure class="tmblr-full"> <img class="npf_image" alt="{PhotoAlt}" src="{PhotoURL-500}" data-orig-width="{PhotoWidth-HighRes}" data-orig-height="{PhotoHeight-HighRes}" data-highres="{PhotoURL-HighRes}"></figure>{/block:Photos}</div>{block:Caption}{Caption}{/block:Caption}{/block:Photoset}{block:Link}{block:Description}{Description}{/block:Description}{/block:Link}{block:Audio}{block:Caption}{Caption}{/block:Caption}{/block:Audio}{block:Video}{block:Caption}{Caption}{/block:Caption}{/block:Video}{block:Answer}{Answer}{/block:Answer}
                                     </div>
                             {/block:NotReblog}
                             {block:Actions}
@@ -589,12 +589,14 @@
                 <article class="posts posts-{PostType} {block:PinnedPostLabel}{block:IndexPage} pinned{/block:IndexPage}{/block:PinnedPostLabel} {TagsAsClasses}{block:PermalinkPage} is-permalink{/block:PermalinkPage}" data-article-permalink="{Permalink}" data-article-id="{PostID}" data-article-npf="{JSNPF}">
                     {block:Date}
                         {block:PinnedPostLabel}
-                        <div class="posts__dated__pinned">
-                            <svg fill="currentColor" viewBox="18 13 12 21">
-                                <path fill-rule="evenodd" d="M26.252 27.266l-2.078 7.592c-.052.19-.296.19-.348 0l-2.078-7.592h4.504zM29.512 14c.268 0 .488.241.488.536v1.746a.554.554 0 01-.255.47l-1.698 1.193v4.009l1.787 1.257-.034.006c.128.107.2.264.199.43v1.744c0 .296-.22.537-.488.537H18.488c-.268 0-.488-.241-.488-.537v-1.743a.555.555 0 01.255-.47l1.698-1.195v-4.008l-1.787-1.258.034-.006a.554.554 0 01-.199-.43v-1.745c0-.295.22-.536.488-.536h11.023z"></path>
-                            </svg>
-                           {PinnedPostLabel}
-                        </div>
+                           {block:IndexPage}
+                           <div class="posts__dated__pinned">
+                              <svg fill="currentColor" viewBox="18 13 12 21">
+                                 <path fill-rule="evenodd" d="M26.252 27.266l-2.078 7.592c-.052.19-.296.19-.348 0l-2.078-7.592h4.504zM29.512 14c.268 0 .488.241.488.536v1.746a.554.554 0 01-.255.47l-1.698 1.193v4.009l1.787 1.257-.034.006c.128.107.2.264.199.43v1.744c0 .296-.22.537-.488.537H18.488c-.268 0-.488-.241-.488-.537v-1.743a.555.555 0 01.255-.47l1.698-1.195v-4.008l-1.787-1.258.034-.006a.554.554 0 01-.199-.43v-1.745c0-.295.22-.536.488-.536h11.023z"></path>
+                              </svg>
+                              {PinnedPostLabel}
+                           </div>
+                           {/block:IndexPage}
                         {/block:PinnedPostLabel}
                    {/block:Date}
                    
@@ -742,14 +744,9 @@
                          {/block:Reblogs}{/block:RebloggedFrom}
                             {block:NotReblog}
                                <div class="original">
-                               {block:Text}{Body}{/block:Text}{block:Photo}{block:Caption}{Caption}{/block:Caption}{/block:Photo}{block:Panorama}{block:Caption}{Caption}{/block:Caption}{/block:Panorama}{block:Photoset}{block:Caption}{Caption}{/block:Caption}{/block:Photoset}{block:Link}{block:Description}{Description}{/block:Description}{/block:Link}{block:Audio}{block:Caption}{Caption}{/block:Caption}{/block:Audio}{block:Video}{block:Caption}{Caption}{/block:Caption}{/block:Video}{block:Answer}{Answer}{/block:Answer}
+                               {block:Text}{Body}{/block:Text}{block:Photo}{block:Caption}{Caption}{/block:Caption}{/block:Photo}{block:Panorama}{block:Caption}{Caption}{/block:Caption}{/block:Panorama}{block:Photoset}<div class="npf_photoset" data-layout="{PhotosetLayout}"{block:Photos}<figure class="tmblr-full"> <img class="npf_image" alt="{PhotoAlt}" src="{PhotoURL-500}" data-orig-width="{PhotoWidth-HighRes}" data-orig-height="{PhotoHeight-HighRes}" data-highres="{PhotoURL-HighRes}"></figure>{/block:Photos}</div>{block:Caption}{Caption}{/block:Caption}{/block:Photoset}{block:Link}{block:Description}{Description}{/block:Description}{/block:Link}{block:Audio}{block:Caption}{Caption}{/block:Caption}{/block:Audio}{block:Video}{block:Caption}{Caption}{/block:Caption}{/block:Video}{block:Answer}{Answer}{/block:Answer}
                             </div>
                     {/block:NotReblog}
-                    {block:Actions}
-                     <div class="post-cta-action | margin--bottom-15">
-                       <a class="btn btn__full btn__primary" href="{url}" rel="nofollow noreferrer noopener" target="_blank">{text}</a>
-                     </div>
-                    {/block:Actions}
                   </section>
                   
                   {block:Submission}
@@ -762,9 +759,6 @@
                   {block:HasTags}
                   <section class="posts__bottom">
                     <div class="posts__bottom__tags {select:Posts Tags}">
-                                <a href="#" class="posts__bottom__tags-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line></svg>
-                                 </a>
                                 <ul>
                                     {block:Tags}
                                     <li><a href="{TagURL}">#{Tag}</a></li> 
@@ -859,7 +853,7 @@
     <script src="https://cdn.jsdelivr.net/gh/ericbutler555/plain-js-slidetoggle@master/slideToggle.min.js"></script>
 
     <!-- main scripts -->
-    <script src="https://static.tumblr.com/5ojoydj/HJ9s0cy3y/app.js"></script>
+    <script src="https://static.tumblr.com/5ojoydj/Q60s1g7ek/app.min.js"></script>
     <script src="https://static.tumblr.com/5ojoydj/m0Qs0cwn7/accounts.js"></script>
     <script src="https://static.tumblr.com/5ojoydj/EDvs0cwnf/filter.js"></script>
     

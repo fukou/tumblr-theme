@@ -1,15 +1,19 @@
+![Cover image](cover.png)
+
 # Tumblr Themes
-A collection or repository for all Tumblr-related releases especially for custom Tumblr themes and pages.
+> A collection or repository for all Tumblr-related releases especially for custom Tumblr themes and pages.
+
+[![GitHub Super-Linter](https://github.com/fukou/tumblr-theme/actions/workflows/super-linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter) 
 
 ## License
 The source code to the website is available under the MIT License
 
 ## List of released themes
-| No  | Theme Name    | Last Updated | Preview                             | Install |
-| --- | ------------- | ------------ | ----------------------------------- | ------- |
-| 1   | Nyiur         | Sept 19, 2023 |  https://nyiur-theme.tumblr.com/    | [Source code](https://github.com/fukuo-themes/tumblr-theme/blob/main/nyiur-theme/nyiur-theme.html)     |
-| 2   | Renjana       | Sept 7, 2023  |  https://renjana-theme.tumblr.com/  | [Source code](https://github.com/fukuo-themes/tumblr-theme/blob/main/renjana-theme/renjana-theme.html)        | 
-| 3   | Empati Tamako | Feb 15, 2022 |  https://empati-theme.tumblr.com/   | [Source code](https://github.com/fukuo-themes/tumblr-theme/blob/main/empati-theme/empati-theme.html)        | 
+| No  | Theme Name    | Last Updated | Preview                             | Install | NPF Compatible |
+| --- | ------------- | ------------ | ----------------------------------- | ------- | ------ |
+| 1   | Nyiur         | Sept 19, 2023 |  https://nyiur-theme.tumblr.com/    | [Source code](https://github.com/fukuo-themes/tumblr-theme/blob/main/nyiur-theme/nyiur-theme.html)     | Yes |
+| 2   | Renjana       | Sept 23, 2023  |  https://renjana-theme.tumblr.com/  | [Source code](https://github.com/fukuo-themes/tumblr-theme/blob/main/renjana-theme/renjana-theme.html)        | Yes |
+| 3   | Empati Tamako | Sept 30, 2023 |  https://empati-theme.tumblr.com/   | [Source code](https://github.com/fukuo-themes/tumblr-theme/blob/main/empati-theme/empati-theme.html)        | Yes |
 
 ## Credits
 * no.js photosets by [annasthms and espoirthemes](https://href.li/?https://github.com/annasthms/photosets)

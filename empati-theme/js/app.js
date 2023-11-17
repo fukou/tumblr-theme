@@ -18,16 +18,17 @@ var app = {
     app.postPopup();
     app.postToggleButton();
     // app.postNPF();
-    // app.postSoundCloud();
-    // app.postSpotify();
-    // app.postBandCamp();
+    app.postSoundCloud();
+    app.postSpotify();
+    app.postBandCamp();
     app.postNPFAudio();
-    // app.postNPFData();
+    app.postNPFData();
     app.checkPhotoNPF();
     app.shortenPost();
     app.sparkingEffect();
     app.masonry();
     app.tinySlider();
+    app.initCredit();
   },
   headerScroll: () => {
     let scrollpos = window.scrollY;
@@ -75,49 +76,117 @@ var app = {
   toggleMenu: (buttonSelector, menuSelector, menuType, iconDefault) => {
     const btn = document.querySelector(buttonSelector);
     const menu = document.querySelector(menuSelector);
+    const overlay = document.createElement("div");
+    overlay.className = "nav__overlay";
 
-    btn.addEventListener("click", () => {
-      menu.classList.toggle("is-shown");
-      btn.classList.toggle("is-activated");
-      document.body.classList.toggle("is-menu-clicked");
+    if (typeof btn != "undefined" && btn != null) {
+      btn.addEventListener("click", () => {
+        if (menu.classList.contains("is-shown")) {
+          // Close the menu
+          closeMenu();
+        } else {
+          // Open the menu
+          openMenu();
+        }
+      });
+    }
+  
+    function openMenu() {
+      menu.classList.add("is-shown");
+      btn.classList.add("is-activated");
+      document.body.classList.add("is-menu-clicked");
+      document.body.appendChild(overlay);
+  
+      // Trap focus within the menu
+      const focusableElements = menu.querySelectorAll(
+        'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+      );
+  
+      const firstFocusableElement = focusableElements[0];
+      const lastFocusableElement = focusableElements[focusableElements.length - 1];
+  
+      menu.addEventListener('keydown', function (e) {
+        if (e.key === 'Tab' || e.keyCode === 9) {
+          // Handle Tab key press
+          if (e.shiftKey) {
+            // Shift + Tab, move focus to the last element
+            if (document.activeElement === firstFocusableElement) {
+              e.preventDefault();
+              lastFocusableElement.focus();
+            }
+          } else {
+            // Tab, move focus to the first element
+            if (document.activeElement === lastFocusableElement) {
+              e.preventDefault();
+              firstFocusableElement.focus();
+            }
+          }
+        }
+      });
 
       if (menuType === "hamburger") {
-        btn.nextElementSibling.classList.toggle("is-disabled");
-        btn.nextElementSibling.nextElementSibling.classList.toggle(
-          "is-disabled"
-        );
+        toggleDisabledClass(btn, [
+          btn.nextElementSibling,
+          btn.nextElementSibling.nextElementSibling
+        ]);
       } else if (menuType === "search") {
-        btn.previousElementSibling.classList.toggle("is-disabled");
-        btn.nextElementSibling.classList.toggle("is-disabled");
+        toggleDisabledClass(btn, [
+          btn.previousElementSibling,
+          btn.nextElementSibling
+        ]);
       } else if (menuType === "additional") {
-        btn.previousElementSibling.classList.toggle("is-disabled");
-        btn.previousElementSibling.previousElementSibling.classList.toggle(
-          "is-disabled"
-        );
+        toggleDisabledClass(btn, [
+          btn.previousElementSibling,
+          btn.previousElementSibling.previousElementSibling
+        ]);
       }
+      
+      // Focus the first element within the menu
+      firstFocusableElement.focus();
 
-      const isAriaHidden = menu.getAttribute("aria-hidden");
-      menu.setAttribute(
-        "aria-hidden",
-        isAriaHidden === "true" ? "false" : "true"
-      );
+      btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+      menu.setAttribute("aria-hidden", "false");
+  
+      // Handle click on the overlay to close the menu
+      overlay.addEventListener("click", closeMenu);
+    }
+  
+    function closeMenu() {
+      menu.classList.remove("is-shown");
+      btn.classList.remove("is-activated");
+      document.body.classList.remove("is-menu-clicked");
+      document.body.removeChild(overlay);
 
-      btn.innerHTML = !menu.classList.contains("is-shown")
-        ? menuType === "hamburger"
-          ? `${iconDefault}`
-          : menuType === "search"
-          ? `${iconDefault}`
-          : menuType === "additional"
-          ? ` ${iconDefault}`
-          : ""
-        : menuType === "hamburger"
-        ? `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
-        : menuType === "search"
-        ? `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
-        : menuType === "additional"
-        ? `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
-        : "";
-    });
+      btn.innerHTML = `${iconDefault}`;
+      menu.setAttribute("aria-hidden", "true");
+
+      // Use the function to toggle disabled classes
+      if (menuType === "hamburger") {
+        toggleDisabledClass(btn, [
+          btn.nextElementSibling,
+          btn.nextElementSibling.nextElementSibling
+        ]);
+      } else if (menuType === "search") {
+        toggleDisabledClass(btn, [
+          btn.previousElementSibling,
+          btn.nextElementSibling
+        ]);
+      } else if (menuType === "additional") {
+        toggleDisabledClass(btn, [
+          btn.previousElementSibling,
+          btn.previousElementSibling.previousElementSibling
+        ]);
+      }
+  
+      // Restore focus to the button
+      btn.focus();
+    }
+
+    function toggleDisabledClass(btn, elementsToToggle) {
+      elementsToToggle.forEach(element => {
+        element.classList.toggle("is-disabled");
+      });
+    }
   },
   buttonToggleLayout: () => {
     // Select the buttons and body element
@@ -128,8 +197,8 @@ var app = {
     // Function to handle button click
     const handleButtonClick = (style) => {
       body.setAttribute("data-blog-style", style);
-      gridButton.classList.toggle("activated", style === "grid");
-      listButton.classList.toggle("activated", style === "list");
+      gridButton?.classList.toggle("activated", style === "grid");
+      listButton?.classList.toggle("activated", style === "list");
     };
 
     // Check the initial state of data-blog-style and set the button accordingly
@@ -137,8 +206,8 @@ var app = {
     handleButtonClick(initialStyle);
 
     // Add click event listeners to the buttons
-    gridButton.addEventListener("click", () => handleButtonClick("grid"));
-    listButton.addEventListener("click", () => handleButtonClick("list"));
+    gridButton?.addEventListener("click", () => handleButtonClick("grid"));
+    listButton?.addEventListener("click", () => handleButtonClick("list"));
   },
   checkBlogLayout: () => {
     const checkLayout = document.body;
@@ -222,7 +291,7 @@ var app = {
       const postTrigger = post.querySelector('.posts__view');
       
       // Add this click event listener inside your forEach loop
-      postTrigger.addEventListener("click", (e) => {
+      postTrigger?.addEventListener("click", (e) => {
         const postId = post.getAttribute("data-article-id");
         const postElement = postTrigger.closest(".posts");
         const postPermalink = post.getAttribute("data-article-permalink");
@@ -330,161 +399,175 @@ var app = {
     const posts = document.querySelectorAll(".posts");
 
     posts.forEach((post, index) => {
-      const postAudio = post?.querySelector("figcaption.audio-caption");
-      postAudio?.parentElement.classList.add("tmblr-npf-audio");
-      postAudio?.parentElement.classList.remove("tmblr-full");
+      const postAudios = post.querySelectorAll("figcaption.audio-caption");
 
-      postAudio?.closest(".posts").classList.add("posts-audio");
+      if(postAudios.length) {
+        const originalContent = post.querySelector(".original");
+        const reblogContent = post.querySelector(".reblog-list:first-child");
 
-      const audioDetails = postAudio?.querySelector(".tmblr-audio-meta");
-
-      const title = audioDetails?.querySelector(".title")?.textContent.trim();
-      const artist = audioDetails?.querySelector(".artist")?.textContent.trim();
-      const album = audioDetails?.querySelector(".album")?.textContent.trim();
-      const albumCover = postAudio
-        ?.querySelector(".album-cover")
-        ?.getAttribute("src");
-
-      postAudio?.classList.add("d-none");
-
-      if (title || artist || album || albumCover) {
-        const postAudioElement = document.createElement("section");
-        postAudioElement.className = "posts__audio-npf";
-
-        const elements = [
-          {
-            selector: ".title",
-            className: "posts__audio-npf__title",
-            textContent: title,
-          },
-          {
-            selector: ".artist",
-            className: "posts__audio-npf__artist",
-            textContent: artist,
-          },
-          {
-            selector: ".album",
-            className: "posts__audio-npf__album",
-            textContent: album,
-          },
-        ];
-
-        const coverElement = document.createElement("div");
-        coverElement.className = "posts__audio-npf__cover";
-
-        if (albumCover) {
-          const imgElement = document.createElement("img");
-          imgElement.src = albumCover;
-          imgElement.alt = "";
-          coverElement.appendChild(imgElement);
+        if(originalContent) {
+          post.classList.add("posts-audio");
+        } else if(reblogContent) {
+          post.classList.add("posts-audio");
         } else {
-          const placeholderElement = document.createElement("div");
-          placeholderElement.className = "album-placeholder";
-          placeholderElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="15.5" r="2.5"/><path d="M8 17V5l12-2v12"/></svg>`;
-          coverElement.appendChild(placeholderElement);
+          return;
         }
+      }
 
-        const audioMoreDetails = document.createElement("div");
-        audioMoreDetails.className = "posts__audio-npf__details";
+      postAudios.forEach((postAudio) => {
+        postAudio.parentElement.classList.add("tmblr-npf-audio");
+        postAudio.parentElement.classList.remove("tmblr-full");
 
-        elements.forEach(({ selector, className, textContent }) => {
-          if (textContent) {
-            const element = document.createElement(
-              selector.startsWith(".") ? "div" : selector
-            );
-            element.className = className;
-            element.textContent = textContent;
-            audioMoreDetails.appendChild(element);
+        const audioDetails = postAudio.querySelector(".tmblr-audio-meta");
+
+        const title = audioDetails?.querySelector(".title")?.textContent.trim();
+        const artist = audioDetails?.querySelector(".artist")?.textContent.trim();
+        const album = audioDetails?.querySelector(".album")?.textContent.trim();
+        const albumCover = postAudio
+          ?.querySelector(".album-cover")
+          ?.getAttribute("src");
+
+        postAudio.classList.add("d-none");
+
+        if (title || artist || album || albumCover) {
+          const postAudioElement = document.createElement("section");
+          postAudioElement.className = "posts__audio-npf";
+
+          const elements = [
+            {
+              selector: ".title",
+              className: "posts__audio-npf__title",
+              textContent: title,
+            },
+            {
+              selector: ".artist",
+              className: "posts__audio-npf__artist",
+              textContent: artist,
+            },
+            {
+              selector: ".album",
+              className: "posts__audio-npf__album",
+              textContent: album,
+            },
+          ];
+
+          const coverElement = document.createElement("div");
+          coverElement.className = "posts__audio-npf__cover";
+
+          if (albumCover) {
+            const imgElement = document.createElement("img");
+            imgElement.src = albumCover;
+            imgElement.alt = "";
+            coverElement.appendChild(imgElement);
+          } else {
+            const placeholderElement = document.createElement("div");
+            placeholderElement.className = "album-placeholder";
+            placeholderElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="15.5" r="2.5"/><path d="M8 17V5l12-2v12"/></svg>`;
+            coverElement.appendChild(placeholderElement);
           }
-        });
 
-        const playButton = document.createElement("button");
-        playButton.className = "posts__audio-npf__button";
-        playButton.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-      </svg>
-    `;
+          const audioMoreDetails = document.createElement("div");
+          audioMoreDetails.className = "posts__audio-npf__details";
 
-        const audioElement = postAudio?.parentElement.querySelector("audio");
-        if (audioElement) {
-          audioElement.style.display = "none";
-
-          // Play audio when the play button is clicked
-          playButton.addEventListener("click", () => {
-            if (audioElement.paused || audioElement.ended) {
-              audioElement.play();
-              playButton.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="6" y="4" width="4" height="16"></rect>
-            <rect x="14" y="4" width="4" height="16"></rect>
-          </svg>
-        `;
-            } else {
-              audioElement.pause();
-              playButton.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-        `;
+          elements.forEach(({ selector, className, textContent }) => {
+            if (textContent) {
+              const element = document.createElement(
+                selector.startsWith(".") ? "div" : selector
+              );
+              element.className = className;
+              element.textContent = textContent;
+              audioMoreDetails.appendChild(element);
             }
           });
 
-          // Update play button state based on audio events
-          audioElement.addEventListener("play", () => {
-            playButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="6" y="4" width="4" height="16"></rect>
-          <rect x="14" y="4" width="4" height="16"></rect>
-        </svg>
-      `;
-          });
+          const playButton = document.createElement("button");
+          playButton.className = "posts__audio-npf__button";
+          playButton.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          `;
 
-          audioElement.addEventListener("pause", () => {
-            playButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="5 3 19 12 5 21 5 3"></polygon>
-        </svg>
-      `;
-          });
+          const audioElement = postAudio.parentElement.querySelector("audio");
+          if (audioElement) {
+            audioElement.style.display = "none";
 
-          audioElement.addEventListener("ended", () => {
-            playButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="5 3 19 12 5 21 5 3"></polygon>
-        </svg>
-      `;
-          });
+            // Play audio when the play button is clicked
+            playButton.addEventListener("click", () => {
+              if (audioElement.paused || audioElement.ended) {
+                audioElement.play();
+                playButton.innerHTML = `
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="6" y="4" width="4" height="16"></rect>
+                    <rect x="14" y="4" width="4" height="16"></rect>
+                  </svg>
+                `;
+              } else {
+                audioElement.pause();
+                playButton.innerHTML = `
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                `;
+              }
+            });
+
+            // Update play button state based on audio events
+            audioElement.addEventListener("play", () => {
+              playButton.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="6" y="4" width="4" height="16"></rect>
+                  <rect x="14" y="4" width="4" height="16"></rect>
+                </svg>
+              `;
+            });
+
+            audioElement.addEventListener("pause", () => {
+              playButton.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              `;
+            });
+
+            audioElement.addEventListener("ended", () => {
+              playButton.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              `;
+            });
+          }
+
+          audioMoreDetails.prepend(playButton);
+          postAudioElement.append(...[audioMoreDetails, coverElement]);
+          postAudio.parentElement.appendChild(postAudioElement);
+          if (audioElement) {
+            // Add progress bar for audio playback
+            const progressBar = document.createElement("div");
+            progressBar.className = "posts__audio-npf__progress-bar";
+            const progressFill = document.createElement("div");
+            progressFill.className = "posts__audio-npf__progress-fill";
+            progressBar.appendChild(progressFill);
+
+            progressBar.addEventListener("click", (event) => {
+              const progressBarRect = progressBar.getBoundingClientRect();
+              const clickX = event.clientX - progressBarRect.left;
+              const progressBarWidth = progressBarRect.width;
+              const progressPercentage = clickX / progressBarWidth;
+              audioElement.currentTime =
+                audioElement.duration * progressPercentage;
+            });
+
+            audioElement.addEventListener("timeupdate", () => {
+              const progress =
+                (audioElement.currentTime / audioElement.duration) * 100;
+              progressFill.style.width = `${progress}%`;
+            });
+            audioMoreDetails.appendChild(progressBar);
+          }
         }
-
-        audioMoreDetails.prepend(playButton);
-        postAudioElement.append(...[audioMoreDetails, coverElement]);
-        postAudio.parentElement.appendChild(postAudioElement);
-        if (audioElement) {
-          // Add progress bar for audio playback
-          const progressBar = document.createElement("div");
-          progressBar.className = "posts__audio-npf__progress-bar";
-          const progressFill = document.createElement("div");
-          progressFill.className = "posts__audio-npf__progress-fill";
-          progressBar.appendChild(progressFill);
-
-          progressBar.addEventListener("click", (event) => {
-            const progressBarRect = progressBar.getBoundingClientRect();
-            const clickX = event.clientX - progressBarRect.left;
-            const progressBarWidth = progressBarRect.width;
-            const progressPercentage = clickX / progressBarWidth;
-            audioElement.currentTime =
-              audioElement.duration * progressPercentage;
-          });
-
-          audioElement.addEventListener("timeupdate", () => {
-            const progress =
-              (audioElement.currentTime / audioElement.duration) * 100;
-            progressFill.style.width = `${progress}%`;
-          });
-          audioMoreDetails.appendChild(progressBar);
-        }
-      }
+      });
     });
   },
   postNPFData: () => {
@@ -502,18 +585,21 @@ var app = {
       try {
         // Parse the JSON string as an object
         const npfData = JSON.parse(decodedJsonString);
+
         if (npfData.trail) {
           const postsTrailList = post.querySelectorAll(".reblog-list"); // Get all .reblog-list elements within the current .posts element
 
           postsTrailList.forEach((postsTrail, index) => {
+            console.log('%cPost Trail:', 'background: #00aaaa; color: white', postsTrail);
+
             let trail = npfData.trail[index];
             let trailAskLayout = trail?.layout.find(
               (layout) => layout.type === "ask"
             );
-            let blog = trail.blog;
-            let blogTheme = blog.theme;
-            let badgesAcc = blog.tumblrmart_accessories;
-            let badges = blog.tumblrmart_accessories?.badges;
+            let blog = trail?.blog;
+            let blogTheme = blog?.theme;
+            let badgesAcc = blog?.tumblrmart_accessories;
+            let badges = blog?.tumblrmart_accessories?.badges;
 
             let {
               description: blogDesc,
@@ -630,20 +716,37 @@ var app = {
     });
   },
   checkPhotoNPF: () => {
-    const isTextPost = document.querySelectorAll(".posts");
-    isTextPost.forEach(function (item, idx) {
-      const containsPhotosets = item.querySelector(".npf_photoset");
-      const containsPhoto = item.querySelector(
-        ".reblog-list figure.tmblr-full:first-of-type"
-      );
-
-      if (containsPhotosets) {
-        item.classList.add("posts-photoset-text");
-      } else if (containsPhoto) {
-        item.classList.add("posts-photo-text");
+    const posts = document.querySelectorAll(".posts");
+  
+    posts.forEach((post) => {
+      const originalContent = post.querySelector(".original");
+      const reblogContent = post.querySelector(".reblog-list:first-child");
+      const headingContent = post.querySelector(".posts__media > h1");
+  
+      const precedingParagraph = (originalContent && originalContent.querySelector("p")) || (reblogContent && reblogContent.querySelector("p"));
+  
+      const containsPhotosets = (originalContent && originalContent.querySelector(".npf_row:first-child")) || (reblogContent && reblogContent.querySelector(".npf_row:first-child"));
+      const containsPhoto = (originalContent && originalContent.querySelector("figure.tmblr-full:first-of-type:not(.tmblr-embed)")) || (reblogContent && reblogContent.querySelector("figure.tmblr-full:first-of-type:not(.tmblr-embed)"));
+  
+      // Check if precedingParagraph contains text or is empty
+      const isPrecedingParagraphEmpty = precedingParagraph && !precedingParagraph.textContent.trim();
+  
+      if (isPrecedingParagraphEmpty) {
+        if (containsPhotosets) {
+          post.classList.add("posts-photoset-text");
+          headingContent ? headingContent.parentElement.classList.add("is-not-displayed") : "";
+        } else if (containsPhoto) {
+          post.classList.add("posts-photo-text");
+          headingContent ? headingContent.parentElement.classList.add("is-not-displayed") : "";
+        }
+      } else {
+        if (containsPhotosets) {
+          post.classList.add("posts-photoset-text");
+          headingContent ? headingContent.parentElement.classList.add("is-not-displayed") : "";
+        }
       }
     });
-  },
+  },  
   shortenPost: () => {
     if (document.querySelector("body.is-shorten-long-post")) {
       document
@@ -827,12 +930,6 @@ var app = {
         var sliderBy = slider1.getAttribute("data-slide-by")
           ? slider1.getAttribute("data-slide-by")
           : "page";
-        var silderControlsContainer = slider1.getAttribute(
-          "data-controls-container"
-        )
-          ? slider1.getAttribute("data-controls-container")
-          : "";
-
         // Check if document DIR is RTL
         var ifRtl = document
           .getElementsByTagName("html")[0]
@@ -859,7 +956,6 @@ var app = {
           controlsPosition: top,
           navPosition: top,
           autoplayPosition: top,
-          controlsContainer: silderControlsContainer,
           controlsText: [
             '<i class="las la-angle-left"></i>',
             '<i class="las la-angle-right"></i>',
@@ -898,6 +994,28 @@ var app = {
       });
     }
   },
+  initCredit: () => {
+		const footerCredit = document.querySelector(".footer__credit");
+		const addClassToBody = (className) => {
+			document.body.classList.add(className);
+		};
+		const injectCreditsMarkup = () => {
+			const creditsMarkup = `
+      <div class="credits">
+        <div class="credits__inner">
+          <h2>This user has removed the credit link 🤯</h2>
+          <p>The theme was originally created by <a href="https://fukuo.tumblr.com/">fukuo</a> on Tumblr. You can browse other themes <a href="https://www.tumblr.com/themes/">here</a>.</p>
+        </div>
+      </div>
+      `;
+			const body = document.body;
+			body.insertAdjacentHTML("beforeend", creditsMarkup);
+		};
+    if (!footerCredit) {
+      addClassToBody("is-removed-credit");
+      injectCreditsMarkup();
+    }
+	},
   decodeAndReplace(input) {
     return input
       .replace(/\\x22/g, '"')

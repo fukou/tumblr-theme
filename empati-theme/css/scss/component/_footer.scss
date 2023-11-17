@@ -8,6 +8,13 @@
     background-color: rgba(var(--bg-card), 1);
     color: rgba(var(--body-text), 1);
 
+    &.is-gradient {
+        mask-image: linear-gradient(to bottom, transparent 2%, black 25%);
+        mask-size: auto 100%;
+        mask-repeat: no-repeat;
+        padding-top: 6rem;
+    }
+
     &.is-wave {
         --mask:radial-gradient(17.61px at 50% 24.50px, #000 99%, #0000 101%) calc(50% - 20px) 0/40px 100%,
             radial-gradient(17.61px at 50% -14.5px, #0000 99%, #000 101%) 50% 10px/40px 100% repeat-x;
