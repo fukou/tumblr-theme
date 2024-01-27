@@ -226,7 +226,7 @@ var app = {
           );
           const { poster } = npfData;
           const markup = `
-            <div class="npf-video-block" style="background-image:url('${poster[0].url}')">
+            <div class="npf-video-block" style="${poster ? `background-image: url(${poster[0].url});` : 'background: rgba(var(--heading-text), 0.25);'}">
               <i class="las la-play"></i>
             </div>
           `;
@@ -588,9 +588,7 @@ var app = {
 
         if (npfData.trail) {
           const postsTrailList = post.querySelectorAll(".reblog-list"); // Get all .reblog-list elements within the current .posts element
-
           postsTrailList.forEach((postsTrail, index) => {
-            console.log('%cPost Trail:', 'background: #00aaaa; color: white', postsTrail);
 
             let trail = npfData.trail[index];
             let trailAskLayout = trail?.layout.find(
@@ -620,8 +618,6 @@ var app = {
             If the blog contains a custom badges
             */
             if (blog.can_show_badges && badges) {
-              //   console.log('%cPost Trail:', 'background: #00aaaa; color: white', postsTrail);
-
               // Check if .reblog-post-badges already exists for this .reblog-list
               let postBadges = postsTrail.querySelector(".reblog-post-badges");
               if (!postBadges) {
@@ -654,7 +650,6 @@ var app = {
                 const trailContent = trail.content[i];
                 switch (trailContent.type) {
                   case "poll":
-                    // console.log(trailContent.created_at);
                     const formattedDate = app.formatDate(
                       trailContent.created_at
                     );
