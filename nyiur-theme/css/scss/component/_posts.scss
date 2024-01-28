@@ -28,14 +28,6 @@
 
     &.pinned {
         border:3px solid rgba(var(--bg-card-pinned-border), 1);
-        background-color: rgba(var(--bg-card-pinned), 1);
-    }
-
-    .posts__pinned__label {
-        background: rgba(var(--pinned-label-bg), 1);
-        color: rgba(var(--pinned-label-text), 1);
-        padding: 6px 12px;
-        border-radius: 30px;
     }
 
     &.is-permalink {
@@ -72,13 +64,13 @@
         justify-content:center;
         font-weight:bold;
         text-decoration:none;
-        padding:.875rem 1rem;
+        padding:1.25rem .875rem .875rem 1rem;
         width:calc(100% + 2rem);
         color:rgba(var(--body-link), 1);
         border-radius: 0;
         background-color:transparent;
-        margin: 1rem -1rem -2rem -1rem;
-        box-shadow: rgba(var(--body-link), 0.2) 0px -28px 50px -10px;
+        margin: 3rem -1rem -1rem -1rem;
+        box-shadow: rgba(var(--body-link), 0.076) 0px -38px 50px -10px;
     }
 
     .is-toggle {
@@ -398,7 +390,7 @@
             align-items: center;
             gap:6px;
             border-bottom: 1px solid rgba(var(--body-text), 0.1);
-            color:rgba(var(--bg-card-pinned-border), 1);
+            color:rgba(var(--pinned-label-text), 1);
             font-weight: bold;
             
             svg {
