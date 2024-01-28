@@ -69,6 +69,12 @@
     <meta name="color:Posts Body Link Color" content="#000000" />
     <meta name="color:Posts Body Heading Color" content="#111111" />
     <meta name="color:Posts Body Text Color" content="#555555" />
+
+    <meta name="color:Posts Asks Background Color" content="#eeeeee" />
+    <meta name="color:Posts Asks Text Color" content="#111111" />
+    
+    <meta name="color:Posts Pinned Border Color" content="#F3A2BB" />
+    <meta name="color:Posts Pinned Label Text Color" content="#F3A2BB" />
     
     <meta name="color:Button Background Color" content="#111111" />
     <meta name="color:Button Background Color On Hover" content="#F3A2BB" />
@@ -204,10 +210,8 @@
             --btn-primary-hover:{RGBcolor:Button Background Color On Hover};
             --btn-text-primary-hover:{RGBcolor:Button Text Color On Hover};
 
-            --bg-card-pinned-border:210, 153, 159;
-
-            --pinned-label-bg:210, 153, 159;
-            --pinned-label-text:255,255,255;
+            --bg-card-pinned-border:{RGBcolor:Posts Pinned Border Color};
+            --pinned-label-text:{RGBcolor:Posts Pinned Label Text Color};
 
             --hero-bg-img:url('{image:Hero Top Background Image}');
 
@@ -252,8 +256,8 @@
 
             --bg-card-pinned:var(--bg-card);
 
-            --post-bubble-bg:238,238,238;
-            --post-bubble-text:17,17,17;
+            --post-bubble-bg: {RGBcolor:Posts Asks Background Color};
+            --post-bubble-text: {RGBcolor:Posts Asks Text Color};
 
             --hero-color:{RGBcolor:Hero Top Text Color};
 
