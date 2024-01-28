@@ -5,7 +5,7 @@
 .footer {
     padding-bottom: 4.5rem;
     margin-top: 4.5rem;
-    color: rgba(var(--body-text), 1);
+    color: rgba(var(--header-navigation-text), 1);
 
     &__inner {
         display: flex;
@@ -24,7 +24,7 @@
         }
 
         a {
-            color: rgba(var(--body-text), 1);
+            color: rgba(var(--header-navigation-text), 1);
             font-weight: bold;
         }
     }
