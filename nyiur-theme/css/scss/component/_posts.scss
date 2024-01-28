@@ -28,11 +28,9 @@
 
     &.pinned {
         border:3px solid rgba(var(--bg-card-pinned-border), 1);
-        background-color: rgba(var(--bg-card-pinned), 1);
     }
 
     .posts__pinned__label {
-        background: rgba(var(--pinned-label-bg), 1);
         color: rgba(var(--pinned-label-text), 1);
         padding: 6px 12px;
         border-radius: 30px;
