@@ -1,5 +1,5 @@
 /**
- * @version 1.0.1
+ * @version 1.0.2
  * @author fukuo <github.com/fukou>
  * @website https://fukuo.site
  */
@@ -20,7 +20,6 @@ var app = {
     app.initCredit();
     app.postPopup();
     app.postToggleButton();
-    // app.postNPF();
     app.checkPhotoNPF();
     app.shortenPost();
     app.sparkingEffect();
@@ -351,14 +350,6 @@ var app = {
         }
       });
     });
-  },
-  postNPF: () => {
-    const npfOptions = {
-      includeCommonPhotosets: true,
-      useTumblrLightbox: true,
-      photosetMargins: "7.5",
-    };
-    npfPhotosets(".posts", npfOptions);
   },
   postSoundCloud: () => {
     const soundcloudColor = "#de8100";
@@ -991,24 +982,32 @@ var app = {
   },
   initCredit: () => {
 		const footerCredit = document.querySelector(".footer__credit");
-		const addClassToBody = (className) => {
-			document.body.classList.add(className);
-		};
-		const injectCreditsMarkup = () => {
-			const creditsMarkup = `
-      <div class="credits">
-        <div class="credits__inner">
-          <h2>This user has removed the credit link 🤯</h2>
-          <p>The theme was originally created by <a href="https://fukuo.tumblr.com/">fukuo</a> on Tumblr. You can browse other themes <a href="https://www.tumblr.com/themes/">here</a>.</p>
+    const addClassToBody = (className) => {
+        document.body.classList.add(className);
+    };
+    const injectCreditsMarkup = () => {
+        const creditsMarkup = `
+        <div class="credits">
+            <div class="credits__inner">
+                <h2>This user has removed the credit link 🤯</h2>
+                <p>The theme was originally created by <a href="https://fukuo.tumblr.com/">Fukuo</a> on Tumblr. You can browse other themes <a href="https://www.tumblr.com/themes/">here</a>.</p>
+                <p>Alternatively, you can find documentation for creating your own Tumblr theme from scratch <a href="https://www.tumblr.com/docs/en/custom_themes">here</a>! ✨</p>
+            </div>
         </div>
-      </div>
-      `;
-			const body = document.body;
-			body.insertAdjacentHTML("beforeend", creditsMarkup);
-		};
-    if (!footerCredit) {
-      addClassToBody("is-removed-credit");
-      injectCreditsMarkup();
+        `;
+        const body = document.body;
+        body.insertAdjacentHTML("beforeend", creditsMarkup);
+    };
+    const checkFooterCredit = () => {
+        if (!footerCredit) {
+            return true;
+        }
+        const fukuoLink = footerCredit.querySelector('a[href="https://fukuo.tumblr.com"]');
+        return !fukuoLink;
+    };
+    if (checkFooterCredit()) {
+        addClassToBody("is-removed-credit");
+        injectCreditsMarkup();
     }
 	},
   decodeAndReplace(input) {

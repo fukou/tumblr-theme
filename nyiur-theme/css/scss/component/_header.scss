@@ -245,6 +245,7 @@
 
             gap:0 4px;
             border-radius: 30px;
+            min-width: 10rem;
 
             background-color:rgba(var(--header-navigation-text), 1);
             color:rgba(var(--header-navigation-bg), 1);
@@ -268,11 +269,14 @@
             }
 
             li {
+              flex-grow: 1;
                 a {
                     display: inline-flex;
                     align-items: center;
                     color:rgba(var(--header-navigation-bg), 1);
                     text-decoration: none;
+
+                    width: 100%;
 
                     padding:8px 16px;
                     border-radius: 30px;
