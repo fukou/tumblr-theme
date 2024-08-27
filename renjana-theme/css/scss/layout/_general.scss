@@ -565,11 +565,7 @@ pre {
          z-index: 99999;
 
          button#tags {
-            position: absolute;
-            right:35px;
-            top:0;
-            margin:0.9ch 1ch;
-
+            margin:0 0.75ch 0 0;
             cursor: pointer;
             border: 0;
             background: transparent;

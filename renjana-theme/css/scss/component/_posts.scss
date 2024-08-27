@@ -731,12 +731,11 @@
                     display: inline-flex;
                     align-items: center;
                     width: auto;
-                    height: 3rem;
-                    padding: 0.75rem 1.25rem;
+                    height: auto;
+                    padding: 0.5rem 1rem;
                     border-radius: 5px;
-                    
                     font-weight: bold;
-                    font-size: 0.95rem;
+                    font-size: .85rem;
                     text-decoration: none;
                     background-color: rgba(var(--btn-primary), 1);
                     color: rgba(var(--btn-text-primary), 1);
