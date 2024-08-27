@@ -20,7 +20,6 @@ var app = {
     app.initCredit();
     app.postPopup();
     app.postToggleButton();
-    // app.postNPF();
     app.checkPhotoNPF();
     app.shortenPost();
     app.sparkingEffect();
@@ -351,14 +350,6 @@ var app = {
         }
       });
     });
-  },
-  postNPF: () => {
-    const npfOptions = {
-      includeCommonPhotosets: true,
-      useTumblrLightbox: true,
-      photosetMargins: "7.5",
-    };
-    npfPhotosets(".posts", npfOptions);
   },
   postSoundCloud: () => {
     const soundcloudColor = "#de8100";
