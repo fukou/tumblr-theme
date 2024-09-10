@@ -17,7 +17,7 @@ var app = {
         app.categorizePosts();
         app.shortenPost();
         // app.postNPFAudio();
-        // app.postNPFData();
+        app.postNPFData();
     },
     sparkingEffect: () => {
         // https://renerehme.dev/blog/animated-sparkles-in-jquery
@@ -112,20 +112,20 @@ var app = {
         }
     },
     postNormalizeLegacy() {
-      // Select all articles with the class 'posts'
-      const posts = document.querySelectorAll("article.posts");
+        // Select all articles with the class 'posts'
+        const posts = document.querySelectorAll("article.posts");
 
-      posts.forEach((post) => {
-          // Find the .posts-trail-legacy and .trail-content elements within the post
-          const legacy = post.querySelector(".posts-trail-legacy");
-          const trailContent = post.querySelector(".posts-trail-content");
+        posts.forEach((post) => {
+            // Find the .posts-trail-legacy and .trail-content elements within the post
+            const legacy = post.querySelector(".posts-trail-legacy");
+            const trailContent = post.querySelector(".posts-trail-content");
 
-          // Check if both .posts-trail-legacy and .trail-content exist
-          if (legacy && trailContent) {
-              // Move the content of legacy to the beginning of trail-content
-              trailContent.insertAdjacentElement("afterbegin", legacy);
-          }
-      });
+            // Check if both .posts-trail-legacy and .trail-content exist
+            if (legacy && trailContent) {
+                // Move the content of legacy to the beginning of trail-content
+                trailContent.insertAdjacentElement("afterbegin", legacy);
+            }
+        });
     },
     categorizePosts: () => {
         // Select all the post elements inside .posts-trail-content
@@ -185,7 +185,7 @@ var app = {
                         postBody.classList.add("is-truncated");
 
                         const toggleBtn = document.createElement("a");
-                        toggleBtn.className = "is-toggle btn btn__primary";
+                        toggleBtn.className = "posts-trail-toggle is-toggle";
                         toggleBtn.textContent = "Expand";
                         toggleBtn.href = "#";
 
@@ -385,24 +385,34 @@ var app = {
             try {
                 // Parse the JSON string as an object
                 const npfData = JSON.parse(decodedJsonString);
+                console.log(
+                    "%cPosts:",
+                    "background: #00aaaa; color: white",
+                    npfData,
+                );
+
                 if (npfData.trail) {
                     const postsTrailList =
-                        post.querySelectorAll(".reblog-list"); // Get all .reblog-list elements within the current .posts element
+                        post.querySelectorAll(".posts-trail-item"); // Get all .reblog-list elements within the current .posts element
 
                     postsTrailList.forEach((postsTrail, index) => {
                         let trail = npfData.trail[index];
                         let trailAskLayout = trail?.layout.find(
                             (layout) => layout.type === "ask",
                         );
-                        let blog = trail.blog;
+
+                        console.log("%cPost Trails:", "background: #de8110; color: white", trail);
+
+                        let blog = trail?.blog;
                         let blogTheme = blog.theme;
                         let badgesAcc = blog.tumblrmart_accessories;
                         let badges = blog.tumblrmart_accessories?.badges;
 
                         let {
-                            description: blogDesc,
-                            title: blogTitle,
-                            name: blogName,
+                          description: blogDesc,
+                          title: blogTitle,
+                          name: blogName,
+                          avatar: [, , , { url: blogAvatar }] 
                         } = blog;
                         let {
                             link_color: blogLinkColor,
@@ -412,11 +422,21 @@ var app = {
                             header_image_scaled: headerImage,
                             avatar_shape: avatarShape,
                         } = blogTheme;
-                        let blogInfo;
+                        let blogInfo = `
+                        <div class="posts-trail-profile">
+                          <h3>${blogTitle}</h3>
+                          <p>${blogDesc}</p>
+                        </div>
+                        `;
+
+                        postsTrail.style.setProperty('--trail-profile-bg', `${blogBgColor}`);
+                        postsTrail.style.setProperty('--trail-profile-color', `${blogTitleColor}`);
+
+                        postsTrail.querySelector('.posts-trail-username').insertAdjacentHTML("beforeend", blogInfo);
 
                         /*
-            If the blog contains a custom badges
-            */
+                          If the blog contains a custom badges
+                        */
                         if (blog.can_show_badges && badges) {
                             //   console.log('%cPost Trail:', 'background: #00aaaa; color: white', postsTrail);
 
@@ -424,6 +444,7 @@ var app = {
                             let postBadges = postsTrail.querySelector(
                                 ".reblog-post-badges",
                             );
+                            
                             if (!postBadges) {
                                 postBadges = document.createElement("span");
                                 postBadges.className = "reblog-post-badges";
@@ -530,15 +551,20 @@ var app = {
         });
     },
     decodeAndReplace(input) {
-        return input
-            .replace(/\\x22/g, '"')
-            .replace(/\\x3c/g, "<")
-            .replace(/\\x3e/g, ">")
-            .replace(/\\x26amp;/g, "&")
-            .replace(/\\x26/g, "&")
-            .replace(/\\"/g, '"')
-            .replace(/\\'/g, "'")
-            .replace(/\\\\/g, "\\");
+        try {
+            return input
+                .replace(/\\x22/g, '"')
+                .replace(/\\x3c/g, "<")
+                .replace(/\\x3e/g, ">")
+                .replace(/\\x26amp;/g, "&")
+                .replace(/\\x26/g, "&")
+                .replace(/\\"/g, '"')
+                .replace(/\\'/g, "'")
+                .replace(/\\\\/g, "\\");
+        } catch (error) {
+            console.error("Error while decoding and replacing:", error);
+            return input; // Return the original input in case of an error
+        }
     },
     extractJSONString(input) {
         const jsonStartIndex = input?.indexOf("'") + 1;
