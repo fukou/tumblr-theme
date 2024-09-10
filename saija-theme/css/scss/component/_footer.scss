@@ -2,33 +2,36 @@
 @use '../abstracts/mixins' as *;
 @use '../abstracts/screenwidth' as *;
 
-.footer {
-    padding:calc(var(--padding-lg)*1.5) 1rem;
-    margin-top: 4.5rem;
-    background-color: rgba(var(--bg-card), 1);
-    color: rgba(var(--body-text), 1);
-    
-    border:1px solid rgba(var(--border-color), 1);
+.wrapper__footer {
+  grid-column: 2/-1;
+  padding: var(--space-m) var(--space-m);
+  margin-top: var(--space-2xl);
 
-    &__inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+  @media (max-width: $max-lg) {
+    grid-column: 1/-1;
+  }
 
-        @media (max-width:60rem) {
-            flex-direction: column;
-            justify-content: center;
-        }
+  &__inner {
+    max-width: 1240px;
+    margin-inline: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-2xs);
+
+    padding: 0 var(--space-m);
+
+    @media (max-width: $max-lg) {
+      padding: 0;
     }
 
-    &__credit {
-        @media (max-width:60rem) {
-            margin-top: 0.85rem;
-        }
-
-        a {
-            color: rgba(var(--body-text), 1);
-            font-weight: bold;
-        }
+    &-info {
+      a {
+        font-weight: bold;
+        color: rgb(var(--body-link));
+      }
     }
+  }
 }

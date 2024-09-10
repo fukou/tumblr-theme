@@ -4,7 +4,6 @@
 
 .posts {
   position: relative;
-  overflow: clip;
   background-color: rgb(var(--bg-card));
   color: rgb(var(--body-text));
 
@@ -12,6 +11,7 @@
 
   .posts-trail {
     &-legacy {
+      margin-top: 0;
       >.tmblr-full {
         img {
           width: 100%;
@@ -21,6 +21,15 @@
     }
 
     &-body {
+      pre {
+        font-family: Source Code Pro,monospace;
+      }
+      p.npf_quote {
+        font-family: Calluna, Georgia, "Times New Roman", "Liberation Serif", serif !important;
+        border-left: 4px solid rgba(var(--heading-text), 0.2);
+        padding: 0 var(--space-xs);
+        margin-left: var(--space-xs) !important;
+      }
       .tmblr-truncated-link.read_more {
         display: inline-flex;
         justify-content: center;
@@ -33,7 +42,7 @@
         border-radius: 100px;
         font-weight: bold;
       }
-      :where(npf_row .npf_col figure p.tmblr-attribution, .tmblr-full .link-url, .tmblr-full .post_media_photo_anchor + p.tmblr-attribution, .attribution-block) {
+      :is(npf_row .npf_col figure p.tmblr-attribution, .tmblr-full .link-url, .tmblr-full .post_media_photo_anchor + p.tmblr-attribution, .attribution-block) {
         position: relative;
         width: 100%;
         padding: var(--space-2xs) var(--space-xs);
@@ -49,6 +58,9 @@
         text-wrap: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        a {
+          color: rgba(var(--bg-card), 1);
+        }
       }
 
       h1 {
@@ -60,7 +72,7 @@
       }
     }
 
-    &-item {
+    &-item, &-original {
       display: grid;
       grid-template-columns: min(20rem, 100%) minmax(0, 1fr);
       gap: var(--space-xs);
@@ -68,7 +80,7 @@
 
       + .posts-trail-item {
         border-top: 1px solid rgba(var(--body-text), 0.3);
-        // margin-top: var(--space-m);
+        margin-top: var(--space-s);
         padding-top: var(--space-2xs);
       }
 
@@ -78,9 +90,6 @@
     }
 
     &-profile {
-      margin-top: calc(-1*var(--space-xs));
-      margin-bottom: var(--space-s);
-
       // padding: var(--space-xs);
       // background: var(--bg-profile, #eee);
       // color: var(--text-color, #111);
@@ -111,24 +120,56 @@
         font-size: var(--step--2);
         margin-bottom: var(--space-3xs);
       }
+
+      p {
+        margin: var(--space-3xs) 0;
+        font-size: var(--step--2);
+      }
+
+      a {
+        color: rgba(var(--body-link), 1);
+        font-weight: bold;
+      }
+
+      @media (max-width: $max-md) {
+        display: none;
+      }
     }
 
     &-username {
       position: sticky;
       top: 0;
+      padding-top: var(--space-xs);
+
+      @media (max-width: $max-lg) {
+        position: relative;
+      }
     }
 
     &-blog {
       display: flex;
       align-items: center;
       gap: var(--space-2xs);
-      margin-bottom: var(--space-2xs);
-      padding: var(--space-xs) 0;
+      margin-bottom: var(--space-xs);
+      padding: calc(0.5*var(--space-2xs)) calc(0.85*var(--space-2xs));
       text-decoration: none;
       color: rgb(var(--title));
 
+      font-size: calc(0.85*var(--step--2));
+
+      text-wrap: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      width: max-content;
+      background: var(--trail-profile-bg);
+      color: var(--trail-profile-color);
+      border-radius: 100px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
       @media (max-width: $max-lg) {
         position: relative;
+        margin: 0;
       }
 
       &::before {
@@ -194,7 +235,7 @@
         margin: var(--space-xs) 0;
         padding: 0 var(--space-xs);
         @media (max-width: $max-lg) {
-          margin: 0;
+          // margin: 0;
           padding: 0;
         }
       }
@@ -232,21 +273,28 @@
     // border-radius: 10px;
 
     &.expanded {
-      grid-column: span 2;
+      @media (min-width: $min-lg) {
+        grid-column: span 2;
+      }
       // aspect-ratio: 2.1/1;
     }
 
     .posts-trail {
-      &-profile {
-        display: none;
-      }
-
       &-item {
         display: unset;
       }
 
+      &-profile {
+        display: none;
+      }
+
+      &-username {
+        position: relative;
+        padding-top: 0;
+      }
+
       &-blog {
-        margin-bottom: calc(-1*var(--space-xs));
+        margin-bottom: 0;
         // position: absolute;
         // left: 0;
         // top: 0;

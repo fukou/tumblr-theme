@@ -108,14 +108,14 @@ body {
         &__menu {
           width: 100%;
           border-bottom: 1px solid rgba(var(--body-text), 0.21);
+          text-orientation: unset;
+          writing-mode: unset;
           
           &-inner {
             max-width: 1240px;
             margin-inline: auto;
 
             min-height: auto;
-            text-orientation: unset;
-            writing-mode: unset;
 
             width: 100%;
             border-right: 0;
@@ -123,6 +123,10 @@ body {
             padding: var(--space-xs) var(--space-xs);
           }
         }
+      }
+
+      &__footer {
+        grid-column: 1/-1;
       }
     }
   }
@@ -234,10 +238,10 @@ pre {
     }
 
     &__menu {
-      &-inner {
-        text-orientation: sideways;
-        writing-mode: vertical-lr;
+      text-orientation: sideways;
+      writing-mode: vertical-lr;
 
+      &-inner {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -264,7 +268,6 @@ pre {
       #title {
         font-size: var(--step-2);
       }
-
       button.hamburger-menu {
         display: flex;
         align-items: center;
@@ -283,6 +286,11 @@ pre {
           width: 32px;
           height: 32px;
         }
+      }
+      @media (max-width: $max-md) {
+        width: 100%;
+        text-orientation: unset;
+        writing-mode: unset;
       }
     }
 
