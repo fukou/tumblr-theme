@@ -432,7 +432,7 @@ var app = {
                         postsTrail.style.setProperty('--trail-profile-bg', `${blogBgColor}`);
                         postsTrail.style.setProperty('--trail-profile-color', `${blogTitleColor}`);
 
-                        postsTrail.querySelector('.posts-trail-username').insertAdjacentHTML("beforeend", blogInfo);
+                        postsTrail?.querySelector('.posts-trail-username').insertAdjacentHTML("beforeend", blogInfo);
 
                         /*
                           If the blog contains a custom badges
