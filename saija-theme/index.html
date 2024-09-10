@@ -10,11 +10,10 @@
   <link rel="stylesheet" media="screen"
     href="https://assets.tumblr.com/client/prod/standalone/blog-network-npf/index.build.css?_v=f085dde138e244526309d4673db67b4c">
   <link rel="stylesheet" href="css/style.min.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;600&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400;1,600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&family=Cardo:ital,wght@0,400;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" type="text/css" href="https://assets.tumblr.com/fonts/favorit/stylesheet.css?v=1">
   <link rel="stylesheet"
@@ -2767,17 +2766,19 @@
       --title-font-weight: bold;
 
       --heading-font: 'Instrument Serif', serif;
-      --body-font: 'Favorit', sans-serif;
+      --body-font: 'Manrope', sans-serif;
       --code-font: 'Consolas', monospace;
 
-      --accent: 113, 122, 255;
-      --bg-color-1: 17, 17, 17;
-      --bg-color-2: 17, 17, 17;
+      --grid-column: 3;
 
-      --bg-card: 17, 17, 17;
-      --body-text: 238, 238, 238;
-      --body-link: 238, 238, 238;
-      --heading-text:255, 255, 255;
+      --accent: 113, 122, 255;
+      --bg-color-1: 255, 255, 255;
+      --bg-color-2: 255, 255, 255;
+
+      --bg-card: 255, 255, 255;
+      --body-text: 17, 17, 17;
+      --body-link: 17, 17, 17;
+      --heading-text: 17, 17, 17;
 
       --post-bubble-bg: 238, 238, 238;
       --post-bubble-text: 17, 17, 17;
@@ -2801,6 +2802,7 @@
       --border-color: 221, 221, 221;
 
       /* Font Sizes */
+      --step--3: clamp(0.6rem, 0.6em + 0.4vw, 0.8rem);
       --step--2: clamp(0.6944rem, 0.6021rem + 0.4618vw, 0.96rem);
       --step--1: clamp(0.8333rem, 0.7058rem + 0.6377vw, 1.2rem);
       --step-0: clamp(1rem, 0.8261rem + 0.8696vw, 1.5rem);
@@ -2830,17 +2832,26 @@
   </style>
 </head>
 
-<body data-type-page="index" data-blog-style="list">
+<body data-type-page="index" data-blog-style="list" data-blog-pattern="blog" class="is-shorten-long-post">
 
   <main class="wrapper">
     <aside class="wrapper__sidebar">
       <nav class="wrapper__sidebar__menu">
-        <button class="hamburger-menu" aria-label="Navigation"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="7.5" width="16" height="1.5"></rect><rect x="4" y="15" width="16" height="1.5"></rect></svg></button>
+        <div class="wrapper__sidebar__menu-inner">
+          <button class="hamburger-menu" aria-label="Navigation"><svg width="24" height="24"
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <rect x="4" y="7.5" width="16" height="1.5"></rect>
+            <rect x="4" y="15" width="16" height="1.5"></rect>
+          </svg></button>
         <h1 id="title">Saija, Remuk, Hancur</h1>
+        </div>
       </nav>
       <div class="wrapper__sidebar__inner">
         <div class="wrapper__sidebar__info">
-          <a href="/"><img src="https://64.media.tumblr.com/3e1521e541c47b9c5602f283e67cf45d/2d2aac3c142a4024-88/s128x128u_c1/d64ed6a639241f60ee899f7fb8fd8e17554037cf.pnj" alt="" id="avatar" class="circle"></a>
+          <a href="/" id="avatar-wrapper"><img
+              src="https://64.media.tumblr.com/3e1521e541c47b9c5602f283e67cf45d/2d2aac3c142a4024-88/s128x128u_c1/d64ed6a639241f60ee899f7fb8fd8e17554037cf.pnj"
+              alt="" id="avatar" class="circle"></a>
+          <h2 id="main-title">Saija</h2>
           <p>Saija remuk, dan dia kan sadar, yang tak diam dengannya hanya waktu.</p>
         </div>
         <div class="wrapper__sidebar__bottom">
@@ -2855,289 +2866,591 @@
 
     </aside>
 
-    <section class="wrapper__blog">
+    <section class=" wrapper__blog">
 
-      <article class="posts">
-        <section class="posts-trail-body">
-          <div class="posts-trail-legacy">
-            <figure class="tmblr-full"><a href="/image/723555149025509376" class="tmblr-full-image"><img
-                  src="https://64.media.tumblr.com/8cb0afeffacdd9c5c1a6187874e43646/tumblr_ng8a4o76yi1qfqm2lo1_640.jpg"
-                  alt="fuckyeahjapanandkorea:
+                <article class="posts"
+                  data-article-npf="'{\x22content\x22:[],\x22layout\x22:[],\x22trail\x22:[{\x22content\x22:[{\x22type\x22:\x22image\x22,\x22media\x22:[{\x22url\x22:\x22https://64.media.tumblr.com/dad102c3d3ae6073f33f385b0b4849c4/tumblr_n2riiyK8xD1qifqv6o1_1280.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:652,\x22height\x22:980,\x22has_original_dimensions\x22:true},{\x22url\x22:\x22https://64.media.tumblr.com/dad102c3d3ae6073f33f385b0b4849c4/tumblr_n2riiyK8xD1qifqv6o1_640.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:639,\x22height\x22:960},{\x22url\x22:\x22https://64.media.tumblr.com/dad102c3d3ae6073f33f385b0b4849c4/tumblr_n2riiyK8xD1qifqv6o1_540.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:539,\x22height\x22:810},{\x22url\x22:\x22https://64.media.tumblr.com/dad102c3d3ae6073f33f385b0b4849c4/tumblr_n2riiyK8xD1qifqv6o1_500.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:499,\x22height\x22:750},{\x22url\x22:\x22https://64.media.tumblr.com/dad102c3d3ae6073f33f385b0b4849c4/tumblr_n2riiyK8xD1qifqv6o1_400.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:399,\x22height\x22:600},{\x22url\x22:\x22https://64.media.tumblr.com/dad102c3d3ae6073f33f385b0b4849c4/tumblr_n2riiyK8xD1qifqv6o1_250.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:250,\x22height\x22:376},{\x22url\x22:\x22https://64.media.tumblr.com/dad102c3d3ae6073f33f385b0b4849c4/tumblr_n2riiyK8xD1qifqv6o1_100.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:100,\x22height\x22:150},{\x22url\x22:\x22https://64.media.tumblr.com/dad102c3d3ae6073f33f385b0b4849c4/tumblr_n2riiyK8xD1qifqv6o1_75sq.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:75,\x22height\x22:75,\x22cropped\x22:true}],\x22attribution\x22:{\x22type\x22:\x22link\x22,\x22url\x22:\x22http://500px.com/photo/49538222\x22,\x22url_redirect\x22:\x22https://t.umblr.com/redirect?z=http%3A%2F%2F500px.com%2Fphoto%2F49538222\x26t=NWQ1MTI3YWZkZTA1ZTUzZTAzMzBiZjhjNmRlOTZjNzE3Njc4M2UxMSx5d1JNT0hQeg%3D%3D\x26ts=1725950241\x22}},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Beauty of the tea house by Yasuhiko Yarimizu\x22,\x22formatting\x22:[{\x22type\x22:\x22link\x22,\x22start\x22:0,\x22end\x22:23,\x22url\x22:\x22https://t.umblr.com/redirect?z=http%3A%2F%2F500px.com%2Fphoto%2F49538222\x26t=MDFmNDlkYmI4NzYxZTY0YmFmMjNhNDk4NGM2ZWE0MzJkMDMyNWJiMyxiMzA5ZmRhYmFlNDljNjVmMzhlODJhYzYxNGI5ZjdiOGNhYjVlNDI4\x26ts=1725950241\x22},{\x22type\x22:\x22link\x22,\x22start\x22:27,\x22end\x22:44,\x22url\x22:\x22https://t.umblr.com/redirect?z=http%3A%2F%2F500px.com%2Fyasbeat\x26t=NDg3OTFiODJiYTVmMWI3Njg5ZWYxNmFiNmU5NzUxMDc2ZTYzY2E3ZCw5MGEwMDNhNjgyNjZkNDM5MzkxMjg4YTg1MjhkMGZiZTA4NmRlODU4\x26ts=1725950241\x22}]},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Japan\x22}],\x22layout\x22:[],\x22post\x22:{\x22id\x22:\x2280262304971\x22},\x22blog\x22:{\x22name\x22:\x22musts\x22,\x22title\x22:\x22MUSTS\x22,\x22description\x22:\x22Travel | Nature | Landscape | Animals\x22,\x22url\x22:\x22https://musts.tumblr.com/\x22,\x22uuid\x22:\x22t:FCJeJLOe12J3HbHf5-sc_A\x22,\x22updated\x22:1545683388,\x22blog_view_url\x22:\x22https://www.tumblr.com/musts\x22,\x22key\x22:\x22vqxTgVNlk\x22,\x22theme\x22:{\x22header_full_width\x22:1200,\x22header_full_height\x22:800,\x22header_focus_width\x22:840,\x22header_focus_height\x22:473,\x22avatar_shape\x22:\x22square\x22,\x22background_color\x22:\x22#000000\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x22168,1020,641,180\x22,\x22header_image\x22:\x22https://static.tumblr.com/835fd6ae1b7dbd51dea11f2e656468d4/q0orkbg/r9Snk7623/tumblr_static_49ugtmt64k6ck0044okkwk0gs.gif\x22,\x22header_image_focused\x22:\x22https://static.tumblr.com/835fd6ae1b7dbd51dea11f2e656468d4/q0orkbg/5Sdnpbtng/tumblr_static_tumblr_static_49ugtmt64k6ck0044okkwk0gs_focused_v3.gif\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://static.tumblr.com/835fd6ae1b7dbd51dea11f2e656468d4/q0orkbg/r9Snk7623/tumblr_static_49ugtmt64k6ck0044okkwk0gs_2048_v2.gif\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#FFFFFF\x22,\x22show_avatar\x22:false,\x22show_description\x22:false,\x22show_header_image\x22:true,\x22show_title\x22:false,\x22title_color\x22:\x22#3498db\x22,\x22title_font\x22:\x22Alternate Gothic\x22,\x22title_font_weight\x22:\x22bold\x22},\x22can_message\x22:true,\x22share_likes\x22:false,\x22share_following\x22:false,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:true,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://64.media.tumblr.com/avatar_c953e67bd56a_512.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://64.media.tumblr.com/avatar_c953e67bd56a_128.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://64.media.tumblr.com/avatar_c953e67bd56a_96.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://64.media.tumblr.com/avatar_c953e67bd56a_64.pnj\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:true,\x22active\x22:true,\x22show_follow_action\x22:true}}]}'">
+                  <section class="posts-trail-body">
+                    <div class="posts-trail-legacy">
+                      <figure class="tmblr-full">
+                        <a href="/image/761213995816484864" class="tmblr-full-image"><img
+                            src="https://64.media.tumblr.com/dad102c3d3ae6073f33f385b0b4849c4/tumblr_n2riiyK8xD1qifqv6o1_1280.jpg"
+                            alt="musts:
+          “Beauty of the tea house by Yasuhiko Yarimizu Japan”"></a><a class="link-url"
+                          href="http://500px.com/photo/49538222">
+                          http://500px.com/photo/49538222
+                        </a>
+                      </figure>
+                    </div>
+                    <div class="posts-trail-item">
+                      <div class="posts-trail-username">
+                        <a class="posts-trail-blog" href="https://musts.tumblr.com/post/80262304971"><img class="avatar"
+                            src="https://64.media.tumblr.com/avatar_c953e67bd56a_64.pnj" aria-hidden="true"><strong
+                            class="username">musts</strong></a>
+                      </div>
+                      <div class="posts-trail-content">
+                        <p></p>
+                        <pre><a href="https://t.umblr.com/redirect?z=http%3A%2F%2F500px.com%2Fphoto%2F49538222&amp;t=MGUzNmYwMmY3ZWVkOTMyMTYxYmI1MWQwYjdkYzc4MmVkMGFjYzU2OSx5d1JNT0hQeg%3D%3D&amp;b=t%3AUKV-aCLKY710n81qW8WekA&amp;p=https%3A%2F%2Ffukuo-test.tumblr.com%2Fpost%2F761213995816484864%2Fmustsbeauty-of-the-tea-house-by-yasuhiko&amp;m=1&amp;ts=1725950241">Beauty of the tea house</a> by <a href="https://t.umblr.com/redirect?z=http%3A%2F%2F500px.com%2Fyasbeat&amp;t=YzBkY2ZjMjU1N2RkMjYwYWYxYzU0OTY4Yjk1NDhlYTQxOTkwYThiNix5d1JNT0hQeg%3D%3D&amp;b=t%3AUKV-aCLKY710n81qW8WekA&amp;p=https%3A%2F%2Ffukuo-test.tumblr.com%2Fpost%2F761213995816484864%2Fmustsbeauty-of-the-tea-house-by-yasuhiko&amp;m=1&amp;ts=1725950241">Yasuhiko Yarimizu</a></pre>
+                        <pre>Japan</pre>
+                      </div>
+                    </div>
+                  </section>
+                </article>
+
+                <article class="posts expanded" data-article-npf="'{\x22content\x22:[],\x22layout\x22:[],\x22trail\x22:[{\x22content\x22:[{\x22type\x22:\x22image\x22,\x22media\x22:[{\x22url\x22:\x22https://64.media.tumblr.com/8cb0afeffacdd9c5c1a6187874e43646/tumblr_ng8a4o76yi1qfqm2lo1_640.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:640,\x22height\x22:453,\x22has_original_dimensions\x22:true},{\x22url\x22:\x22https://64.media.tumblr.com/8cb0afeffacdd9c5c1a6187874e43646/tumblr_ng8a4o76yi1qfqm2lo1_540.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:540,\x22height\x22:382},{\x22url\x22:\x22https://64.media.tumblr.com/8cb0afeffacdd9c5c1a6187874e43646/tumblr_ng8a4o76yi1qfqm2lo1_500.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:500,\x22height\x22:354},{\x22url\x22:\x22https://64.media.tumblr.com/8cb0afeffacdd9c5c1a6187874e43646/tumblr_ng8a4o76yi1qfqm2lo1_400.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:400,\x22height\x22:283},{\x22url\x22:\x22https://64.media.tumblr.com/8cb0afeffacdd9c5c1a6187874e43646/tumblr_ng8a4o76yi1qfqm2lo1_250.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:250,\x22height\x22:177},{\x22url\x22:\x22https://64.media.tumblr.com/8cb0afeffacdd9c5c1a6187874e43646/tumblr_ng8a4o76yi1qfqm2lo1_100.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:100,\x22height\x22:71},{\x22url\x22:\x22https://64.media.tumblr.com/8cb0afeffacdd9c5c1a6187874e43646/tumblr_ng8a4o76yi1qfqm2lo1_75sq.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:75,\x22height\x22:75,\x22cropped\x22:true}],\x22attribution\x22:{\x22type\x22:\x22link\x22,\x22url\x22:\x22https://www.flickr.com/photos/mytripsmypics/6509664597/\x22,\x22url_redirect\x22:\x22https://www.flickr.com/photos/mytripsmypics/6509664597/\x22}},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Hamhung streets - North Korea by Eric Lafforgue\u00a0\x22,\x22formatting\x22:[{\x22type\x22:\x22link\x22,\x22start\x22:0,\x22end\x22:29,\x22url\x22:\x22https://www.flickr.com/photos/mytripsmypics/6509664597/\x22},{\x22type\x22:\x22link\x22,\x22start\x22:33,\x22end\x22:47,\x22url\x22:\x22http://www.flickr.com/photos/mytripsmypics/\x22}]}],\x22layout\x22:[],\x22post\x22:{\x22id\x22:\x22105162040309\x22},\x22blog\x22:{\x22name\x22:\x22fuckyeahjapanandkorea\x22,\x22title\x22:\x22we will meet soon\x22,\x22description\x22:\x22fyi: There are photos of other Asian countries as well (they are tagged)! \\nDisclaimer: None of these pictures are mine unless stated (source given in the post)\\nHello~\u2665 I\'m Sunny!\x22,\x22url\x22:\x22https://fuckyeahjapanandkorea.tumblr.com/\x22,\x22uuid\x22:\x22t:eV3jJ8yRo1rpR29LkXR0Lw\x22,\x22updated\x22:1604224196,\x22blog_view_url\x22:\x22https://www.tumblr.com/fuckyeahjapanandkorea\x22,\x22key\x22:\x22RzVxlMSEp\x22,\x22theme\x22:{\x22header_full_width\x22:1165,\x22header_full_height\x22:585,\x22header_focus_width\x22:1040,\x22header_focus_height\x22:585,\x22avatar_shape\x22:\x22square\x22,\x22background_color\x22:\x22#EEEEEE\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x220,1102,585,62\x22,\x22header_image\x22:\x22https://64.media.tumblr.com/d5bd2bf1bf1457380fd23627e717a005/3b1f86ec83ae4d36-97/s1165x585/64da22ef3b4f33c1fa38c75a4533cddc57b8c65e.jpg\x22,\x22header_image_focused\x22:\x22https://64.media.tumblr.com/d5bd2bf1bf1457380fd23627e717a005/3b1f86ec83ae4d36-97/s2048x3072_c5322,0,94592,100000/ab957fb1e30d2f3ebcbddc3570d20253f853efdc.jpg\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://64.media.tumblr.com/d5bd2bf1bf1457380fd23627e717a005/3b1f86ec83ae4d36-97/s2048x3072/0d0f2eb4d54f39895e45d96cf2dc49811be9f471.jpg\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#FFFFFF\x22,\x22show_avatar\x22:true,\x22show_description\x22:false,\x22show_header_image\x22:true,\x22show_title\x22:true,\x22title_color\x22:\x22#888888\x22,\x22title_font\x22:\x22Georgia\x22,\x22title_font_weight\x22:\x22regular\x22},\x22can_message\x22:true,\x22share_likes\x22:false,\x22share_following\x22:false,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:true,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://64.media.tumblr.com/avatar_9713a5232147_512.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://64.media.tumblr.com/avatar_9713a5232147_128.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://64.media.tumblr.com/avatar_9713a5232147_96.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://64.media.tumblr.com/avatar_9713a5232147_64.pnj\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:true,\x22active\x22:true,\x22show_follow_action\x22:true}}]}'">
+                  <section class="posts-trail-body">
+                    <div class="posts-trail-legacy">
+                      <figure class="tmblr-full"><a href="/image/723555149025509376" class="tmblr-full-image"><img
+                            src="https://64.media.tumblr.com/8cb0afeffacdd9c5c1a6187874e43646/tumblr_ng8a4o76yi1qfqm2lo1_640.jpg"
+                            alt="fuckyeahjapanandkorea:
           “Hamhung streets - North Korea by Eric Lafforgue
           ”"></a><a class="link-url" href="https://www.flickr.com/photos/mytripsmypics/6509664597/">
-                https://www.flickr.com/photos/mytripsmypics/6509664597/
-              </a></figure>
-          </div>
-          <div class="posts-trail-item"><a class="posts-trail-blog"
-              href="https://fuckyeahjapanandkorea.tumblr.com/post/105162040309"><img class="avatar"
-                src="https://64.media.tumblr.com/avatar_9713a5232147_64.pnj" aria-hidden="true"><strong
-                class="username">fuckyeahjapanandkorea</strong></a>
-            <div class="posts-trail-content">
-              <p><a href="https://www.flickr.com/photos/mytripsmypics/6509664597/"
-                  title="Hamhung streets - North Korea">Hamhung streets - North Korea</a> by <a
-                  href="http://www.flickr.com/photos/mytripsmypics/">Eric Lafforgue</a>&nbsp;</p>
-            </div>
-          </div>
-        </section>
-      </article>
+                          https://www.flickr.com/photos/mytripsmypics/6509664597/
+                        </a></figure>
+                    </div>
+                    <div class="posts-trail-item"><a class="posts-trail-blog"
+                        href="https://fuckyeahjapanandkorea.tumblr.com/post/105162040309"><img class="avatar"
+                          src="https://64.media.tumblr.com/avatar_9713a5232147_64.pnj" aria-hidden="true"><strong
+                          class="username">fuckyeahjapanandkorea</strong></a>
+                      <div class="posts-trail-content">
+                        <p><a href="https://www.flickr.com/photos/mytripsmypics/6509664597/"
+                            title="Hamhung streets - North Korea">Hamhung streets - North Korea</a> by <a
+                            href="http://www.flickr.com/photos/mytripsmypics/">Eric Lafforgue</a>&nbsp;</p>
+                      </div>
+                    </div>
+                  </section>
+                </article>
 
-      <article class="posts">
-        <section class="posts-trail-body">
-          <div class="posts-trail-legacy">
-            <figure class="tmblr-full"><a href="/image/761146185831661568" class="tmblr-full-image"><img
-                  src="https://64.media.tumblr.com/1c14601a36c3aa6637a8eb145bfa0c1e/tumblr_oauzlxmC9e1t2pyzuo1_1280.jpg"
-                  alt="zyu10:
+                <article class="posts expanded" data-article-npf="'{\x22content\x22:[],\x22layout\x22:[],\x22trail\x22:[{\x22content\x22:[{\x22type\x22:\x22image\x22,\x22media\x22:[{\x22url\x22:\x22https://64.media.tumblr.com/1c14601a36c3aa6637a8eb145bfa0c1e/tumblr_oauzlxmC9e1t2pyzuo1_1280.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:1280,\x22height\x22:857},{\x22url\x22:\x22https://64.media.tumblr.com/1c14601a36c3aa6637a8eb145bfa0c1e/tumblr_oauzlxmC9e1t2pyzuo1_640.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:640,\x22height\x22:429},{\x22url\x22:\x22https://64.media.tumblr.com/1c14601a36c3aa6637a8eb145bfa0c1e/tumblr_oauzlxmC9e1t2pyzuo1_540.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:540,\x22height\x22:362},{\x22url\x22:\x22https://64.media.tumblr.com/1c14601a36c3aa6637a8eb145bfa0c1e/tumblr_oauzlxmC9e1t2pyzuo1_500.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:500,\x22height\x22:335},{\x22url\x22:\x22https://64.media.tumblr.com/1c14601a36c3aa6637a8eb145bfa0c1e/tumblr_oauzlxmC9e1t2pyzuo1_400.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:400,\x22height\x22:268},{\x22url\x22:\x22https://64.media.tumblr.com/1c14601a36c3aa6637a8eb145bfa0c1e/tumblr_oauzlxmC9e1t2pyzuo1_250.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:250,\x22height\x22:167},{\x22url\x22:\x22https://64.media.tumblr.com/1c14601a36c3aa6637a8eb145bfa0c1e/tumblr_oauzlxmC9e1t2pyzuo1_100.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:100,\x22height\x22:67},{\x22url\x22:\x22https://64.media.tumblr.com/1c14601a36c3aa6637a8eb145bfa0c1e/tumblr_oauzlxmC9e1t2pyzuo1_75sq.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:75,\x22height\x22:75,\x22cropped\x22:true}]},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Kyoto, Japan, 2016\x22}],\x22layout\x22:[],\x22post\x22:{\x22id\x22:\x22147945050629\x22},\x22blog\x22:{\x22name\x22:\x22zyu10\x22,\x22title\x22:\x2210\x22,\x22description\x22:\x22\x3cp\x3e\x3ca href=\\\x22http://www.flickr.com/photos/136349016@N05/\\\x22 title=\\\x22flickr(syn_nym)\\\x22\x3eflickr\x3c/a\x3e / \x3ca href=\\\x22https://www.instagram.com/zyu_10/\\\x22 title=\\\x22Instagram(@zyu10)\\\x22\x3eInstagram\x3c/a\x3e / \x3ca href=\\\x22http://zyulog.tumblr.com\\\x22 title=\\\x22zyulog\\\x22\x3erblg\x3c/a\x3e\x3c/p\x3e\\n\x3cp\x3efilm photography\x3c/p\x3e\x22,\x22url\x22:\x22https://zyu10.tumblr.com/\x22,\x22uuid\x22:\x22t:ekQmUUpS6GuDax2sZTA5DA\x22,\x22updated\x22:1567258222,\x22blog_view_url\x22:\x22https://www.tumblr.com/zyu10\x22,\x22key\x22:\x22P4fEs5Snw\x22,\x22theme\x22:{\x22header_full_width\x22:1544,\x22header_full_height\x22:1024,\x22header_focus_width\x22:1335,\x22header_focus_height\x22:750,\x22avatar_shape\x22:\x22circle\x22,\x22background_color\x22:\x22#FAFAFA\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x2265,1441,815,106\x22,\x22header_image\x22:\x22https://static.tumblr.com/3ab1ff4b2f81d8a8ab61b113aad1c4d0/csxesxv/OzWnjcckv/tumblr_static_4fmqno2u6dc0gsok8koogcw4s.jpg\x22,\x22header_image_focused\x22:\x22https://static.tumblr.com/3ab1ff4b2f81d8a8ab61b113aad1c4d0/csxesxv/Tt5njcckx/tumblr_static_tumblr_static_4fmqno2u6dc0gsok8koogcw4s_focused_v3.jpg\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://static.tumblr.com/3ab1ff4b2f81d8a8ab61b113aad1c4d0/csxesxv/OzWnjcckv/tumblr_static_4fmqno2u6dc0gsok8koogcw4s_2048_v2.jpg\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#4687AE\x22,\x22show_avatar\x22:true,\x22show_description\x22:true,\x22show_header_image\x22:true,\x22show_title\x22:true,\x22title_color\x22:\x22#444444\x22,\x22title_font\x22:\x22Typewriter FS\x22,\x22title_font_weight\x22:\x22regular\x22},\x22can_message\x22:true,\x22share_likes\x22:false,\x22share_following\x22:false,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:true,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://64.media.tumblr.com/avatar_6112a7aca7fd_512.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://64.media.tumblr.com/avatar_6112a7aca7fd_128.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://64.media.tumblr.com/avatar_6112a7aca7fd_96.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://64.media.tumblr.com/avatar_6112a7aca7fd_64.pnj\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:true,\x22active\x22:true,\x22show_follow_action\x22:true}}]}'">
+                  <section class="posts-trail-body">
+                    <div class="posts-trail-legacy">
+                      <figure class="tmblr-full"><a href="/image/761146185831661568" class="tmblr-full-image"><img
+                            src="https://64.media.tumblr.com/1c14601a36c3aa6637a8eb145bfa0c1e/tumblr_oauzlxmC9e1t2pyzuo1_1280.jpg"
+                            alt="zyu10:
               “ Kyoto, Japan, 2016
               ”"></a></figure>
-          </div>
-          <div class="posts-trail-item"><a class="posts-trail-blog"
-              href="https://zyu10.tumblr.com/post/147945050629"><img class="avatar"
-                src="https://64.media.tumblr.com/avatar_6112a7aca7fd_64.pnj" aria-hidden="true"><strong
-                class="username">zyu10</strong></a>
-            <div class="posts-trail-content">
-              <p>Kyoto, Japan, 2016</p>
-            </div>
-          </div>
-        </section>
-      </article>
+                    </div>
+                    <div class="posts-trail-item"><a class="posts-trail-blog"
+                        href="https://zyu10.tumblr.com/post/147945050629"><img class="avatar"
+                          src="https://64.media.tumblr.com/avatar_6112a7aca7fd_64.pnj" aria-hidden="true"><strong
+                          class="username">zyu10</strong></a>
+                      <div class="posts-trail-content">
+                        <p>Kyoto, Japan, 2016</p>
+                      </div>
+                    </div>
+                  </section>
+                </article>
 
-      <article class="posts">
-        <section class="posts-trail-body"><div class="posts-trail-legacy"><figure class="tmblr-full"><a href="/image/761157639662092288" class="tmblr-full-image"><img src="https://64.media.tumblr.com/90c56b4f0a3789dfae90aff05e9da7df/tumblr_nwshdrvSTU1qfhbsvo1_1280.jpg" alt="20aliens:
+                <article class="posts" data-article-npf="'{\x22content\x22:[],\x22layout\x22:[],\x22trail\x22:[{\x22content\x22:[{\x22type\x22:\x22image\x22,\x22media\x22:[{\x22url\x22:\x22https://64.media.tumblr.com/90c56b4f0a3789dfae90aff05e9da7df/tumblr_nwshdrvSTU1qfhbsvo1_1280.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:1029,\x22height\x22:704,\x22has_original_dimensions\x22:true},{\x22url\x22:\x22https://64.media.tumblr.com/90c56b4f0a3789dfae90aff05e9da7df/tumblr_nwshdrvSTU1qfhbsvo1_640.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:640,\x22height\x22:438},{\x22url\x22:\x22https://64.media.tumblr.com/90c56b4f0a3789dfae90aff05e9da7df/tumblr_nwshdrvSTU1qfhbsvo1_540.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:540,\x22height\x22:369},{\x22url\x22:\x22https://64.media.tumblr.com/90c56b4f0a3789dfae90aff05e9da7df/tumblr_nwshdrvSTU1qfhbsvo1_500.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:500,\x22height\x22:342},{\x22url\x22:\x22https://64.media.tumblr.com/90c56b4f0a3789dfae90aff05e9da7df/tumblr_nwshdrvSTU1qfhbsvo1_400.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:400,\x22height\x22:274},{\x22url\x22:\x22https://64.media.tumblr.com/90c56b4f0a3789dfae90aff05e9da7df/tumblr_nwshdrvSTU1qfhbsvo1_250.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:250,\x22height\x22:171},{\x22url\x22:\x22https://64.media.tumblr.com/90c56b4f0a3789dfae90aff05e9da7df/tumblr_nwshdrvSTU1qfhbsvo1_100.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:100,\x22height\x22:68},{\x22url\x22:\x22https://64.media.tumblr.com/90c56b4f0a3789dfae90aff05e9da7df/tumblr_nwshdrvSTU1qfhbsvo1_75sq.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:75,\x22height\x22:75,\x22cropped\x22:true}]},{\x22type\x22:\x22text\x22,\x22text\x22:\x22INDONESIA. Jakarta. 1989\\nGueorgui Pinkhassov\x22}],\x22layout\x22:[],\x22post\x22:{\x22id\x22:\x22131894887766\x22},\x22blog\x22:{\x22name\x22:\x2220aliens-deactivated20200625\x22,\x22title\x22:\x2220 ALIENS\x22,\x22description\x22:\x22charlie m / ig: @_______cv_______\x22,\x22url\x22:\x22https://20aliens-deactivated20200625.tumblr.com/\x22,\x22uuid\x22:\x22t:yYOJCQvxsmUg99X1PdgjaQ\x22,\x22updated\x22:1590455004,\x22blog_view_url\x22:\x22https://www.tumblr.com/20aliens-deactivated20200625\x22,\x22key\x22:\x226NGy1i4Gd\x22,\x22theme\x22:{\x22header_full_width\x22:960,\x22header_full_height\x22:736,\x22header_focus_width\x22:960,\x22header_focus_height\x22:541,\x22avatar_shape\x22:\x22circle\x22,\x22background_color\x22:\x22#ffffff\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x2297,960,638,0\x22,\x22header_image\x22:\x22https://64.media.tumblr.com/3cd1fe2173ccaf52810b0e09ff9a8766/0b0522d30f793a04-29/s960x736/8842ba650ca76cd1997a49dab1ea384eadb558a0.jpg\x22,\x22header_image_focused\x22:\x22https://64.media.tumblr.com/3cd1fe2173ccaf52810b0e09ff9a8766/0b0522d30f793a04-29/s2048x3072_c0,13179,100000,86685/82846b97fd8dabdf66d58bc7d8d1227a62566d89.jpg\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://64.media.tumblr.com/3cd1fe2173ccaf52810b0e09ff9a8766/0b0522d30f793a04-29/s2048x3072/8452bc132b65c910d2171cc2e33e09538382099f.jpg\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#131127\x22,\x22show_avatar\x22:true,\x22show_description\x22:true,\x22show_header_image\x22:true,\x22show_title\x22:false,\x22title_color\x22:\x22#0a0200\x22,\x22title_font\x22:\x22Helvetica Neue\x22,\x22title_font_weight\x22:\x22bold\x22},\x22can_message\x22:false,\x22share_likes\x22:false,\x22share_following\x22:false,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:false,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://64.media.tumblr.com/avatar_10cd3486749d_512.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://64.media.tumblr.com/avatar_10cd3486749d_128.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://64.media.tumblr.com/avatar_10cd3486749d_96.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://64.media.tumblr.com/avatar_10cd3486749d_64.pnj\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:false,\x22active\x22:false,\x22show_follow_action\x22:false}}]}'">
+                  <section class="posts-trail-body">
+                    <div class="posts-trail-legacy">
+                      <figure class="tmblr-full"><a href="/image/761157639662092288" class="tmblr-full-image"><img
+                            src="https://64.media.tumblr.com/90c56b4f0a3789dfae90aff05e9da7df/tumblr_nwshdrvSTU1qfhbsvo1_1280.jpg"
+                            alt="20aliens:
           “ INDONESIA. Jakarta. 1989
           Gueorgui Pinkhassov
-          ”"></a></figure></div><div class="posts-trail-item"><a class="posts-trail-blog"><img class="avatar" src="https://assets.tumblr.com/images/default_avatar/cube_open_64.png" aria-hidden="true"><strong class="username username-deactivated">20aliens</strong></a><div class="posts-trail-content"><p>INDONESIA. Jakarta. 1989<br>Gueorgui Pinkhassov</p></div></div></section>
-      </article>
+          ”"></a></figure>
+                    </div>
+                    <div class="posts-trail-item"><a class="posts-trail-blog"><img class="avatar"
+                          src="https://assets.tumblr.com/images/default_avatar/cube_open_64.png"
+                          aria-hidden="true"><strong class="username username-deactivated">20aliens</strong></a>
+                      <div class="posts-trail-content">
+                        <p>INDONESIA. Jakarta. 1989<br>Gueorgui Pinkhassov</p>
+                      </div>
+                    </div>
+                  </section>
+                </article>
 
-      <article class="posts">
-        <section class="posts-trail-body">
-          <div class="posts-trail-legacy"></div>
-          <div class="posts-trail-item"><a class="posts-trail-blog"
-              href="https://sapphic-design-is-my-passion.tumblr.com/post/723736910474952704"><img class="avatar"
-                src="https://64.media.tumblr.com/1f2ecd8e2bdbe90fbd1c22329dafbaf3/8a3f43aaee60bc3f-ac/s64x64u_c1/6ad55119165eed1034d4d3197a91e6d1281b0003.pnj"
-                aria-hidden="true"><strong class="username">sapphic-design-is-my-passion</strong></a>
-            <div class="posts-trail-content">
-              <p>It's called X because you should close it and go outside</p>
-            </div>
-          </div>
-        </section>
-      </article>
 
-      <article class="posts">
-        <section class="posts-trail-body">
-          <div class="posts-trail-legacy"></div>
-          <div class="posts-trail-item"><a class="posts-trail-blog"
-              href="https://changes.tumblr.com/post/758172275271991296"><img class="avatar"
-                src="https://64.media.tumblr.com/a694c600cab0b0ade5f45f98bed2519e/5a36938fa1197393-5e/s64x64u_c1/ecda20c8dd90707ac8ab7517395e952803a9aabe.pnj"
-                aria-hidden="true"><strong class="username">changes</strong></a>
-            <div class="posts-trail-content">
-              <p></p>
-              <h2><b>Threaded Replies are here!</b></h2>
-              <p>Ever find it difficult to figure out what someone is replying to? Same! Now, when you reply to
-                someone’s reply, it’ll create a nice indented thread.&nbsp;</p>
-              <ul>
-                <li>Reply to a thread by clicking the reply icon at the bottom of a comment or tapping the meatball menu
-                  on a reply, then hitting “Reply.”&nbsp;</li>
-                <li>Collapse a thread of comments with “Hide replies” or load more with “Show more replies.”&nbsp;</li>
-                <li>Threads are only one level deep—replies to a thread will show at the end of that thread.&nbsp;</li>
-                <li>You’ll be notified when someone replies to you.</li>
-              </ul>
-              <p>This should help keep conversations in replies more organized, meaning you don’t have to scroll back to
-                find the beginning of an exchange: It’s in a thread!</p>
-            </div>
-          </div>
-        </section>
-      </article>
+                <article class="posts long_post"
+                  data-article-npf="'{\x22content\x22:[],\x22layout\x22:[],\x22trail\x22:[{\x22content\x22:[{\x22type\x22:\x22text\x22,\x22text\x22:\x22Why \u201cGo Nuts, Show Nuts\u201d Doesn\u2019t Work in 2022\x22,\x22subtype\x22:\x22heading1\x22},{\x22type\x22:\x22text\x22,\x22text\x22:\x22For those who don\u2019t know or remember, Tumblr used to have a policy around porn that was literally \u201cGo nuts, show nuts. Whatever.\u201d That was memorable and hilarious, and for many people, Tumblr both hosted and helped with the discovery of a unique type of adult content.\x22,\x22formatting\x22:[{\x22type\x22:\x22link\x22,\x22start\x22:185,\x22end\x22:267,\x22url\x22:\x22https://href.li/?https://sea.mashable.com/life/19369/the-death-of-tumblr-porn-left-a-void-no-other-site-can-fill\x22}]},{\x22type\x22:\x22text\x22,\x22text\x22:\x22In 2018, when Tumblr was owned by Verizon, they swung in the other direction and instituted an adult content ban that took out not only porn but also a ton of art and artists \u2013 including a ban on what must have been fun for a lawyer to write, female presenting nipples. This policy is currently still in place, though the Tumblr and Automattic teams are working to make it more open and common-sense, and the community labels launch is a first step toward that.\x22,\x22formatting\x22:[{\x22type\x22:\x22link\x22,\x22start\x22:95,\x22end\x22:112,\x22url\x22:\x22https://www.theverge.com/2018/12/3/18123752/tumblr-adult-content-porn-ban-date-explicit-changes-why-safe-mode\x22},{\x22type\x22:\x22link\x22,\x22start\x22:243,\x22end\x22:268,\x22url\x22:\x22https://href.li/?https://knowyourmeme.com/memes/female-presenting-nipples\x22},{\x22type\x22:\x22link\x22,\x22start\x22:405,\x22end\x22:460,\x22url\x22:\x22https://photomatt.tumblr.com/post/696578252906659840/staff-introducing-community-labels-as-you\x22}]},{\x22type\x22:\x22text\x22,\x22text\x22:\x22That said, no modern internet service in 2022 can have the rules that Tumblr did in 2007. I am personally extremely libertarian in terms of what consenting adults should be able to share, and I agree with \u201cgo nuts, show nuts\u201d in principle, but the casually porn-friendly era of the early internet is currently impossible. Here\u2019s why:\x22},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Credit card companies are anti-porn. You\u2019ve probably heard how Pornhub can\u2019t accept credit cards anymore. Or seen the new rules from Mastercard. Whatever crypto-utopia might come in the coming decades, today if you are blocked from banks, credit card processing, and financial services, you\u2019re blocked from the modern economy. The vast majority of Automattic\u2019s revenue comes from people buying our services and auto-renewing on credit cards, including the ads-free browsing upgrade that Tumblr recently launched. If we lost the ability to process credit cards, it wouldn\u2019t just threaten Tumblr, but also the 2,000+ people in 97 countries that work at Automattic across all our products.\\n\x22,\x22subtype\x22:\x22ordered-list-item\x22,\x22formatting\x22:[{\x22type\x22:\x22link\x22,\x22start\x22:63,\x22end\x22:96,\x22url\x22:\x22https://www.cbsnews.com/news/visa-mastercard-wont-allow-charges-pornhub/\x22},{\x22type\x22:\x22link\x22,\x22start\x22:118,\x22end\x22:143,\x22url\x22:\x22https://www.vice.com/en/article/epng3j/mastercard-now-requires-documented-consent-from-adult-sites\x22},{\x22type\x22:\x22link\x22,\x22start\x22:456,\x22end\x22:481,\x22url\x22:\x22https://www.tumblr.com/settings/ad-free-browsing\x22},{\x22type\x22:\x22link\x22,\x22start\x22:608,\x22end\x22:638,\x22url\x22:\x22https://t.umblr.com/redirect?z=https%3A%2F%2Fautomattic.com%2Fabout%2F\x26t=ODYwYzlkYjBjYmNlMDgxNjI5YzE0ZmRiOTMwZDAzNjg1YjNkZWUwZCxiMzc0ZWU2OGVkMmY4NDU1ZGQyNjlhZGJmMWFlNjA2MjY5OTgwMWJh\x26ts=1725937074\x22}]},{\x22type\x22:\x22text\x22,\x22text\x22:\x22App stores, particularly Apple\u2019s, are anti-porn. Tumblr started in 2007, the same year the iPhone was released. Originally, the iPhone didn\u2019t have an App Store, and the speed of connectivity and quality of the screen meant that people didn\u2019t use their smartphone very much and mostly interacted with Tumblr on the web, using desktop and laptop computers (really). Today 40% of our signups and 85% of our page views come from people on mobile apps, not on the web. Apple has its own rules for what\u2019s allowed in their App Store, and the interpretation of those rules can vary depending on who is reviewing your app on any given day. Previous decisions on what\u2019s allowed can be reversed any time you submit an app update, which we do several times a month. If Apple permanently banned Tumblr from the App Store, we\u2019d probably have to shut the service down. If you want apps to allow more adult content, please lobby Apple. No one in the App Store has any effective power, even multi-hundred-billion companies like Facebook/Meta can be devastated when Apple changes its policies. Aside: Why do Twitter and Reddit get away with tons of super hardcore content? Ask Apple, because I don\u2019t know. My guess is that Twitter and Reddit are too big for Apple to block so they decided to make an example out of Tumblr, which has \u201conly\u201d 102 million monthly visitors. Maybe Twitter gets blocked by Apple sometimes too but can\u2019t talk about it because they\u2019re a public company and it would scare investors.\\n\x22,\x22subtype\x22:\x22ordered-list-item\x22,\x22formatting\x22:[{\x22type\x22:\x22link\x22,\x22start\x22:1025,\x22end\x22:1074,\x22url\x22:\x22https://t.umblr.com/redirect?z=https%3A%2F%2Fwww.cnbc.com%2F2022%2F02%2F02%2Ffacebook-says-apple-ios-privacy-change-will-cost-10-billion-this-year.html\x26t=YTA0ODI4YWUwMGE3YTgyOTJmODNkNThlMGU5ZGQwMGRlNTRhZGM5YSxlM2U3NWFjMjU1MGVhMjRmOGVlMTkzN2VmZmVlZmU0N2IxYTAxOTlh\x26ts=1725937074\x22}]},{\x22type\x22:\x22text\x22,\x22text\x22:\x22There are lots of new rules around verifying consent and age in adult content. The rise of smartphones also means that everyone has a camera that can capture pictures and video at any time. Non-consensual sharing has grown exponentially and has been a huge problem on dedicated porn sites like Pornhub \u2013 and governments have rightly been expanding laws and regulations to make sure everyone being shown in online adult content is of legal age and has consented to the material being shared. Tumblr has no way to go back and identify the featured persons or the legality of every piece of adult content that was shared on the platform and taken down in 2018, nor does it have the resources or expertise to do that for new uploads.\\n\x22,\x22subtype\x22:\x22ordered-list-item\x22},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Porn requires different service providers up and down the stack. In addition to a company primarily serving adult content not having access to normal financial services and being blocked by app stores, they also need specialized service providers \u2013 for example, for their bandwidth and network connections. Most traditional investors won\u2019t fund primarily adult businesses, and may not even be allowed to by their LP agreements. (When Starbucks started selling alcohol at select stores, some investors were forced to sell their stock.)\x22,\x22subtype\x22:\x22ordered-list-item\x22,\x22formatting\x22:[{\x22type\x22:\x22link\x22,\x22start\x22:486,\x22end\x22:532,\x22url\x22:\x22https://www.seattletimes.com/business/pax-world-sells-shares-over-liqueur/\x22}]},{\x22type\x22:\x22text\x22,\x22text\x22:\x22If you wanted to start an adult social network in 2022, you\u2019d need to be web-only on iOS and side load on Android, take payment in crypto, have a way to convert crypto to fiat for business operations without being blocked, do a ton of work in age and identity verification and compliance so you don\u2019t go to jail, protect all of that identity information so you don\u2019t dox your users, and make a ton of money. I estimate you\u2019d need at least $7 million a year for every 1 million daily active users to support server storage and bandwidth (the GIFs and videos shared on Tumblr use a ton of both) in addition to hosting, moderation, compliance, and developer costs.\u00a0\x22},{\x22type\x22:\x22text\x22,\x22text\x22:\x22I do hope that a dedicated service or company is started that will replace what people used to get from porn on Tumblr. It may already exist and I don\u2019t know about it. They\u2019ll have an uphill battle under current regimes, and if you think that\u2019s a bad thing please try to change the regimes. Don\u2019t attack companies following legal and business realities as they exist.\x22}],\x22layout\x22:[],\x22post\x22:{\x22id\x22:\x22696629352701493248\x22},\x22blog\x22:{\x22name\x22:\x22photomatt\x22,\x22title\x22:\x22Matt on Tumblr\x22,\x22description\x22:\x22\x3cp\x3eCo-founder WordPress; CEO Automattic; always learning.\x3c/p\x3e\x22,\x22url\x22:\x22https://www.tumblr.com/photomatt\x22,\x22uuid\x22:\x22t:ommWyC3pUOAidNc19oycyQ\x22,\x22updated\x22:1725430893,\x22blog_view_url\x22:\x22https://www.tumblr.com/photomatt\x22,\x22key\x22:\x22ktFa7U3Y9\x22,\x22theme\x22:{\x22header_full_width\x22:960,\x22header_full_height\x22:1280,\x22header_focus_width\x22:822,\x22header_focus_height\x22:462,\x22avatar_shape\x22:\x22square\x22,\x22background_color\x22:\x22#FAFAFA\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x22366,891,828,69\x22,\x22header_image\x22:\x22https://64.media.tumblr.com/93108bbca6c625d1e0b28c5471744ebf/42121d37302681d0-6e/s960x1280/30511b5271a1fed964c5b1ade037a815ee05cfc5.jpg\x22,\x22header_image_focused\x22:\x22https://64.media.tumblr.com/93108bbca6c625d1e0b28c5471744ebf/42121d37302681d0-6e/s2048x3072_c7188,28594,92813,64688/993216a6c6e39757fe13bb0add98b237c82740ce.jpg\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://64.media.tumblr.com/93108bbca6c625d1e0b28c5471744ebf/42121d37302681d0-6e/s2048x3072/3732786d48c612abbfcc5d4927ba60059712ff5c.jpg\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#529ECC\x22,\x22show_avatar\x22:true,\x22show_description\x22:true,\x22show_header_image\x22:true,\x22show_title\x22:true,\x22title_color\x22:\x22#444444\x22,\x22title_font\x22:\x22Arquitecta\x22,\x22title_font_weight\x22:\x22bold\x22},\x22can_message\x22:true,\x22share_likes\x22:false,\x22share_following\x22:false,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:true,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://64.media.tumblr.com/fba967c6e2427d64f98e86d6ec03b3c0/42121d37302681d0-f7/s512x512u_c1/457a457a5f6c35c89496becf45bde7225a30774b.jpg\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://64.media.tumblr.com/fba967c6e2427d64f98e86d6ec03b3c0/42121d37302681d0-f7/s128x128u_c1/4c25ca305b7d79bcb860562c94fd3dcf13668ed5.jpg\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://64.media.tumblr.com/fba967c6e2427d64f98e86d6ec03b3c0/42121d37302681d0-f7/s96x96u_c1/638e8b84ffbdf1669cb7dd9eea6ea68814c9ce50.jpg\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://64.media.tumblr.com/fba967c6e2427d64f98e86d6ec03b3c0/42121d37302681d0-f7/s64x64u_c1/4a5f16c048cb4b76b739c65a25baa762aa37fc44.jpg\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:true,\x22active\x22:true,\x22show_follow_action\x22:true}}]}'"
+                  data-article-id="723540741258919936">
+                  <section class="posts-trail-body">
+                    <div class="posts-trail-legacy"></div>
+                    <div class="posts-trail-item">
+                      <div class="posts-trail-username">
+                        <a class="posts-trail-blog" href="https://photomatt.tumblr.com/post/696629352701493248"><img
+                            class="avatar"
+                            src="https://64.media.tumblr.com/fba967c6e2427d64f98e86d6ec03b3c0/42121d37302681d0-f7/s64x64u_c1/4a5f16c048cb4b76b739c65a25baa762aa37fc44.jpg"
+                            aria-hidden="true"><strong class="username">photomatt</strong></a>
+                      </div>
+                      <div class="posts-trail-content">
+                        <p></p>
+                        <h1>Why “Go Nuts, Show Nuts” Doesn’t Work in 2022</h1>
+                        <p>For those who don’t know or remember, Tumblr used to have a policy around porn that was
+                          literally “Go
+                          nuts, show nuts. Whatever.” That was memorable and hilarious, and for many people, <a
+                            href="https://href.li/?https://sea.mashable.com/life/19369/the-death-of-tumblr-porn-left-a-void-no-other-site-can-fill">Tumblr
+                            both hosted and helped with the discovery of a unique type of adult content</a>.</p>
+                        <p>In 2018, when Tumblr was owned by Verizon, they swung in the other direction and instituted
+                          an <a
+                            href="https://www.theverge.com/2018/12/3/18123752/tumblr-adult-content-porn-ban-date-explicit-changes-why-safe-mode">adult
+                            content ban</a> that took out not only porn but also a ton of art and artists – including a
+                          ban on
+                          what must have been fun for a lawyer to write, <a
+                            href="https://href.li/?https://knowyourmeme.com/memes/female-presenting-nipples">female
+                            presenting
+                            nipples</a>. This policy is currently still in place, though the Tumblr and Automattic teams
+                          are
+                          working to make it more open and common-sense, and <a
+                            href="https://photomatt.tumblr.com/post/696578252906659840/staff-introducing-community-labels-as-you">the
+                            community labels launch is a first step toward that</a>.</p>
+                        <p>That said, no modern internet service in 2022 can have the rules that Tumblr did in 2007. I
+                          am
+                          personally extremely libertarian in terms of what consenting adults should be able to share,
+                          and I agree
+                          with “go nuts, show nuts” in principle, but the casually porn-friendly era of the early
+                          internet is
+                          currently impossible. Here’s why:</p>
+                        <ol>
+                          <li>Credit card companies are anti-porn. You’ve probably heard how <a
+                              href="https://www.cbsnews.com/news/visa-mastercard-wont-allow-charges-pornhub/">Pornhub
+                              can’t accept
+                              credit cards</a> anymore. Or seen the <a
+                              href="https://www.vice.com/en/article/epng3j/mastercard-now-requires-documented-consent-from-adult-sites">new
+                              rules from Mastercard</a>. Whatever crypto-utopia might come in the coming decades, today
+                            if you are
+                            blocked from banks, credit card processing, and financial services, you’re blocked from the
+                            modern
+                            economy. The vast majority of Automattic’s revenue comes from people buying our services and
+                            auto-renewing on credit cards, including the <a
+                              href="https://www.tumblr.com/settings/ad-free-browsing">ads-free browsing upgrade</a> that
+                            Tumblr
+                            recently launched. If we lost the ability to process credit cards, it wouldn’t just threaten
+                            Tumblr,
+                            but also the <a
+                              href="https://t.umblr.com/redirect?z=https%3A%2F%2Fautomattic.com%2Fabout%2F&amp;t=NmU0M2UxMTJlY2QwOTAxM2VjZDdiYzcwY2VhYzU1YmYzZDMwMjk5YyxXSkc3aXlPYQ%3D%3D&amp;b=t%3AUKV-aCLKY710n81qW8WekA&amp;p=https%3A%2F%2Ffukuo-test.tumblr.com%2Fpost%2F723540741258919936&amp;m=1&amp;ts=1725886239">2,000+
+                              people in 97 countries </a>that work at Automattic across all our products.</li>
+                          <li>App stores, particularly Apple’s, are anti-porn. Tumblr started in 2007, the same year the
+                            iPhone
+                            was released. Originally, the iPhone didn’t have an App Store, and the speed of connectivity
+                            and
+                            quality of the screen meant that people didn’t use their smartphone very much and mostly
+                            interacted
+                            with Tumblr on the web, using desktop and laptop computers (really). Today 40% of our
+                            signups and 85%
+                            of our page views come from people on mobile apps, not on the web. Apple has its own rules
+                            for what’s
+                            allowed in their App Store, and the interpretation of those rules can vary depending on who
+                            is
+                            reviewing your app on any given day. Previous decisions on what’s allowed can be reversed
+                            any time you
+                            submit an app update, which we do several times a month. If Apple permanently banned Tumblr
+                            from the
+                            App Store, we’d probably have to shut the service down. If you want apps to allow more adult
+                            content,
+                            please lobby Apple. No one in the App Store has any effective power, even
+                            multi-hundred-billion
+                            companies like Facebook/Meta <a
+                              href="https://t.umblr.com/redirect?z=https%3A%2F%2Fwww.cnbc.com%2F2022%2F02%2F02%2Ffacebook-says-apple-ios-privacy-change-will-cost-10-billion-this-year.html&amp;t=YjNjYjVhYmNiNzI0ODdjZGU5YTRjN2U0NzA2M2JkMjIxZWIwOTBkYixXSkc3aXlPYQ%3D%3D&amp;b=t%3AUKV-aCLKY710n81qW8WekA&amp;p=https%3A%2F%2Ffukuo-test.tumblr.com%2Fpost%2F723540741258919936&amp;m=1&amp;ts=1725886239">can
+                              be devastated when Apple changes its policies</a>. Aside: Why do Twitter and Reddit get
+                            away with
+                            tons of super hardcore content? Ask Apple, because I don’t know. My guess is that Twitter
+                            and Reddit
+                            are too big for Apple to block so they decided to make an example out of Tumblr, which has
+                            “only” 102
+                            million monthly visitors. Maybe Twitter gets blocked by Apple sometimes too but can’t talk
+                            about it
+                            because they’re a public company and it would scare investors.</li>
+                          <li>There are lots of new rules around verifying consent and age in adult content. The rise of
+                            smartphones also means that everyone has a camera that can capture pictures and video at any
+                            time.
+                            Non-consensual sharing has grown exponentially and has been a huge problem on dedicated porn
+                            sites
+                            like Pornhub – and governments have rightly been expanding laws and regulations to make sure
+                            everyone
+                            being shown in online adult content is of legal age and has consented to the material being
+                            shared.
+                            Tumblr has no way to go back and identify the featured persons or the legality of every
+                            piece of adult
+                            content that was shared on the platform and taken down in 2018, nor does it have the
+                            resources or
+                            expertise to do that for new uploads.</li>
+                          <li>Porn requires different service providers up and down the stack. In addition to a company
+                            primarily
+                            serving adult content not having access to normal financial services and being blocked by
+                            app stores,
+                            they also need specialized service providers – for example, for their bandwidth and network
+                            connections. Most traditional investors won’t fund primarily adult businesses, and may not
+                            even be
+                            allowed to by their LP agreements. (When Starbucks started selling alcohol at select stores,
+                            <a href="https://www.seattletimes.com/business/pax-world-sells-shares-over-liqueur/">some
+                              investors
+                              were forced to sell their stock</a>.)
+                          </li>
+                        </ol>
+                        <p>If you wanted to start an adult social network in 2022, you’d need to be web-only on iOS and
+                          side load
+                          on Android, take payment in crypto, have a way to convert crypto to fiat for business
+                          operations without
+                          being blocked, do a ton of work in age and identity verification and compliance so you don’t
+                          go to jail,
+                          protect all of that identity information so you don’t dox your users, and make a ton of money.
+                          I
+                          estimate you’d need at least $7 million a year for every 1 million daily active users to
+                          support server
+                          storage and bandwidth (the GIFs and videos shared on Tumblr use a ton of both) in addition to
+                          hosting,
+                          moderation, compliance, and developer costs.&nbsp;</p>
+                        <p>I do hope that a dedicated service or company is started that will replace what people used
+                          to get from
+                          porn on Tumblr. It may already exist and I don’t know about it. They’ll have an uphill battle
+                          under
+                          current regimes, and if you think that’s a bad thing please try to change the regimes. Don’t
+                          attack
+                          companies following legal and business realities as they exist.</p>
+                      </div>
+                    </div>
+                  </section>
+                </article>
 
-      <article class="posts long_post">
-        <section class="posts-trail-body">
-          <div class="posts-trail-legacy"></div>
-          <div class="posts-trail-item"><a class="posts-trail-blog"
-              href="https://photomatt.tumblr.com/post/696629352701493248"><img class="avatar"
-                src="https://64.media.tumblr.com/fba967c6e2427d64f98e86d6ec03b3c0/42121d37302681d0-f7/s64x64u_c1/4a5f16c048cb4b76b739c65a25baa762aa37fc44.jpg"
-                aria-hidden="true"><strong class="username">photomatt</strong></a>
-            <div class="posts-trail-content">
-              <p></p>
-              <h1>Why “Go Nuts, Show Nuts” Doesn’t Work in 2022</h1>
-              <p>For those who don’t know or remember, Tumblr used to have a policy around porn that was literally “Go
-                nuts, show nuts. Whatever.” That was memorable and hilarious, and for many people, <a
-                  href="https://href.li/?https://sea.mashable.com/life/19369/the-death-of-tumblr-porn-left-a-void-no-other-site-can-fill">Tumblr
-                  both hosted and helped with the discovery of a unique type of adult content</a>.</p>
-              <p>In 2018, when Tumblr was owned by Verizon, they swung in the other direction and instituted an <a
-                  href="https://www.theverge.com/2018/12/3/18123752/tumblr-adult-content-porn-ban-date-explicit-changes-why-safe-mode">adult
-                  content ban</a> that took out not only porn but also a ton of art and artists – including a ban on
-                what must have been fun for a lawyer to write, <a
-                  href="https://href.li/?https://knowyourmeme.com/memes/female-presenting-nipples">female presenting
-                  nipples</a>. This policy is currently still in place, though the Tumblr and Automattic teams are
-                working to make it more open and common-sense, and <a
-                  href="https://photomatt.tumblr.com/post/696578252906659840/staff-introducing-community-labels-as-you">the
-                  community labels launch is a first step toward that</a>.</p>
-              <p>That said, no modern internet service in 2022 can have the rules that Tumblr did in 2007. I am
-                personally extremely libertarian in terms of what consenting adults should be able to share, and I agree
-                with “go nuts, show nuts” in principle, but the casually porn-friendly era of the early internet is
-                currently impossible. Here’s why:</p>
-              <ol>
-                <li>Credit card companies are anti-porn. You’ve probably heard how <a
-                    href="https://www.cbsnews.com/news/visa-mastercard-wont-allow-charges-pornhub/">Pornhub can’t accept
-                    credit cards</a> anymore. Or seen the <a
-                    href="https://www.vice.com/en/article/epng3j/mastercard-now-requires-documented-consent-from-adult-sites">new
-                    rules from Mastercard</a>. Whatever crypto-utopia might come in the coming decades, today if you are
-                  blocked from banks, credit card processing, and financial services, you’re blocked from the modern
-                  economy. The vast majority of Automattic’s revenue comes from people buying our services and
-                  auto-renewing on credit cards, including the <a
-                    href="https://www.tumblr.com/settings/ad-free-browsing">ads-free browsing upgrade</a> that Tumblr
-                  recently launched. If we lost the ability to process credit cards, it wouldn’t just threaten Tumblr,
-                  but also the <a
-                    href="https://t.umblr.com/redirect?z=https%3A%2F%2Fautomattic.com%2Fabout%2F&amp;t=NmU0M2UxMTJlY2QwOTAxM2VjZDdiYzcwY2VhYzU1YmYzZDMwMjk5YyxXSkc3aXlPYQ%3D%3D&amp;b=t%3AUKV-aCLKY710n81qW8WekA&amp;p=https%3A%2F%2Ffukuo-test.tumblr.com%2Fpost%2F723540741258919936&amp;m=1&amp;ts=1725886239">2,000+
-                    people in 97 countries </a>that work at Automattic across all our products.</li>
-                <li>App stores, particularly Apple’s, are anti-porn. Tumblr started in 2007, the same year the iPhone
-                  was released. Originally, the iPhone didn’t have an App Store, and the speed of connectivity and
-                  quality of the screen meant that people didn’t use their smartphone very much and mostly interacted
-                  with Tumblr on the web, using desktop and laptop computers (really). Today 40% of our signups and 85%
-                  of our page views come from people on mobile apps, not on the web. Apple has its own rules for what’s
-                  allowed in their App Store, and the interpretation of those rules can vary depending on who is
-                  reviewing your app on any given day. Previous decisions on what’s allowed can be reversed any time you
-                  submit an app update, which we do several times a month. If Apple permanently banned Tumblr from the
-                  App Store, we’d probably have to shut the service down. If you want apps to allow more adult content,
-                  please lobby Apple. No one in the App Store has any effective power, even multi-hundred-billion
-                  companies like Facebook/Meta <a
-                    href="https://t.umblr.com/redirect?z=https%3A%2F%2Fwww.cnbc.com%2F2022%2F02%2F02%2Ffacebook-says-apple-ios-privacy-change-will-cost-10-billion-this-year.html&amp;t=YjNjYjVhYmNiNzI0ODdjZGU5YTRjN2U0NzA2M2JkMjIxZWIwOTBkYixXSkc3aXlPYQ%3D%3D&amp;b=t%3AUKV-aCLKY710n81qW8WekA&amp;p=https%3A%2F%2Ffukuo-test.tumblr.com%2Fpost%2F723540741258919936&amp;m=1&amp;ts=1725886239">can
-                    be devastated when Apple changes its policies</a>. Aside: Why do Twitter and Reddit get away with
-                  tons of super hardcore content? Ask Apple, because I don’t know. My guess is that Twitter and Reddit
-                  are too big for Apple to block so they decided to make an example out of Tumblr, which has “only” 102
-                  million monthly visitors. Maybe Twitter gets blocked by Apple sometimes too but can’t talk about it
-                  because they’re a public company and it would scare investors.</li>
-                <li>There are lots of new rules around verifying consent and age in adult content. The rise of
-                  smartphones also means that everyone has a camera that can capture pictures and video at any time.
-                  Non-consensual sharing has grown exponentially and has been a huge problem on dedicated porn sites
-                  like Pornhub – and governments have rightly been expanding laws and regulations to make sure everyone
-                  being shown in online adult content is of legal age and has consented to the material being shared.
-                  Tumblr has no way to go back and identify the featured persons or the legality of every piece of adult
-                  content that was shared on the platform and taken down in 2018, nor does it have the resources or
-                  expertise to do that for new uploads.</li>
-                <li>Porn requires different service providers up and down the stack. In addition to a company primarily
-                  serving adult content not having access to normal financial services and being blocked by app stores,
-                  they also need specialized service providers – for example, for their bandwidth and network
-                  connections. Most traditional investors won’t fund primarily adult businesses, and may not even be
-                  allowed to by their LP agreements. (When Starbucks started selling alcohol at select stores, <a
-                    href="https://www.seattletimes.com/business/pax-world-sells-shares-over-liqueur/">some investors
-                    were forced to sell their stock</a>.)</li>
-              </ol>
-              <p>If you wanted to start an adult social network in 2022, you’d need to be web-only on iOS and side load
-                on Android, take payment in crypto, have a way to convert crypto to fiat for business operations without
-                being blocked, do a ton of work in age and identity verification and compliance so you don’t go to jail,
-                protect all of that identity information so you don’t dox your users, and make a ton of money. I
-                estimate you’d need at least $7 million a year for every 1 million daily active users to support server
-                storage and bandwidth (the GIFs and videos shared on Tumblr use a ton of both) in addition to hosting,
-                moderation, compliance, and developer costs.&nbsp;</p>
-              <p>I do hope that a dedicated service or company is started that will replace what people used to get from
-                porn on Tumblr. It may already exist and I don’t know about it. They’ll have an uphill battle under
-                current regimes, and if you think that’s a bad thing please try to change the regimes. Don’t attack
-                companies following legal and business realities as they exist.</p>
-            </div>
-          </div>
-        </section>
-      </article>
+                
 
-      <article class="posts">
-        <section class="posts-trail-body">
-          <div class="posts-trail-legacy"></div>
-          <div class="posts-trail-item"><a class="posts-trail-blog"
-              href="https://lavendersleep.tumblr.com/post/724251393858338816"><img class="avatar"
-                src="https://64.media.tumblr.com/f6833c4dbb720ad93c7a026b2d541e4f/92d78d833a3ba5de-18/s64x64u_c1/4d704690949e9ee941325077dc409b1d5ba082ff.pnj"
-                aria-hidden="true"><strong class="username">lavendersleep</strong></a>
-            <div class="posts-trail-content">
-              <p></p>
-              <div class="npf_row">
-                <div class="npf_col">
-                  <figure class="tmblr-full"><a class="post_media_photo_anchor"
-                      data-big-photo="https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s1280x1920/1e4c0eddb7f8520f900e1a41c11cab5413aeed99.jpg"
-                      data-big-photo-height="1067" data-big-photo-width="1506"><img class="post_media_photo image"
-                        src="https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s1280x1920/1e4c0eddb7f8520f900e1a41c11cab5413aeed99.jpg"
-                        srcset="https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s75x75_c1/ac516c4c7c4655d4489fc11195cd32e29c9a8051.jpg 75w, https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s100x200/b6d31a155746a757dd3fd18ab6de76104d77058d.jpg 100w, https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s250x400/993e656dc643c1cacf32d81eb33db7df8913980a.jpg 250w, https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s400x600/89fc23a8a73725e76eed4c0ef29e3f84e8aa3f55.jpg 400w, https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s500x750/074a5d838af0851dd2e7d79d7b9553be1cc3eced.jpg 500w, https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s540x810/0d0a3e0447047e0430ab37c940b20b2db89f9197.jpg 540w, https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s640x960/6e07d019a5064b7230351a4033277c95177a08b1.jpg 640w, https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s1280x1920/1e4c0eddb7f8520f900e1a41c11cab5413aeed99.jpg 1280w, https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s2048x3072/16a43327da75a8a44db36374009b68b42dc96660.jpg 1506w"
-                        sizes="(max-width: 1280px) 100vw, 1280px"
-                        alt="A grassy mountaintop with a person standing on the distant edge facing away from the camera. More tall blue mountains with glaciers on them are in the background."></a><span
-                      class="tmblr-alt-text-helper">ALT</span></figure>
-                </div>
-              </div>
-              <blockquote class="npf_indented">
-                <p>Beartooth Highway, July 2023.</p>
-              </blockquote>
-            </div>
-          </div>
-        </section>
-      </article>
+                <article id="724407840095256576" class="text posts x dumbass reblog"
+                  data-article-npf="'{\x22content\x22:[],\x22layout\x22:[],\x22trail\x22:[{\x22content\x22:[{\x22type\x22:\x22text\x22,\x22text\x22:\x22It\'s called X because you should close it and go outside\x22}],\x22layout\x22:[],\x22post\x22:{\x22id\x22:\x22723736910474952704\x22},\x22blog\x22:{\x22name\x22:\x22sapphic-design-is-my-passion\x22,\x22title\x22:\x22it\'s me! pepper!\x22,\x22description\x22:\x22she/fae | trans girl | 26\x22,\x22url\x22:\x22https://www.tumblr.com/sapphic-design-is-my-passion\x22,\x22uuid\x22:\x22t:GRnimRHhVpPKcFk78Hu8bA\x22,\x22updated\x22:1725924279,\x22blog_view_url\x22:\x22https://www.tumblr.com/sapphic-design-is-my-passion\x22,\x22key\x22:\x228ATMdYi3k\x22,\x22theme\x22:{\x22header_full_width\x22:2000,\x22header_full_height\x22:1255,\x22avatar_shape\x22:\x22circle\x22,\x22background_color\x22:\x22#91E0FF\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x22\x22,\x22header_image\x22:\x22https://64.media.tumblr.com/d8e6f651bf357b1a050075d03ec2ad6d/a8f1408b81330cce-f8/s2000x1255/027f962835ca1288ef8dfb19865286c900c8e976.png\x22,\x22header_image_focused\x22:\x22https://64.media.tumblr.com/d8e6f651bf357b1a050075d03ec2ad6d/a8f1408b81330cce-f8/s2048x3072/be52550abe14d66f7cfb756da9a2e9adefda37d5.png\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://64.media.tumblr.com/d8e6f651bf357b1a050075d03ec2ad6d/a8f1408b81330cce-f8/s2048x3072/be52550abe14d66f7cfb756da9a2e9adefda37d5.png\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#FFAC0A\x22,\x22show_avatar\x22:true,\x22show_description\x22:true,\x22show_header_image\x22:true,\x22show_title\x22:true,\x22title_color\x22:\x22#000000\x22,\x22title_font\x22:\x22Sans Serif\x22,\x22title_font_weight\x22:\x22bold\x22},\x22can_message\x22:true,\x22share_likes\x22:true,\x22share_following\x22:true,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:true,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://64.media.tumblr.com/1f2ecd8e2bdbe90fbd1c22329dafbaf3/8a3f43aaee60bc3f-ac/s512x512u_c1/7a75b647c9a2e58892c0cdb136e1b1ec302c38ec.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://64.media.tumblr.com/1f2ecd8e2bdbe90fbd1c22329dafbaf3/8a3f43aaee60bc3f-ac/s128x128u_c1/0d9cffb9ba5d30897f3f2ee8459f5c9461618491.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://64.media.tumblr.com/1f2ecd8e2bdbe90fbd1c22329dafbaf3/8a3f43aaee60bc3f-ac/s96x96u_c1/ab0291d55db5203585d0c22ff25bc465ca273f15.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://64.media.tumblr.com/1f2ecd8e2bdbe90fbd1c22329dafbaf3/8a3f43aaee60bc3f-ac/s64x64u_c1/6ad55119165eed1034d4d3197a91e6d1281b0003.pnj\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:true,\x22active\x22:true,\x22show_follow_action\x22:true}}]}'"
+                  data-article-id="724407840095256576">
+                  <section class="posts-trail-body">
+                    <div class="posts-trail-legacy"></div>
+                    <div class="posts-trail-item">
+                      <div class="posts-trail-username">
+                        <a class="posts-trail-blog"
+                          href="https://sapphic-design-is-my-passion.tumblr.com/post/723736910474952704"><img
+                            class="avatar"
+                            src="https://64.media.tumblr.com/1f2ecd8e2bdbe90fbd1c22329dafbaf3/8a3f43aaee60bc3f-ac/s64x64u_c1/6ad55119165eed1034d4d3197a91e6d1281b0003.pnj"
+                            aria-hidden="true"><strong class="username">sapphic-design-is-my-passion</strong></a>
+                      </div>
 
-      <article class="posts expanded">
-        <section class="posts-trail-body"><div class="posts-trail-legacy"></div><div class="posts-trail-item"><a class="posts-trail-blog" href="https://lavendersleep.tumblr.com/post/722866262829563904"><img class="avatar" src="https://64.media.tumblr.com/f6833c4dbb720ad93c7a026b2d541e4f/92d78d833a3ba5de-18/s64x64u_c1/4d704690949e9ee941325077dc409b1d5ba082ff.pnj" aria-hidden="true"><strong class="username">lavendersleep</strong></a><div class="posts-trail-content"><p></p><div class="npf_row"><div class="npf_col"><figure class="tmblr-full"><a class="post_media_photo_anchor" data-big-photo="https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s1280x1920/1601bb85fe404263af626bb6172a24b27f1dc22a.jpg" data-big-photo-height="1536" data-big-photo-width="2047"><img class="post_media_photo image" src="https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s1280x1920/1601bb85fe404263af626bb6172a24b27f1dc22a.jpg" srcset="https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s75x75_c1/33c32ae7a6c35fcd4f4d9184cd4ffdcc55cb695d.jpg 75w, https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s100x200/ce458c010a50d47a65f730300a286645aeb2231a.jpg 100w, https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s250x400/c72fb4180145d93bba9c1a555ff7cccf509386ac.jpg 250w, https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s400x600/b25085957459850cfad09556a0843f65ee7eeb46.jpg 400w, https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s500x750/727c72c4eeb4ece90c4e8ed288eb535212d35b70.jpg 500w, https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s540x810/1aa3e3fefc61531e10d56e3ee98dccfdd15db852.jpg 540w, https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s640x960/224a0d18cc1a5c41bdbbf542f125222acdf268e1.jpg 640w, https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s1280x1920/1601bb85fe404263af626bb6172a24b27f1dc22a.jpg 1280w, https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s2048x3072/c21ca0a6b42fd6e5a5d8d1f12b2f326c9f0dd783.jpg 2047w" sizes="(max-width: 1280px) 100vw, 1280px" alt="A view of a ridge with hikers walking up it, who look very small compared to the tall, gray mountains in the background."></a><span class="tmblr-alt-text-helper">ALT</span></figure></div></div><blockquote class="npf_indented"><p>Plain of Six Glaciers, Banff National Park. July 2023.</p></blockquote></div></div></section>
-      </article>
+                      <div class="posts-trail-content">
+                        <p>It's called X because you should close it and go outside</p>
+                      </div>
+                    </div>
+                  </section>
+                </article>
+                
 
-      <article class="posts">
-        <section class="posts-trail-body">
-          <div class="posts-trail-legacy"></div>
-          <div class="posts-trail-item"><a class="posts-trail-blog" href="https://demo.tumblr.com/post/718863891534413824"><img
-                class="avatar" src="https://assets.tumblr.com/images/default_avatar_64.png" aria-hidden="true"><strong
-                class="username">demo</strong></a>
-            <div class="posts-trail-content">
-              <p></p>
-              <h1>12 surprising clickbait titles that work</h1>
-              <div class="npf_row">
-                <div class="npf_col">
-                  <figure class="tmblr-full"
-                    data-tumblr-attribution="animatedtext:HtQpGKsvVrwVEAUEJEk6Vg:ZPjWlubA9Jba8W00"
-                    data-orig-height="460" data-orig-width="637"><img
-                      src="https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s640x960/7e62a2120aca3f3eda2dd3126f054b8e68ffbc66.gifv"
-                      data-orig-height="460" data-orig-width="637"
-                      alt="gif of several floating question marks, zooming in and out slightly"
-                      srcset="https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s75x75_c1/65e0da6d22df6caa3e7a8ba3ca9c8bb7b2545b59.gifv 75w, https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s100x200/a1b4aa469abeb172dcafa894cf97c3de7b21a01e.gifv 100w, https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s250x400/76f3ebc47bf32715507928b4a88dce42bfc07928.gifv 250w, https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s400x600/df405cee9628d15c179c2a13c9effe9c4e15c962.gifv 400w, https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s500x750/bb9ef0e15bc687ee57100c0b57a7d27983eba5dc.gifv 500w, https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s540x810/e6b25a0b27e23c9fbe00303b62bebd1c9fd84f24.gifv 540w, https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s640x960/7e62a2120aca3f3eda2dd3126f054b8e68ffbc66.gifv 637w"
-                      sizes="(max-width: 637px) 100vw, 637px" width="637" height="460"><span
-                      class="tmblr-alt-text-helper">ALT</span>
-                    <p class="tmblr-attribution"><a href="https://tmblr.co/ZPjWlubA9Jba8W00" target="_blank"
-                        data-peepr="{&quot;tumblelog&quot;:&quot;animatedtext&quot;,&quot;postId&quot;:&quot;669388423041253376&quot;}">Originally
-                        posted by animatedtext</a></p>
-                  </figure>
-                </div>
-              </div>
-              <p>Gotcha! While you’re here, check out some of this text formatting.</p>
-              <h2>Bigger text ✨</h2>
-              <p><b>This is bold</b>, and<i> this is italics</i>. <strike>This is strikethrough.</strike> <small>(I'm
-                  whispering this in small text.)</small> <a
-                  href="https://href.li/?https://www.youtube.com/watch?v=dQw4w9WgXcQ">This is not a suspicious link at
-                  all.</a> <span style="color: #ff4930">Th</span><span class="npf_color_monica">is</span> <span
-                  class="npf_color_ross">te</span><span class="npf_color_rachel">xt</span> <span
-                  style="color: #e8d738">is</span> <span class="npf_color_niles">co</span><span
-                  class="npf_color_chandler">lo</span><span style="color: #ff4930">ur</span><span
-                  class="npf_color_monica">fu</span><span class="npf_color_ross">l!</span></p>
-              <ul>
-                <li>This is a bulleted list.</li>
-                <li>I <b>can</b> <i>add</i> <strike>text</strike> <small>formatting</small> <a
-                    href="https://www.tumblr.com/staff/653731604461682688/potatoes-are-neat-right-heres-one-cooking-in-a?source=share">here</a>
-                  too.</li>
-              </ul>
-              <p class="npf_quirky">We take a break here to enjoy <span class="npf_color_niles">Lucille</span>.</p>
-              <ol>
-                <li>This is a <i>numbered list</i>.</li>
-                <li>It’s where you list items.</li>
-                <li>And numbers appear next to them.</li>
-                <li><i><b><span class="npf_color_ross">Groundbreaking.</span></b></i></li>
-              </ol>
-              <p>As one person once said:</p>
-              <blockquote class="npf_indented">
-                <p>Look at me, I'm an <b>indented block</b>!</p>
-              </blockquote>
-              <p class="npf_quote">I'm a <b>quote block</b>! Someone definitely said this at some point.</p>
-              <p class="npf_chat"><b>Juliet:</b> What is this?<br><b>Romeo:</b> I think we've been summoned for an
-                example chat post again.<br><b>Juliet:</b> Not again...</p>
-              <p>We have reached the end. Or have we? </p>
-              <p><i>Remember to stay hydrated, and follow </i><a class="tumblelog"
-                  href="https://tmblr.co/MYXvAUPIj9KzlTb7SqaHO0A"><i>@changes</i></a><i> for Tumblr updates! 💖</i></p>
-              <p><a class="tmblr-truncated-link read_more"
-                  href="https://demo.tumblr.com/post/718863891534413824/12-surprising-clickbait-titles-that-work">Keep
-                  reading</a></p>
-            </div>
-          </div>
-        </section>
-      </article>
-    </section>
+                <article id="758749079163568128"
+                  class="text posts thread_replies does_it_reflect_on_blog_network_themes_too  reblog"
+                  data-article-npf="'{\x22content\x22:[],\x22layout\x22:[],\x22trail\x22:[{\x22content\x22:[{\x22type\x22:\x22image\x22,\x22media\x22:[{\x22media_key\x22:\x228b4845be11ac8458623b15c83e878a54:1c417696fb4d7c66-ca\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:774,\x22height\x22:962,\x22url\x22:\x22https://64.media.tumblr.com/8b4845be11ac8458623b15c83e878a54/1c417696fb4d7c66-ca/s1280x1920/1d3f1690e141744f2450e85362c61f82d093b131.webp\x22,\x22has_original_dimensions\x22:true},{\x22media_key\x22:\x228b4845be11ac8458623b15c83e878a54:1c417696fb4d7c66-ca\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:640,\x22height\x22:795,\x22url\x22:\x22https://64.media.tumblr.com/8b4845be11ac8458623b15c83e878a54/1c417696fb4d7c66-ca/s640x960/6feb7109020c01b9980e7b6bc2e203e4d8af40fd.webp\x22},{\x22media_key\x22:\x228b4845be11ac8458623b15c83e878a54:1c417696fb4d7c66-ca\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:540,\x22height\x22:671,\x22url\x22:\x22https://64.media.tumblr.com/8b4845be11ac8458623b15c83e878a54/1c417696fb4d7c66-ca/s540x810/13c153e968c52f97d95066eb337d7b7f40684614.webp\x22},{\x22media_key\x22:\x228b4845be11ac8458623b15c83e878a54:1c417696fb4d7c66-ca\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:500,\x22height\x22:621,\x22url\x22:\x22https://64.media.tumblr.com/8b4845be11ac8458623b15c83e878a54/1c417696fb4d7c66-ca/s500x750/6dc9416dc1ea5f78d145722b770b720b0d035d8f.webp\x22},{\x22media_key\x22:\x228b4845be11ac8458623b15c83e878a54:1c417696fb4d7c66-ca\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:400,\x22height\x22:497,\x22url\x22:\x22https://64.media.tumblr.com/8b4845be11ac8458623b15c83e878a54/1c417696fb4d7c66-ca/s400x600/3657690b350ff8a74276501e1616d4583dba8211.webp\x22},{\x22media_key\x22:\x228b4845be11ac8458623b15c83e878a54:1c417696fb4d7c66-ca\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:250,\x22height\x22:311,\x22url\x22:\x22https://64.media.tumblr.com/8b4845be11ac8458623b15c83e878a54/1c417696fb4d7c66-ca/s250x400/b233f5248055b06fc4a97bf9bf7e016a98032e40.webp\x22},{\x22media_key\x22:\x228b4845be11ac8458623b15c83e878a54:1c417696fb4d7c66-ca\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:100,\x22height\x22:124,\x22url\x22:\x22https://64.media.tumblr.com/8b4845be11ac8458623b15c83e878a54/1c417696fb4d7c66-ca/s100x200/40492178816c8af5c55c415ea669b4473cbff5ae.webp\x22},{\x22media_key\x22:\x228b4845be11ac8458623b15c83e878a54:1c417696fb4d7c66-ca\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:75,\x22height\x22:75,\x22url\x22:\x22https://64.media.tumblr.com/8b4845be11ac8458623b15c83e878a54/1c417696fb4d7c66-ca/s75x75_c1/bde414c4f04871c0c1325ebca2ad638c31d12adb.webp\x22,\x22cropped\x22:true}],\x22colors\x22:{\x22c0\x22:\x22ffffff\x22,\x22c1\x22:\x22341eed\x22,\x22c2\x22:\x22e3e7e9\x22,\x22c3\x22:\x221d1b28\x22,\x22c4\x22:\x22371ef0\x22}},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Threaded Replies are here!\x22,\x22subtype\x22:\x22heading2\x22,\x22formatting\x22:[{\x22type\x22:\x22bold\x22,\x22start\x22:0,\x22end\x22:26}]},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Ever find it difficult to figure out what someone is replying to? Same! Now, when you reply to someone\u2019s reply, it\u2019ll create a nice indented thread.\u00a0\x22},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Reply to a thread by clicking the reply icon at the bottom of a comment or tapping the meatball menu on a reply, then hitting \u201cReply.\u201d\u00a0\x22,\x22subtype\x22:\x22unordered-list-item\x22},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Collapse a thread of comments with \u201cHide replies\u201d or load more with \u201cShow more replies.\u201d\u00a0\x22,\x22subtype\x22:\x22unordered-list-item\x22},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Threads are only one level deep\u2014replies to a thread will show at the end of that thread.\u00a0\x22,\x22subtype\x22:\x22unordered-list-item\x22},{\x22type\x22:\x22text\x22,\x22text\x22:\x22You\u2019ll be notified when someone replies to you.\x22,\x22subtype\x22:\x22unordered-list-item\x22},{\x22type\x22:\x22text\x22,\x22text\x22:\x22This should help keep conversations in replies more organized, meaning you don\u2019t have to scroll back to find the beginning of an exchange: It\u2019s in a thread!\x22}],\x22layout\x22:[],\x22post\x22:{\x22id\x22:\x22758172275271991296\x22},\x22blog\x22:{\x22name\x22:\x22changes\x22,\x22title\x22:\x22Changes on Tumblr\x22,\x22description\x22:\x22Your place to read about what new things we\'ve been launching and what bugs we\'ve been fixing.\x22,\x22url\x22:\x22https://changes.tumblr.com/\x22,\x22uuid\x22:\x22t:WX5xItRbCiJH_GJDsIdhAQ\x22,\x22updated\x22:1725386904,\x22blog_view_url\x22:\x22https://www.tumblr.com/changes\x22,\x22key\x22:\x22jqACNlTBe\x22,\x22theme\x22:{\x22header_full_width\x22:1920,\x22header_full_height\x22:1080,\x22avatar_shape\x22:\x22square\x22,\x22background_color\x22:\x22#FFFFFF\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x22\x22,\x22header_image\x22:\x22https://64.media.tumblr.com/a2b47fd42e65b78af143ba2208257aef/5a36938fa1197393-81/s1920x1080/06de53df342e753d490cbceda4c980a9c4f56f39.png\x22,\x22header_image_focused\x22:\x22https://64.media.tumblr.com/a2b47fd42e65b78af143ba2208257aef/5a36938fa1197393-81/s2048x3072/f12a441764d70ca50b50b800b411911f53132a4f.png\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://64.media.tumblr.com/a2b47fd42e65b78af143ba2208257aef/5a36938fa1197393-81/s2048x3072/f12a441764d70ca50b50b800b411911f53132a4f.png\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#02cd34\x22,\x22show_avatar\x22:true,\x22show_description\x22:true,\x22show_header_image\x22:true,\x22show_title\x22:true,\x22title_color\x22:\x22#000000\x22,\x22title_font\x22:\x22Favorit\x22,\x22title_font_weight\x22:\x22bold\x22},\x22can_message\x22:false,\x22share_likes\x22:false,\x22share_following\x22:false,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:true,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://64.media.tumblr.com/a694c600cab0b0ade5f45f98bed2519e/5a36938fa1197393-5e/s512x512u_c1/92123013afa1cb9fe4f7f318a17fa0a366f06b63.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://64.media.tumblr.com/a694c600cab0b0ade5f45f98bed2519e/5a36938fa1197393-5e/s128x128u_c1/207d8b6b14019aef2b6ba5266737420a1120844c.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://64.media.tumblr.com/a694c600cab0b0ade5f45f98bed2519e/5a36938fa1197393-5e/s96x96u_c1/2bb236dcacc11fda360b0412455e4a88d47796da.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://64.media.tumblr.com/a694c600cab0b0ade5f45f98bed2519e/5a36938fa1197393-5e/s64x64u_c1/ecda20c8dd90707ac8ab7517395e952803a9aabe.pnj\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:true,\x22active\x22:true,\x22show_follow_action\x22:true}}]}'"
+                  data-article-id="758749079163568128">
+                  <section class="posts-trail-body">
+                    <div class="posts-trail-legacy"></div>
+                    <div class="posts-trail-item">
+                      <div class="posts-trail-username">
+                        <a class="posts-trail-blog" href="https://changes.tumblr.com/post/758172275271991296"><img
+                            class="avatar"
+                            src="https://64.media.tumblr.com/a694c600cab0b0ade5f45f98bed2519e/5a36938fa1197393-5e/s64x64u_c1/ecda20c8dd90707ac8ab7517395e952803a9aabe.pnj"
+                            aria-hidden="true"><strong class="username">changes</strong></a>
+                      </div>
+                      <div class="posts-trail-content">
+                        <p></p>
+                        <h2><b>Threaded Replies are here!</b></h2>
+                        <p>Ever find it difficult to figure out what someone is replying to? Same! Now, when you reply
+                          to
+                          someone’s reply, it’ll create a nice indented thread.&nbsp;</p>
+                        <ul>
+                          <li>Reply to a thread by clicking the reply icon at the bottom of a comment or tapping the
+                            meatball menu
+                            on a reply, then hitting “Reply.”&nbsp;</li>
+                          <li>Collapse a thread of comments with “Hide replies” or load more with “Show more
+                            replies.”&nbsp;</li>
+                          <li>Threads are only one level deep—replies to a thread will show at the end of that
+                            thread.&nbsp;</li>
+                          <li>You’ll be notified when someone replies to you.</li>
+                        </ul>
+                        <p>This should help keep conversations in replies more organized, meaning you don’t have to
+                          scroll back to
+                          find the beginning of an exchange: It’s in a thread!</p>
+                      </div>
+                    </div>
+                  </section>
+                </article>
+
+                <article class="posts expanded" data-article-npf="'{\x22content\x22:[],\x22layout\x22:[],\x22trail\x22:[{\x22content\x22:[{\x22type\x22:\x22image\x22,\x22media\x22:[{\x22media_key\x22:\x223d7ff6a26922095b36755c744b50d1fb:8903a4c24ade2f9a-92\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:1506,\x22height\x22:1067,\x22url\x22:\x22https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s2048x3072/16a43327da75a8a44db36374009b68b42dc96660.jpg\x22,\x22has_original_dimensions\x22:true},{\x22media_key\x22:\x223d7ff6a26922095b36755c744b50d1fb:8903a4c24ade2f9a-92\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:1280,\x22height\x22:907,\x22url\x22:\x22https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s1280x1920/1e4c0eddb7f8520f900e1a41c11cab5413aeed99.jpg\x22},{\x22media_key\x22:\x223d7ff6a26922095b36755c744b50d1fb:8903a4c24ade2f9a-92\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:640,\x22height\x22:453,\x22url\x22:\x22https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s640x960/6e07d019a5064b7230351a4033277c95177a08b1.jpg\x22},{\x22media_key\x22:\x223d7ff6a26922095b36755c744b50d1fb:8903a4c24ade2f9a-92\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:540,\x22height\x22:383,\x22url\x22:\x22https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s540x810/0d0a3e0447047e0430ab37c940b20b2db89f9197.jpg\x22},{\x22media_key\x22:\x223d7ff6a26922095b36755c744b50d1fb:8903a4c24ade2f9a-92\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:500,\x22height\x22:354,\x22url\x22:\x22https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s500x750/074a5d838af0851dd2e7d79d7b9553be1cc3eced.jpg\x22},{\x22media_key\x22:\x223d7ff6a26922095b36755c744b50d1fb:8903a4c24ade2f9a-92\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:400,\x22height\x22:283,\x22url\x22:\x22https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s400x600/89fc23a8a73725e76eed4c0ef29e3f84e8aa3f55.jpg\x22},{\x22media_key\x22:\x223d7ff6a26922095b36755c744b50d1fb:8903a4c24ade2f9a-92\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:250,\x22height\x22:177,\x22url\x22:\x22https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s250x400/993e656dc643c1cacf32d81eb33db7df8913980a.jpg\x22},{\x22media_key\x22:\x223d7ff6a26922095b36755c744b50d1fb:8903a4c24ade2f9a-92\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:100,\x22height\x22:71,\x22url\x22:\x22https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s100x200/b6d31a155746a757dd3fd18ab6de76104d77058d.jpg\x22},{\x22media_key\x22:\x223d7ff6a26922095b36755c744b50d1fb:8903a4c24ade2f9a-92\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:75,\x22height\x22:75,\x22url\x22:\x22https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s75x75_c1/ac516c4c7c4655d4489fc11195cd32e29c9a8051.jpg\x22,\x22cropped\x22:true}],\x22colors\x22:{\x22c0\x22:\x22010101\x22,\x22c1\x22:\x220d1b29\x22,\x22c2\x22:\x22395f6c\x22,\x22c3\x22:\x2232596b\x22,\x22c4\x22:\x223c6373\x22},\x22alt_text\x22:\x22A grassy mountaintop with a person standing on the distant edge facing away from the camera. More tall blue mountains with glaciers on them are in the background.\x22,\x22exif\x22:{\x22Time\x22:1690408313,\x22FocalLength\x22:100,\x22FocalLength35mmEquiv\x22:100,\x22Aperture\x22:8,\x22ExposureTime\x22:0.001,\x22ISO\x22:200,\x22CameraMake\x22:\x22NIKON CORPORATION\x22,\x22CameraModel\x22:\x22NIKON D5500\x22,\x22Lens\x22:\x22100mm f/4.5\x22}},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Beartooth Highway, July 2023.\x22,\x22subtype\x22:\x22indented\x22}],\x22layout\x22:[],\x22post\x22:{\x22id\x22:\x22724251393858338816\x22},\x22blog\x22:{\x22name\x22:\x22lavendersleep\x22,\x22title\x22:\x22Devin\x22,\x22description\x22:\x22\x22,\x22url\x22:\x22https://lavendersleep.tumblr.com/\x22,\x22uuid\x22:\x22t:I2YkLCKQJNRX9SR4IsETZg\x22,\x22updated\x22:1695170632,\x22blog_view_url\x22:\x22https://www.tumblr.com/lavendersleep\x22,\x22key\x22:\x22eoblDdSAN\x22,\x22theme\x22:{\x22header_full_width\x22:1620,\x22header_full_height\x22:1080,\x22avatar_shape\x22:\x22square\x22,\x22background_color\x22:\x22#9A6EA2\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x22\x22,\x22header_image\x22:\x22https://64.media.tumblr.com/7912e451018a63ea0f616e46f1900446/a4278404e303e9f0-c4/s1620x1080/c44c67eb9b98466e7b8bf8d9df5b878cbb0ac2a3.jpg\x22,\x22header_image_focused\x22:\x22https://64.media.tumblr.com/7912e451018a63ea0f616e46f1900446/a4278404e303e9f0-c4/s2048x3072/8e31a2751fd0123db63002eee1ea26254df50de0.jpg\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://64.media.tumblr.com/7912e451018a63ea0f616e46f1900446/a4278404e303e9f0-c4/s2048x3072/8e31a2751fd0123db63002eee1ea26254df50de0.jpg\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#67416e\x22,\x22show_avatar\x22:true,\x22show_description\x22:false,\x22show_header_image\x22:true,\x22show_title\x22:true,\x22title_color\x22:\x22#000000\x22,\x22title_font\x22:\x22Pratt Pro\x22,\x22title_font_weight\x22:\x22bold\x22},\x22can_message\x22:true,\x22share_likes\x22:false,\x22share_following\x22:false,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:true,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://64.media.tumblr.com/f6833c4dbb720ad93c7a026b2d541e4f/92d78d833a3ba5de-18/s512x512u_c1/f4c835b744e94a2a4e3845a2ee363953362c2828.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://64.media.tumblr.com/f6833c4dbb720ad93c7a026b2d541e4f/92d78d833a3ba5de-18/s128x128u_c1/55a95d89d9d2a7a977ebbaecd2b422973883cf89.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://64.media.tumblr.com/f6833c4dbb720ad93c7a026b2d541e4f/92d78d833a3ba5de-18/s96x96u_c1/9e666ab6f01cf9a8cdd5ef9b4fb4e8a556f12cd5.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://64.media.tumblr.com/f6833c4dbb720ad93c7a026b2d541e4f/92d78d833a3ba5de-18/s64x64u_c1/4d704690949e9ee941325077dc409b1d5ba082ff.pnj\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:true,\x22active\x22:true,\x22show_follow_action\x22:true}}]}'">
+                  <section class="posts-trail-body">
+                    <div class="posts-trail-legacy"></div>
+                    <div class="posts-trail-item"><a class="posts-trail-blog"
+                        href="https://lavendersleep.tumblr.com/post/724251393858338816"><img class="avatar"
+                          src="https://64.media.tumblr.com/f6833c4dbb720ad93c7a026b2d541e4f/92d78d833a3ba5de-18/s64x64u_c1/4d704690949e9ee941325077dc409b1d5ba082ff.pnj"
+                          aria-hidden="true"><strong class="username">lavendersleep</strong></a>
+                      <div class="posts-trail-content">
+                        <p></p>
+                        <div class="npf_row">
+                          <div class="npf_col">
+                            <figure class="tmblr-full"><a class="post_media_photo_anchor"
+                                data-big-photo="https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s1280x1920/1e4c0eddb7f8520f900e1a41c11cab5413aeed99.jpg"
+                                data-big-photo-height="1067" data-big-photo-width="1506"><img
+                                  class="post_media_photo image"
+                                  src="https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s1280x1920/1e4c0eddb7f8520f900e1a41c11cab5413aeed99.jpg"
+                                  srcset="https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s75x75_c1/ac516c4c7c4655d4489fc11195cd32e29c9a8051.jpg 75w, https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s100x200/b6d31a155746a757dd3fd18ab6de76104d77058d.jpg 100w, https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s250x400/993e656dc643c1cacf32d81eb33db7df8913980a.jpg 250w, https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s400x600/89fc23a8a73725e76eed4c0ef29e3f84e8aa3f55.jpg 400w, https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s500x750/074a5d838af0851dd2e7d79d7b9553be1cc3eced.jpg 500w, https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s540x810/0d0a3e0447047e0430ab37c940b20b2db89f9197.jpg 540w, https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s640x960/6e07d019a5064b7230351a4033277c95177a08b1.jpg 640w, https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s1280x1920/1e4c0eddb7f8520f900e1a41c11cab5413aeed99.jpg 1280w, https://64.media.tumblr.com/3d7ff6a26922095b36755c744b50d1fb/8903a4c24ade2f9a-92/s2048x3072/16a43327da75a8a44db36374009b68b42dc96660.jpg 1506w"
+                                  sizes="(max-width: 1280px) 100vw, 1280px"
+                                  alt="A grassy mountaintop with a person standing on the distant edge facing away from the camera. More tall blue mountains with glaciers on them are in the background."></a><span
+                                class="tmblr-alt-text-helper">ALT</span></figure>
+                          </div>
+                        </div>
+                        <blockquote class="npf_indented">
+                          <p>Beartooth Highway, July 2023.</p>
+                        </blockquote>
+                      </div>
+                    </div>
+                  </section>
+                </article>
+
+                <article class="posts d-none"
+                  data-article-npf="'{\x22content\x22:[],\x22layout\x22:[],\x22trail\x22:[{\x22content\x22:[{\x22type\x22:\x22text\x22,\x22text\x22:\x22I\'m a Straw Hat now.... I have nakama.......\x22}],\x22layout\x22:[],\x22post\x22:{\x22id\x22:\x22726769129148776448\x22},\x22blog\x22:{\x22name\x22:\x22vriska\x22,\x22title\x22:\x22The real Vriska Serket\u2122\x22,\x22description\x22:\x2227 | \u2640 | \u264f Hello friends, I\'m Vree!\u00a0 Number one Vriska enthusiast. I love women and fandom stuff like Homestuck, Pok\u00e9mon, Soul Eater, and so much more.  Viva la VrisKan\u2665\x22,\x22url\x22:\x22https://vriska.tumblr.com/\x22,\x22uuid\x22:\x22t:ldkIOoQPfFz3KvOebXNvnw\x22,\x22updated\x22:1725906150,\x22blog_view_url\x22:\x22https://www.tumblr.com/vriska\x22,\x22key\x22:\x22KooClAQ17\x22,\x22theme\x22:{\x22header_full_width\x22:1300,\x22header_full_height\x22:815,\x22header_focus_width\x22:1300,\x22header_focus_height\x22:732,\x22avatar_shape\x22:\x22square\x22,\x22background_color\x22:\x22#75b1d6\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x2241,1300,773,0\x22,\x22header_image\x22:\x22https://64.media.tumblr.com/404fed06fedf999d699d08cef70ece7e/74c4baa4f6695016-b3/s1300x815/e405de50b2646ed0318e407747bc703edaa53a1b.png\x22,\x22header_image_focused\x22:\x22https://64.media.tumblr.com/404fed06fedf999d699d08cef70ece7e/74c4baa4f6695016-b3/s2048x3072_c0,5031,100000,94847/0942f6423bad5dddaa31dc80ea173b1ec5add874.png\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://64.media.tumblr.com/404fed06fedf999d699d08cef70ece7e/74c4baa4f6695016-b3/s2048x3072/f4309dc18f8e39816bb739395d2755fc80a77723.png\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#005682\x22,\x22show_avatar\x22:true,\x22show_description\x22:true,\x22show_header_image\x22:true,\x22show_title\x22:true,\x22title_color\x22:\x22#005682\x22,\x22title_font\x22:\x22Gibson\x22,\x22title_font_weight\x22:\x22bold\x22},\x22can_message\x22:true,\x22share_likes\x22:false,\x22share_following\x22:false,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:true,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://64.media.tumblr.com/9b8a45cfa84ef0dcf3bed2a7d5de43e1/d8aebc497b7f43af-8d/s512x512u_c1/47d003df2d4a1f621b22aeff06caeba27c156a42.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://64.media.tumblr.com/9b8a45cfa84ef0dcf3bed2a7d5de43e1/d8aebc497b7f43af-8d/s128x128u_c1/5c29f26eadca57859426cc67274e8ed9772c4ad8.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://64.media.tumblr.com/9b8a45cfa84ef0dcf3bed2a7d5de43e1/d8aebc497b7f43af-8d/s96x96u_c1/b0184d17343fcb7cd8dde5cc47099f3cf994fe52.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://64.media.tumblr.com/9b8a45cfa84ef0dcf3bed2a7d5de43e1/d8aebc497b7f43af-8d/s64x64u_c1/7459cbe4aa507e2c66d560acfeae913f412d20b4.pnj\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:true,\x22active\x22:true,\x22show_follow_action\x22:true}},{\x22content\x22:[{\x22type\x22:\x22text\x22,\x22text\x22:\x22just one?\x22}],\x22layout\x22:[],\x22post\x22:{\x22id\x22:\x22726769227786289152\x22},\x22blog\x22:{\x22name\x22:\x22kazolzen\x22,\x22title\x22:\x22Kazo\x22,\x22description\x22:\x22\x3cp\x3eSFW Furry Artist / they/them / ??\x3c/p\x3e\x22,\x22url\x22:\x22https://kazolzen.tumblr.com/\x22,\x22uuid\x22:\x22t:SvXawg1UdVtOCmyuTBrv6Q\x22,\x22updated\x22:1725436008,\x22blog_view_url\x22:\x22https://www.tumblr.com/kazolzen\x22,\x22key\x22:\x2295KwV4KKy\x22,\x22theme\x22:{\x22header_full_width\x22:1072,\x22header_full_height\x22:1072,\x22avatar_shape\x22:\x22circle\x22,\x22background_color\x22:\x22#2F022B\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x22\x22,\x22header_image\x22:\x22https://64.media.tumblr.com/52fbab8ff527be329d55360665c99ad3/552b7d61d7c47aa7-1b/s1072x1072/a8f9eaa19ef8b1269b4f77fafb2924ed43688bd2.png\x22,\x22header_image_focused\x22:\x22https://64.media.tumblr.com/52fbab8ff527be329d55360665c99ad3/552b7d61d7c47aa7-1b/s2048x3072/07716ca08e10df6435ecadd882e4e380c9576153.png\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://64.media.tumblr.com/52fbab8ff527be329d55360665c99ad3/552b7d61d7c47aa7-1b/s2048x3072/07716ca08e10df6435ecadd882e4e380c9576153.png\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#8959FF\x22,\x22show_avatar\x22:true,\x22show_description\x22:true,\x22show_header_image\x22:true,\x22show_title\x22:true,\x22title_color\x22:\x22#FFFFFF\x22,\x22title_font\x22:\x22Gibson\x22,\x22title_font_weight\x22:\x22bold\x22},\x22can_message\x22:true,\x22share_likes\x22:false,\x22share_following\x22:false,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:true,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://64.media.tumblr.com/2f105d63f99dec9174ea74775b2a1382/ac79a49b6e41612c-7f/s512x512u_c1/7f2d1d447d68f18d6fb95e3bc3a8086e5adc32d7.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://64.media.tumblr.com/2f105d63f99dec9174ea74775b2a1382/ac79a49b6e41612c-7f/s128x128u_c1/889cc5707f42da64413a060562c396aa48399043.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://64.media.tumblr.com/2f105d63f99dec9174ea74775b2a1382/ac79a49b6e41612c-7f/s96x96u_c1/cbc2dfda7ce606e95b54253abce9369abc077f6f.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://64.media.tumblr.com/2f105d63f99dec9174ea74775b2a1382/ac79a49b6e41612c-7f/s64x64u_c1/855d879e7f01cf04a3656c99b5f3ed194a15de1d.pnj\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:true,\x22active\x22:true,\x22show_follow_action\x22:true}},{\x22content\x22:[{\x22type\x22:\x22text\x22,\x22text\x22:\x22IT ONLY LET ME PUT ONE!!!!!!! SORRY I DONT HAVE A BILLION CHECKMARKS\x22}],\x22layout\x22:[],\x22post\x22:{\x22id\x22:\x22726770057658646529\x22},\x22blog\x22:{\x22name\x22:\x22vriska\x22,\x22title\x22:\x22The real Vriska Serket\u2122\x22,\x22description\x22:\x2227 | \u2640 | \u264f Hello friends, I\'m Vree!\u00a0 Number one Vriska enthusiast. I love women and fandom stuff like Homestuck, Pok\u00e9mon, Soul Eater, and so much more.  Viva la VrisKan\u2665\x22,\x22url\x22:\x22https://vriska.tumblr.com/\x22,\x22uuid\x22:\x22t:ldkIOoQPfFz3KvOebXNvnw\x22,\x22updated\x22:1725906150,\x22blog_view_url\x22:\x22https://www.tumblr.com/vriska\x22,\x22key\x22:\x22KooClAQ17\x22,\x22theme\x22:{\x22header_full_width\x22:1300,\x22header_full_height\x22:815,\x22header_focus_width\x22:1300,\x22header_focus_height\x22:732,\x22avatar_shape\x22:\x22square\x22,\x22background_color\x22:\x22#75b1d6\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x2241,1300,773,0\x22,\x22header_image\x22:\x22https://64.media.tumblr.com/404fed06fedf999d699d08cef70ece7e/74c4baa4f6695016-b3/s1300x815/e405de50b2646ed0318e407747bc703edaa53a1b.png\x22,\x22header_image_focused\x22:\x22https://64.media.tumblr.com/404fed06fedf999d699d08cef70ece7e/74c4baa4f6695016-b3/s2048x3072_c0,5031,100000,94847/0942f6423bad5dddaa31dc80ea173b1ec5add874.png\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://64.media.tumblr.com/404fed06fedf999d699d08cef70ece7e/74c4baa4f6695016-b3/s2048x3072/f4309dc18f8e39816bb739395d2755fc80a77723.png\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#005682\x22,\x22show_avatar\x22:true,\x22show_description\x22:true,\x22show_header_image\x22:true,\x22show_title\x22:true,\x22title_color\x22:\x22#005682\x22,\x22title_font\x22:\x22Gibson\x22,\x22title_font_weight\x22:\x22bold\x22},\x22can_message\x22:true,\x22share_likes\x22:false,\x22share_following\x22:false,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:true,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://64.media.tumblr.com/9b8a45cfa84ef0dcf3bed2a7d5de43e1/d8aebc497b7f43af-8d/s512x512u_c1/47d003df2d4a1f621b22aeff06caeba27c156a42.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://64.media.tumblr.com/9b8a45cfa84ef0dcf3bed2a7d5de43e1/d8aebc497b7f43af-8d/s128x128u_c1/5c29f26eadca57859426cc67274e8ed9772c4ad8.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://64.media.tumblr.com/9b8a45cfa84ef0dcf3bed2a7d5de43e1/d8aebc497b7f43af-8d/s96x96u_c1/b0184d17343fcb7cd8dde5cc47099f3cf994fe52.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://64.media.tumblr.com/9b8a45cfa84ef0dcf3bed2a7d5de43e1/d8aebc497b7f43af-8d/s64x64u_c1/7459cbe4aa507e2c66d560acfeae913f412d20b4.pnj\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:true,\x22active\x22:true,\x22show_follow_action\x22:false}},{\x22content\x22:[{\x22type\x22:\x22text\x22,\x22text\x22:\x22you can just claim the hat again. up to 50 times\x22}],\x22layout\x22:[],\x22post\x22:{\x22id\x22:\x22726770344878276608\x22},\x22blog\x22:{\x22name\x22:\x22kazolzen\x22,\x22title\x22:\x22Kazo\x22,\x22description\x22:\x22\x3cp\x3eSFW Furry Artist / they/them / ??\x3c/p\x3e\x22,\x22url\x22:\x22https://kazolzen.tumblr.com/\x22,\x22uuid\x22:\x22t:SvXawg1UdVtOCmyuTBrv6Q\x22,\x22updated\x22:1725436008,\x22blog_view_url\x22:\x22https://www.tumblr.com/kazolzen\x22,\x22key\x22:\x2295KwV4KKy\x22,\x22theme\x22:{\x22header_full_width\x22:1072,\x22header_full_height\x22:1072,\x22avatar_shape\x22:\x22circle\x22,\x22background_color\x22:\x22#2F022B\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x22\x22,\x22header_image\x22:\x22https://64.media.tumblr.com/52fbab8ff527be329d55360665c99ad3/552b7d61d7c47aa7-1b/s1072x1072/a8f9eaa19ef8b1269b4f77fafb2924ed43688bd2.png\x22,\x22header_image_focused\x22:\x22https://64.media.tumblr.com/52fbab8ff527be329d55360665c99ad3/552b7d61d7c47aa7-1b/s2048x3072/07716ca08e10df6435ecadd882e4e380c9576153.png\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://64.media.tumblr.com/52fbab8ff527be329d55360665c99ad3/552b7d61d7c47aa7-1b/s2048x3072/07716ca08e10df6435ecadd882e4e380c9576153.png\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#8959FF\x22,\x22show_avatar\x22:true,\x22show_description\x22:true,\x22show_header_image\x22:true,\x22show_title\x22:true,\x22title_color\x22:\x22#FFFFFF\x22,\x22title_font\x22:\x22Gibson\x22,\x22title_font_weight\x22:\x22bold\x22},\x22can_message\x22:true,\x22share_likes\x22:false,\x22share_following\x22:false,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:true,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://64.media.tumblr.com/2f105d63f99dec9174ea74775b2a1382/ac79a49b6e41612c-7f/s512x512u_c1/7f2d1d447d68f18d6fb95e3bc3a8086e5adc32d7.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://64.media.tumblr.com/2f105d63f99dec9174ea74775b2a1382/ac79a49b6e41612c-7f/s128x128u_c1/889cc5707f42da64413a060562c396aa48399043.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://64.media.tumblr.com/2f105d63f99dec9174ea74775b2a1382/ac79a49b6e41612c-7f/s96x96u_c1/cbc2dfda7ce606e95b54253abce9369abc077f6f.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://64.media.tumblr.com/2f105d63f99dec9174ea74775b2a1382/ac79a49b6e41612c-7f/s64x64u_c1/855d879e7f01cf04a3656c99b5f3ed194a15de1d.pnj\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:true,\x22active\x22:true,\x22show_follow_action\x22:false}},{\x22content\x22:[{\x22type\x22:\x22text\x22,\x22text\x22:\x22well now i have 8 so dont YOU look stupid\x22}],\x22layout\x22:[],\x22post\x22:{\x22id\x22:\x22726778819798810624\x22},\x22blog\x22:{\x22name\x22:\x22vriska\x22,\x22title\x22:\x22The real Vriska Serket\u2122\x22,\x22description\x22:\x2227 | \u2640 | \u264f Hello friends, I\'m Vree!\u00a0 Number one Vriska enthusiast. I love women and fandom stuff like Homestuck, Pok\u00e9mon, Soul Eater, and so much more.  Viva la VrisKan\u2665\x22,\x22url\x22:\x22https://vriska.tumblr.com/\x22,\x22uuid\x22:\x22t:ldkIOoQPfFz3KvOebXNvnw\x22,\x22updated\x22:1725906150,\x22blog_view_url\x22:\x22https://www.tumblr.com/vriska\x22,\x22key\x22:\x22KooClAQ17\x22,\x22theme\x22:{\x22header_full_width\x22:1300,\x22header_full_height\x22:815,\x22header_focus_width\x22:1300,\x22header_focus_height\x22:732,\x22avatar_shape\x22:\x22square\x22,\x22background_color\x22:\x22#75b1d6\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x2241,1300,773,0\x22,\x22header_image\x22:\x22https://64.media.tumblr.com/404fed06fedf999d699d08cef70ece7e/74c4baa4f6695016-b3/s1300x815/e405de50b2646ed0318e407747bc703edaa53a1b.png\x22,\x22header_image_focused\x22:\x22https://64.media.tumblr.com/404fed06fedf999d699d08cef70ece7e/74c4baa4f6695016-b3/s2048x3072_c0,5031,100000,94847/0942f6423bad5dddaa31dc80ea173b1ec5add874.png\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://64.media.tumblr.com/404fed06fedf999d699d08cef70ece7e/74c4baa4f6695016-b3/s2048x3072/f4309dc18f8e39816bb739395d2755fc80a77723.png\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#005682\x22,\x22show_avatar\x22:true,\x22show_description\x22:true,\x22show_header_image\x22:true,\x22show_title\x22:true,\x22title_color\x22:\x22#005682\x22,\x22title_font\x22:\x22Gibson\x22,\x22title_font_weight\x22:\x22bold\x22},\x22can_message\x22:true,\x22share_likes\x22:false,\x22share_following\x22:false,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:true,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://64.media.tumblr.com/9b8a45cfa84ef0dcf3bed2a7d5de43e1/d8aebc497b7f43af-8d/s512x512u_c1/47d003df2d4a1f621b22aeff06caeba27c156a42.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://64.media.tumblr.com/9b8a45cfa84ef0dcf3bed2a7d5de43e1/d8aebc497b7f43af-8d/s128x128u_c1/5c29f26eadca57859426cc67274e8ed9772c4ad8.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://64.media.tumblr.com/9b8a45cfa84ef0dcf3bed2a7d5de43e1/d8aebc497b7f43af-8d/s96x96u_c1/b0184d17343fcb7cd8dde5cc47099f3cf994fe52.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://64.media.tumblr.com/9b8a45cfa84ef0dcf3bed2a7d5de43e1/d8aebc497b7f43af-8d/s64x64u_c1/7459cbe4aa507e2c66d560acfeae913f412d20b4.pnj\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:true,\x22active\x22:true,\x22show_follow_action\x22:false}},{\x22content\x22:[{\x22type\x22:\x22text\x22,\x22text\x22:\x22rookie numbers.\x22,\x22formatting\x22:[{\x22type\x22:\x22bold\x22,\x22start\x22:0,\x22end\x22:15}]}],\x22layout\x22:[],\x22post\x22:{\x22id\x22:\x22726782585044385792\x22},\x22blog\x22:{\x22name\x22:\x22kazolzen\x22,\x22title\x22:\x22Kazo\x22,\x22description\x22:\x22\x3cp\x3eSFW Furry Artist / they/them / ??\x3c/p\x3e\x22,\x22url\x22:\x22https://kazolzen.tumblr.com/\x22,\x22uuid\x22:\x22t:SvXawg1UdVtOCmyuTBrv6Q\x22,\x22updated\x22:1725436008,\x22blog_view_url\x22:\x22https://www.tumblr.com/kazolzen\x22,\x22key\x22:\x2295KwV4KKy\x22,\x22theme\x22:{\x22header_full_width\x22:1072,\x22header_full_height\x22:1072,\x22avatar_shape\x22:\x22circle\x22,\x22background_color\x22:\x22#2F022B\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x22\x22,\x22header_image\x22:\x22https://64.media.tumblr.com/52fbab8ff527be329d55360665c99ad3/552b7d61d7c47aa7-1b/s1072x1072/a8f9eaa19ef8b1269b4f77fafb2924ed43688bd2.png\x22,\x22header_image_focused\x22:\x22https://64.media.tumblr.com/52fbab8ff527be329d55360665c99ad3/552b7d61d7c47aa7-1b/s2048x3072/07716ca08e10df6435ecadd882e4e380c9576153.png\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://64.media.tumblr.com/52fbab8ff527be329d55360665c99ad3/552b7d61d7c47aa7-1b/s2048x3072/07716ca08e10df6435ecadd882e4e380c9576153.png\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#8959FF\x22,\x22show_avatar\x22:true,\x22show_description\x22:true,\x22show_header_image\x22:true,\x22show_title\x22:true,\x22title_color\x22:\x22#FFFFFF\x22,\x22title_font\x22:\x22Gibson\x22,\x22title_font_weight\x22:\x22bold\x22},\x22can_message\x22:true,\x22share_likes\x22:false,\x22share_following\x22:false,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:true,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://64.media.tumblr.com/2f105d63f99dec9174ea74775b2a1382/ac79a49b6e41612c-7f/s512x512u_c1/7f2d1d447d68f18d6fb95e3bc3a8086e5adc32d7.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://64.media.tumblr.com/2f105d63f99dec9174ea74775b2a1382/ac79a49b6e41612c-7f/s128x128u_c1/889cc5707f42da64413a060562c396aa48399043.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://64.media.tumblr.com/2f105d63f99dec9174ea74775b2a1382/ac79a49b6e41612c-7f/s96x96u_c1/cbc2dfda7ce606e95b54253abce9369abc077f6f.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://64.media.tumblr.com/2f105d63f99dec9174ea74775b2a1382/ac79a49b6e41612c-7f/s64x64u_c1/855d879e7f01cf04a3656c99b5f3ed194a15de1d.pnj\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:true,\x22active\x22:true,\x22show_follow_action\x22:false}},{\x22content\x22:[{\x22type\x22:\x22text\x22,\x22text\x22:\x22hi guys\x22}],\x22layout\x22:[],\x22post\x22:{\x22id\x22:\x22726795224664440832\x22},\x22blog\x22:{\x22name\x22:\x22moonpaw\x22,\x22title\x22:\x22oh worm?\x22,\x22description\x22:\x22credit to cysketch and vhjest for sidebar and background images\x22,\x22url\x22:\x22https://moonpaw.tumblr.com/\x22,\x22uuid\x22:\x22t:qmJt6dGWB8IaEa3AcppC7g\x22,\x22updated\x22:1725934837,\x22blog_view_url\x22:\x22https://www.tumblr.com/moonpaw\x22,\x22key\x22:\x22Uglg7KvUS\x22,\x22theme\x22:{\x22header_full_width\x22:2800,\x22header_full_height\x22:2000,\x22header_focus_width\x22:1556,\x22header_focus_height\x22:876,\x22avatar_shape\x22:\x22circle\x22,\x22background_color\x22:\x22#bbaae5\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x22544,1836,1420,280\x22,\x22header_image\x22:\x22https://64.media.tumblr.com/4caa07d722669684e0937d29d063589a/78e8aaeac4303929-e6/s2800x2000/ce7777d017cb92170cc7bbf1e862fbb350ec22fc.png\x22,\x22header_image_focused\x22:\x22https://64.media.tumblr.com/4caa07d722669684e0937d29d063589a/78e8aaeac4303929-e6/s2048x3072_c10000,27200,65571,71000/8414b18157f18238a2f9ad5babba010d5d8fa08f.png\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://64.media.tumblr.com/4caa07d722669684e0937d29d063589a/78e8aaeac4303929-e6/s2048x3072/181af8b2c101b34739d614116cb33eddd82d218b.png\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#ffffff\x22,\x22show_avatar\x22:true,\x22show_description\x22:true,\x22show_header_image\x22:true,\x22show_title\x22:true,\x22title_color\x22:\x22#292860\x22,\x22title_font\x22:\x22Calluna\x22,\x22title_font_weight\x22:\x22bold\x22},\x22can_message\x22:true,\x22share_likes\x22:false,\x22share_following\x22:false,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:true,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://64.media.tumblr.com/7ba77709354288ba57e186aba48a453e/3c8ade95b0275198-d2/s512x512u_c1/d7f9cfe962dd410d3053eb568a0c7c67ee34183d.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://64.media.tumblr.com/7ba77709354288ba57e186aba48a453e/3c8ade95b0275198-d2/s128x128u_c1/c35b47c0763851cc9291a15fcdc5ea8f02b5778e.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://64.media.tumblr.com/7ba77709354288ba57e186aba48a453e/3c8ade95b0275198-d2/s96x96u_c1/5e9a6ecd2c2d9c8ca40a34c5e45e0a0404ae8edc.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://64.media.tumblr.com/7ba77709354288ba57e186aba48a453e/3c8ade95b0275198-d2/s64x64u_c1/fdb24ac175d16b81c5c9e21b9a44adb0fdf88cdf.pnj\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:true,\x22active\x22:true,\x22show_follow_action\x22:true}}]}'"
+                  data-article-id="726850718366121984">
+                  <section class="posts-trail-body">
+                    <div class="posts-trail-legacy"></div>
+                    <div class="posts-trail-item">
+                      <div class="posts-trail-username">
+                        <a class="posts-trail-blog" href="https://vriska.tumblr.com/post/726769129148776448"><img
+                            class="avatar"
+                            src="https://64.media.tumblr.com/9b8a45cfa84ef0dcf3bed2a7d5de43e1/d8aebc497b7f43af-8d/s64x64u_c1/7459cbe4aa507e2c66d560acfeae913f412d20b4.pnj"
+                            aria-hidden="true"><strong class="username">vriska</strong></a>
+                      </div>
+                      <div class="posts-trail-content">
+                        <p>I'm a Straw Hat now.... I have nakama.......</p>
+                      </div>
+                    </div>
+                    <div class="posts-trail-item">
+                      <div class="posts-trail-username">
+                        <a class="posts-trail-blog" href="https://kazolzen.tumblr.com/post/726769227786289152"><img
+                            class="avatar"
+                            src="https://64.media.tumblr.com/2f105d63f99dec9174ea74775b2a1382/ac79a49b6e41612c-7f/s64x64u_c1/855d879e7f01cf04a3656c99b5f3ed194a15de1d.pnj"
+                            aria-hidden="true"><strong class="username">kazolzen</strong></a>
+                      </div>
+                      <div class="posts-trail-content">
+                        <p>just one?</p>
+                      </div>
+                    </div>
+                    <div class="posts-trail-item">
+                      <div class="posts-trail-username">
+                        <a class="posts-trail-blog" href="https://vriska.tumblr.com/post/726770057658646529"><img
+                            class="avatar"
+                            src="https://64.media.tumblr.com/9b8a45cfa84ef0dcf3bed2a7d5de43e1/d8aebc497b7f43af-8d/s64x64u_c1/7459cbe4aa507e2c66d560acfeae913f412d20b4.pnj"
+                            aria-hidden="true"><strong class="username">vriska</strong></a>
+                      </div>
+                      <div class="posts-trail-content">
+                        <p>IT ONLY LET ME PUT ONE!!!!!!! SORRY I DONT HAVE A BILLION CHECKMARKS</p>
+                      </div>
+                    </div>
+                    <div class="posts-trail-item">
+                      <div class="posts-trail-username">
+                        <a class="posts-trail-blog" href="https://kazolzen.tumblr.com/post/726770344878276608"><img
+                            class="avatar"
+                            src="https://64.media.tumblr.com/2f105d63f99dec9174ea74775b2a1382/ac79a49b6e41612c-7f/s64x64u_c1/855d879e7f01cf04a3656c99b5f3ed194a15de1d.pnj"
+                            aria-hidden="true"><strong class="username">kazolzen</strong></a>
+                      </div>
+                      <div class="posts-trail-content">
+                        <p>you can just claim the hat again. up to 50 times</p>
+                      </div>
+                    </div>
+                    <div class="posts-trail-item">
+                      <div class="posts-trail-username">
+                        <a class="posts-trail-blog" href="https://vriska.tumblr.com/post/726778819798810624"><img
+                            class="avatar"
+                            src="https://64.media.tumblr.com/9b8a45cfa84ef0dcf3bed2a7d5de43e1/d8aebc497b7f43af-8d/s64x64u_c1/7459cbe4aa507e2c66d560acfeae913f412d20b4.pnj"
+                            aria-hidden="true"><strong class="username">vriska</strong></a>
+                      </div>
+                      <div class="posts-trail-content">
+                        <p>well now i have 8 so dont YOU look stupid</p>
+                      </div>
+                    </div>
+                    <div class="posts-trail-item">
+                      <div class="posts-trail-username">
+                        <a class="posts-trail-blog" href="https://kazolzen.tumblr.com/post/726782585044385792"><img
+                            class="avatar"
+                            src="https://64.media.tumblr.com/2f105d63f99dec9174ea74775b2a1382/ac79a49b6e41612c-7f/s64x64u_c1/855d879e7f01cf04a3656c99b5f3ed194a15de1d.pnj"
+                            aria-hidden="true"><strong class="username">kazolzen</strong></a>
+                      </div>
+                      <div class="posts-trail-content">
+                        <p><b>rookie numbers.</b></p>
+                      </div>
+                    </div>
+                    <div class="posts-trail-item">
+                      <div class="posts-trail-username">
+                        <a class="posts-trail-blog" href="https://moonpaw.tumblr.com/post/726795224664440832"><img
+                            class="avatar"
+                            src="https://64.media.tumblr.com/7ba77709354288ba57e186aba48a453e/3c8ade95b0275198-d2/s64x64u_c1/fdb24ac175d16b81c5c9e21b9a44adb0fdf88cdf.pnj"
+                            aria-hidden="true"><strong class="username">moonpaw</strong></a>
+                      </div>
+                      <div class="posts-trail-content">
+                        <p>hi guys</p>
+                      </div>
+                    </div>
+                  </section>
+                </article>
+
+                <article class="posts" data-article-npf="'{\x22content\x22:[],\x22layout\x22:[],\x22trail\x22:[{\x22content\x22:[{\x22type\x22:\x22image\x22,\x22media\x22:[{\x22media_key\x22:\x220872537e8bb9215df3c584909da06e04:50b4a25840965e45-92\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:2047,\x22height\x22:1536,\x22url\x22:\x22https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s2048x3072/c21ca0a6b42fd6e5a5d8d1f12b2f326c9f0dd783.jpg\x22,\x22has_original_dimensions\x22:true},{\x22media_key\x22:\x220872537e8bb9215df3c584909da06e04:50b4a25840965e45-92\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:1280,\x22height\x22:960,\x22url\x22:\x22https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s1280x1920/1601bb85fe404263af626bb6172a24b27f1dc22a.jpg\x22},{\x22media_key\x22:\x220872537e8bb9215df3c584909da06e04:50b4a25840965e45-92\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:640,\x22height\x22:480,\x22url\x22:\x22https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s640x960/224a0d18cc1a5c41bdbbf542f125222acdf268e1.jpg\x22},{\x22media_key\x22:\x220872537e8bb9215df3c584909da06e04:50b4a25840965e45-92\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:540,\x22height\x22:405,\x22url\x22:\x22https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s540x810/1aa3e3fefc61531e10d56e3ee98dccfdd15db852.jpg\x22},{\x22media_key\x22:\x220872537e8bb9215df3c584909da06e04:50b4a25840965e45-92\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:500,\x22height\x22:375,\x22url\x22:\x22https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s500x750/727c72c4eeb4ece90c4e8ed288eb535212d35b70.jpg\x22},{\x22media_key\x22:\x220872537e8bb9215df3c584909da06e04:50b4a25840965e45-92\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:400,\x22height\x22:300,\x22url\x22:\x22https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s400x600/b25085957459850cfad09556a0843f65ee7eeb46.jpg\x22},{\x22media_key\x22:\x220872537e8bb9215df3c584909da06e04:50b4a25840965e45-92\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:250,\x22height\x22:188,\x22url\x22:\x22https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s250x400/c72fb4180145d93bba9c1a555ff7cccf509386ac.jpg\x22},{\x22media_key\x22:\x220872537e8bb9215df3c584909da06e04:50b4a25840965e45-92\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:100,\x22height\x22:75,\x22url\x22:\x22https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s100x200/ce458c010a50d47a65f730300a286645aeb2231a.jpg\x22},{\x22media_key\x22:\x220872537e8bb9215df3c584909da06e04:50b4a25840965e45-92\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:75,\x22height\x22:75,\x22url\x22:\x22https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s75x75_c1/33c32ae7a6c35fcd4f4d9184cd4ffdcc55cb695d.jpg\x22,\x22cropped\x22:true}],\x22colors\x22:{\x22c0\x22:\x226f6e67\x22,\x22c1\x22:\x22050101\x22,\x22c2\x22:\x2265635d\x22,\x22c3\x22:\x226d5f53\x22,\x22c4\x22:\x22393937\x22},\x22alt_text\x22:\x22A view of a ridge with hikers walking up it, who look very small compared to the tall, gray mountains in the background.\x22,\x22exif\x22:{\x22Time\x22:1689254376,\x22FocalLength\x22:5,\x22FocalLength35mmEquiv\x22:5,\x22Aperture\x22:1.6,\x22ExposureTime\x22:0.0002929973630237328,\x22ISO\x22:50,\x22CameraMake\x22:\x22Apple\x22,\x22CameraModel\x22:\x22iPhone 13\x22,\x22Lens\x22:\x225mm\x22}},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Plain of Six Glaciers, Banff National Park. July 2023.\x22,\x22subtype\x22:\x22indented\x22}],\x22layout\x22:[],\x22post\x22:{\x22id\x22:\x22722866262829563904\x22},\x22blog\x22:{\x22name\x22:\x22lavendersleep\x22,\x22title\x22:\x22Devin\x22,\x22description\x22:\x22\x22,\x22url\x22:\x22https://lavendersleep.tumblr.com/\x22,\x22uuid\x22:\x22t:I2YkLCKQJNRX9SR4IsETZg\x22,\x22updated\x22:1695170632,\x22blog_view_url\x22:\x22https://www.tumblr.com/lavendersleep\x22,\x22key\x22:\x22eoblDdSAN\x22,\x22theme\x22:{\x22header_full_width\x22:1620,\x22header_full_height\x22:1080,\x22avatar_shape\x22:\x22square\x22,\x22background_color\x22:\x22#9A6EA2\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x22\x22,\x22header_image\x22:\x22https://64.media.tumblr.com/7912e451018a63ea0f616e46f1900446/a4278404e303e9f0-c4/s1620x1080/c44c67eb9b98466e7b8bf8d9df5b878cbb0ac2a3.jpg\x22,\x22header_image_focused\x22:\x22https://64.media.tumblr.com/7912e451018a63ea0f616e46f1900446/a4278404e303e9f0-c4/s2048x3072/8e31a2751fd0123db63002eee1ea26254df50de0.jpg\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://64.media.tumblr.com/7912e451018a63ea0f616e46f1900446/a4278404e303e9f0-c4/s2048x3072/8e31a2751fd0123db63002eee1ea26254df50de0.jpg\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#67416e\x22,\x22show_avatar\x22:true,\x22show_description\x22:false,\x22show_header_image\x22:true,\x22show_title\x22:true,\x22title_color\x22:\x22#000000\x22,\x22title_font\x22:\x22Pratt Pro\x22,\x22title_font_weight\x22:\x22bold\x22},\x22can_message\x22:true,\x22share_likes\x22:false,\x22share_following\x22:false,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:true,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://64.media.tumblr.com/f6833c4dbb720ad93c7a026b2d541e4f/92d78d833a3ba5de-18/s512x512u_c1/f4c835b744e94a2a4e3845a2ee363953362c2828.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://64.media.tumblr.com/f6833c4dbb720ad93c7a026b2d541e4f/92d78d833a3ba5de-18/s128x128u_c1/55a95d89d9d2a7a977ebbaecd2b422973883cf89.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://64.media.tumblr.com/f6833c4dbb720ad93c7a026b2d541e4f/92d78d833a3ba5de-18/s96x96u_c1/9e666ab6f01cf9a8cdd5ef9b4fb4e8a556f12cd5.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://64.media.tumblr.com/f6833c4dbb720ad93c7a026b2d541e4f/92d78d833a3ba5de-18/s64x64u_c1/4d704690949e9ee941325077dc409b1d5ba082ff.pnj\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:true,\x22active\x22:true,\x22show_follow_action\x22:true}}]}'">
+                  <section class="posts-trail-body">
+                    <div class="posts-trail-legacy"></div>
+                    <div class="posts-trail-item"><a class="posts-trail-blog"
+                        href="https://lavendersleep.tumblr.com/post/722866262829563904"><img class="avatar"
+                          src="https://64.media.tumblr.com/f6833c4dbb720ad93c7a026b2d541e4f/92d78d833a3ba5de-18/s64x64u_c1/4d704690949e9ee941325077dc409b1d5ba082ff.pnj"
+                          aria-hidden="true"><strong class="username">lavendersleep</strong></a>
+                      <div class="posts-trail-content">
+                        <p></p>
+                        <div class="npf_row">
+                          <div class="npf_col">
+                            <figure class="tmblr-full"><a class="post_media_photo_anchor"
+                                data-big-photo="https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s1280x1920/1601bb85fe404263af626bb6172a24b27f1dc22a.jpg"
+                                data-big-photo-height="1536" data-big-photo-width="2047"><img
+                                  class="post_media_photo image"
+                                  src="https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s1280x1920/1601bb85fe404263af626bb6172a24b27f1dc22a.jpg"
+                                  srcset="https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s75x75_c1/33c32ae7a6c35fcd4f4d9184cd4ffdcc55cb695d.jpg 75w, https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s100x200/ce458c010a50d47a65f730300a286645aeb2231a.jpg 100w, https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s250x400/c72fb4180145d93bba9c1a555ff7cccf509386ac.jpg 250w, https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s400x600/b25085957459850cfad09556a0843f65ee7eeb46.jpg 400w, https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s500x750/727c72c4eeb4ece90c4e8ed288eb535212d35b70.jpg 500w, https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s540x810/1aa3e3fefc61531e10d56e3ee98dccfdd15db852.jpg 540w, https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s640x960/224a0d18cc1a5c41bdbbf542f125222acdf268e1.jpg 640w, https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s1280x1920/1601bb85fe404263af626bb6172a24b27f1dc22a.jpg 1280w, https://64.media.tumblr.com/0872537e8bb9215df3c584909da06e04/50b4a25840965e45-92/s2048x3072/c21ca0a6b42fd6e5a5d8d1f12b2f326c9f0dd783.jpg 2047w"
+                                  sizes="(max-width: 1280px) 100vw, 1280px"
+                                  alt="A view of a ridge with hikers walking up it, who look very small compared to the tall, gray mountains in the background."></a><span
+                                class="tmblr-alt-text-helper">ALT</span></figure>
+                          </div>
+                        </div>
+                        <blockquote class="npf_indented">
+                          <p>Plain of Six Glaciers, Banff National Park. July 2023.</p>
+                        </blockquote>
+                      </div>
+                    </div>
+                  </section>
+                </article>
+
+                
+                <article class="posts"
+                  data-article-npf="'{\x22content\x22:[],\x22layout\x22:[],\x22trail\x22:[{\x22content\x22:[{\x22type\x22:\x22image\x22,\x22media\x22:[{\x22url\x22:\x22https://64.media.tumblr.com/c75b3d459e129860967bc74d4d188a5b/tumblr_nlxvdoQStP1r1arpmo1_1280.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:1024,\x22height\x22:683,\x22colors\x22:{\x22c0\x22:\x22000000\x22,\x22c1\x22:\x227c7c7c\x22},\x22has_original_dimensions\x22:true},{\x22url\x22:\x22https://64.media.tumblr.com/c75b3d459e129860967bc74d4d188a5b/tumblr_nlxvdoQStP1r1arpmo1_640.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:640,\x22height\x22:427,\x22colors\x22:{\x22c0\x22:\x22000000\x22,\x22c1\x22:\x227c7c7c\x22}},{\x22url\x22:\x22https://64.media.tumblr.com/c75b3d459e129860967bc74d4d188a5b/tumblr_nlxvdoQStP1r1arpmo1_540.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:540,\x22height\x22:360,\x22colors\x22:{\x22c0\x22:\x22000000\x22,\x22c1\x22:\x227c7c7c\x22}},{\x22url\x22:\x22https://64.media.tumblr.com/c75b3d459e129860967bc74d4d188a5b/tumblr_nlxvdoQStP1r1arpmo1_500.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:500,\x22height\x22:333,\x22colors\x22:{\x22c0\x22:\x22000000\x22,\x22c1\x22:\x227c7c7c\x22}},{\x22url\x22:\x22https://64.media.tumblr.com/c75b3d459e129860967bc74d4d188a5b/tumblr_nlxvdoQStP1r1arpmo1_400.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:400,\x22height\x22:267,\x22colors\x22:{\x22c0\x22:\x22000000\x22,\x22c1\x22:\x227c7c7c\x22}},{\x22url\x22:\x22https://64.media.tumblr.com/c75b3d459e129860967bc74d4d188a5b/tumblr_nlxvdoQStP1r1arpmo1_250.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:250,\x22height\x22:167,\x22colors\x22:{\x22c0\x22:\x22000000\x22,\x22c1\x22:\x227c7c7c\x22}},{\x22url\x22:\x22https://64.media.tumblr.com/c75b3d459e129860967bc74d4d188a5b/tumblr_nlxvdoQStP1r1arpmo1_100.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:100,\x22height\x22:67,\x22colors\x22:{\x22c0\x22:\x22000000\x22,\x22c1\x22:\x227c7c7c\x22}},{\x22url\x22:\x22https://64.media.tumblr.com/c75b3d459e129860967bc74d4d188a5b/tumblr_nlxvdoQStP1r1arpmo1_75sq.jpg\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:75,\x22height\x22:75,\x22colors\x22:{\x22c0\x22:\x22000000\x22,\x22c1\x22:\x227c7c7c\x22},\x22cropped\x22:true}],\x22colors\x22:{\x22c0\x22:\x22000000\x22,\x22c1\x22:\x227c7c7c\x22}},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Chelsey Rose\x22,\x22formatting\x22:[{\x22type\x22:\x22link\x22,\x22start\x22:0,\x22end\x22:12,\x22url\x22:\x22https://www.flickr.com/photos/66738562@N04/\x22}]}],\x22layout\x22:[],\x22post\x22:{\x22id\x22:\x22166957915395\x22},\x22blog\x22:{\x22name\x22:\x22melisica\x22,\x22title\x22:\x22empty hands \x26 heavy hearts\x22,\x22description\x22:\x22\x22,\x22url\x22:\x22https://melisica.tumblr.com/\x22,\x22uuid\x22:\x22t:_vky7GwkTTE0rdggtlZLog\x22,\x22updated\x22:1612135710,\x22blog_view_url\x22:\x22https://www.tumblr.com/melisica\x22,\x22key\x22:\x222bUVKx6Uc\x22,\x22theme\x22:{\x22header_full_width\x22:584,\x22header_full_height\x22:260,\x22header_focus_width\x22:462,\x22header_focus_height\x22:260,\x22avatar_shape\x22:\x22circle\x22,\x22background_color\x22:\x22#000000\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x220,500,260,38\x22,\x22header_image\x22:\x22https://static.tumblr.com/eb46774a2b91f8c7bdab931e6ccb6112/hobn7ag/uBCncqgtb/tumblr_static_.jpg\x22,\x22header_image_focused\x22:\x22https://static.tumblr.com/eb46774a2b91f8c7bdab931e6ccb6112/hobn7ag/tbHncqgtc/tumblr_static_tumblr_static__focused_v3.jpg\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://static.tumblr.com/eb46774a2b91f8c7bdab931e6ccb6112/hobn7ag/uBCncqgtb/tumblr_static__2048_v2.jpg\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#000000\x22,\x22show_avatar\x22:true,\x22show_description\x22:true,\x22show_header_image\x22:true,\x22show_title\x22:true,\x22title_color\x22:\x22#444444\x22,\x22title_font\x22:\x22Lorimer No 2\x22,\x22title_font_weight\x22:\x22regular\x22},\x22can_message\x22:false,\x22share_likes\x22:false,\x22share_following\x22:false,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:false,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://64.media.tumblr.com/avatar_108a6459935b_512.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://64.media.tumblr.com/avatar_108a6459935b_128.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://64.media.tumblr.com/avatar_108a6459935b_96.pnj\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://64.media.tumblr.com/avatar_108a6459935b_64.pnj\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:false,\x22active\x22:false,\x22show_follow_action\x22:false}}]}'">
+                  <section class="posts-trail-body">
+                    <div class="posts-trail-legacy">
+                      <figure class="tmblr-full"><a href="/image/761213761822638080" class="tmblr-full-image"><img
+                            src="https://64.media.tumblr.com/c75b3d459e129860967bc74d4d188a5b/tumblr_nlxvdoQStP1r1arpmo1_1280.jpg"
+                            alt="melisica:
+                “Chelsey Rose
+                ”"></a></figure>
+                    </div>
+                    <div class="posts-trail-item">
+                      <div class="posts-trail-username">
+                        <a class="posts-trail-blog"><img class="avatar"
+                            src="https://64.media.tumblr.com/avatar_108a6459935b_64.pnj" aria-hidden="true"><strong
+                            class="username username-deactivated">melisica</strong></a>
+                      </div>
+                      <div class="posts-trail-content">
+                        <p><a href="https://www.flickr.com/photos/66738562@N04/"
+                            title="Geh zum Fotostream von Chelsey Rose">Chelsey Rose</a><br></p>
+                      </div>
+                    </div>
+                  </section>
+                </article>
+
+                <article class="posts d-none"
+                  data-article-npf="'{\x22content\x22:[],\x22layout\x22:[],\x22trail\x22:[{\x22content\x22:[{\x22type\x22:\x22text\x22,\x22text\x22:\x2212 surprising clickbait titles that work\x22,\x22subtype\x22:\x22heading1\x22},{\x22type\x22:\x22image\x22,\x22media\x22:[{\x22media_key\x22:\x229cf4e98cb7698c1433270b8c46225197:d4b5eff12ec3663d-e8\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:637,\x22height\x22:460,\x22poster\x22:{\x22media_key\x22:\x229cf4e98cb7698c1433270b8c46225197:d4b5eff12ec3663d-e8\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:637,\x22height\x22:460,\x22url\x22:\x22https://44.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s640x960_f1/f1ea5f018073b37ac9b8114b8bc144638aea4035.gifv\x22},\x22url\x22:\x22https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s640x960/7e62a2120aca3f3eda2dd3126f054b8e68ffbc66.gifv\x22,\x22has_original_dimensions\x22:true},{\x22media_key\x22:\x229cf4e98cb7698c1433270b8c46225197:d4b5eff12ec3663d-e8\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:540,\x22height\x22:390,\x22poster\x22:{\x22media_key\x22:\x229cf4e98cb7698c1433270b8c46225197:d4b5eff12ec3663d-e8\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:540,\x22height\x22:390,\x22url\x22:\x22https://44.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s540x810_f1/9de1e98e8eebdbea040d5dbcaa47d0aa59e06605.gifv\x22},\x22url\x22:\x22https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s540x810/e6b25a0b27e23c9fbe00303b62bebd1c9fd84f24.gifv\x22},{\x22media_key\x22:\x229cf4e98cb7698c1433270b8c46225197:d4b5eff12ec3663d-e8\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:500,\x22height\x22:361,\x22poster\x22:{\x22media_key\x22:\x229cf4e98cb7698c1433270b8c46225197:d4b5eff12ec3663d-e8\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:500,\x22height\x22:361,\x22url\x22:\x22https://44.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s500x750_f1/3b06871aa597bb344d7faa536d34e8ea596fd7f9.gifv\x22},\x22url\x22:\x22https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s500x750/bb9ef0e15bc687ee57100c0b57a7d27983eba5dc.gifv\x22},{\x22media_key\x22:\x229cf4e98cb7698c1433270b8c46225197:d4b5eff12ec3663d-e8\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:400,\x22height\x22:289,\x22poster\x22:{\x22media_key\x22:\x229cf4e98cb7698c1433270b8c46225197:d4b5eff12ec3663d-e8\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:400,\x22height\x22:289,\x22url\x22:\x22https://44.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s400x600_f1/3c4dd0564c5d3fc7ce7f7ab831d38156f294f6ae.gifv\x22},\x22url\x22:\x22https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s400x600/df405cee9628d15c179c2a13c9effe9c4e15c962.gifv\x22},{\x22media_key\x22:\x229cf4e98cb7698c1433270b8c46225197:d4b5eff12ec3663d-e8\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:250,\x22height\x22:181,\x22poster\x22:{\x22media_key\x22:\x229cf4e98cb7698c1433270b8c46225197:d4b5eff12ec3663d-e8\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:250,\x22height\x22:181,\x22url\x22:\x22https://44.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s250x400_f1/8a59751c11ef420a6a1bb3a890eb49fe305a7297.gifv\x22},\x22url\x22:\x22https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s250x400/76f3ebc47bf32715507928b4a88dce42bfc07928.gifv\x22},{\x22media_key\x22:\x229cf4e98cb7698c1433270b8c46225197:d4b5eff12ec3663d-e8\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:100,\x22height\x22:72,\x22poster\x22:{\x22media_key\x22:\x229cf4e98cb7698c1433270b8c46225197:d4b5eff12ec3663d-e8\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:100,\x22height\x22:72,\x22url\x22:\x22https://44.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s100x200_f1/4384f0861dda74aa28fdfe74ea91ddccc9a98b12.gifv\x22},\x22url\x22:\x22https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s100x200/a1b4aa469abeb172dcafa894cf97c3de7b21a01e.gifv\x22},{\x22media_key\x22:\x229cf4e98cb7698c1433270b8c46225197:d4b5eff12ec3663d-e8\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:75,\x22height\x22:75,\x22poster\x22:{\x22media_key\x22:\x229cf4e98cb7698c1433270b8c46225197:d4b5eff12ec3663d-e8\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:75,\x22height\x22:75,\x22url\x22:\x22https://44.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s75x75_c1_f1/6e2fa0892884cf7f34b7d310dec12129f2a65696.gifv\x22},\x22url\x22:\x22https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s75x75_c1/65e0da6d22df6caa3e7a8ba3ca9c8bb7b2545b59.gifv\x22,\x22cropped\x22:true}],\x22attribution\x22:{\x22type\x22:\x22post\x22,\x22url\x22:\x22https://animatedtext.tumblr.com/post/669388423041253376\x22,\x22post\x22:{\x22id\x22:\x22669388423041253376\x22},\x22blog\x22:{\x22name\x22:\x22animatedtext\x22,\x22url\x22:\x22animatedtext.tumblr.com\x22,\x22uuid\x22:\x22t:aOCyCekHzJuUwYNCElnsiA\x22}},\x22colors\x22:{\x22c0\x22:\x22000000\x22,\x22c1\x22:\x22110f14\x22,\x22c2\x22:\x22373737\x22,\x22c3\x22:\x2253e92e\x22,\x22c4\x22:\x2212944e\x22},\x22alt_text\x22:\x22gif of several floating question marks, zooming in and out slightly\x22},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Gotcha! While you\u2019re here, check out some of this text formatting.\x22},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Bigger text \u2728\x22,\x22subtype\x22:\x22heading2\x22},{\x22type\x22:\x22text\x22,\x22text\x22:\x22This is bold, and this is italics. This is strikethrough. (I\'m whispering this in small text.) This is not a suspicious link at all. This text is colourful!\x22,\x22formatting\x22:[{\x22type\x22:\x22bold\x22,\x22start\x22:0,\x22end\x22:12},{\x22type\x22:\x22italic\x22,\x22start\x22:17,\x22end\x22:33},{\x22type\x22:\x22strikethrough\x22,\x22start\x22:35,\x22end\x22:57},{\x22type\x22:\x22small\x22,\x22start\x22:58,\x22end\x22:94},{\x22type\x22:\x22link\x22,\x22start\x22:95,\x22end\x22:132,\x22url\x22:\x22https://href.li/?https://www.youtube.com/watch?v=dQw4w9WgXcQ\x22},{\x22type\x22:\x22color\x22,\x22start\x22:133,\x22end\x22:135,\x22hex\x22:\x22#ff4930\x22},{\x22type\x22:\x22color\x22,\x22start\x22:135,\x22end\x22:137,\x22hex\x22:\x22#ff8a00\x22},{\x22type\x22:\x22color\x22,\x22start\x22:138,\x22end\x22:140,\x22hex\x22:\x22#00cf35\x22},{\x22type\x22:\x22color\x22,\x22start\x22:140,\x22end\x22:142,\x22hex\x22:\x22#00b8ff\x22},{\x22type\x22:\x22color\x22,\x22start\x22:143,\x22end\x22:145,\x22hex\x22:\x22#e8d738\x22},{\x22type\x22:\x22color\x22,\x22start\x22:146,\x22end\x22:148,\x22hex\x22:\x22#ff62ce\x22},{\x22type\x22:\x22color\x22,\x22start\x22:148,\x22end\x22:150,\x22hex\x22:\x22#7c5cff\x22},{\x22type\x22:\x22color\x22,\x22start\x22:150,\x22end\x22:152,\x22hex\x22:\x22#ff4930\x22},{\x22type\x22:\x22color\x22,\x22start\x22:152,\x22end\x22:154,\x22hex\x22:\x22#ff8a00\x22},{\x22type\x22:\x22color\x22,\x22start\x22:154,\x22end\x22:156,\x22hex\x22:\x22#00cf35\x22}]},{\x22type\x22:\x22text\x22,\x22text\x22:\x22This is a bulleted list.\x22,\x22subtype\x22:\x22unordered-list-item\x22},{\x22type\x22:\x22text\x22,\x22text\x22:\x22I can add text formatting here too.\x22,\x22subtype\x22:\x22unordered-list-item\x22,\x22formatting\x22:[{\x22type\x22:\x22bold\x22,\x22start\x22:2,\x22end\x22:5},{\x22type\x22:\x22italic\x22,\x22start\x22:6,\x22end\x22:9},{\x22type\x22:\x22strikethrough\x22,\x22start\x22:10,\x22end\x22:14},{\x22type\x22:\x22small\x22,\x22start\x22:15,\x22end\x22:25},{\x22type\x22:\x22link\x22,\x22start\x22:26,\x22end\x22:30,\x22url\x22:\x22https://www.tumblr.com/staff/653731604461682688/potatoes-are-neat-right-heres-one-cooking-in-a?source=share\x22}]},{\x22type\x22:\x22text\x22,\x22text\x22:\x22We take a break here to enjoy Lucille.\x22,\x22subtype\x22:\x22quirky\x22,\x22formatting\x22:[{\x22type\x22:\x22color\x22,\x22start\x22:30,\x22end\x22:37,\x22hex\x22:\x22#ff62ce\x22}]},{\x22type\x22:\x22text\x22,\x22text\x22:\x22This is a numbered list.\x22,\x22subtype\x22:\x22ordered-list-item\x22,\x22formatting\x22:[{\x22type\x22:\x22italic\x22,\x22start\x22:10,\x22end\x22:23}]},{\x22type\x22:\x22text\x22,\x22text\x22:\x22It\u2019s where you list items.\x22,\x22subtype\x22:\x22ordered-list-item\x22},{\x22type\x22:\x22text\x22,\x22text\x22:\x22And numbers appear next to them.\x22,\x22subtype\x22:\x22ordered-list-item\x22},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Groundbreaking.\x22,\x22subtype\x22:\x22ordered-list-item\x22,\x22formatting\x22:[{\x22type\x22:\x22italic\x22,\x22start\x22:0,\x22end\x22:15},{\x22type\x22:\x22bold\x22,\x22start\x22:0,\x22end\x22:15},{\x22type\x22:\x22color\x22,\x22start\x22:0,\x22end\x22:15,\x22hex\x22:\x22#00cf35\x22}]},{\x22type\x22:\x22text\x22,\x22text\x22:\x22As one person once said:\x22},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Look at me, I\'m an indented block!\x22,\x22subtype\x22:\x22indented\x22,\x22formatting\x22:[{\x22type\x22:\x22bold\x22,\x22start\x22:19,\x22end\x22:33}]},{\x22type\x22:\x22text\x22,\x22text\x22:\x22I\'m a quote block! Someone definitely said this at some point.\x22,\x22subtype\x22:\x22quote\x22,\x22formatting\x22:[{\x22type\x22:\x22bold\x22,\x22start\x22:6,\x22end\x22:17}]},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Juliet: What is this?\\nRomeo: I think we\'ve been summoned for an example chat post again.\\nJuliet: Not again...\x22,\x22subtype\x22:\x22chat\x22,\x22formatting\x22:[{\x22type\x22:\x22bold\x22,\x22start\x22:0,\x22end\x22:7},{\x22type\x22:\x22bold\x22,\x22start\x22:22,\x22end\x22:28},{\x22type\x22:\x22bold\x22,\x22start\x22:89,\x22end\x22:96}]},{\x22type\x22:\x22text\x22,\x22text\x22:\x22We have reached the end. Or have we? \x22},{\x22type\x22:\x22text\x22,\x22text\x22:\x22Remember to stay hydrated, and follow @changes for Tumblr updates! ?\x22,\x22formatting\x22:[{\x22type\x22:\x22italic\x22,\x22start\x22:0,\x22end\x22:38},{\x22type\x22:\x22mention\x22,\x22start\x22:38,\x22end\x22:46,\x22blog\x22:{\x22name\x22:\x22changes\x22,\x22url\x22:\x22https://changes.tumblr.com/\x22,\x22uuid\x22:\x22t:WX5xItRbCiJH_GJDsIdhAQ\x22}},{\x22type\x22:\x22italic\x22,\x22start\x22:38,\x22end\x22:46},{\x22type\x22:\x22italic\x22,\x22start\x22:46,\x22end\x22:68}]},{\x22type\x22:\x22text\x22,\x22text\x22:\x22You\'re a curious one, aren\'t you. Enjoy this potato as a reward.\x22},{\x22type\x22:\x22image\x22,\x22media\x22:[{\x22media_key\x22:\x222e9155202361b01a8ceeeca72187d597:d4b5eff12ec3663d-97\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:400,\x22height\x22:300,\x22poster\x22:{\x22media_key\x22:\x222e9155202361b01a8ceeeca72187d597:d4b5eff12ec3663d-97\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:400,\x22height\x22:300,\x22url\x22:\x22https://44.media.tumblr.com/2e9155202361b01a8ceeeca72187d597/d4b5eff12ec3663d-97/s400x600_f1/d5f531ce28995396748a92278099e1041056eead.gifv\x22},\x22video\x22:[{\x22media_key\x22:\x222e9155202361b01a8ceeeca72187d597:d4b5eff12ec3663d-97\x22,\x22type\x22:\x22video/mp4\x22,\x22width\x22:400,\x22height\x22:300,\x22url\x22:\x22https://64.media.tumblr.com/2e9155202361b01a8ceeeca72187d597/d4b5eff12ec3663d-97/s400x600/061dd29824c9cecd79c7eb63c932192b9d63ad7a.mp4\x22}],\x22url\x22:\x22https://64.media.tumblr.com/2e9155202361b01a8ceeeca72187d597/d4b5eff12ec3663d-97/s400x600/061dd29824c9cecd79c7eb63c932192b9d63ad7a.gifv\x22,\x22has_original_dimensions\x22:true},{\x22media_key\x22:\x222e9155202361b01a8ceeeca72187d597:d4b5eff12ec3663d-97\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:250,\x22height\x22:188,\x22poster\x22:{\x22media_key\x22:\x222e9155202361b01a8ceeeca72187d597:d4b5eff12ec3663d-97\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:250,\x22height\x22:188,\x22url\x22:\x22https://44.media.tumblr.com/2e9155202361b01a8ceeeca72187d597/d4b5eff12ec3663d-97/s250x400_f1/a5c0bae31ad43aa0d091aa6f6bd12b6acdc758a7.gifv\x22},\x22video\x22:[{\x22media_key\x22:\x222e9155202361b01a8ceeeca72187d597:d4b5eff12ec3663d-97\x22,\x22type\x22:\x22video/mp4\x22,\x22width\x22:250,\x22height\x22:188,\x22url\x22:\x22https://64.media.tumblr.com/2e9155202361b01a8ceeeca72187d597/d4b5eff12ec3663d-97/s250x400/a0619e74b771553810cd1ceb11529de407e458e4.mp4\x22}],\x22url\x22:\x22https://64.media.tumblr.com/2e9155202361b01a8ceeeca72187d597/d4b5eff12ec3663d-97/s250x400/a0619e74b771553810cd1ceb11529de407e458e4.gifv\x22},{\x22media_key\x22:\x222e9155202361b01a8ceeeca72187d597:d4b5eff12ec3663d-97\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:100,\x22height\x22:75,\x22poster\x22:{\x22media_key\x22:\x222e9155202361b01a8ceeeca72187d597:d4b5eff12ec3663d-97\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:100,\x22height\x22:75,\x22url\x22:\x22https://44.media.tumblr.com/2e9155202361b01a8ceeeca72187d597/d4b5eff12ec3663d-97/s100x200_f1/11596ea194332328f77c9fe5c7bfaf76ece9e816.gifv\x22},\x22url\x22:\x22https://64.media.tumblr.com/2e9155202361b01a8ceeeca72187d597/d4b5eff12ec3663d-97/s100x200/365aa499c962dafcfbb0ba5023ba36d9a86bc7da.gifv\x22},{\x22media_key\x22:\x222e9155202361b01a8ceeeca72187d597:d4b5eff12ec3663d-97\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:75,\x22height\x22:75,\x22poster\x22:{\x22media_key\x22:\x222e9155202361b01a8ceeeca72187d597:d4b5eff12ec3663d-97\x22,\x22type\x22:\x22image/webp\x22,\x22width\x22:75,\x22height\x22:75,\x22url\x22:\x22https://44.media.tumblr.com/2e9155202361b01a8ceeeca72187d597/d4b5eff12ec3663d-97/s75x75_c1_f1/45f05d1bfd7c1fb72fae99b6f14faa91250be3be.gifv\x22},\x22url\x22:\x22https://64.media.tumblr.com/2e9155202361b01a8ceeeca72187d597/d4b5eff12ec3663d-97/s75x75_c1/dc072579846925eaeb91bde88f553988a3d511b7.gifv\x22,\x22cropped\x22:true}],\x22attribution\x22:{\x22type\x22:\x22post\x22,\x22url\x22:\x22https://sheepfilms.tumblr.com/post/164555457970\x22,\x22post\x22:{\x22id\x22:\x22164555457970\x22},\x22blog\x22:{\x22name\x22:\x22sheepfilms\x22,\x22url\x22:\x22sheepfilms.tumblr.com\x22,\x22uuid\x22:\x22t:wz9cjjy69p6YDIWwYKeNtQ\x22}},\x22colors\x22:{\x22c0\x22:\x220f0518\x22,\x22c1\x22:\x22220829\x22,\x22c2\x22:\x22281310\x22,\x22c3\x22:\x22f9b14a\x22,\x22c4\x22:\x22b3491e\x22},\x22alt_text\x22:\x22a spinning potato in a retro VR landscape, with the word \\\x22POTATO\\\x22 flashing above it in that font you see on calculator displays\x22}],\x22layout\x22:[{\x22type\x22:\x22rows\x22,\x22display\x22:[{\x22blocks\x22:[0]},{\x22blocks\x22:[1]},{\x22blocks\x22:[2]},{\x22blocks\x22:[3]},{\x22blocks\x22:[4]},{\x22blocks\x22:[5]},{\x22blocks\x22:[6]},{\x22blocks\x22:[7]},{\x22blocks\x22:[8]},{\x22blocks\x22:[9]},{\x22blocks\x22:[10]},{\x22blocks\x22:[11]},{\x22blocks\x22:[12]},{\x22blocks\x22:[13]},{\x22blocks\x22:[14]},{\x22blocks\x22:[15]},{\x22blocks\x22:[16]},{\x22blocks\x22:[17]},{\x22blocks\x22:[18]},{\x22blocks\x22:[19]}],\x22truncate_after\x22:17}],\x22post\x22:{\x22id\x22:\x22718863891534413824\x22},\x22blog\x22:{\x22name\x22:\x22demo\x22,\x22title\x22:\x22Demo\x22,\x22description\x22:\x22Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.\x22,\x22url\x22:\x22https://demo.tumblr.com/\x22,\x22uuid\x22:\x22t:y0T-4LsVtmTl7vk9cPzUiQ\x22,\x22updated\x22:1685979234,\x22blog_view_url\x22:\x22https://www.tumblr.com/demo\x22,\x22key\x22:\x22yl7FKoHJP\x22,\x22theme\x22:{\x22avatar_shape\x22:\x22square\x22,\x22background_color\x22:\x22#FFFFFF\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x22\x22,\x22header_image\x22:\x22https://assets.tumblr.com/images/default_header/optica_pattern_05.png?_v=671444c5f47705cce40d8aefd23df3b1\x22,\x22header_image_focused\x22:\x22https://assets.tumblr.com/images/default_header/optica_pattern_05_focused_v3.png?_v=671444c5f47705cce40d8aefd23df3b1\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://assets.tumblr.com/images/default_header/optica_pattern_05_focused_v3.png?_v=671444c5f47705cce40d8aefd23df3b1\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#00B8FF\x22,\x22show_avatar\x22:true,\x22show_description\x22:true,\x22show_header_image\x22:true,\x22show_title\x22:true,\x22title_color\x22:\x22#000000\x22,\x22title_font\x22:\x22Gibson\x22,\x22title_font_weight\x22:\x22bold\x22},\x22can_message\x22:false,\x22share_likes\x22:false,\x22share_following\x22:false,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:true,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://assets.tumblr.com/images/default_avatar_512.png\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://assets.tumblr.com/images/default_avatar_128.png\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://assets.tumblr.com/images/default_avatar_96.png\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://assets.tumblr.com/images/default_avatar_64.png\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:false,\x22active\x22:true,\x22show_follow_action\x22:true}}]}'">
+                  <section class="posts-trail-body">
+                    <div class="posts-trail-legacy"></div>
+                    <div class="posts-trail-item">
+                      <div class="posts-trail-username">
+                        <a class="posts-trail-blog" href="https://demo.tumblr.com/post/718863891534413824"><img
+                            class="avatar" src="https://assets.tumblr.com/images/default_avatar_64.png"
+                            aria-hidden="true"><strong class="username">demo</strong></a>
+                      </div>
+                      <div class="posts-trail-content">
+                        <p></p>
+                        <h1>12 surprising clickbait titles that work</h1>
+                        <div class="npf_row">
+                          <div class="npf_col">
+                            <figure class="tmblr-full"
+                              data-tumblr-attribution="animatedtext:HtQpGKsvVrwVEAUEJEk6Vg:ZPjWlubA9Jba8W00"
+                              data-orig-height="460" data-orig-width="637"><img
+                                src="https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s640x960/7e62a2120aca3f3eda2dd3126f054b8e68ffbc66.gifv"
+                                data-orig-height="460" data-orig-width="637"
+                                alt="gif of several floating question marks, zooming in and out slightly"
+                                srcset="https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s75x75_c1/65e0da6d22df6caa3e7a8ba3ca9c8bb7b2545b59.gifv 75w, https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s100x200/a1b4aa469abeb172dcafa894cf97c3de7b21a01e.gifv 100w, https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s250x400/76f3ebc47bf32715507928b4a88dce42bfc07928.gifv 250w, https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s400x600/df405cee9628d15c179c2a13c9effe9c4e15c962.gifv 400w, https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s500x750/bb9ef0e15bc687ee57100c0b57a7d27983eba5dc.gifv 500w, https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s540x810/e6b25a0b27e23c9fbe00303b62bebd1c9fd84f24.gifv 540w, https://64.media.tumblr.com/9cf4e98cb7698c1433270b8c46225197/d4b5eff12ec3663d-e8/s640x960/7e62a2120aca3f3eda2dd3126f054b8e68ffbc66.gifv 637w"
+                                sizes="(max-width: 637px) 100vw, 637px" width="637" height="460"><span
+                                class="tmblr-alt-text-helper">ALT</span>
+                              <p class="tmblr-attribution"><a href="https://tmblr.co/ZPjWlubA9Jba8W00" target="_blank"
+                                  data-peepr="{&quot;tumblelog&quot;:&quot;animatedtext&quot;,&quot;postId&quot;:&quot;669388423041253376&quot;}">Originally
+                                  posted by animatedtext</a></p>
+                            </figure>
+                          </div>
+                        </div>
+                        <p>Gotcha! While you’re here, check out some of this text formatting.</p>
+                        <h2>Bigger text ✨</h2>
+                        <p><b>This is bold</b>, and<i> this is italics</i>. <strike>This is strikethrough.</strike>
+                          <small>(I'm
+                            whispering this in small text.)</small> <a
+                            href="https://href.li/?https://www.youtube.com/watch?v=dQw4w9WgXcQ">This is not a suspicious
+                            link at
+                            all.</a> <span style="color: #ff4930">Th</span><span class="npf_color_monica">is</span>
+                          <span class="npf_color_ross">te</span><span class="npf_color_rachel">xt</span> <span
+                            style="color: #e8d738">is</span> <span class="npf_color_niles">co</span><span
+                            class="npf_color_chandler">lo</span><span style="color: #ff4930">ur</span><span
+                            class="npf_color_monica">fu</span><span class="npf_color_ross">l!</span>
+                        </p>
+                        <ul>
+                          <li>This is a bulleted list.</li>
+                          <li>I <b>can</b> <i>add</i> <strike>text</strike> <small>formatting</small> <a
+                              href="https://www.tumblr.com/staff/653731604461682688/potatoes-are-neat-right-heres-one-cooking-in-a?source=share">here</a>
+                            too.</li>
+                        </ul>
+                        <p class="npf_quirky">We take a break here to enjoy <span
+                            class="npf_color_niles">Lucille</span>.</p>
+                        <ol>
+                          <li>This is a <i>numbered list</i>.</li>
+                          <li>It’s where you list items.</li>
+                          <li>And numbers appear next to them.</li>
+                          <li><i><b><span class="npf_color_ross">Groundbreaking.</span></b></i></li>
+                        </ol>
+                        <p>As one person once said:</p>
+                        <blockquote class="npf_indented">
+                          <p>Look at me, I'm an <b>indented block</b>!</p>
+                        </blockquote>
+                        <p class="npf_quote">I'm a <b>quote block</b>! Someone definitely said this at some point.</p>
+                        <p class="npf_chat"><b>Juliet:</b> What is this?<br><b>Romeo:</b> I think we've been summoned
+                          for an
+                          example chat post again.<br><b>Juliet:</b> Not again...</p>
+                        <p>We have reached the end. Or have we? </p>
+                        <p><i>Remember to stay hydrated, and follow </i><a class="tumblelog"
+                            href="https://tmblr.co/MYXvAUPIj9KzlTb7SqaHO0A"><i>@changes</i></a><i> for Tumblr updates!
+                            💖</i></p>
+                        <p><a class="tmblr-truncated-link read_more"
+                            href="https://demo.tumblr.com/post/718863891534413824/12-surprising-clickbait-titles-that-work">Keep
+                            reading</a></p>
+                      </div>
+                    </div>
+                  </section>
+                </article>
+
+                <article class="posts d-none">
+                  <section class="posts-trail-body">
+                    <div class="posts-trail-legacy"></div>
+                    <div class="posts-trail-item"><a class="posts-trail-blog"
+                        href="https://parakid.tumblr.com/post/739966665843933184"><img class="avatar"
+                          src="https://64.media.tumblr.com/0a55ab7dbf3cb12bbbd5050a686c3620/d7249c8b54b3e365-fd/s64x64u_c1/bddf29333b5c956d86cee35358e2029dc504fe24.pnj"
+                          aria-hidden="true"><strong class="username">parakid</strong></a>
+                      <div class="posts-trail-content">
+                        <p></p>
+                        <div class="npf_row">
+                          <div class="npf_col">
+                            <figure class="tmblr-full"><a class="post_media_photo_anchor"
+                                data-big-photo="https://64.media.tumblr.com/a343e34d5634218a983c4bb89d156b30/0e2b5cda8321f6e5-66/s1280x1920/95b6e35da3dac452dfd49fe9f221d39aac585a0e.png"
+                                data-big-photo-height="1383" data-big-photo-width="1056"><img
+                                  class="post_media_photo image"
+                                  src="https://64.media.tumblr.com/a343e34d5634218a983c4bb89d156b30/0e2b5cda8321f6e5-66/s1280x1920/95b6e35da3dac452dfd49fe9f221d39aac585a0e.png"
+                                  srcset="https://64.media.tumblr.com/a343e34d5634218a983c4bb89d156b30/0e2b5cda8321f6e5-66/s75x75_c1/bb12f07c24a9d6c09a3d2a0f57e93de4c0144ad8.png 75w, https://64.media.tumblr.com/a343e34d5634218a983c4bb89d156b30/0e2b5cda8321f6e5-66/s100x200/a5f2c37a8fd934f82ea62b057b46c5063da77bc9.png 100w, https://64.media.tumblr.com/a343e34d5634218a983c4bb89d156b30/0e2b5cda8321f6e5-66/s250x400/fbdabacc08d26d1920f202cbbc167c2faa1b8d37.png 250w, https://64.media.tumblr.com/a343e34d5634218a983c4bb89d156b30/0e2b5cda8321f6e5-66/s400x600/3077ea4c3c38f421bd0614d4b92441ded43d3def.png 400w, https://64.media.tumblr.com/a343e34d5634218a983c4bb89d156b30/0e2b5cda8321f6e5-66/s500x750/b41deb2665c844df24de0e7c153012e520f77fe8.png 500w, https://64.media.tumblr.com/a343e34d5634218a983c4bb89d156b30/0e2b5cda8321f6e5-66/s540x810/fffd9d71eab0601b1f66a829597e70332b4e5b2b.png 540w, https://64.media.tumblr.com/a343e34d5634218a983c4bb89d156b30/0e2b5cda8321f6e5-66/s640x960/382f1d678ff28e04ba602f910d49c308340feae3.png 640w, https://64.media.tumblr.com/a343e34d5634218a983c4bb89d156b30/0e2b5cda8321f6e5-66/s1280x1920/95b6e35da3dac452dfd49fe9f221d39aac585a0e.png 1056w"
+                                  sizes="(max-width: 1056px) 100vw, 1056px" alt="image"></a></figure>
+                          </div>
+                        </div>
+                        <p>Nook </p>
+                      </div>
+                    </div>
+                  </section>
+                </article>
+
+                <article class="posts" data-article-npf="'{\x22content\x22:[],\x22layout\x22:[],\x22trail\x22:[{\x22content\x22:[{\x22type\x22:\x22image\x22,\x22media\x22:[{\x22media_key\x22:\x22157fe7833fe390273036974a175537d5:b3f15eeb36ffbab4-d9\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:1633,\x22height\x22:2048,\x22url\x22:\x22https://64.media.tumblr.com/157fe7833fe390273036974a175537d5/b3f15eeb36ffbab4-d9/s2048x3072/b0d5ddc158f08836dfbe2a29b02f68f36371a4ea.jpg\x22,\x22colors\x22:{\x22c0\x22:\x22512b0f\x22,\x22c1\x22:\x22301c0c\x22},\x22has_original_dimensions\x22:true},{\x22media_key\x22:\x22157fe7833fe390273036974a175537d5:b3f15eeb36ffbab4-d9\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:1280,\x22height\x22:1605,\x22url\x22:\x22https://64.media.tumblr.com/157fe7833fe390273036974a175537d5/b3f15eeb36ffbab4-d9/s1280x1920/979ff9b5ad2c71778674238077a7bd788deab594.jpg\x22,\x22colors\x22:{\x22c0\x22:\x22512b0f\x22,\x22c1\x22:\x22301c0c\x22}},{\x22media_key\x22:\x22157fe7833fe390273036974a175537d5:b3f15eeb36ffbab4-d9\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:640,\x22height\x22:803,\x22url\x22:\x22https://64.media.tumblr.com/157fe7833fe390273036974a175537d5/b3f15eeb36ffbab4-d9/s640x960/7f4a231e3f8b5ebde6bb11a9b0231bb231bfb5c1.jpg\x22,\x22colors\x22:{\x22c0\x22:\x22512b0f\x22,\x22c1\x22:\x22301c0c\x22}},{\x22media_key\x22:\x22157fe7833fe390273036974a175537d5:b3f15eeb36ffbab4-d9\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:540,\x22height\x22:677,\x22url\x22:\x22https://64.media.tumblr.com/157fe7833fe390273036974a175537d5/b3f15eeb36ffbab4-d9/s540x810/5cdc03028585fa966ac7555d1831a75637989190.jpg\x22,\x22colors\x22:{\x22c0\x22:\x22512b0f\x22,\x22c1\x22:\x22301c0c\x22}},{\x22media_key\x22:\x22157fe7833fe390273036974a175537d5:b3f15eeb36ffbab4-d9\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:500,\x22height\x22:627,\x22url\x22:\x22https://64.media.tumblr.com/157fe7833fe390273036974a175537d5/b3f15eeb36ffbab4-d9/s500x750/b9e8952000a573adc8de2933455a3e71a2edea17.jpg\x22,\x22colors\x22:{\x22c0\x22:\x22512b0f\x22,\x22c1\x22:\x22301c0c\x22}},{\x22media_key\x22:\x22157fe7833fe390273036974a175537d5:b3f15eeb36ffbab4-d9\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:400,\x22height\x22:502,\x22url\x22:\x22https://64.media.tumblr.com/157fe7833fe390273036974a175537d5/b3f15eeb36ffbab4-d9/s400x600/989db09bf481ef2d4b0e33a1e7bc4e607d9c2fa0.jpg\x22,\x22colors\x22:{\x22c0\x22:\x22512b0f\x22,\x22c1\x22:\x22301c0c\x22}},{\x22media_key\x22:\x22157fe7833fe390273036974a175537d5:b3f15eeb36ffbab4-d9\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:250,\x22height\x22:314,\x22url\x22:\x22https://64.media.tumblr.com/157fe7833fe390273036974a175537d5/b3f15eeb36ffbab4-d9/s250x400/d99f887e78e2d2533abe7b067eeef827bd794a9b.jpg\x22,\x22colors\x22:{\x22c0\x22:\x22512b0f\x22,\x22c1\x22:\x22301c0c\x22}},{\x22media_key\x22:\x22157fe7833fe390273036974a175537d5:b3f15eeb36ffbab4-d9\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:100,\x22height\x22:125,\x22url\x22:\x22https://64.media.tumblr.com/157fe7833fe390273036974a175537d5/b3f15eeb36ffbab4-d9/s100x200/1473b7f60d7f98d59eeefa9b68c4415087d7590a.jpg\x22,\x22colors\x22:{\x22c0\x22:\x22512b0f\x22,\x22c1\x22:\x22301c0c\x22}},{\x22media_key\x22:\x22157fe7833fe390273036974a175537d5:b3f15eeb36ffbab4-d9\x22,\x22type\x22:\x22image/jpeg\x22,\x22width\x22:75,\x22height\x22:75,\x22url\x22:\x22https://64.media.tumblr.com/157fe7833fe390273036974a175537d5/b3f15eeb36ffbab4-d9/s75x75_c1/992e6d6a775ab065a4ee60c84ad18003b846b8eb.jpg\x22,\x22colors\x22:{\x22c0\x22:\x22512b0f\x22,\x22c1\x22:\x22301c0c\x22},\x22cropped\x22:true}],\x22colors\x22:{\x22c0\x22:\x22512b0f\x22,\x22c1\x22:\x22301c0c\x22}},{\x22type\x22:\x22text\x22,\x22text\x22:\x22by\u00a0  danieljose  \x22,\x22formatting\x22:[{\x22type\x22:\x22link\x22,\x22start\x22:5,\x22end\x22:15,\x22url\x22:\x22https://vsco.co/danieljose\x22}]}],\x22layout\x22:[],\x22post\x22:{\x22id\x22:\x22658961665251033088\x22},\x22blog\x22:{\x22name\x22:\x22sleg\x22,\x22title\x22:\x22\uc218\uc90d\uc740\x22,\x22description\x22:\x22hi i\'m tiago\u00a0\x22,\x22url\x22:\x22https://sleg.tumblr.com/\x22,\x22uuid\x22:\x22t:mmmks0ADZRb0_r85JIuhKw\x22,\x22updated\x22:1725458908,\x22blog_view_url\x22:\x22https://www.tumblr.com/sleg\x22,\x22key\x22:\x22KvVPz33UF\x22,\x22theme\x22:{\x22header_full_width\x22:1280,\x22header_full_height\x22:1280,\x22avatar_shape\x22:\x22circle\x22,\x22background_color\x22:\x22#FFFFFF\x22,\x22body_font\x22:\x22Helvetica Neue\x22,\x22header_bounds\x22:\x22\x22,\x22header_image\x22:\x22https://64.media.tumblr.com/84383d46b36574c29fb2605b34a68b64/a0081e2e6ef0436f-7e/s1280x1280/3672eaedf773f5d1e32a4adfa1656fa4994bc41b.png\x22,\x22header_image_focused\x22:\x22https://64.media.tumblr.com/84383d46b36574c29fb2605b34a68b64/a0081e2e6ef0436f-7e/s2048x3072/ed249dbc7eaaf3e683db78907e952e79658a8a1b.png\x22,\x22header_image_poster\x22:\x22\x22,\x22header_image_scaled\x22:\x22https://64.media.tumblr.com/84383d46b36574c29fb2605b34a68b64/a0081e2e6ef0436f-7e/s2048x3072/ed249dbc7eaaf3e683db78907e952e79658a8a1b.png\x22,\x22header_stretch\x22:true,\x22link_color\x22:\x22#000000\x22,\x22show_avatar\x22:true,\x22show_description\x22:true,\x22show_header_image\x22:false,\x22show_title\x22:false,\x22title_color\x22:\x22#000000\x22,\x22title_font\x22:\x22Helvetica Neue\x22,\x22title_font_weight\x22:\x22regular\x22},\x22can_message\x22:true,\x22share_likes\x22:false,\x22share_following\x22:false,\x22is_nsfw\x22:false,\x22is_adult\x22:false,\x22can_be_followed\x22:true,\x22placement_id\x22:\x22\x22,\x22avatar\x22:[{\x22width\x22:512,\x22height\x22:512,\x22url\x22:\x22https://64.media.tumblr.com/376ec337dd56ffdd1861c7b288e108f0/90c4de9659c3b31a-59/s512x512u_c1/078a5c4861c1bc08dd9816dc7502d25260e40c42.jpg\x22,\x22accessories\x22:[]},{\x22width\x22:128,\x22height\x22:128,\x22url\x22:\x22https://64.media.tumblr.com/376ec337dd56ffdd1861c7b288e108f0/90c4de9659c3b31a-59/s128x128u_c1/e93e297aa45490158f4443033d59b26ca5e2cb8c.jpg\x22,\x22accessories\x22:[]},{\x22width\x22:96,\x22height\x22:96,\x22url\x22:\x22https://64.media.tumblr.com/376ec337dd56ffdd1861c7b288e108f0/90c4de9659c3b31a-59/s96x96u_c1/06df410aa2dfafaf4eaf292e1d13dd5486630ce9.jpg\x22,\x22accessories\x22:[]},{\x22width\x22:64,\x22height\x22:64,\x22url\x22:\x22https://64.media.tumblr.com/376ec337dd56ffdd1861c7b288e108f0/90c4de9659c3b31a-59/s64x64u_c1/6a9414e6efdc8dcee6d639debf7d8012ffdc0a4b.jpg\x22,\x22accessories\x22:[]}],\x22tumblrmart_accessories\x22:{},\x22can_show_badges\x22:true,\x22active\x22:true,\x22show_follow_action\x22:true}}]}'">
+                  <section class="posts-trail-body"><div class="posts-trail-legacy"><figure class="tmblr-full"><a href="/image/761213993678503936" class="tmblr-full-image"><img src="https://64.media.tumblr.com/157fe7833fe390273036974a175537d5/b3f15eeb36ffbab4-d9/s1280x1920/979ff9b5ad2c71778674238077a7bd788deab594.jpg" alt="sleg:
+                    “by danieljose
+                    ”"></a></figure></div><div class="posts-trail-item">
+                      <div class="posts-trail-username">
+                        <a class="posts-trail-blog" href="https://sleg.tumblr.com/post/658961665251033088"><img class="avatar" src="https://64.media.tumblr.com/376ec337dd56ffdd1861c7b288e108f0/90c4de9659c3b31a-59/s64x64u_c1/6a9414e6efdc8dcee6d639debf7d8012ffdc0a4b.jpg" aria-hidden="true"><strong class="username">sleg</strong></a>
+                      </div>
+                      <div class="posts-trail-content"><p>by&nbsp;
+                    
+                    <a href="https://vsco.co/danieljose">danieljose</a></p></div></div></section>
+                </article>
+
+                </section>
   </main>
 
   <!-- masonry -->
@@ -3161,7 +3474,7 @@
   <script src="js/app.js"></script>
 
   <script
-    src="https://assets.tumblr.com/client/prod/standalone/tumblelog/index.build.js?_v=175a368ef34a4680f860974b6282ff66"></script>
+    src="https://assets.tumblr.com/client/prod/standalone/tumblelog/index.build.js?_v=03e800b27eff76cee863b8346f5e3e52"></script>
 
   <script>
     tippy("[title]", {
