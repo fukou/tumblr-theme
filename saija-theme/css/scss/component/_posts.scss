@@ -5,7 +5,6 @@
 .posts {
   position: relative;
   overflow: clip;
-  // margin: var(--space-l) 0;
   background-color: rgb(var(--bg-card));
   color: rgb(var(--body-text));
 
@@ -22,6 +21,18 @@
     }
 
     &-body {
+      .tmblr-truncated-link.read_more {
+        display: inline-flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: var(--space-2xs);
+        color: currentColor;
+        text-decoration: none;
+        border: 1px solid rgba(var(--body-text), 0.3);
+        padding: var(--space-2xs);
+        border-radius: 100px;
+        font-weight: bold;
+      }
       :where(npf_row .npf_col figure p.tmblr-attribution, .tmblr-full .link-url, .tmblr-full .post_media_photo_anchor + p.tmblr-attribution, .attribution-block) {
         position: relative;
         width: 100%;
@@ -36,6 +47,8 @@
 
         z-index: 1;
         text-wrap: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       h1 {
@@ -49,14 +62,63 @@
 
     &-item {
       display: grid;
-      grid-template-columns: min(30rem, 100%) minmax(0, 1fr);
+      grid-template-columns: min(20rem, 100%) minmax(0, 1fr);
+      gap: var(--space-xs);
       align-items: flex-start;
+
+      + .posts-trail-item {
+        border-top: 1px solid rgba(var(--body-text), 0.3);
+        // margin-top: var(--space-m);
+        padding-top: var(--space-2xs);
+      }
+
+      @media (max-width: $max-lg) {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    &-profile {
+      margin-top: calc(-1*var(--space-xs));
+      margin-bottom: var(--space-s);
+
+      // padding: var(--space-xs);
+      // background: var(--bg-profile, #eee);
+      // color: var(--text-color, #111);
+      // border-radius: 8px;
+      // overflow: hidden;
+
+      // text-align: center;
+
+      // #avatar {
+      //   position: relative;
+      //   z-index: 1;
+      //   border: 8px solid rgb(var(--bg-card));
+      //   margin :calc(-2.5*var(--space-xs)) auto var(--space-2xs) auto;
+      //   border-radius: 50%;
+      // }
+
+      // figure {
+      //   margin: calc(-1*var(--space-xs)) calc(-1*var(--space-xs)) 0 calc(-1*var(--space-xs));
+      //   aspect-ratio: 16/9;
+      //   > img {
+      //     width: 100%;
+      //     height: 100%;
+      //     object-fit: cover;
+      //   }
+      // }
+
+      h3 {
+        font-size: var(--step--2);
+        margin-bottom: var(--space-3xs);
+      }
+    }
+
+    &-username {
+      position: sticky;
+      top: 0;
     }
 
     &-blog {
-      position: sticky;
-      top: 0;
-
       display: flex;
       align-items: center;
       gap: var(--space-2xs);
@@ -65,12 +127,16 @@
       text-decoration: none;
       color: rgb(var(--title));
 
+      @media (max-width: $max-lg) {
+        position: relative;
+      }
+
       &::before {
         content: '';
         width: 1rem;
         aspect-ratio: 1/1;
 
-        background-color: rgba(var(--heading-text), 1);
+        background-color: currentColor;
         border-radius: 50%;
       }
 
@@ -81,12 +147,56 @@
 
         border-radius: 50%;
       }
+
+      // display: none;
+    }
+
+    &-toggle {
+      position: absolute;
+      bottom: calc(-1* var(--space-xs));
+      left: 0;
+      z-index: 3;
+      transition: .5s;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      background: linear-gradient(to bottom, rgba(var(--bg-card), 0.5) 0, RGB(var(--bg-card)) 99%);
+      box-shadow: 0 -2px 20px rgba(0, 0, 0, .1);
+      color: rgba(var(--body-link), 1);
+      backdrop-filter: blur(8px);
+      border-radius: 0;
+      padding: var(--space-xs) !important;
+      text-decoration: none;
     }
 
     &-content {
+      &.is-truncated {
+        position: relative;
+        max-height: 400px;
+        overflow: hidden;
+
+        transition: 0.5s;
+        &::after {
+          position: absolute;
+          content: "";
+          width: 100%;
+          height: 200px;
+          background: linear-gradient(0deg, rgba(var(--bg-card), 1), rgba(var(--bg-card), 0));
+          bottom: 40px;
+          left: 0px;
+          transition: .5s;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      
       >* {
         margin: var(--space-xs) 0;
         padding: 0 var(--space-xs);
+        @media (max-width: $max-lg) {
+          margin: 0;
+          padding: 0;
+        }
       }
 
       a:not([class]) {
@@ -115,30 +225,41 @@
   }
 
   &:not(.posts-text) {
-    aspect-ratio: 1/1;
-    overflow: hidden;
+    // aspect-ratio: 1/1;
+    // overflow: hidden;
     margin: 0;
+    // border: 1px solid rgba(var(--body-text), 0.3);
+    // border-radius: 10px;
 
     &.expanded {
       grid-column: span 2;
-      aspect-ratio: 2.085/1;
+      // aspect-ratio: 2.1/1;
     }
 
     .posts-trail {
+      &-profile {
+        display: none;
+      }
+
       &-item {
         display: unset;
       }
 
       &-blog {
-        position: absolute;
-        left: 0;
-        top: 0;
+        margin-bottom: calc(-1*var(--space-xs));
+        // position: absolute;
+        // left: 0;
+        // top: 0;
 
-        width: 100%;
-        z-index: 1;
-        padding: var(--space-xs) var(--space-xs);
+        // width: 100%;
+        // z-index: 1;
+        // padding: var(--space-xs) var(--space-xs);
+        // background: linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(255,255,255,0) 100%); 
+
+        // color: rgb(var(--bg-card));
       }
 
+      /*
       &-legacy {
         figure.tmblr-full {
           aspect-ratio: 1/1;
@@ -151,17 +272,22 @@
             object-fit: cover;
           }
         }
-        + * {
+        &:not(:empty) + * {
           display: none;
         }
-      }
+      }*/
 
       &-content {
         >* {
-          margin: 0;
+          // margin: 0;
           padding: 0;
         }
 
+        p + .npf_row:first-of-type {
+          margin-top: 0;
+        }
+
+        /*
         .posts-trail-legacy ~ .npf_row {
           ~ * {
             display: none;
@@ -178,7 +304,7 @@
               object-position: top;
             }
           }
-        }
+        }*/
       }
     }
   }
