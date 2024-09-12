@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="{block:English}en-US{/block:English}{block:German}de-DE{/block:German}{block:French}fr-FR{/block:French}{block:Italian}it-IT{/block:Italian}{block:Japanese}ja-JP{/block:Japanese}{block:Turkish}tr-TR{/block:Turkish}{block:Spanish}es-ES{/block:Spanish}{block:Russian}ru-RU{/block:Russian}{block:Polish}pl-PL{/block:Polish}{block:PortuguesePT}pt-PT{/block:PortuguesePT}{block:PortugueseBR}pt-BR{/block:PortugueseBR}{block:Dutch}nl-NL{/block:Dutch}{block:Korean}ko-KR{/block:Korean}{block:ChineseSimplified}zh-CN{/block:ChineseSimplified}{block:ChineseTraditional}zh-TW{/block:ChineseTraditional}{block:ChineseHK}zh-HK{/block:ChineseHK}{block:Indonesian}id-ID{/block:Indonesian}{block:Hindi}hi-IN{/block:Hindi}">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		{block:HomePage}
+			<title>{Title}</title>
+		{/block:HomePage}
+		{block:PermalinkPage}
+			<title>{block:PostSummary}{PostSummary} &mdash; {/block:PostSummary}{Title}</title>
+		{/block:PermalinkPage}
+		{block:SearchPage}
+			<title>{lang:SearchResultCount results for SearchQuery}{block:NoSearchResults}{lang:No results found}{/block:NoSearchResults} &mdash; {Title}</title>
+		{/block:SearchPage}
+		{block:TagPage}
+			<title>{lang:Posts tagged Tag} &mdash; {Title}</title>
+		{/block:TagPage}
+		{block:DayPage}
+			<title>{lang:Viewing everything posted on Month DayOfMonth Year} &mdash; {Title}</title>
+		{/block:DayPage}
+		
+	  <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+	  <link rel="shortcut icon" href="{Favicon}" />
+      <link rel="stylesheet" href="https://static.tumblr.com/5ojoydj/Glmsjpk1p/style.min.css">
+    
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&family=Cardo:ital,wght@0,400;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    
+       <link href="https://static.tumblr.com/0podkko/oDSpg7y88/photosets.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="https://assets.tumblr.com/fonts/favorit/stylesheet.css?v=1">
+      <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+      {block:Hidden}
+        <meta name="color:Background Page Color 1" content="#bad8eb" />
+        <meta name="color:Background Page Color 2" content="#eeeeee" />
+    
+        <meta name="color:About Section Background Color" content="#F3EBFF" />
+        <meta name="color:About Section Text Color" content="#111111" />
+        
+        <meta name="color:Tooltip Background Color" content="#F3EBFF" />
+        <meta name="color:Tooltip Text Color" content="#111111" />
+    
+        <meta name="select:Posts Style Type" content="post-min" title="Minimalistic">
+        <meta name="select:Posts Style Type" content="post-box" title="Box">
+        <meta name="select:Posts Trail Blog Type" content="trail-pill" title="Pill">
+        <meta name="select:Posts Trail Blog Type" content="trail-normal" title="Normal (With Avatar & Username)">
+        
+        <meta name="select:Blog Navigation Style" content="hmb-title" title="Hamburger with Title">
+        <meta name="select:Blog Navigation Style" content="nav-title" title="Inline with Title">
+        <meta name="select:Blog Layout Style" content="grid" title="Grid">
+        <meta name="select:Blog Layout Style" content="list" title="List">
+        <meta name="select:Blog Pattern Type" content="gallery" title="Gallery">
+        <meta name="select:Blog Pattern Type" content="blog" title="Blog">
+        <meta name="select:Blog Grid Size" content="3" title="3">
+        <meta name="select:Blog Grid Size" content="2" title="2">
+        <meta name="select:Blog Grid Size" content="4" title="4">
+        <meta name="select:Blog Container Width" content="is-container-huge" title="Huge (Default)">
+        <meta name="select:Blog Container Width" content="is-container-normal" title="Narrow">
+        
+        <meta name="select:Font Variant" content="is-variant-1" title="Instrument Serif & Favorit">
+        <meta name="select:Font Variant" content="is-variant-2" title="Cardo & Manrope">
+        <meta name="select:Font Variant" content="is-variant-3" title="Lora & Jost">
+        <meta name="select:Font Variant" content="is-variant-4" title="Neuton & Cantarell">
+        <meta name="select:Font Variant" content="is-variant-5" title="Libre Baskerville & Inter">
+        <meta name="select:Font Size" content="15" title="Default">
+        <meta name="select:Font Size" content="14" title="Smaller">
+        <meta name="select:Font Size" content="16" title="Bigger">
+    
+        <meta name="text:Secondary Title" content="Saija, Remuk, Hancur" />
+        <meta name="text:Biography Text" content="">
+            
+        <meta name="text:Facebook URL" content=""/>
+        <meta name="text:Twitter URL" content=""/>
+        <meta name="text:Patreon URL" content=""/>
+        <meta name="text:Twitch URL" content=""/>
+        <meta name="text:Youtube URL" content=""/>
+        <meta name="text:Instagram URL" content=""/>
+        <meta name="text:Discord URL" content=""/>
+        <meta name="text:Kofi URL" content=""/>
+        <meta name="text:Tiktok URL" content=""/>
+        <meta name="text:Mastodon URL" content=""/>
+        <meta name="text:Letterboxd URL" content=""/>
+        <meta name="text:Additional URL" content=""/>
+      {/block:Hidden}
+      
+      {NewPostStyles}
+      {PostTypographyStyles}
+      <style id="main">
+        :root {
+          --title-font: 'Instrument Serif', serif;
+          --title-font-weight: bold;
+    
+          --heading-font: 'Manrope', serif;
+          --body-font: 'Manrope', sans-serif;
+          --code-font: 'Consolas', monospace;
+    
+          --grid-column: {select:Blog Grid Size};
+          
+          --about-section-bg: {RGBcolor:About Section Background Color};
+          --about-section-text: {RGBcolor:About Section Text Color};
+    
+          --accent: 113, 122, 255;
+          --bg-color-1: 255, 255, 255;
+          --bg-color-2: 255, 255, 255;
+    
+          --bg-card: 255, 255, 255;
+          --body-text: 17, 17, 17;
+          --body-link: 17, 17, 17;
+          --heading-text: 17, 17, 17;
+    
+          --post-bubble-bg: 238, 238, 238;
+          --post-bubble-text: 17, 17, 17;
+    
+          --btn-primary: 113, 122, 255;
+          --btn-text-primary: 255, 255, 255;
+    
+          --btn-primary-hover: 17, 17, 17;
+          --btn-text-primary-hover: 255, 255, 255;
+    
+          --bg-card-pinned: 240, 241, 255;
+          --bg-card-pinned-text: 17, 17, 17;
+          --bg-card-pinned-border: 113, 122, 255;
+          --pinned-label-text: 113, 122, 255;
+    
+          --social-media-btn: 17, 17, 17;
+          --social-media-btn-text: 255, 255, 255;
+          --social-media-btn-hover: 221, 221, 221;
+          --social-media-btn-text-hover: 17, 17, 17;
+          
+          -navigation-text: 17, 17, 17;
+          --navigation-text-hover: 17, 17, 17;
+    
+          --navigation-submenu-bg: 243, 235, 255;
+          --navigation-submenu-text: 17, 17, 17;
+          --border-color: 221, 221, 221;
+    
+          /* Font Sizes */
+          --step--3: clamp(0.6rem, 0.6em + 0.4vw, 0.8rem);
+          --step--2: clamp(0.6944rem, 0.6021rem + 0.4618vw, 0.96rem);
+          --step--1: clamp(0.8333rem, 0.7058rem + 0.6377vw, 1.2rem);
+          --step-0: clamp(1rem, 0.8261rem + 0.8696vw, 1.5rem);
+          --step-1: clamp(1.2rem, 0.9652rem + 1.1739vw, 1.875rem);
+          --step-2: clamp(1.44rem, 1.1257rem + 1.5717vw, 2.3438rem);
+          --step-3: clamp(1.728rem, 1.31rem + 2.0899vw, 2.9297rem);
+          --step-4: clamp(2.0736rem, 1.5211rem + 2.7626vw, 3.6621rem);
+          --step-5: clamp(2.4883rem, 1.7616rem + 3.6336vw, 4.5776rem);
+    
+          /* Spacing Sizes */
+          --space-3xs: clamp(0.3125rem, 0.2908rem + 0.1087vw, 0.375rem);
+          --space-2xs: clamp(0.5625rem, 0.4973rem + 0.3261vw, 0.75rem);
+          --space-xs: clamp(0.875rem, 0.788rem + 0.4348vw, 1.125rem);
+          --space-s: clamp(1.125rem, 0.9946rem + 0.6522vw, 1.5rem);
+          --space-m: clamp(1.6875rem, 1.4918rem + 0.9783vw, 2.25rem);
+          --space-l: clamp(2.25rem, 1.9891rem + 1.3043vw, 3rem);
+          --space-xl: clamp(3.375rem, 2.9837rem + 1.9565vw, 4.5rem);
+          --space-2xl: clamp(4.5rem, 3.9783rem + 2.6087vw, 6rem);
+          --space-3xl: clamp(6.75rem, 5.9674rem + 3.913vw, 9rem);
+    
+          --font-size: {select:Font Size}px;
+          font-size: var(--font-size);
+        }
+    
+        body.is-variant-1 {
+          --heading-font: 'Instrument Serif', serif;
+          --body-font: 'Favorit', sans-serif;
+        }
+        body.is-variant-2 {
+          --heading-font: 'Cardo', serif;
+          --body-font: 'Manrope', sans-serif;
+        }
+        body.is-variant-3 {
+          --heading-font: 'Lora', serif;
+          --body-font: 'Jost', sans-serif;
+        }
+        body.is-variant-4 {
+          --heading-font: 'Neuton', serif;
+          --body-font: 'Cantarell', sans-serif;
+        }
+        body.is-variant-5 {
+          --heading-font: 'Libre Baskerville', serif;
+          --body-font: 'Inter', sans-serif;
+        }
+        
+        .tippy-box[data-theme~=saija] {
+            background-color: {color:Tooltip Background Color};
+            color: {color:Tooltip Text Color};
+            font-size: calc(0.895*var(--step--2));
+            border:1px solid rgba({RGBcolor:Tooltip Text Color}, 0.1);
+        }
+        
+        .tippy-box[data-theme~=saija] .tippy-content { 
+            padding: var(--space-3xs) var(--space-2xs);
+        }
+      </style>
+      <style id="custom">
+        {CustomCSS}
+      </style>
+</head>
+
+<body 
+    data-page-type="{block:IndexPage}index{/block:IndexPage}{block:PermalinkPage}permalink{/block:PermalinkPage}{block:TagPage}tag{/block:TagPage}{block:DayPage}day{/block:DayPage}{block:SearchPage}search{/block:SearchPage}"
+    data-blog-style="{select:Blog Layout Style}" 
+    data-blog-pattern="{select:Blog Pattern Type}" 
+    data-navigation-style="{select:Blog Navigation Style}" 
+    data-posts-trail="{select:Posts Trail Blog Type}" 
+    class="is-shorten-long-post {select:Blog Container Width} {select:Font Variant}"
+>
+
+  <main class="wrapper">
+    <aside class="wrapper__sidebar">
+    
+      <nav class="wrapper__sidebar__menu">
+        <div class="wrapper__sidebar__menu-inner">
+          <button data-button-type="hamburger" class="hamburger-menu" aria-label="Open navigation">
+            <svg width="24" height="24"
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <rect x="4" y="7.5" width="16" height="1.5"></rect>
+              <rect x="4" y="15" width="16" height="1.5"></rect>
+            </svg>
+          </button>
+          
+          <ul class="wrapper__sidebar__menu-links">
+            <li class="is-active"><a href="/">Home</a></li>
+            <li><a href="/archive">Archive</a></li>
+            <li><a href="/ask">Ask me anything</a></li>
+            <li><a href="/submit">Submit a post</a></li>
+            <li class="is-submenu">
+              <a href="#">Navigate <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+              <ul class="is-submenu-links">
+                <li><a href="#">Customization Guide</a></li>
+                <li><a href="#">About this theme</a></li>
+                <li><a href="#">Example pages</a></li>
+                <li><a href="#">How to install a theme and pages</a></li>
+                <li><a href="#">Colophon</a></li>
+              </ul>
+            </li>
+          </ul>
+          
+          <h1 id="title" aria-hidden="true">{text:Secondary Title}</h1>
+          
+        </div>
+      </nav>
+      
+      <div class="wrapper__sidebar__inner">
+        <div class="wrapper__sidebar__info">
+          {block:ShowAvatar}
+          <a href="/" id="avatar-wrapper">
+            <img id="avatar" class="avatar {AvatarShape}" src="{PortraitURL-128}" alt="{block:HideTitle}{Title}{/block:HideTitle}" {block:ShowTitle}role="presentation"{/block:ShowTitle}/>
+    	  </a>
+    	  {/block:ShowAvatar}
+          {block:ShowTitle}<h2 id="main-title">{Title}</h2>{/block:ShowTitle}
+          {block:ShowDescription}
+          <p>{Description}</p>
+          {/block:ShowDescription}
+        </div>
+        <div class="wrapper__sidebar__bottom">
+          <ul class="wrapper__sidebar__socmed">
+            {block:IfFacebookURL}
+            <li data-tippy-title="Facebook">
+              <a href="{text:Facebook URL}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M20 0a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h16zm-4 7.28V4.5h-2.29c-2.1 0-3.42 1.6-3.42 3.89v1.67H8v2.77h2.29v6.67h2.85v-6.67h2.29l.57-2.77h-2.86V8.94c0-1.1.58-1.66 1.72-1.66H16z">
+                  </path>
+                </svg>
+              </a>
+            </li>
+            {/block:IfFacebookURL}
+            {block:IfTwitterURL}
+            <li data-tippy-title="Twitter">
+              <a href="{text:Twitter URL}">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <title>Twitter icon</title>
+                  <path
+                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z">
+                  </path>
+                </svg></a>
+            </li>
+            {/block:IfTwitterURL}
+            {block:IfPatreonURL}
+            <li data-tippy-title="Patreon">
+              <a href="{text:Patreon URL}">
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>Patreon icon</title>
+                  <path
+                    d="M0 .48v23.04h4.22V.48zm15.385 0c-4.764 0-8.641 3.88-8.641 8.65 0 4.755 3.877 8.623 8.641 8.623 4.75 0 8.615-3.868 8.615-8.623C24 4.36 20.136.48 15.385.48z">
+                  </path>
+                </svg>
+              </a>
+            </li>
+            {/block:IfPatreonURL}
+            {block:IfTwitchURL}
+            <li data-tippy-title="Twitch">
+              <a href="{text:Twitch URL}">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <title>Twitch icon</title>
+                  <path
+                    d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z">
+                  </path>
+                </svg>
+              </a>
+            </li>
+            {/block:IfTwitchURL}
+            {block:IfKofiURL}
+            <li data-tippy-title="Ko-fi">
+              <a href="{text:Kofi URL}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 3.011.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.77s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z">
+                  </path>
+                </svg>
+              </a>
+            </li>
+            {/block:IfKofiURL}
+            {block:IfYoutubeURL}
+            <li data-tippy-title="YouTube">
+              <a href="{text:YouTube URL}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12.04 3.5c.59 0 7.54.02 9.34.5a3.02 3.02 0 0 1 2.12 2.15C24 8.05 24 12 24 12v.04c0 .43-.03 4.03-.5 5.8A3.02 3.02 0 0 1 21.38 20c-1.76.48-8.45.5-9.3.51h-.17c-.85 0-7.54-.03-9.29-.5A3.02 3.02 0 0 1 .5 17.84c-.42-1.61-.49-4.7-.5-5.6v-.5c.01-.9.08-3.99.5-5.6a3.02 3.02 0 0 1 2.12-2.14c1.8-.49 8.75-.51 9.34-.51zM9.54 8.4v7.18L15.82 12 9.54 8.41z">
+                  </path>
+                </svg>
+              </a>
+            </li>
+            {/block:IfYoutubeURL}
+            {block:IfInstagramURL}
+            <li data-tippy-title="Instagram">
+              <a href="{text:Instagram URL}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M16.98 0a6.9 6.9 0 0 1 5.08 1.98A6.94 6.94 0 0 1 24 7.02v9.96c0 2.08-.68 3.87-1.98 5.13A7.14 7.14 0 0 1 16.94 24H7.06a7.06 7.06 0 0 1-5.03-1.89A6.96 6.96 0 0 1 0 16.94V7.02C0 2.8 2.8 0 7.02 0h9.96zm.05 2.23H7.06c-1.45 0-2.7.43-3.53 1.25a4.82 4.82 0 0 0-1.3 3.54v9.92c0 1.5.43 2.7 1.3 3.58a5 5 0 0 0 3.53 1.25h9.88a5 5 0 0 0 3.53-1.25 4.73 4.73 0 0 0 1.4-3.54V7.02a5 5 0 0 0-1.3-3.49 4.82 4.82 0 0 0-3.54-1.3zM12 5.76c3.39 0 6.2 2.8 6.2 6.2a6.2 6.2 0 0 1-12.4 0 6.2 6.2 0 0 1 6.2-6.2zm0 2.22a3.99 3.99 0 0 0-3.97 3.97A3.99 3.99 0 0 0 12 15.92a3.99 3.99 0 0 0 3.97-3.97A3.99 3.99 0 0 0 12 7.98zm6.44-3.77a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8z">
+                  </path>
+                </svg>
+              </a>
+            </li>
+            {/block:IfInstagramURL}
+            {block:IfDiscordURL}
+            <li data-tippy-title="Discord">
+              <a href="{text:Discord URL}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                  <path
+                    d="M20.992 20.163a2.884 2.884 0 0 1-2.695-3.03v.007a2.867 2.867 0 0 1 2.687-3.023h.008a2.852 2.852 0 0 1 2.695 3.031v-.008a2.859 2.859 0 0 1-2.688 3.022h-.008zm-9.966 0a2.884 2.884 0 0 1-2.695-3.03v.007a2.867 2.867 0 0 1 2.687-3.023h.008a2.852 2.852 0 0 1 2.695 3.031v-.008a2.867 2.867 0 0 1-2.687 3.023h-.008zM26.393 6.465c-1.763-.832-3.811-1.49-5.955-1.871l-.149-.022a.093.093 0 0 0-.098.045c-.234.411-.488.924-.717 1.45l-.043.111a23.042 23.042 0 0 0-6.985.016l.129-.017c-.27-.63-.528-1.142-.813-1.638l.041.077a.095.095 0 0 0-.083-.047l-.016.001h.001a24.594 24.594 0 0 0-6.256 1.957l.151-.064a.084.084 0 0 0-.04.034C2.706 10.538.998 15.566.998 20.993c0 .907.048 1.802.141 2.684l-.009-.11a.103.103 0 0 0 .039.07 24.623 24.623 0 0 0 7.313 3.738l.176.048a.082.082 0 0 0 .028.004c.032 0 .06-.015.077-.038a17.453 17.453 0 0 0 1.485-2.392l.047-.1a.096.096 0 0 0-.052-.132h-.001a16.266 16.266 0 0 1-2.417-1.157l.077.042a.096.096 0 0 1-.048-.083c0-.031.015-.059.038-.076.157-.118.315-.24.465-.364a.094.094 0 0 1 .097-.013h-.001c2.208 1.061 4.8 1.681 7.536 1.681s5.329-.62 7.643-1.727l-.107.046a.094.094 0 0 1 .099.012c.15.124.307.248.466.365a.098.098 0 0 1 .038.077.097.097 0 0 1-.046.082c-.661.395-1.432.769-2.235 1.078l-.105.036a.097.097 0 0 0-.062.089c0 .016.004.031.011.044v-.001c.501.96 1.009 1.775 1.571 2.548l-.04-.057a.096.096 0 0 0 .106.036h-.001c2.865-.892 5.358-2.182 7.566-3.832l-.065.047a.097.097 0 0 0 .039-.069c.087-.784.136-1.694.136-2.615 0-5.415-1.712-10.43-4.623-14.534l.052.078a.078.078 0 0 0-.038-.036z">
+                  </path>
+                </svg>
+              </a>
+            </li>
+            {/block:IfDiscordURL}
+            {block:IfTiktokURL}
+            <li data-tippy-title="TikTok">
+              <a href="{text:Tiktok URL}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M22.5 9.84202C20.4357 9.84696 18.4221 9.20321 16.7435 8.00171V16.3813C16.7429 17.9333 16.2685 19.4482 15.3838 20.7233C14.499 21.9984 13.246 22.973 11.7923 23.5168C10.3387 24.0606 8.75362 24.1477 7.24914 23.7664C5.74466 23.3851 4.39245 22.5536 3.37333 21.383C2.3542 20.2125 1.71674 18.7587 1.54617 17.2161C1.3756 15.6735 1.68007 14.1156 2.41884 12.7507C3.15762 11.3858 4.2955 10.279 5.68034 9.57823C7.06517 8.87746 8.63095 8.61616 10.1683 8.82927V13.0439C9.4648 12.8227 8.70938 12.8293 8.0099 13.063C7.31041 13.2966 6.70265 13.7453 6.2734 14.345C5.84415 14.9446 5.61536 15.6646 5.6197 16.402C5.62404 17.1395 5.8613 17.8567 6.29759 18.4512C6.73387 19.0458 7.34688 19.4873 8.04906 19.7127C8.75125 19.9381 9.5067 19.9359 10.2075 19.7063C10.9084 19.4768 11.5188 19.0316 11.9515 18.4345C12.3843 17.8374 12.6173 17.1188 12.6173 16.3813V0H16.7435C16.7406 0.348435 16.7698 0.696395 16.8307 1.03948V1.03948C16.9741 1.80537 17.2722 2.53396 17.7068 3.18068C18.1415 3.8274 18.7035 4.37867 19.3585 4.80075C20.2903 5.41688 21.3829 5.74528 22.5 5.74505V9.84202Z">
+                  </path>
+                </svg>
+              </a>
+            </li>
+            {/block:IfTiktokURL}
+            {block:IfMastodonURL}
+            <li data-tippy-title="Mastodon">
+              <a href="{text:Mastodon URL}">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <path fill="currentColor"
+                    d="M8 7v5a1 1 0 1 1-2 0V7c.005-1.879 1.76-3 3.5-3 1.13 0 1.944.34 2.5.835.556-.494 1.37-.835 2.5-.835 1.739 0 3.494 1.12 3.5 2.999V12a1 1 0 1 1-2 0V6.999C15.94 6.24 15.16 6 14.5 6c-.649 0-1.433.247-1.5.999V10a1 1 0 1 1-2 0V7c-.06-.76-.847-1-1.5-1-.648 0-1.433.248-1.5 1Z">
+                  </path>
+                  <path fill="currentColor" fill-rule="evenodd"
+                    d="M16 1H8C4.073 1 1.086 4.024 1 7.99V13c0 5.115 3.558 10 9 10h5.48A2.52 2.52 0 0 0 18 20.48c0-1.367-1.134-2.446-2.5-2.48a29.92 29.92 0 0 0-.985 0c-2.079.022-5.247.055-6.232-1.704C12.808 17.126 23 18.5 23 11V8c-.093-3.965-3.066-7-7-7ZM3 13V7.99C3.116 5.113 5.139 3 8 3h8c2.867 0 4.878 2.126 5 5v3c0 6-10.656 3.805-13.757 3.03A1.01 1.01 0 0 0 6 15c0 1.084.275 2.011.86 2.755 1.675 2.136 5.036 2.169 7.658 2.194.34.003.668.007.977.014a.517.517 0 0 1 .505.517.52.52 0 0 1-.52.52H10c-4.346 0-7-3.984-7-8Z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </a>
+            </li>
+            {/block:IfMastodonURL}
+            {block:IfLetterboxdURL}  
+            <li data-tippy-title="Letterboxd">
+                <a href="{text:Letterboxd URL}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M17.55 20a7.59 7.59 0 1 0 0 8 7.59 7.59 0 0 1 0-8Z" class="cls-1"/> <path d="M30.45 20a7.59 7.59 0 0 0-12.9 0 7.64 7.64 0 0 1 0 8 7.59 7.59 0 0 0 12.9 0 7.64 7.64 0 0 1 0-8Zm6.46-3.59A7.6 7.6 0 0 0 30.45 20a7.59 7.59 0 0 1 0 8 7.59 7.59 0 1 0 6.46-11.59Z" class="cls-1"/></svg>
+                </a>
+            </li>
+            {/block:IfLetterboxdURL}  
+            {block:IfAdditionalURL}
+            <li data-tippy-title="Others">
+                <a href="{text:Additional URL}"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a>
+            </li>
+            {/block:IfAdditionalURL}
+          </ul>
+        </div>
+      </div>
+
+    </aside>
+
+    <section class="wrapper__content">
+      <div class="wrapper__blog">
+      
+        {block:NoPosts}
+		   <article class="posts posts-text posts-empty">
+		        <h1 class="posts-trail-no-entry">{lang:This Tumblr hasnt made any posts}</h1>
+		        <p>No posts available at the moment, but don’t go anywhere!</p>
+		   </article>
+		{/block:NoPosts}
+		
+		{block:Posts inlineMediaWidth="1280" inlineNestedMediaWidth="1280"}
+    		<article {block:Date}id="{PostID}"{/block:Date} class="posts {PostType} {block:PinnedPostLabel}posts-pinned{/block:PinnedPostLabel} {TagsAsClasses}" data-article-npf="{JSNPF}" data-article-id="{PostID}">
+    		    <section class="posts-trail-body">
+    		            {block:Text}
+                        <div class="posts-trail-legacy">
+    						{block:Title}
+    							<h1>{Title}</h1>
+    						{/block:Title}
+    						</div>
+    					{/block:Text}
+    
+    					{block:Photo}
+    					   <div class="posts-trail-legacy">
+    						<figure {block:HighRes}class="tmblr-full"{/block:HighRes}>
+    							<a href="/image/{PostID}" class="tmblr-full-image">
+    								<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+    							</a>
+    
+    							{block:LinkURL}
+    								<a class="link-url" href="{LinkURL}" {Target}>
+    									{LinkURL}
+    								</a>
+    							{/block:LinkURL}
+    						</figure>
+    					   </div>
+    					{/block:Photo}
+    
+    					{block:Panorama}
+    					<div class="posts-trail-legacy">
+    						<figure {block:HighRes}class="tmblr-full"{/block:HighRes}>
+    							{LinkOpenTag}
+    								<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+    							{LinkCloseTag}
+    						</figure>
+    					</div>
+    					{/block:Panorama}
+    
+    					{block:Photoset}
+    					<div class="posts-trail-legacy">
+    					   <div class="posts-photoset-legacy">
+            					<div class="photoset-grid-count">
+            					    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M20.4 14.5L16 10 4 20"/></svg> {PhotoCount}
+            					</div>
+            					<div class="photoset-grid" photoset-layout="{PhotosetLayout}">
+            					{block:Photos}
+                					<div data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" onclick="lightbox(this)">
+                					    <img src="{PhotoURL-HighRes}" />
+                					</div>
+            					{/block:Photos}
+            					</div>
+    					   </div>
+    					</div>
+    					{/block:Photoset}
+    
+    					{block:Quote}
+    					<div class="posts-trail-legacy">
+    						<p class="npf_quote" data-quote-length="{Length}">{Quote}</p>
+    
+    						{block:Source}
+    							<p>{Source}</p>
+    						{/block:Source}
+    					</div>
+    					{/block:Quote}
+    
+    					{block:Link}
+    					<div class="posts-trail-legacy">
+    						<div class="npf-link-block {block:Thumbnail}has-poster not-{/block:Thumbnail}no-poster">
+    							<a href="{URL}" {Target}>
+    								{block:Thumbnail}
+    									<div class="poster" style="background-image: url({Thumbnail-HighRes});">
+    								{/block:Thumbnail}
+    
+    								<div class="title">{Name}</div>
+    
+    								{block:Thumbnail}
+    									</div>
+    								{/block:Thumbnail}
+    
+    								<div class="bottom">
+    									{block:Excerpt}
+    										<div class="description">{Excerpt}</div>
+    									{/block:Excerpt}
+    
+    									{block:Host}
+    										<div class="site-name">{Host}</div>
+    									{/block:Host}
+    								</div>
+    							</a>
+    						</div>
+    					    </div>
+    					{/block:Link}
+    
+    					{block:Chat}
+    					<div class="posts-trail-legacy">
+    						{block:Title}
+    							<h1>{Title}</h1>
+    						{/block:Title}
+    
+    						{block:Lines}
+    							<p class="npf_chat">
+    								{block:Label}
+    									<b>{Label}</b>
+    								{/block:Label}
+    
+    								{Line}
+    							</p>
+    						{/block:Lines}
+    					</div>
+    					{/block:Chat}
+    
+    					{block:Audio}
+    					<div class="posts-trail-legacy">
+    						{block:AudioEmbed}
+    							{AudioEmbed-640}
+    						{/block:AudioEmbed}
+    					</div>
+    					{/block:Audio}
+    
+    					{block:Video}
+    					<div class="posts-trail-legacy">
+    						{VideoEmbed-500}
+    					</div>
+    					{/block:Video}
+    					
+    					{block:Answer}
+    						<div class="ask-item">
+    							<span class="user"><img class="avatar" src="{AskerPortraitURL-40}" aria-hidden="true"> {lang:Asker asked 2}</span>
+    							<div class="ask-item-trail">
+    								<blockquote>{Question}</blockquote>
+    							 </div>
+    							
+    						</div>
+    						{block:Answerer}
+    							<div class="ask-item">	
+    							    <span class="user"><img class="avatar" src="{AnswererPortraitURL-40}" aria-hidden="true" /> {Answerer} answered</span>
+    								<div class="ask-item-trail">
+    									<blockquote>{Answer}</blockquote>
+    								</div>
+    								
+    							</div>
+    						{/block:Answerer}
+					    {/block:Answer}
+    		            
+    		            {block:RebloggedFrom}
+            		        {block:Reblogs}
+        						<div class="posts-trail-item">
+        						    <div class="posts-trail-username">
+            							<a class="posts-trail-blog" {block:HasPermalink}href="{Permalink}"{/block:HasPermalink} {Target}>
+            								{block:HasAvatar}
+            									<img class="avatar" src="{PortraitURL-64}" aria-hidden="true">
+            								{/block:HasAvatar}
+            
+                                            {block:IsActive}
+                                                <strong class="username">{Username}</strong>
+                                            {/block:IsActive}
+                                            
+                                            {block:IsDeactivated}
+                                                <strong class="username username-deactivated">{Username}</strong>
+                                            {/block:IsDeactivated}
+            							</a>
+            							{block:PinnedPostLabel}
+                						    <div class="posts-trail-pinned">
+                						        <svg fill="currentColor" viewBox="18 13 12 21"><path fill-rule="evenodd" d="M26.252 27.266l-2.078 7.592c-.052.19-.296.19-.348 0l-2.078-7.592h4.504zM29.512 14c.268 0 .488.241.488.536v1.746a.554.554 0 01-.255.47l-1.698 1.193v4.009l1.787 1.257-.034.006c.128.107.2.264.199.43v1.744c0 .296-.22.537-.488.537H18.488c-.268 0-.488-.241-.488-.537v-1.743a.555.555 0 01.255-.47l1.698-1.195v-4.008l-1.787-1.258.034-.006a.554.554 0 01-.199-.43v-1.745c0-.295.22-.536.488-.536h11.023z"></path></svg> {PinnedPostLabel}
+                						    </div>
+        						        {/block:PinnedPostLabel}
+                                    </div>
+        							<div class="posts-trail-content">
+        								{Body}
+        							</div>
+        						</div>
+        					{/block:Reblogs}
+    					{/block:RebloggedFrom}
+    					
+    		            {block:NotReblog}
+    						<div class="posts-trail-original">
+        						<div class="posts-trail-username">
+        						    <a class="posts-trail-blog" href="{Permalink}"><img class="avatar" src="{PortraitURL-128}" aria-hidden="true">
+        						        <strong class="username">{Name}</strong>
+        						    </a>
+        						    {block:PinnedPostLabel}
+        						    <div class="posts-trail-pinned">
+        						        <svg fill="currentColor" viewBox="18 13 12 21"><path fill-rule="evenodd" d="M26.252 27.266l-2.078 7.592c-.052.19-.296.19-.348 0l-2.078-7.592h4.504zM29.512 14c.268 0 .488.241.488.536v1.746a.554.554 0 01-.255.47l-1.698 1.193v4.009l1.787 1.257-.034.006c.128.107.2.264.199.43v1.744c0 .296-.22.537-.488.537H18.488c-.268 0-.488-.241-.488-.537v-1.743a.555.555 0 01.255-.47l1.698-1.195v-4.008l-1.787-1.258.034-.006a.554.554 0 01-.199-.43v-1.745c0-.295.22-.536.488-.536h11.023z"></path></svg> {PinnedPostLabel}
+        						    </div>
+        						    {/block:PinnedPostLabel}
+        						</div>
+        						
+        						<div class="posts-trail-content">
+            						{block:Text}
+            							{Body}
+            						{/block:Text}
+            
+            						{block:Photo}
+            							{block:Caption}
+            								{Caption}
+            							{/block:Caption}
+            						{/block:Photo}
+            
+            						{block:Panorama}
+            							{block:Caption}
+            								{Caption}
+            							{/block:Caption}
+            						{/block:Panorama}
+            
+            						{block:Photoset}
+            							{block:Caption}
+            								{Caption}
+            							{/block:Caption}
+            						{/block:Photoset}
+            
+            						{block:Link}
+            							{block:Description}
+            								{Description}
+            							{/block:Description}
+            						{/block:Link}
+            
+            						{block:Audio}
+            							{block:Caption}
+            								{Caption}
+            							{/block:Caption}
+            						{/block:Audio}
+            
+            						{block:Video}
+            							{block:Caption}
+            								{Caption}
+            							{/block:Caption}
+            						{/block:Video}
+            
+            						{block:Answer}
+            							{Answer}
+            						{/block:Answer}
+        						</div>
+    					</div>
+    				{/block:NotReblog}
+    		    </section>
+    	    </article>
+		{/block:Posts}
+      </div>
+      
+      <div class="wrapper__intro">
+        <div class="wrapper__intro__inner">
+          <figure class="wrapper__intro__inner-image">
+            <img src="https://images.unsplash.com/photo-1584348050233-e5f67d0b13e1?q=80&w=1987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+          </figure>
+          <div class="wrapper__intro__inner-text" id="biography-markdown">{text:Biography Text}</div>
+        </div>
+      </div>
+  
+    </section>
+
+    <footer class="wrapper__footer" role="contentinfo">
+        <div class="wrapper__footer__inner">
+             <div class="wrapper__footer__inner-info">
+                 Copyright © {Name} {CopyRightYears}.
+             </div>
+             <div class="wrapper__footer__inner-info">
+               <a href="https://tumblr.com/themes/by/fukuo">Saija Theme</a> by <a href="https://fukuo.tumblr.com/">Fukuo</a>. Powered by <a href="https://tumblr.com/">Tumblr</a>
+             </div>
+        </div>
+    </footer>
+  </main>
+
+
+  <!-- lightbox -->
+  <script src="https://static.tumblr.com/5ojoydj/wcbs1t52d/lightbox.js"></script>
+
+  <!-- toggle -->
+  <script src="https://cdn.jsdelivr.net/gh/ericbutler555/plain-js-slidetoggle@master/slideToggle.min.js"></script>
+
+  <!-- main scripts -->
+  <script src="https://static.tumblr.com/5ojoydj/IHUsjpjzi/app.js"></script>
+  
+  <!-- tooltip -->
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
+  <script id="tippy-js">
+    tippy("[data-tippy-title]", {
+      theme: "saija",
+      arrow: false,
+      placement: "top", 
+      delay: 1, 
+      maxWidth: 300,
+      duration: 100,
+      followCursor: true,
+      content(reference) {
+        const title = reference.getAttribute("data-tippy-title");
+        reference.removeAttribute("data-tippy-title");
+        return title;
+      },
+    });
+  </script>
+  
+  
+  <!-- markdown converter -->
+  <script src="https://static.tumblr.com/5ojoydj/g82sjndsq/markdown.js"></script>
+  <script id="markdown-js">
+    const biographyContent = document.querySelector('#biography-markdown').textContent;
+    const biographyHTML = marked.parse(biographyContent);
+    document.getElementById('biography-markdown').innerHTML = biographyHTML;
+  </script>
+</body>
+</html>
