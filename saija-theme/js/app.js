@@ -9,7 +9,7 @@ var app = {
      * @function
      */
     init: function () {
-        // app.sparkingEffect();
+        app.sparkingEffect();
         // app.postSoundCloud();
         // app.postSpotify();
         // app.postBandCamp();
@@ -135,22 +135,50 @@ var app = {
         posts.forEach((post) => {
             const article = post.closest("article"); // Get the parent article element
 
-            // Get the first child and relevant elements for checking conditions
+            // Get relevant elements for checking conditions
             const firstParagraph = post.querySelector("p");
             const h2 = post.querySelector("h2");
             const h1 = post.querySelector("h1");
             const postsTrailLegacy = post.querySelector(".posts-trail-legacy");
+            const npfRow = post.querySelector(".npf_row");
+            const npfPhotoset = post.querySelector(".npf_photoset");
+            const pollPost = post.querySelector(".poll-post");
+
+            // Check if .posts-trail-legacy is empty and followed by npf_row or npf_photoset
+            const postsTrailLegacyEmptyFollowedByNpf =
+                postsTrailLegacy &&
+                postsTrailLegacy.textContent.trim() === "" && // Empty .posts-trail-legacy
+                (npfRow || npfPhotoset); // Followed by .npf_row or .npf_photoset
+
+            // Check if .posts-trail-legacy is followed by an empty paragraph, <h1>, and .npf_row
+            const postsTrailLegacyFollowedByEmptyPAndH1AndNpfRow =
+                postsTrailLegacy &&
+                postsTrailLegacy.textContent.trim() === "" && // Empty .posts-trail-legacy
+                firstParagraph &&
+                firstParagraph.textContent.trim() === "" && // Empty <p>
+                h1 && // <h1> exists
+                npfRow; // Followed by .npf_row
+
+            // Check if .posts-trail-legacy is followed by an empty paragraph, and then a poll post (or other div content)
+            const postsTrailLegacyFollowedByEmptyPAndH1AndPoll =
+                postsTrailLegacy &&
+                postsTrailLegacy.textContent.trim() === "" && // Empty .posts-trail-legacy
+                firstParagraph &&
+                firstParagraph.textContent.trim() === "" && // Empty <p>
+                !h1 && // No <h1> this time
+                pollPost; // Followed by poll post (or another div that is not npf_row, npf_photoset, etc.)
+
+            // Check if .posts-trail-legacy has an <h1> and no other meaningful content (only <h1>)
+            const postsTrailLegacyOnlyH1 =
+                postsTrailLegacy &&
+                postsTrailLegacy.children.length === 1 && // Ensure there is only one child
+                postsTrailLegacy.querySelector("h1") !== null; // That child is an <h1>
 
             // Check if .posts-trail-legacy is not empty by checking for any child elements or text content
             const postsTrailLegacyHasContent =
                 postsTrailLegacy &&
                 (postsTrailLegacy.children.length > 0 ||
                     postsTrailLegacy.textContent.trim().length > 0);
-
-            // If .posts-trail-legacy has content, skip adding the posts-text class
-            if (postsTrailLegacyHasContent) {
-                return; // Skip this post if .posts-trail-legacy has any content (text or elements)
-            }
 
             // Check if the first element is an empty paragraph followed by an <h2>
             const condition1 =
@@ -168,8 +196,31 @@ var app = {
                 !firstParagraph.textContent.trim() &&
                 h1;
 
-            // If any of the conditions are met, add the 'posts-text' class to the parent <article>
-            if (condition1 || condition2 || condition3) {
+            // If .posts-trail-legacy has content but it's only an <h1>, allow adding the class
+            if (
+                (postsTrailLegacyHasContent && !postsTrailLegacyOnlyH1) ||
+                postsTrailLegacyEmptyFollowedByNpf
+            ) {
+                // Allow adding class only if the new conditions are met
+                if (
+                    postsTrailLegacyFollowedByEmptyPAndH1AndNpfRow ||
+                    postsTrailLegacyFollowedByEmptyPAndH1AndPoll
+                ) {
+                    article.classList.add("posts-text");
+                } else {
+                    return; // Skip this post
+                }
+            }
+
+            // Add .posts-text class if any of the conditions are met
+            if (
+                condition1 ||
+                condition2 ||
+                condition3 ||
+                postsTrailLegacyOnlyH1 ||
+                postsTrailLegacyFollowedByEmptyPAndH1AndNpfRow || // New condition added
+                postsTrailLegacyFollowedByEmptyPAndH1AndPoll // New condition added
+            ) {
                 article.classList.add("posts-text");
             }
         });
@@ -371,19 +422,12 @@ var app = {
         });
     },
     postNPFData: () => {
-        // Loop through all elements with class "posts" and decode their content
         document.querySelectorAll(".posts").forEach((post) => {
-            // Get the JSON string from the element's text content
             const postNPF = post.getAttribute("data-article-npf");
-            // const postID = post.getAttribute("data-article-id");
-
-            // Extract the JSON string from the attribute value
             const jsonString = app.extractJSONString(postNPF);
-            // Replace escaped characters in the JSON string
             const decodedJsonString = app.decodeAndReplace(jsonString);
 
             try {
-                // Parse the JSON string as an object
                 const npfData = JSON.parse(decodedJsonString);
                 console.log(
                     "%cPosts:",
@@ -391,164 +435,154 @@ var app = {
                     npfData,
                 );
 
+                // Handle reblogged posts (trail)
                 if (npfData.trail) {
                     const postsTrailList =
-                        post.querySelectorAll(".posts-trail-item"); // Get all .reblog-list elements within the current .posts element
+                        post.querySelectorAll(".posts-trail-item");
 
                     postsTrailList.forEach((postsTrail, index) => {
-                        let trail = npfData.trail[index];
-                        let trailAskLayout = trail?.layout.find(
-                            (layout) => layout.type === "ask",
-                        );
-
-                        console.log("%cPost Trails:", "background: #de8110; color: white", trail);
+                        const trail = npfData.trail[index];
+                        let postsTrailAsk = trail?.layout.find(
+                          (layout) => layout.type === "ask",
+                       );
 
                         let blog = trail?.blog;
-                        let blogTheme = blog.theme;
-                        let badgesAcc = blog.tumblrmart_accessories;
-                        let badges = blog.tumblrmart_accessories?.badges;
+                        let blogTheme = blog?.theme || {};
+                        let badges = blog?.tumblrmart_accessories?.badges;
 
-                        let {
-                          description: blogDesc,
-                          title: blogTitle,
-                          name: blogName,
-                          avatar: [, , , { url: blogAvatar }] 
-                        } = blog;
-                        let {
-                            link_color: blogLinkColor,
-                            title_font: blogTitleFont,
-                            title_color: blogTitleColor,
-                            background_color: blogBgColor,
-                            header_image_scaled: headerImage,
-                            avatar_shape: avatarShape,
-                        } = blogTheme;
-                        let blogInfo = `
-                        <div class="posts-trail-profile">
-                          <h3>${blogTitle}</h3>
-                          <p>${blogDesc}</p>
-                        </div>
-                        `;
-
-                        postsTrail.style.setProperty('--trail-profile-bg', `${blogBgColor}`);
-                        postsTrail.style.setProperty('--trail-profile-color', `${blogTitleColor}`);
-
-                        postsTrail?.querySelector('.posts-trail-username').insertAdjacentHTML("beforeend", blogInfo);
-
-                        /*
-                          If the blog contains a custom badges
-                        */
-                        if (blog.can_show_badges && badges) {
-                            //   console.log('%cPost Trail:', 'background: #00aaaa; color: white', postsTrail);
-
-                            // Check if .reblog-post-badges already exists for this .reblog-list
-                            let postBadges = postsTrail.querySelector(
-                                ".reblog-post-badges",
-                            );
-                            
-                            if (!postBadges) {
-                                postBadges = document.createElement("span");
-                                postBadges.className = "reblog-post-badges";
-                                app.insertAfter(
-                                    postBadges,
-                                    postsTrail.querySelector(
-                                        ".reblog-post-avatar-name",
-                                    ),
-                                );
-                            }
-
-                            let badgeElement, badgeItem;
-                            badges[0].urls.forEach((badge, idx) => {
-                                badgeElement = document.createElement("img");
-                                badgeElement.src = badge;
-                                badgeItem = document.createElement("span");
-                                badgeItem.className = "reblog-post-badges-item";
-
-                                badgeItem.append(badgeElement);
-                                postBadges.append(badgeItem);
-
-                                if (idx > 6) {
-                                    postBadges.classList.add(
-                                        "reblog-post-badges-huge",
-                                    );
-                                }
-                            });
-                        }
+                        app.insertBlogProfile(postsTrail, postsTrailAsk, blog, blogTheme);
+                        app.insertBadges(postsTrail, blog, badges);
 
                         if (trail.content) {
-                            for (let i = 0; i < trail.content.length; i++) {
-                                const trailContent = trail.content[i];
-                                switch (trailContent.type) {
-                                    case "poll":
-                                        // console.log(trailContent.created_at);
-                                        const formattedDate = app.formatDate(
-                                            trailContent.created_at,
-                                        );
-                                        const timestampDate =
-                                            app.convertEpochToRegularDate(
-                                                trailContent.timestamp,
-                                            );
-                                        const expiredAfterDate =
-                                            app.convertEpochToRegularDate(
-                                                trailContent.timestamp +
-                                                    trailContent.settings
-                                                        .expire_after,
-                                            );
-
-                                        const formattedExpired =
-                                            app.formatDate(expiredAfterDate);
-
-                                        let pollInfo;
-                                        pollInfo =
-                                            document.createElement("div");
-                                        pollInfo.className = "poll-post-date";
-                                        pollInfo.innerHTML = `<span class="poll-post-date__started"><b>Poll started on</b> ${formattedDate}</span>
-                                                  <span class="poll-post-date__ended"><b>Poll ended on</b> ${formattedExpired} </span>
-                                                  `;
-                                        postsTrail
-                                            .querySelector(".poll-post")
-                                            .append(pollInfo);
-                                        break;
-                                    case "paywall":
-                                        let paywallContent;
-                                        const payWallUsername =
-                                            trailContent.text.replace(
-                                                "%s",
-                                                `<strong>${blogName}</strong>`,
-                                            );
-                                        paywallContent =
-                                            document.createElement("div");
-                                        paywallContent.className =
-                                            "reblog-list-paywall";
-                                        paywallContent.innerHTML = `<h2 style="font-family:${blogTitleFont};">${trailContent.title}</h2>
-                                                        <p>${payWallUsername}</p>
-                                                        <p><a class="btn btn__secondary" href="${trailContent.url}">Show your support!</a>
-                                                       `;
-                                        paywallContent.style.setProperty(
-                                            "--link-color",
-                                            blogLinkColor,
-                                        );
-                                        paywallContent.style.setProperty(
-                                            "--background-color",
-                                            blogBgColor,
-                                        );
-                                        paywallContent.style.setProperty(
-                                            "--title-color",
-                                            blogTitleColor,
-                                        );
-                                        postsTrail.append(paywallContent);
-                                        paywallContent.previousElementSibling.remove();
-                                        break;
-                                    default:
-                                        "";
-                                }
-                            }
+                          trail.content.forEach((content) => {
+                              app.handleTrailContent(postsTrail, content);
+                          });
                         }
+                    });
+                }
+
+                // Handle original posts (content)
+                if (npfData.content) {
+                    const postsTrailOriginal = post.querySelectorAll(
+                        ".posts-trail-original",
+                    );
+                    postsTrailOriginal.forEach((postsOriginal) => {
+                        npfData.content.forEach((content) => {
+                            app.handleTrailContent(postsOriginal, content);
+                        });
                     });
                 }
             } catch (error) {
                 console.error("Error parsing JSON:", error);
             }
         });
+    },
+    insertBlogProfile: (postsTrail, postsTrailAsk, blog, theme) => {
+        let {
+          description: blogDesc,
+          title: blogTitle,
+        } = blog;
+
+        let {
+            title_color: blogTitleColor,
+            background_color: blogBgColor,
+        } = theme;
+
+        if (!blog) return;
+
+        const blogInfo = `
+          <div class="posts-trail-profile">
+              <h3>${blogTitle}</h3>
+              <p>${blogDesc}</p>
+          </div>
+      `;
+
+      if (!postsTrailAsk) {
+        postsTrail.style.setProperty("--trail-profile-bg", `${blogBgColor}`);
+        postsTrail.style.setProperty(
+            "--trail-profile-color",
+            `${blogTitleColor}`,
+        );
+
+        const trailUsernameElement = postsTrail.querySelector(
+            ".posts-trail-username",
+        );
+        if (trailUsernameElement) {
+            trailUsernameElement.insertAdjacentHTML("beforeend", blogInfo);
+        }
+      }
+    },
+    insertBadges: (postsTrail, blog, badges) => {
+        if (blog?.can_show_badges && badges) {
+            let postBadges = postsTrail.querySelector(".posts-trail-badges");
+
+            if (!postBadges) {
+                postBadges = document.createElement("span");
+                postBadges.className = "posts-trail-badges";
+                app.insertAfter(
+                    postBadges,
+                    postsTrail.querySelector(".posts-trail-blog .username"),
+                );
+            }
+
+            badges[0].urls.forEach((badge, idx) => {
+                const badgeElement = document.createElement("img");
+                badgeElement.src = badge;
+                const badgeItem = document.createElement("span");
+                badgeItem.className = "posts-trail-badges-item";
+                badgeItem.append(badgeElement);
+                postBadges.append(badgeItem);
+
+                if (idx > 6) {
+                    postBadges.classList.add("posts-trail-badges-huge");
+                }
+            });
+        }
+    },
+    handleTrailContent: (postsTrail, content) => {
+        switch (content.type) {
+            case "image":
+                if (content.attribution) {
+                    app.appendAttribution(postsTrail, content.attribution);
+                }
+                break;
+            case "poll":
+                app.appendPollInfo(postsTrail, content);
+                break;
+            default:
+                // Handle other content types
+                break;
+        }
+    },
+    appendPollInfo: (postsTrail, pollContent) => {
+        const formattedDate = app.formatDate(pollContent.created_at);
+        const formattedExpired = app.formatDate(
+            app.convertEpochToRegularDate(
+                pollContent.timestamp + pollContent.settings.expire_after,
+            ),
+        );
+
+        const pollInfo = document.createElement("div");
+        pollInfo.className = "poll-post-date";
+        pollInfo.innerHTML = `<span class="poll-post-date__started"><b>Poll started on</b> ${formattedDate}</span>
+          <span class="poll-post-date__ended"><b>Poll ended on</b> ${formattedExpired}</span>`;
+
+        postsTrail.querySelector(".poll-post").append(pollInfo);
+    },
+
+    appendAttribution: (postsTrail, attribution) => {
+        const { type, url } = attribution;
+        const attributionText = document.createElement("div");
+        attributionText.className = "attribution-block";
+        attributionText.innerHTML = `<a href="${url}" target="_blank" data-attribution-type="${type}">${url}</a>`;
+
+        if (type === "link") {
+            postsTrail
+                .querySelectorAll(".npf_row .npf_col .tmblr-full")
+                .forEach((figureTmblr) => {
+                    figureTmblr.append(attributionText);
+                });
+        }
     },
     decodeAndReplace(input) {
         try {

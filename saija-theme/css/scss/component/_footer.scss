@@ -5,7 +5,7 @@
 .wrapper__footer {
   grid-column: 2/-1;
   padding: var(--space-m) var(--space-m);
-  margin-top: var(--space-2xl);
+  // margin-top: var(--space-2xl);
 
   @media (max-width: $max-lg) {
     grid-column: 1/-1;
