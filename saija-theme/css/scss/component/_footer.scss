@@ -1,0 +1,37 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/screenwidth' as *;
+
+.wrapper__footer {
+  grid-column: 2/-1;
+  padding: var(--space-m) var(--space-m);
+  // margin-top: var(--space-2xl);
+
+  @media (max-width: $max-lg) {
+    grid-column: 1/-1;
+  }
+
+  &__inner {
+    max-width: 1240px;
+    margin-inline: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-2xs);
+
+    padding: 0 var(--space-m);
+
+    @media (max-width: $max-lg) {
+      padding: 0;
+    }
+
+    &-info {
+      a {
+        font-weight: bold;
+        color: rgb(var(--body-link));
+      }
+    }
+  }
+}
