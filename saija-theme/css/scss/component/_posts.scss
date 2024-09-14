@@ -16,7 +16,7 @@
     }
   }
 
-  &.answer {
+  &.answer, &.audio {
     grid-column: 1/-1;
   }
 
@@ -49,6 +49,69 @@
         padding: 0 var(--space-xs);
         margin-left: var(--space-xs) !important;
       }
+      figure.tmblr-full:has(.attribution-block) .tmblr-alt-text-helper {
+        bottom: 54px;
+      }
+
+      .poll-post {
+        margin: 1rem 0;
+      
+        .poll-question {
+          text-align: center;
+          margin-top: 0;
+          font-size: var(--step-1);
+          line-height: 1.25;
+        }
+      
+        a.poll-row {
+          background: rgba(0, 0, 0, 0);
+          border: 2px solid rgba(var(--accent), 1);
+          color: rgba(var(--accent), 1);
+          transition: 0.14s;
+      
+          &:hover {
+            background: rgba(var(--accent), 1);
+            color: rgba(var(--bg-card), 1);
+          }
+        }
+      
+        .poll-post-date {
+          margin-top: 1.5rem;
+          text-align: center;
+          font-size: 0.8rem;
+      
+          > span {
+            display: block;
+          }
+      
+          > span.poll-post-finished {
+            margin-top: var(--space-2xs);
+            font-size: var(--step--2);
+          }
+        }
+      
+        &.poll-posts-finished {
+          > *:not(.poll-post-date):not(.poll-see-results) {
+            opacity: 0.65;
+            filter: grayscale(1);
+            pointer-events: none;
+          }
+
+          .poll-see-results {
+            font-weight: bold;
+            color: rgba(var(--body-link), 1);
+          }
+      
+          > .poll-row p {
+            text-decoration-line: line-through;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+          }
+        }
+      }
+
+      
       .read_more {
         display: inline-flex;
         justify-content: center;
@@ -86,7 +149,7 @@
         color: rgba(var(--pinned-label-text), 1);
         font-weight: bold;
         font-size: calc(0.8 * var(--step--1));
-        margin-top: var(--space-3xs);
+        margin-top: 1rem;
   
         svg {
           width: 15px;
@@ -130,24 +193,27 @@
         }
       }
 
-      :is(npf_row .npf_col figure p.tmblr-attribution, .tmblr-full .link-url, .tmblr-full .post_media_photo_anchor + p.tmblr-attribution, .attribution-block) {
+      :is(npf_row .npf_col figure p.tmblr-attribution, .tmblr-full .link-url, .tmblr-full .post_media_photo_anchor + p.tmblr-attribution, .attribution-block a) {
         position: relative;
         width: 100%;
         padding: var(--space-2xs) var(--space-xs);
         margin-top: calc(-0.5*var(--space-2xs));
         background: rgba(var(--heading-text), 1);
         font-size: calc(0.85*var(--step--2));
-        display: block;
+        font-weight: normal;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         color: rgba(var(--bg-card), 1);
         text-decoration: none;
         border-radius: 0 0 8px 8px;
-
-        z-index: 1;
-        text-wrap: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
         a {
           color: rgba(var(--bg-card), 1);
+          word-break: break-word;
+        }
+        svg {
+          width: 14px;
+          height: 14px;
         }
       }
 
@@ -279,8 +345,6 @@
 
         border-radius: 50%;
       }
-
-      // display: none;
     }
 
     &-toggle {
@@ -358,6 +422,10 @@
     gap: var(--space-xs);
     align-items: flex-start;
 
+    @media (max-width: $max-lg) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
     + .ask-item {
       margin-top: var(--space-m);
       margin-bottom: var(--space-s);
@@ -405,6 +473,10 @@
       margin-right: 0;
       border-radius: 8px;
 
+      @media (max-width: $max-lg) {
+        margin: 0;
+      }
+
       a {
         color: rgba(var(--body-link), 1);
       }
@@ -422,11 +494,7 @@
   }
 
   &:not(.posts-text) {
-    // aspect-ratio: 1/1;
-    // overflow: hidden;
     margin: 0;
-    // border: 1px solid rgba(var(--body-text), 0.3);
-    // border-radius: 10px;
 
     &.expanded {
       @media (min-width: $min-lg) {
@@ -514,6 +582,63 @@
           }
         }*/
       }
+    }
+  }
+
+  &__audio-npf {
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    border-radius: 8px;
+    overflow: hidden;
+  
+    &__details {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      align-items: center;
+      gap: 0;
+      position: relative;
+      background: #e8e8e8;
+      padding: 0 var(--space-2xs);
+    }
+  
+    &__button {
+      position: relative;
+      aspect-ratio: 1/1;
+      border: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      margin: 0;
+      padding: 0;
+      z-index: 1;
+    }
+  
+    &__progress-bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      cursor: pointer;
+      &-fill {
+        width: 0;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+      }
+    }
+  
+    &__artist, &__album {
+      font-size: calc(0.95 * var(--step--3));
+    }
+  }
+  
+  .tmblr-npf-audio {
+    audio {
+      display: none;
     }
   }
 }

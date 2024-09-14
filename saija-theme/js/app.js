@@ -8,6 +8,7 @@ var app = {
      * Initialize the application.
      * @function
      */
+    currentIndex: 0,
     init: function () {
         app.sparkingEffect();
         // app.postSoundCloud();
@@ -16,7 +17,7 @@ var app = {
         app.postNormalizeLegacy();
         app.categorizePosts();
         app.shortenPost();
-        // app.postNPFAudio();
+        app.postNPFAudio();
         app.postNPFData();
     },
     sparkingEffect: () => {
@@ -256,184 +257,186 @@ var app = {
     postNPFAudio: () => {
         const posts = document.querySelectorAll(".posts");
 
-        posts.forEach((post, index) => {
+        posts.forEach((post) => {
             const postAudio = post?.querySelector("figcaption.audio-caption");
-            postAudio?.parentElement.classList.add("tmblr-npf-audio");
-            postAudio?.parentElement.classList.remove("tmblr-full");
+            const audioParent = postAudio?.parentElement;
+            if (!audioParent) return;
+
+            audioParent.classList.add("tmblr-npf-audio");
+            audioParent.classList.remove("tmblr-full");
 
             const audioDetails = postAudio?.querySelector(".tmblr-audio-meta");
-
-            const title = audioDetails
-                ?.querySelector(".title")
-                ?.textContent.trim();
-            const artist = audioDetails
-                ?.querySelector(".artist")
-                ?.textContent.trim();
-            const album = audioDetails
-                ?.querySelector(".album")
-                ?.textContent.trim();
-            const albumCover = postAudio
-                ?.querySelector(".album-cover")
-                ?.getAttribute("src");
+            const audioInfo = {
+                title: audioDetails
+                    ?.querySelector(".title")
+                    ?.textContent.trim(),
+                artist: audioDetails
+                    ?.querySelector(".artist")
+                    ?.textContent.trim(),
+                album: audioDetails
+                    ?.querySelector(".album")
+                    ?.textContent.trim(),
+                albumCover: postAudio
+                    ?.querySelector(".album-cover")
+                    ?.getAttribute("src"),
+            };
 
             postAudio?.classList.add("d-none");
 
-            if (title || artist || album || albumCover) {
+            if (Object.values(audioInfo).some((info) => info)) {
                 const postAudioElement = document.createElement("section");
                 postAudioElement.className = "posts__audio-npf";
 
-                const elements = [
-                    {
-                        selector: ".title",
-                        className: "posts__audio-npf__title",
-                        textContent: title,
-                    },
-                    {
-                        selector: ".artist",
-                        className: "posts__audio-npf__artist",
-                        textContent: artist,
-                    },
-                    {
-                        selector: ".album",
-                        className: "posts__audio-npf__album",
-                        textContent: album,
-                    },
-                ];
+                const coverElement = createCoverElement(audioInfo.albumCover);
+                const audioMoreDetails = createAudioDetailsElement(audioInfo);
 
-                const coverElement = document.createElement("div");
-                coverElement.className = "posts__audio-npf__cover";
+                const playButton = createPlayButton(
+                    audioParent.querySelector("audio"),
+                );
 
-                if (albumCover) {
-                    const imgElement = document.createElement("img");
-                    imgElement.src = albumCover;
-                    imgElement.alt = "";
-                    coverElement.appendChild(imgElement);
-                } else {
-                    const placeholderElement = document.createElement("div");
-                    placeholderElement.className = "album-placeholder";
-                    placeholderElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="15.5" r="2.5"/><path d="M8 17V5l12-2v12"/></svg>`;
-                    coverElement.appendChild(placeholderElement);
-                }
-
-                const audioMoreDetails = document.createElement("div");
-                audioMoreDetails.className = "posts__audio-npf__details";
-
-                elements.forEach(({ selector, className, textContent }) => {
-                    if (textContent) {
-                        const element = document.createElement(
-                            selector.startsWith(".") ? "div" : selector,
-                        );
-                        element.className = className;
-                        element.textContent = textContent;
-                        audioMoreDetails.appendChild(element);
+                if (playButton) {
+                    audioMoreDetails.prepend(playButton);
+                    const progressBar = createProgressBar(
+                        playButton.audioElement,
+                    );
+                    if (progressBar) {
+                        audioMoreDetails.appendChild(progressBar);
                     }
-                });
-
-                const playButton = document.createElement("button");
-                playButton.className = "posts__audio-npf__button";
-                playButton.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-      </svg>
-    `;
-
-                const audioElement =
-                    postAudio?.parentElement.querySelector("audio");
-                if (audioElement) {
-                    audioElement.style.display = "none";
-
-                    // Play audio when the play button is clicked
-                    playButton.addEventListener("click", () => {
-                        if (audioElement.paused || audioElement.ended) {
-                            audioElement.play();
-                            playButton.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="6" y="4" width="4" height="16"></rect>
-            <rect x="14" y="4" width="4" height="16"></rect>
-          </svg>
-        `;
-                        } else {
-                            audioElement.pause();
-                            playButton.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-        `;
-                        }
-                    });
-
-                    // Update play button state based on audio events
-                    audioElement.addEventListener("play", () => {
-                        playButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="6" y="4" width="4" height="16"></rect>
-          <rect x="14" y="4" width="4" height="16"></rect>
-        </svg>
-      `;
-                    });
-
-                    audioElement.addEventListener("pause", () => {
-                        playButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="5 3 19 12 5 21 5 3"></polygon>
-        </svg>
-      `;
-                    });
-
-                    audioElement.addEventListener("ended", () => {
-                        playButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="5 3 19 12 5 21 5 3"></polygon>
-        </svg>
-      `;
-                    });
                 }
 
-                audioMoreDetails.prepend(playButton);
-                postAudioElement.append(...[audioMoreDetails, coverElement]);
-                postAudio.parentElement.appendChild(postAudioElement);
-                if (audioElement) {
-                    // Add progress bar for audio playback
-                    const progressBar = document.createElement("div");
-                    progressBar.className = "posts__audio-npf__progress-bar";
-                    const progressFill = document.createElement("div");
-                    progressFill.className = "posts__audio-npf__progress-fill";
-                    progressBar.appendChild(progressFill);
-
-                    progressBar.addEventListener("click", (event) => {
-                        const progressBarRect =
-                            progressBar.getBoundingClientRect();
-                        const clickX = event.clientX - progressBarRect.left;
-                        const progressBarWidth = progressBarRect.width;
-                        const progressPercentage = clickX / progressBarWidth;
-                        audioElement.currentTime =
-                            audioElement.duration * progressPercentage;
-                    });
-
-                    audioElement.addEventListener("timeupdate", () => {
-                        const progress =
-                            (audioElement.currentTime / audioElement.duration) *
-                            100;
-                        progressFill.style.width = `${progress}%`;
-                    });
-                    audioMoreDetails.appendChild(progressBar);
-                }
+                postAudioElement.append(audioMoreDetails, coverElement);
+                audioParent.appendChild(postAudioElement);
             }
         });
+
+        function createCoverElement(albumCover) {
+            const coverElement = document.createElement("div");
+            coverElement.className = "posts__audio-npf__cover";
+
+            if (albumCover) {
+                const imgElement = document.createElement("img");
+                imgElement.src = albumCover;
+                imgElement.alt = "";
+                coverElement.appendChild(imgElement);
+            } else {
+                const placeholder = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="15.5" r="2.5"/><path d="M8 17V5l12-2v12"/></svg>`;
+                coverElement.innerHTML = `<div class="album-placeholder">${placeholder}</div>`;
+            }
+
+            return coverElement;
+        }
+
+        function createAudioDetailsElement({ title, artist, album }) {
+            // Create the wrapper for the audio info
+            const audioInfoWrapper = document.createElement("div");
+            audioInfoWrapper.className = "posts__audio-npf-info";
+
+            const audioMoreDetails = document.createElement("div");
+            audioMoreDetails.className = "posts__audio-npf__details";
+
+            // Append the info elements (title, artist, album) inside the wrapper
+            [
+                { className: "posts__audio-npf__title", textContent: title },
+                { className: "posts__audio-npf__artist", textContent: artist },
+                { className: "posts__audio-npf__album", textContent: album },
+            ].forEach(({ className, textContent }) => {
+                if (textContent) {
+                    const element = document.createElement("div");
+                    element.className = className;
+                    element.textContent = textContent;
+                    audioInfoWrapper.appendChild(element); // Append to the wrapper
+                }
+            });
+
+            // Append the wrapper to the main audio details div
+            audioMoreDetails.appendChild(audioInfoWrapper);
+
+            return audioMoreDetails;
+        }
+
+        function createPlayButton(audioElement) {
+            if (!audioElement) return null;
+
+            const playButton = document.createElement("button");
+            playButton.className = "posts__audio-npf__button";
+            updatePlayButtonIcon(audioElement.paused, playButton);
+
+            playButton.addEventListener("click", () => {
+                if (audioElement.paused || audioElement.ended) {
+                    audioElement.play();
+                } else {
+                    audioElement.pause();
+                }
+                updatePlayButtonIcon(audioElement.paused, playButton);
+            });
+
+            audioElement.addEventListener("play", () =>
+                updatePlayButtonIcon(false, playButton),
+            );
+            audioElement.addEventListener("pause", () =>
+                updatePlayButtonIcon(true, playButton),
+            );
+            audioElement.addEventListener("ended", () =>
+                updatePlayButtonIcon(true, playButton),
+            );
+
+            playButton.audioElement = audioElement;
+            return playButton;
+        }
+
+        function updatePlayButtonIcon(isPaused, button) {
+            button.innerHTML = isPaused
+                ? `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`
+                : `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`;
+        }
+
+        function createProgressBar(audioElement) {
+            const progressBar = document.createElement("div");
+            progressBar.className = "posts__audio-npf__progress-bar";
+
+            const progressFill = document.createElement("div");
+            progressFill.className = "posts__audio-npf__progress-bar-fill";
+            progressBar.appendChild(progressFill);
+
+            // Seek when clicking on the progress bar
+            progressBar.addEventListener("click", (event) => {
+                const rect = progressBar.getBoundingClientRect();
+                const clickX = event.clientX - rect.left;
+                const percentage = clickX / rect.width;
+                audioElement.currentTime = audioElement.duration * percentage;
+            });
+
+            // Update progress as audio plays
+            audioElement.addEventListener("timeupdate", () => {
+                if (audioElement.duration) {
+                    const progress =
+                        (audioElement.currentTime / audioElement.duration) *
+                        100;
+                    progressFill.style.width = `${progress}%`;
+                }
+            });
+
+            // Reset progress when audio ends
+            audioElement.addEventListener("ended", () => {
+                progressFill.style.width = "0%";
+            });
+
+            return progressBar;
+        }
     },
     postNPFData: () => {
-        document.querySelectorAll(".posts").forEach((post) => {
+        document.querySelectorAll(".posts").forEach((post, postsIndex) => {
             const postNPF = post.getAttribute("data-article-npf");
             const jsonString = app.extractJSONString(postNPF);
             const decodedJsonString = app.decodeAndReplace(jsonString);
 
             try {
                 const npfData = JSON.parse(decodedJsonString);
-                console.log(
-                    "%cPosts:",
-                    "background: #00aaaa; color: white",
-                    npfData,
-                );
+                // console.log(
+                //     "%cPosts:",
+                //     "background: #00aaaa; color: white",
+                //     npfData,
+                // );
 
                 // Handle reblogged posts (trail)
                 if (npfData.trail) {
@@ -442,21 +445,31 @@ var app = {
 
                     postsTrailList.forEach((postsTrail, index) => {
                         const trail = npfData.trail[index];
+                        console.log("%cTrail:", "background: #de8110; color: white", trail);
+
                         let postsTrailAsk = trail?.layout.find(
-                          (layout) => layout.type === "ask",
-                       );
+                            (layout) => layout.type === "ask",
+                        );
+
+                        console.log( "%cPosts:",
+                          "background: #00ccaa; color: white", index);
 
                         let blog = trail?.blog;
                         let blogTheme = blog?.theme || {};
                         let badges = blog?.tumblrmart_accessories?.badges;
 
-                        app.insertBlogProfile(postsTrail, postsTrailAsk, blog, blogTheme);
+                        app.insertBlogProfile(
+                            postsTrail,
+                            postsTrailAsk,
+                            blog,
+                            blogTheme,
+                        );
                         app.insertBadges(postsTrail, blog, badges);
 
                         if (trail.content) {
-                          trail.content.forEach((content) => {
-                              app.handleTrailContent(postsTrail, content);
-                          });
+                            trail.content.forEach((content) => {
+                                app.handleTrailContent(postsTrail, content);
+                            });
                         }
                     });
                 }
@@ -477,39 +490,112 @@ var app = {
             }
         });
     },
-    insertBlogProfile: (postsTrail, postsTrailAsk, blog, theme) => {
-        let {
-          description: blogDesc,
-          title: blogTitle,
-        } = blog;
-
-        let {
-            title_color: blogTitleColor,
-            background_color: blogBgColor,
-        } = theme;
-
-        if (!blog) return;
-
-        const blogInfo = `
-          <div class="posts-trail-profile">
-              <h3>${blogTitle}</h3>
-              <p>${blogDesc}</p>
-          </div>
-      `;
-
-      if (!postsTrailAsk) {
-        postsTrail.style.setProperty("--trail-profile-bg", `${blogBgColor}`);
-        postsTrail.style.setProperty(
-            "--trail-profile-color",
-            `${blogTitleColor}`,
-        );
-
-        const trailUsernameElement = postsTrail.querySelector(
-            ".posts-trail-username",
-        );
-        if (trailUsernameElement) {
-            trailUsernameElement.insertAdjacentHTML("beforeend", blogInfo);
+    handleTrailContent: (postsTrail, content) => {
+        switch (content.type) {
+            case "image":
+                if (content.attribution) {
+                    app.appendAttribution(postsTrail, content.attribution);
+                }
+                break;
+            case "poll":
+                app.appendPollInfo(postsTrail, content);
+                break;
+            default:
+                // Handle other content types
+                break;
         }
+    },
+    appendAttribution: (postsTrail, attribution) => {
+      const { type, url } = attribution;
+      const formattedUrl = app.getDomainFromUrl(url);
+  
+      if (type === "link") {
+          const npfRows = postsTrail.querySelectorAll(".npf_row");
+          const npfRowCount = npfRows.length;
+  
+          // If there are no npf_rows, exit the function
+          if (npfRowCount === 0) {
+              return;
+          }
+  
+          // Determine which npf_row to show the attribution on
+          npfRows.forEach((npfRow, index) => {
+              if (index === app.currentIndex) {
+                  npfRow.querySelectorAll(".npf_col").forEach((npfCol) => {
+                      const figureTmblr = npfCol.querySelector(".tmblr-full");
+                      if (figureTmblr) {
+                          // Create a new attribution text
+                          const attributionText = document.createElement("div");
+                          attributionText.className = "attribution-block";
+                          attributionText.innerHTML = `<a href="${url}" target="_blank" data-attribution-type="${type}">${formattedUrl} <svg id="managed-icon__caret-fat" fill="currentColor" viewBox="0 0 13 20.1"><path d="M0 2.9l7.2 7.2-7.1 7.1L3 20.1l7.1-7.1 2.9-2.9L2.9 0 0 2.9"></path></svg></a>`;
+  
+                          // Append the new attribution text to the figure
+                          figureTmblr.append(attributionText);
+                      }
+                  });
+              }
+          });
+  
+          // Update index to point to the next attribution link
+          app.currentIndex = (app.currentIndex + 1) % npfRowCount;
+      }
+    },
+    appendPollInfo: (postsTrail, pollContent) => {
+        const currentTime = Date.now() / 1000; // Current time in seconds
+        const expireTime = pollContent.timestamp; // Poll creation time (in seconds)
+        const expireAfter = pollContent.settings.expire_after; // Expiration duration (in seconds)
+        const endTime = expireTime + expireAfter; // Exact end time in seconds
+
+        const isPollFinished = currentTime > endTime; // Check if the poll has finished
+
+        // Convert epoch timestamps to regular date strings
+        const formattedDate = app.convertEpochToRegularDate(expireTime);
+        const formattedExpired = app.convertEpochToRegularDate(endTime);
+
+        const pollInfo = document.createElement("div");
+        pollInfo.className = "poll-post-date";
+
+        if (isPollFinished) {
+            pollInfo.innerHTML = `<span class="poll-post-finished">This poll has ended on <b>${app.formatDate(
+                formattedExpired,
+            )}</b></span>`;
+            postsTrail
+                .querySelector(".poll-post")
+                .classList.add("poll-posts-finished");
+        } else {
+            pollInfo.innerHTML = `<span class="poll-post-date__started"><b>Poll started on</b> ${app.formatDate(
+                formattedDate,
+            )}</span><span class="poll-post-date__ends"><b>Poll will end on</b> ${app.formatDate(
+                formattedExpired,
+            )}</span>`;
+        }
+
+        postsTrail.querySelector(".poll-post").append(pollInfo);
+    },
+    insertBlogProfile: (postsTrail, postsTrailAsk, blog, theme) => {
+      let { description: blogDesc, title: blogTitle } = blog;
+      let { title_color: blogTitleColor, background_color: blogBgColor } = theme;
+  
+      if (!blog) return;
+  
+      // Check if blog profile already exists
+      if (postsTrail.querySelector(".posts-trail-profile")) return;
+  
+      const blogInfo = `
+        <div class="posts-trail-profile">
+            <h3>${blogTitle}</h3>
+            <p>${blogDesc}</p>
+        </div>
+      `;
+  
+      if (!postsTrailAsk) {
+          postsTrail.style.setProperty("--trail-profile-bg", blogBgColor);
+          postsTrail.style.setProperty("--trail-profile-color", blogTitleColor);
+  
+          const trailUsernameElement = postsTrail.querySelector(".posts-trail-username");
+          if (trailUsernameElement) {
+              trailUsernameElement.insertAdjacentHTML("beforeend", blogInfo);
+          }
       }
     },
     insertBadges: (postsTrail, blog, badges) => {
@@ -539,50 +625,13 @@ var app = {
             });
         }
     },
-    handleTrailContent: (postsTrail, content) => {
-        switch (content.type) {
-            case "image":
-                if (content.attribution) {
-                    app.appendAttribution(postsTrail, content.attribution);
-                }
-                break;
-            case "poll":
-                app.appendPollInfo(postsTrail, content);
-                break;
-            default:
-                // Handle other content types
-                break;
-        }
+    insertAfter(newNode, existingNode) {
+        existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
     },
-    appendPollInfo: (postsTrail, pollContent) => {
-        const formattedDate = app.formatDate(pollContent.created_at);
-        const formattedExpired = app.formatDate(
-            app.convertEpochToRegularDate(
-                pollContent.timestamp + pollContent.settings.expire_after,
-            ),
-        );
-
-        const pollInfo = document.createElement("div");
-        pollInfo.className = "poll-post-date";
-        pollInfo.innerHTML = `<span class="poll-post-date__started"><b>Poll started on</b> ${formattedDate}</span>
-          <span class="poll-post-date__ended"><b>Poll ended on</b> ${formattedExpired}</span>`;
-
-        postsTrail.querySelector(".poll-post").append(pollInfo);
-    },
-
-    appendAttribution: (postsTrail, attribution) => {
-        const { type, url } = attribution;
-        const attributionText = document.createElement("div");
-        attributionText.className = "attribution-block";
-        attributionText.innerHTML = `<a href="${url}" target="_blank" data-attribution-type="${type}">${url}</a>`;
-
-        if (type === "link") {
-            postsTrail
-                .querySelectorAll(".npf_row .npf_col .tmblr-full")
-                .forEach((figureTmblr) => {
-                    figureTmblr.append(attributionText);
-                });
-        }
+    getDomainFromUrl(url) {
+      const regex = /^(?:https?:\/\/)?(?:www\.)?([^\/]+)/;
+      const match = url.match(regex);
+      return match ? match[1] : null;
     },
     decodeAndReplace(input) {
         try {
@@ -604,9 +653,6 @@ var app = {
         const jsonStartIndex = input?.indexOf("'") + 1;
         const jsonEndIndex = input?.lastIndexOf("'");
         return input?.substring(jsonStartIndex, jsonEndIndex);
-    },
-    insertAfter(newNode, existingNode) {
-        existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
     },
     formatDate(dateString) {
         const options = {
